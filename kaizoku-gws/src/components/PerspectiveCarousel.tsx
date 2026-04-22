@@ -14,28 +14,25 @@ interface PerspectiveCarouselProps {
 
 export function PerspectiveCarousel({ items, category, className }: PerspectiveCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [animationKey, setAnimationKey] = useState(0);
 
-  const slide = (direction: 'left' | 'right') => {
+  const slide = (dir: 'left' | 'right') => {
     setActiveIndex((prev) => {
-      if (direction === 'left') {
+      if (dir === 'left') {
         return (prev - 1 + items.length) % items.length;
       }
       return (prev + 1) % items.length;
     });
-    setAnimationKey((prev) => prev + 1);
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % items.length);
-      setAnimationKey((prev) => prev + 1);
     }, 5000);
     return () => clearInterval(interval);
   }, [items.length]);
 
-  const moveLeft = () => slide('right');
-  const moveRight = () => slide('left');
+  const moveLeft = () => slide('left');
+  const moveRight = () => slide('right');
 
   return (
     <div className={cn("relative w-full max-w-5xl mx-auto perspective-carousel", className)}>
@@ -44,7 +41,7 @@ export function PerspectiveCarousel({ items, category, className }: PerspectiveC
           <ChevronLeft className="w-6 h-6" />
         </button>
 
-        <div className="relative flex items-center justify-center w-full h-full" key={animationKey}>
+        <div className="relative flex items-center justify-center w-full h-full">
           {[...Array(5)].map((_, offsetIdx) => {
             const itemIdx = (activeIndex + offsetIdx - 2 + items.length) % items.length;
             const item = items[itemIdx];
@@ -54,17 +51,13 @@ export function PerspectiveCarousel({ items, category, className }: PerspectiveC
             
             return (
               <Link
-                key={`${item.slug}-${offsetIdx}`}
+                key={`${item.slug}-${offsetIdx}-${activeIndex}`}
                 href={`/${category}/${item.slug}`}
                 className={cn(
-                  "absolute rounded-xl overflow-hidden shadow-2xl transition-all duration-500 ease-out",
-                  isCenter && "z-30 scale-100",
-                  (isLeft && offsetIdx === 1) || (isRight && offsetIdx === 3) && "z-20 scale-85 opacity-80 translate-x-20 -translate-x-20",
-                  isRight && offsetIdx === 3 && "-translate-x-20",
-                  isLeft && offsetIdx === 1 && "translate-x-20",
-                  (isLeft && offsetIdx === 0) || (isRight && offsetIdx === 4) && "z-10 scale-70 opacity-40",
-                  isRight && offsetIdx === 4 && "-translate-x-40",
-                  isLeft && offsetIdx === 0 && "translate-x-40"
+                  "absolute rounded-xl overflow-hidden shadow-2xl",
+                  isCenter && "z-30",
+                  (isLeft && offsetIdx === 1) || (isRight && offsetIdx === 3) && "z-20",
+                  (isLeft && offsetIdx === 0) || (isRight && offsetIdx === 4) && "z-10"
                 )}
                 style={{
                   width: isCenter ? '240px' : (offsetIdx === 1 || offsetIdx === 3) ? '200px' : '160px',
@@ -81,6 +74,7 @@ export function PerspectiveCarousel({ items, category, className }: PerspectiveC
                     0.7
                   })`,
                   opacity: isCenter ? 1 : (offsetIdx === 1 || offsetIdx === 3) ? 0.8 : 0.4,
+                  transition: 'transform 500ms ease-out, opacity 500ms ease-out, left 500ms ease-out, right 500ms ease-out',
                 }}
               >
                 <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover" />
