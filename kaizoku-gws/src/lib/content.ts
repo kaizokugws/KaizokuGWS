@@ -191,11 +191,10 @@ export function getRecentlyAdded(category?: string, limit = 8): Item[] {
 }
 
 export function getRelatedItems(item: Item, limit = 4): Item[] {
-  const categoryItems = getAllItems(item.category);
   const allItems = getAllItemsFlat();
   const relatedSlugs = item.related || [];
   
-  const related: Item[] = [...allItems]
+  const related: Item[] = allItems
     .filter((i) => i.slug !== item.slug)
     .map((i) => {
       let score = 0;
@@ -211,7 +210,7 @@ export function getRelatedItems(item: Item, limit = 4): Item[] {
         score += sharedTags.length;
       }
       
-      return { item: i, score };
+      return { item: { ...i, category: i.category || item.category }, score };
     })
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
