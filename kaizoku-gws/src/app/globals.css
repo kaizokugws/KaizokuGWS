@@ -85,7 +85,7 @@ button {
 
 @keyframes wobble {
   0%, 100% { transform: rotate(-3deg) scale(1); }
-  50% { transform: rotate(3deg) scale(1.05); }
+  50% { transform: rotate(3deg) scale(1.25); }
 }
 
 .animate-fade-in {
