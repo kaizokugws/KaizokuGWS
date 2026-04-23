@@ -43,11 +43,8 @@ export default function RequestPage() {
     <div className="min-h-screen py-12">
       <div className="max-w-2xl mx-auto px-4">
         <h1 className="text-3xl font-bold mb-4 text-[#E6EDF3]">Request / Contact</h1>
-        <p className="text-[#9AA4AF] mb-4">
-          Can&apos;t find what you&apos;re looking for? Let us know!
-        </p>
         <p className="text-[#9AA4AF] mb-8">
-          Email us directly at <a href="mailto:kaizokugws@gmail.com" className="text-[#4FD1FF] hover:text-[#6ED8FF]">kaizokugws@gmail.com</a>
+          Can&apos;t find what you&apos;re looking for? Let us know!
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -109,6 +106,10 @@ export default function RequestPage() {
             Submit Request
           </button>
         </form>
+
+        <p className="text-center text-[#9AA4AF] text-sm mt-8">
+          Or email us directly at <a href="mailto:kaizokugws@gmail.com" className="text-[#4FD1FF] hover:text-[#6ED8FF]">kaizokugws@gmail.com</a>
+        </p>
       </div>
     </div>
   );
