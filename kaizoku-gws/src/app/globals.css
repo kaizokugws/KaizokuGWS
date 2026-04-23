@@ -231,6 +231,8 @@ button {
   border: 1px solid #222 !important;
   border-radius: 50% !important;
   color: #4FD1FF !important;
+  left: -5px !important;
+  right: -5px !important;
 }
 
 .TrendingCarousel .swiper-button-prev:hover,
