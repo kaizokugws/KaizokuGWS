@@ -66,10 +66,10 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="py-20">
+      <section className="py-20 bg-[#0B0D10]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#111418] border border-[#222] rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#161A20] border border-[#222] rounded-full">
               <Zap className="w-4 h-4 text-[#4FD1FF]" />
               <span className="text-sm text-[#9AA4AF]">Fast & Secure BitTorrent Downloads</span>
             </div>
