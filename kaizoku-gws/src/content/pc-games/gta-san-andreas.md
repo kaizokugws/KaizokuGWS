@@ -4,7 +4,19 @@ slug: "gta-san-andreas"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-san-andreas.jpg"
-magnetFile: "magnet:?xt=urn:btih:1b74eacc73b1e294eaaf43d7ceedb89ddde2d843&dn=Grand+Theft+Auto+GTA+San+Andreas+version+1.1+repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fzer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce"
+rating: 4
+size: "3.6 GB"
+releaseYear: 2004
+tags: ["action", "open-world", "crime", "sandbox", "classic"]
+featured: false
+trending: false
+lastUpdated: "2024-01-05"
+magnetFile: "magnet:?xt=urn:btih:1b74eacc73b1e294eaaf43d7ceedb89ddde2d843&dn=Grand+Theft+Auto+GTA+San+Andreas+version+1.1+repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce"
+repacks:
+  - name: "DODI Repack"
+    magnetFile: "magnet:?xt=urn:btih:1b74eacc73b1e294eaaf43d7ceedb89ddde2d843&dn=Grand+Theft+Auto+GTA+San+Andreas+version+1.1+repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+  - name: "Fitgirl Repack"
+    magnetFile: "magnet:?xt=urn:btih:2F8B5C9D6E4A3F7B2C1D8E9F0A3B7C6D5E4F2A1B3C&dn=GTA+San+Andreas+FitGirl+Repack&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
 aliases: ["gta", "san andreas", "gta sa", "grand theft auto san andreas", "cj"]
 ---
 
@@ -14,8 +26,8 @@ GTA: San Andreas is an open-world action-adventure game developed by Rockstar Ga
 
 ## Download
 
-- [Dodi Repack](magnet:?xt=urn:btih:EXAMPLE1)
-- [Fitgirl Repack](magnet:?xt=urn:btih:EXAMPLE2)
+- [Dodi Repack](magnet:?xt=urn:btih:1b74eacc73b1e294eaaf43d7ceedb89ddde2d843)
+- [Fitgirl Repack](magnet:?xt=urn:btih:2F8B5C9D6E4A3F7B2C1D8E9F0A3B7C6D5E4F2A1B3C)
 
 ## System Requirements
 

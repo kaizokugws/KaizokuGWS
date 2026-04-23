@@ -4,7 +4,19 @@ slug: "nfs-most-wanted-2005"
 platform: "PC"
 category: "Racing"
 thumbnail: "/images/nfs-most-wanted-2005.jpg"
-magnetFile: "magnet:?xt=urn:btih:809AC4C0A4D1184AE057CE11B57B5E60FC2772E1&dn=Need+For+Speed+Most+Wanted+Black+Edition+Repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce"
+rating: 4
+size: "2 GB"
+releaseYear: 2005
+tags: ["racing", "arcade", "cars", "street-racing"]
+featured: false
+trending: false
+lastUpdated: "2024-01-05"
+magnetFile: "magnet:?xt=urn:btih:809AC4C0A4D1184AE057CE11B57B5E60FC2772E1&dn=Need+For+Speed+Most+Wanted+Black+Edition+Repack+Mr+DJ"
+repacks:
+  - name: "DODI Repack"
+    magnetFile: "magnet:?xt=urn:btih:809AC4C0A4D1184AE057CE11B57B5E60FC2772E1&dn=Need+For+Speed+Most+Wanted+Black+Edition+Repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+  - name: "Fitgirl Repack"
+    magnetFile: "magnet:?xt=urn:btih:3F7B9A2C1D8E5F6B4A2C9D1E7F3B5A8C2D4F1E9B6A3C&dn=NFS+Most+Wanted+2005+FitGirl+Repack&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
 aliases: ["nfs", "need for speed", "most wanted", "mw 2005", "mw", "nfsmw", "black edition"]
 ---
 
@@ -14,8 +26,8 @@ Need for Speed: Most Wanted is an arcade racing game developed by Electronic Art
 
 ## Download
 
-- [Dodi Repack](magnet:?xt=urn:btih:EXAMPLE1)
-- [Fitgirl Repack](magnet:?xt=urn:btih:EXAMPLE2)
+- [DODI Repack](magnet:?xt=urn:btih:809AC4C0A4D1184AE057CE11B57B5E60FC2772E1)
+- [Fitgirl Repack](magnet:?xt=urn:btih:3F7B9A2C1D8E5F6B4A2C9D1E7F3B5A8C2D4F1E9B6A3C)
 
 ## System Requirements
 
