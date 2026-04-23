@@ -2,17 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import {
   Autoplay,
   EffectCoverflow,
-  Navigation,
   Pagination,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 import "swiper/css";
 import { cn } from "@/lib/utils";
 import { Item } from "@/lib/types";
@@ -63,12 +60,8 @@ const TrendingCarousel = ({
         pagination={{
           clickable: true,
         }}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
         className="TrendingCarousel"
-        modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
+        modules={[EffectCoverflow, Autoplay, Pagination]}
       >
         {images.map((image, index) => (
           <SwiperSlide key={index} className="!h-[320px] w-full border border-[#222] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#4FD1FF] hover:shadow-[0_0_30px_rgba(79,209,255,0.2)]">
@@ -87,12 +80,6 @@ const TrendingCarousel = ({
             </Link>
           </SwiperSlide>
         ))}
-        <div className="absolute top-1/2 -left-12 z-10 swiper-button-prev">
-          <ChevronLeftIcon className="h-8 w-8 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors" />
-        </div>
-        <div className="absolute top-1/2 -right-12 z-10 swiper-button-next">
-          <ChevronRightIcon className="h-8 w-8 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors" />
-        </div>
       </Swiper>
     </motion.div>
   );
