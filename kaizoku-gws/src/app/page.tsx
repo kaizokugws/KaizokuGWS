@@ -59,10 +59,10 @@ export default function Home() {
             <div className="relative w-full aspect-square max-w-md mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/20 to-transparent rounded-2xl" />
               <Image
-                src={featuredGame?.thumbnail || '/images/luffy image.png'}
+                src="/images/luffy image.png"
                 alt="Featured"
                 fill
-                className="object-cover rounded-2xl shadow-[0_0_60px_rgba(79,209,255,0.2)] mix-blend-screen"
+                className="object-contain rounded-2xl shadow-[0_0_60px_rgba(79,209,255,0.2)] mix-blend-screen"
                 priority
               />
             </div>
