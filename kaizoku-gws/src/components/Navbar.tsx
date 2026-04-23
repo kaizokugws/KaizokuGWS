@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Gamepad2, Search, Monitor, Smartphone, Home } from 'lucide-react';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
@@ -40,17 +41,22 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <Link
+              <motion.div
                 key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-all duration-250 hover:text-[#4FD1FF] ${
-                  isActive(link.href)
-                    ? 'text-[#4FD1FF]'
-                    : 'text-[#9AA4AF]'
-                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {link.label}
-              </Link>
+                <Link
+                  href={link.href}
+                  className={`text-sm font-medium transition-all duration-250 hover:text-[#4FD1FF] ${
+                    isActive(link.href)
+                      ? 'text-[#4FD1FF]'
+                      : 'text-[#9AA4AF]'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             ))}
           </div>
 
