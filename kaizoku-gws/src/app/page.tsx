@@ -24,11 +24,11 @@ export default function Home() {
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
-              KAIZOKU <span className="text-[#4FD1FF]">GWS</span>
+            <h1 className="text-display font-bold tracking-tight mb-6 animate-slide-up">
+              KAIZOKU <span className="text-accent">GWS</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-[#9AA4AF] max-w-xl mx-auto lg:mx-0 mb-10 animate-slide-up stagger-1">
+            <p className="text-heading-3 text-muted max-w-xl mx-auto lg:mx-0 mb-10 animate-slide-up stagger-1">
               Your ultimate destination for premium games and software. 
               Lightning-fast downloads powered by BitTorrent technology.
             </p>
@@ -50,8 +50,8 @@ export default function Home() {
             </div>
             <div className="mt-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#111418]/80 backdrop-blur border border-[#222] rounded-full">
-                <Zap className="w-4 h-4 text-[#4FD1FF]" />
-                <span className="text-sm text-[#9AA4AF]">Fast & Secure BitTorrent Downloads</span>
+                <Zap className="w-4 h-4 text-accent" />
+                <span className="text-sm text-muted">Fast & Secure BitTorrent Downloads</span>
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function Home() {
         <section className="py-20 bg-[#0B0D10]">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between mb-10">
-              <h2 className="text-3xl font-bold text-[#E6EDF3]">Trending Games</h2>
+              <h2 className="text-heading-2 text-[#E6EDF3]">Trending Games</h2>
               <Link
                 href="/pc-games"
                 className="flex items-center gap-2 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors"
