@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ArrowLeft, Monitor, Smartphone } from 'lucide-react';
+import { ArrowLeft, Monitor, Smartphone, Tag } from 'lucide-react';
 import Link from 'next/link';
 import { Item } from '@/lib/types';
 
@@ -32,7 +32,20 @@ export default function ItemHeader({ item, category, about }: ItemHeaderProps) {
         </div>
 
         <div className="flex flex-col justify-start order-2 lg:pt-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-[#E6EDF3]">{item.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-[#E6EDF3]">{item.title}</h1>
+          
+          {item.tags && item.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {item.tags.map((tag) => (
+                <span 
+                  key={tag}
+                  className="px-2 py-1 text-xs bg-[#4FD1FF]/10 text-[#4FD1FF] rounded-full border border-[#4FD1FF]/30"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
           
           <div className="flex items-center gap-4 mb-6">
             <div className="flex items-center gap-2 px-3 py-1.5 bg-[#111418] rounded-lg border border-[#222]">
