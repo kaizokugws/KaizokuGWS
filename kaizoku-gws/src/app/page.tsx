@@ -62,7 +62,7 @@ export default function Home() {
                 alt="Featured"
                 width={400}
                 height={400}
-                className="object-contain rounded-full shadow-[0_0_60px_rgba(79,209,255,0.2)] mix-blend-normal"
+                className="object-contain rounded-full shadow-[0_0_60px_rgba(79,209,255,0.2)] mix-blend-normal animate-wobble"
                 priority
               />
             </div>

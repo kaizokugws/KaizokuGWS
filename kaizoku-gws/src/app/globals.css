@@ -83,6 +83,11 @@ button {
   to { transform: scale(1.05); }
 }
 
+@keyframes wobble {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
@@ -97,6 +102,10 @@ button {
 
 .animate-slow-zoom {
   animation: slow-zoom 8s ease-out forwards;
+}
+
+.animate-wobble {
+  animation: wobble 4s ease-in-out infinite;
 }
 
 .stagger-1 { animation-delay: 0.1s; }
