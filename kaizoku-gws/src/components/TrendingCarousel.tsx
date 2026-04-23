@@ -6,10 +6,12 @@ import {
   Autoplay,
   EffectCoverflow,
   Pagination,
+  Navigation,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "swiper/css";
 import { cn } from "@/lib/utils";
 import { Item } from "@/lib/types";
@@ -59,9 +61,11 @@ const TrendingCarousel = ({
         }}
         pagination={{
           clickable: true,
+          dynamicBullets: true,
         }}
+        navigation={true}
         className="TrendingCarousel"
-        modules={[EffectCoverflow, Autoplay, Pagination]}
+        modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
       >
         {images.map((image, index) => (
           <SwiperSlide key={index} className="!h-[320px] w-full rounded-xl overflow-hidden transition-all duration-300 hover:border-[#4FD1FF] hover:shadow-[0_0_30px_rgba(79,209,255,0.2)]">

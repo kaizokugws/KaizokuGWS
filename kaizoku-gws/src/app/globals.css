@@ -222,6 +222,27 @@ button {
   opacity: 1 !important;
 }
 
+.TrendingCarousel .swiper-button-prev,
+.TrendingCarousel .swiper-button-next {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: rgba(17, 20, 24, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid #222 !important;
+  border-radius: 50% !important;
+  color: #4FD1FF !important;
+}
+
+.TrendingCarousel .swiper-button-prev:hover,
+.TrendingCarousel .swiper-button-next:hover {
+  border-color: #4FD1FF !important;
+}
+
+.TrendingCarousel .swiper-button-prev::after,
+.TrendingCarousel .swiper-button-next::after {
+  display: none !important;
+}
+
 .glass {
   background: rgba(17, 20, 24, 0.8);
   backdrop-filter: blur(12px);
