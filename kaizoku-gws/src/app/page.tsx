@@ -60,8 +60,8 @@ export default function Home() {
               <Image
                 src="/images/luffy image.png"
                 alt="Featured"
-                width={400}
-                height={400}
+                width={500}
+                height={500}
                 className="object-contain rounded-full shadow-[0_0_60px_rgba(79,209,255,0.2)] mix-blend-normal animate-wobble"
                 priority
               />
