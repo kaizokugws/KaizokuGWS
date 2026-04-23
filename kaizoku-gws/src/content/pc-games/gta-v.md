@@ -4,8 +4,15 @@ slug: "gta-v"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-5.jpg"
+rating: 5
+size: "72 GB"
+releaseYear: 2013
+tags: ["open-world", "action", "crime", "sandbox", "multiplayer"]
+featured: true
+trending: true
+lastUpdated: "2024-02-20"
 magnetFile: "/magnets/gta-v.txt"
-aliases: ["gta", "gta 5", "gta v", "grand theft auto", "grand theft auto v", "gta online"]
+aliases: ["gta", "gta 5", "gta v", "grand theft auto", "gta online"]
 ---
 
 ## About
@@ -13,6 +20,10 @@ aliases: ["gta", "gta 5", "gta v", "grand theft auto", "grand theft auto v", "gt
 Grand Theft Auto V is an open world, action-adventure video game developed by Rockstar North. The game is played from either a third-person or first-person perspective and its world is navigated on foot or by vehicle.
 
 Explore the sprawling sun-soaked metropolis of Los Santos in the ultimate GTA Online experience.
+
+## Download
+
+Download using BitTorrent client
 
 ## System Requirements
 

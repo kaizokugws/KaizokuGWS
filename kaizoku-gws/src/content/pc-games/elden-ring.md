@@ -4,12 +4,19 @@ slug: "elden-ring"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/elden-ring.jpg"
-magnetFile: "magnet:?xt=urn:btih:B3CB238628956851CDE7D10D3A2693D8CEFAEFA2&dn=ELDEN%20RING%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker1.wasabii.com.tw%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&tr=udp%3a%2f%2ftracker.cypherpunks.ru%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce"
+rating: 5
+size: "60 GB"
+releaseYear: 2022
+tags: ["open-world", "rpg", "souls-like", "fantasy", "fromsoftware"]
+featured: true
+trending: true
+lastUpdated: "2024-01-15"
+magnetFile: "magnet:?xt=urn:btih:B3CB238628956851CDE7D10D3A2693D8CEFAEFA2&dn=ELDEN%20RING%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce"
 repacks:
   - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:B3CB238628956851CDE7D10D3A2693D8CEFAEFA2&dn=ELDEN%20RING%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker1.wasabii.com.tw%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&tr=udp%3a%2f%2ftracker.cypherpunks.ru%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce"
+    magnetFile: "magnet:?xt=urn:btih:B3CB238628956851CDE7D10D3A2693D8CEFAEFA2&dn=ELDEN%20RING%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce"
   - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:9C46D83BB0D8BB5CC06A64F1B0C97F80B79CBAD3EC3&dn=Elden%20Ring%20%5bFitGirl%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker1.wasabii.com.tw%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&tr=udp%3a%2f%2ftracker.cypherpunks.ru%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce"
+    magnetFile: "magnet:?xt=urn:btih:9C46D83BB0D8BB5CC06A64F1B0C97F80B79CBAD3EC3&dn=Elden%20Ring%20%5bFitGirl%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce"
 aliases: ["er", "elden", "fromsoftware", "souls"]
 ---
 
@@ -21,8 +28,8 @@ Venture into the Lands Between and become an Elden Lord in this groundbreaking o
 
 ## Download
 
-- [Dodi Repack](magnet:?xt=urn:btih:B3CB238628956851CDE7D10D3A2693D8CEFAEFA2&dn=ELDEN%20RING%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker1.wasabii.com.tw%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&tr=udp%3a%2f%2ftracker.cypherpunks.ru%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce)
-- [Fitgirl Repack](magnet:?xt=urn:btih:9C46D83BB0D8BB5CC06A64F1B0C97F80B79CBAD3EC3&dn=Elden%20Ring%20%5bFitGirl%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker1.wasabii.com.tw%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&tr=udp%3a%2f%2ftracker.cypherpunks.ru%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce)
+- [Dodi Repack](magnet:?xt=urn:btih:B3CB238628956851CDE7D10D3A2693D8CEFAEFA2&dn=ELDEN%20RING%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce)
+- [Fitgirl Repack](magnet:?xt=urn:btih:9C46D83BB0D8BB5CC06A64F1B0C97F80B79CBAD3EC3&dn=Elden%20Ring%20%5bFitGirl%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce)
 
 ## System Requirements
 

@@ -1,35 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Gamepad2, Monitor, Smartphone, Zap, Shield, Star, Download, Users } from 'lucide-react';
-import { getAllItems } from '@/lib/content';
-import { Item } from '@/lib/types';
+import { getTrendingItems, getFeaturedItem, getPopularItems, getRecentlyAdded, getAllItems } from '@/lib/content';
 import { TrendingCarousel } from '@/components/TrendingCarousel';
 import Card from '@/components/Card';
 
-const trendingOrder = [
-  'gta-v',
-  'elden-ring',
-  'rdr2',
-  'ghost-of-tsushima',
-  'dark-souls-3',
-  'death-stranding',
-  'gta-5-enhanced',
-  'days-gone-remastered',
-  'witcher-3',
-  'sekiro',
-];
-
-const featuredSlug = 'elden-ring';
-
 export default function Home() {
   const pcGames = getAllItems('pc-games');
-  const trendingGames = trendingOrder
-    .map((slug) => pcGames.find((g) => g.slug === slug))
-    .filter((g): g is Item => g !== undefined)
-    .slice(0, 6);
   
-  const featuredGame = pcGames.find((g) => g.slug === featuredSlug) || pcGames[0];
-  const popularGames = pcGames.slice(0, 8);
+  const trendingGames = getTrendingItems('pc-games');
+  const featuredGame = getFeaturedItem('pc-games');
+  const popularGames = getPopularItems('pc-games', 8);
+  const recentGames = getRecentlyAdded('pc-games', 8);
 
   return (
     <div>
@@ -240,7 +222,27 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {popularGames.slice(0, 8).map((item) => (
+            {popularGames.map((item) => (
+              <Card key={item.slug} item={item} category="pc-games" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Recently Added */}
+      <section className="py-20 bg-[#0B0D10]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between mb-10">
+            <h2 className="text-3xl font-bold text-[#E6EDF3]">Recently Added</h2>
+            <Link
+              href="/pc-games"
+              className="flex items-center gap-2 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors"
+            >
+              View All <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {recentGames.map((item) => (
               <Card key={item.slug} item={item} category="pc-games" />
             ))}
           </div>
