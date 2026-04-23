@@ -231,8 +231,14 @@ button {
   border: 1px solid #222 !important;
   border-radius: 50% !important;
   color: #4FD1FF !important;
-  left: -20px !important;
-  right: -20px !important;
+}
+
+.TrendingCarousel .swiper-button-prev {
+  transform: translateX(-10px) !important;
+}
+
+.TrendingCarousel .swiper-button-next {
+  transform: translateX(10px) !important;
 }
 
 .TrendingCarousel .swiper-button-prev:hover,
