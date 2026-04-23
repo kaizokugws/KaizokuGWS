@@ -7,7 +7,7 @@ thumbnail: "/images/death-stranding.jpg"
 rating: 4
 size: "80 GB"
 releaseYear: 2019
-tags: ["action", "open-world", "post-apocalyptic", "story", "kojima"]
+tags: ["action", "adventure", "open-world", "post-apocalyptic", "story", "kojima"]
 featured: false
 trending: true
 lastUpdated: "2024-01-10"

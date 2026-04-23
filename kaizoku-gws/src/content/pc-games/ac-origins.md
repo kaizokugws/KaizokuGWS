@@ -7,7 +7,7 @@ thumbnail: "/images/ac-origins.jpg"
 rating: 4
 size: "50 GB"
 releaseYear: 2017
-tags: ["action", "adventure", "open-world", "ancient-egypt", "ubisoft"]
+tags: ["action", "adventure", "open-world", "stealth", "ancient-egypt", "ubisoft"]
 featured: false
 trending: true
 lastUpdated: "2024-01-10"

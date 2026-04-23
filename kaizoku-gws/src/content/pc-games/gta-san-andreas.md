@@ -7,7 +7,7 @@ thumbnail: "/images/gta-san-andreas.jpg"
 rating: 4
 size: "3.6 GB"
 releaseYear: 2004
-tags: ["action", "open-world", "crime", "sandbox", "classic"]
+tags: ["action", "open-world", "crime", "sandbox", "classic", "rockstar"]
 featured: false
 trending: false
 lastUpdated: "2024-01-05"

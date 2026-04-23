@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Gamepad2, Code, Mail, Send } from 'lucide-react';
+import { Gamepad2, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -43,14 +43,9 @@ export default function Footer() {
             © 2024 Kaizoku GWS. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-[#9AA4AF] hover:text-[#4FD1FF] transition-colors">
-              <Send className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-[#9AA4AF] hover:text-[#4FD1FF] transition-colors">
-              <Code className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-[#9AA4AF] hover:text-[#4FD1FF] transition-colors">
-              <Mail className="w-5 h-5" />
+            <p className="text-[#9AA4AF] text-sm">Contact: </p>
+            <a href="https://instagram.com/_shreyasgws_" target="_blank" rel="noopener noreferrer" className="text-[#9AA4AF] hover:text-[#4FD1FF] transition-colors">
+              <Instagram className="w-5 h-5" />
             </a>
           </div>
         </div>
