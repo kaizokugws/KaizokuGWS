@@ -48,6 +48,12 @@ export default function Home() {
                 Browse Software
               </Link>
             </div>
+            <div className="mt-6 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#111418]/80 backdrop-blur border border-[#222] rounded-full">
+                <Zap className="w-4 h-4 text-[#4FD1FF]" />
+                <span className="text-sm text-[#9AA4AF]">Fast & Secure BitTorrent Downloads</span>
+              </div>
+            </div>
           </div>
 
           <div className="relative hidden lg:block animate-slow-zoom">
@@ -65,15 +71,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 bg-[#0B0D10]">
+      {/* Features - moved to above Request CTA */}
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#161A20] border border-[#222] rounded-full">
-              <Zap className="w-4 h-4 text-[#4FD1FF]" />
-              <span className="text-sm text-[#9AA4AF]">Fast & Secure BitTorrent Downloads</span>
-            </div>
-          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-[#111418] rounded-xl p-6 border border-[#222] hover:border-[#4FD1FF] transition-all duration-300 hover:shadow-[0_0_20px_rgba(79,209,255,0.1)]">
               <div className="w-12 h-12 rounded-lg bg-[#4FD1FF]/20 flex items-center justify-center mb-4">
