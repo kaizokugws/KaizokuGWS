@@ -56,13 +56,13 @@ export default function Home() {
           </div>
 
           <div className="relative hidden lg:block animate-slow-zoom">
-            <div className="relative w-full aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/20 to-transparent rounded-2xl" />
+            <div className="relative w-full max-w-md mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4FD1FF]/20 to-transparent rounded-full" />
               <Image
                 src="/images/luffy image.png"
                 alt="Featured"
                 fill
-                className="object-contain rounded-2xl shadow-[0_0_60px_rgba(79,209,255,0.2)] mix-blend-screen"
+                className="object-contain rounded-full shadow-[0_0_60px_rgba(79,209,255,0.2)] mix-blend-screen"
                 priority
               />
             </div>
