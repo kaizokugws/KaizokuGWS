@@ -1,3 +1,5 @@
+import 'server-only';
+
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -193,7 +195,7 @@ export function getRelatedItems(item: Item, limit = 4): Item[] {
   const allItems = getAllItemsFlat();
   const relatedSlugs = item.related || [];
   
-  const related: { item: Item; score: number }[] = [...allItems]
+  const related: Item[] = [...allItems]
     .filter((i) => i.slug !== item.slug)
     .map((i) => {
       let score = 0;

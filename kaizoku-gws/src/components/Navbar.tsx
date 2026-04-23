@@ -6,6 +6,8 @@ import { Menu, X, Gamepad2, Search, Monitor, Smartphone, Home } from 'lucide-rea
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
+import { Item } from '@/lib/types';
+
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
   { href: '/pc-games', label: 'PC Games', icon: Gamepad2 },
@@ -15,7 +17,11 @@ const navLinks = [
   { href: '/request', label: 'Request' },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  items: Item[];
+}
+
+export default function Navbar({ items }: NavbarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -35,8 +41,6 @@ export default function Navbar() {
       return;
     }
 
-    const { getAllItemsFlat } = require('@/lib/content');
-    const items = getAllItemsFlat();
     const q = searchQuery.toLowerCase().trim();
     
     const results = items
@@ -47,7 +51,7 @@ export default function Navbar() {
       )
       .slice(0, 6);
     setSearchResults(results);
-  }, [searchQuery]);
+  }, [searchQuery, items]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
