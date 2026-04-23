@@ -64,7 +64,7 @@ const TrendingCarousel = ({
         modules={[EffectCoverflow, Autoplay, Pagination]}
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index} className="!h-[320px] w-full border border-[#222] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#4FD1FF] hover:shadow-[0_0_30px_rgba(79,209,255,0.2)]">
+          <SwiperSlide key={index} className="!h-[320px] w-full rounded-xl overflow-hidden transition-all duration-300 hover:border-[#4FD1FF] hover:shadow-[0_0_30px_rgba(79,209,255,0.2)]">
             <Link href={image.href} className="group block h-full w-full relative">
               <img
                 className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
