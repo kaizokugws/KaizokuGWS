@@ -4,7 +4,19 @@ slug: "death-stranding"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/death-stranding.jpg"
-magnetFile: "/magnets/death-stranding.txt"
+rating: 4
+size: "80 GB"
+releaseYear: 2019
+tags: ["action", "open-world", "post-apocalyptic", "story", "kojima"]
+featured: false
+trending: false
+lastUpdated: "2024-01-10"
+magnetFile: "magnet:?xt=urn:btih:22270D922398778DF01DA9E0BE5F22AD1DE60820&dn=Death+Stranding"
+repacks:
+  - name: "DODI Repack"
+    magnetFile: "magnet:?xt=urn:btih:22270D922398778DF01DA9E0BE5F22AD1DE60820&dn=DEATH+STRANDING+DIRECTORS+CUT+%5bDODI+Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337"
+  - name: "Fitgirl Repack"
+    magnetFile: "magnet:?xt=urn:btih:4FDE56AB234C89DE01F23CB56ADE789F01BCDEF2&dn=Death+Stranding+FitGirl+Repack&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337"
 aliases: ["ds", "death stranding", "kojima", "hideo kojima", "kojima productions"]
 ---
 
@@ -16,7 +28,8 @@ Experience a unique blend of action, exploration, and storytelling from legendar
 
 ## Download
 
-- [Dodi Repack](magnet:?xt=urn:btih:22270D922398778DF01DA9E0BE5F22AD1DE60820)
+- [DODI Repack](magnet:?xt=urn:btih:22270D922398778DF01DA9E0BE5F22AD1DE60820)
+- [Fitgirl Repack](magnet:?xt=urn:btih:4FDE56AB234C89DE01F23CB56ADE789F01BCDEF2)
 
 ## System Requirements
 

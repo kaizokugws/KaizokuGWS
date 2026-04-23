@@ -4,12 +4,19 @@ slug: "witcher-3"
 platform: "PC"
 category: "RPG"
 thumbnail: "/images/witcher-3.jpg"
-magnetFile: "magnet:?xt=urn:btih:2D971364A813BB7C79D85516C74FDFF33697B75B&dn=The%20Witcher%203%20Wild%20Hunt%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker1.wasabii.com.tw%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&tr=udp%3a%2f%2ftracker.cypherpunks.ru%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce"
+rating: 5
+size: "40 GB"
+releaseYear: 2015
+tags: ["rpg", "open-world", "fantasy", "story", "cdpr"]
+featured: false
+trending: true
+lastUpdated: "2024-01-10"
+magnetFile: "magnet:?xt=urn:btih:2D971364A813BB7C79D85516C74FDFF33697B75B&dn=The+Witcher+3+Wild+Hunt"
 repacks:
   - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:2D971364A813BB7C79D85516C74FDFF33697B75B&dn=The%20Witcher%203%20Wild%20Hunt%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker1.wasabii.com.tw%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&tr=udp%3a%2f%2ftracker.cypherpunks.ru%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce"
+    magnetFile: "magnet:?xt=urn:btih:2D971364A813BB7C79D85516C74FDFF33697B75B&dn=The+Witcher+3+Wild+Hunt+%5bDODI+Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337"
   - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:7F9F2EA2A2BD89C65D14ED816987938FD5D48B07&dn=The%20Witcher%203%20Wild%20Hunt%20%5bFitGirl%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337&tr=udp%3a%2f%2f9.rarbg.com%3a2710%2fannounce&tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker1.wasabii.com.tw%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&tr=udp%3a%2f%2ftracker.cypherpunks.ru%3a6969%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce"
+    magnetFile: "magnet:?xt=urn:btih:7F9F2EA2A2BD89C65D14ED816987938FD5D48B07&dn=The+Witcher+3+Wild+Hunt+%5bFitGirl+Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337"
 aliases: ["witcher", "tw3", "wild hunt", "geralt", "cdpr", "cd project red"]
 ---
 
@@ -21,7 +28,7 @@ Embark on the epic journey of Geralt of Rivia as he searches for his adopted dau
 
 ## Download
 
-- [Dodi Repack](magnet:?xt=urn:btih:2D971364A813BB7C79D85516C74FDFF33697B75B)
+- [DODI Repack](magnet:?xt=urn:btih:2D971364A813BB7C79D85516C74FDFF33697B75B)
 - [Fitgirl Repack](magnet:?xt=urn:btih:7F9F2EA2A2BD89C65D14ED816987938FD5D48B07)
 
 ## System Requirements

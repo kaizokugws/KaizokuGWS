@@ -4,7 +4,19 @@ slug: "days-gone-remastered"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/days-gone.jpg"
-magnetFile: "/magnets/days-gone-remastered.txt"
+rating: 4
+size: "90 GB"
+releaseYear: 2022
+tags: ["action", "open-world", "post-apocalyptic", "zombies", "horde"]
+featured: false
+trending: false
+lastUpdated: "2024-01-10"
+magnetFile: "magnet:?xt=urn:btih:2b0c0e4e8f9d1a6b3c5e7f9a1d2c4b6e8f0a2c4e&dn=Days+Gone+Remastered"
+repacks:
+  - name: "DODI Repack"
+    magnetFile: "magnet:?xt=urn:btih:2b0c0e4e8f9d1a6b3c5e7f9a1d2c4b6e8f0a2c4e&dn=Days+Gone+Remastered+DODI&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce"
+  - name: "Fitgirl Repack"
+    magnetFile: "magnet:?xt=urn:btih:3C1D0F5A9E2B7C4D6F8A9E1B3C5D7F0A2B4C6E&dn=Days+Gone+Remastered+FitGirl&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce"
 aliases: ["days gone", "dg", "bend studio", "zombies", "horde"]
 ---
 
@@ -13,6 +25,11 @@ aliases: ["days gone", "dg", "bend studio", "zombies", "horde"]
 Days Gone Remastered is an open-world action-adventure game set in a post-apocalyptic Oregon two years after a global pandemic. Play as Deacon St. John, a drifter and bounty hunter, as he navigates through this harsh new world filled with mutants called Freakers.
 
 The Remastered version features enhanced graphics, faster loading times, and all previously released DLCs.
+
+## Download
+
+- [DODI Repack](magnet:?xt=urn:btih:2b0c0e4e8f9d1a6b3c5e7f9a1d2c4b6e8f0a2c4e)
+- [Fitgirl Repack](magnet:?xt=urn:btih:3C1D0F5A9E2B7C4D6F8A9E1B3C5D7F0A2B4C6E)
 
 ## System Requirements
 
