@@ -1,6 +1,5 @@
 {
-  "rootDirectory": "kaizoku-gws",
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install"
+  "buildCommand": "cd kaizoku-gws && npm run build",
+  "outputDirectory": "kaizoku-gws/.next",
+  "installCommand": "cd kaizoku-gws && npm install"
 }
