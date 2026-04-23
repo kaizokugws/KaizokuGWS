@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ScrollProgress, BackToTop } from "@/components/ScrollProgress";
 import PageTransition from "@/components/PageTransition";
+import ViewTracker from "@/components/ViewTracker";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <BackToTop />
+        <ViewTracker />
       </body>
     </html>
   );
