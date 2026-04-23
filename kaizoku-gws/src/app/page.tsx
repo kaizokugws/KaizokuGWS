@@ -128,7 +128,7 @@ export default function Home() {
                     src={featuredGame.thumbnail}
                     alt={featuredGame.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent lg:bg-gradient-to-l lg:to-transparent to-[#0B0D10]/60" />
