@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${inter.className} min-h-full flex flex-col bg-[#0a0a0a]`}>
+      <body className={`${inter.className} min-h-full flex flex-col bg-[#0B0D10]`}>
         <Navbar />
         <main className="flex-1 pt-16">{children}</main>
         <Footer />

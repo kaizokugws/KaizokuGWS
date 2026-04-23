@@ -7,10 +7,10 @@ export default function SystemRequirements({ requirements }: SystemRequirementsP
 
   return (
     <div className="mb-8">
-      <h2 className="text-xl font-bold mb-4">System Requirements</h2>
-      <div className="bg-[#141414] rounded-xl p-6 border border-[#222]">
+      <h2 className="text-xl font-bold mb-4 text-[#E6EDF3]">System Requirements</h2>
+      <div className="bg-[#111418] rounded-xl p-6 border border-[#222]">
         <div
-          className="prose prose-invert prose-sm max-w-none"
+          className="prose prose-invert prose-sm max-w-none text-[#9AA4AF]"
           dangerouslySetInnerHTML={{ __html: requirements }}
         />
       </div>

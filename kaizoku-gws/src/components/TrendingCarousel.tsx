@@ -71,14 +71,14 @@ const TrendingCarousel = ({
         modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index} className="!h-[320px] w-full border border-[#222] rounded-xl overflow-hidden">
+          <SwiperSlide key={index} className="!h-[320px] w-full border border-[#222] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#4FD1FF] hover:shadow-[0_0_30px_rgba(79,209,255,0.2)]">
             <Link href={image.href} className="group block h-full w-full relative">
               <img
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 src={image.src}
                 alt={image.alt}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                 <h3 className="font-semibold text-lg text-white truncate">
                   {image.alt}
@@ -88,10 +88,10 @@ const TrendingCarousel = ({
           </SwiperSlide>
         ))}
         <div className="absolute top-1/2 -left-12 z-10 swiper-button-prev">
-          <ChevronLeftIcon className="h-8 w-8 text-[#ff3e3e] hover:text-[#ff5e5e] transition-colors" />
+          <ChevronLeftIcon className="h-8 w-8 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors" />
         </div>
         <div className="absolute top-1/2 -right-12 z-10 swiper-button-next">
-          <ChevronRightIcon className="h-8 w-8 text-[#ff3e3e] hover:text-[#ff5e5e] transition-colors" />
+          <ChevronRightIcon className="h-8 w-8 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors" />
         </div>
       </Swiper>
     </motion.div>

@@ -7,10 +7,10 @@ export default function InstallationGuide({ guide }: InstallationGuideProps) {
 
   return (
     <div className="mb-8">
-      <h2 className="text-xl font-bold mb-4">Installation Guide</h2>
-      <div className="bg-[#141414] rounded-xl p-6 border border-[#222]">
+      <h2 className="text-xl font-bold mb-4 text-[#E6EDF3]">Installation Guide</h2>
+      <div className="bg-[#111418] rounded-xl p-6 border border-[#222]">
         <div
-          className="prose prose-invert prose-sm max-w-none"
+          className="prose prose-invert prose-sm max-w-none text-[#9AA4AF]"
           dangerouslySetInnerHTML={{ __html: guide }}
         />
       </div>
