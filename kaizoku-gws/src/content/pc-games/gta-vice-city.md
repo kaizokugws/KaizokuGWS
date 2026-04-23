@@ -3,7 +3,7 @@ title: "GTA Vice City"
 slug: "gta-vice-city"
 platform: "PC"
 category: "Action"
-thumbnail: "/images/gta-v.jpg"
+thumbnail: "/images/gta-vice-city.jpeg"
 rating: 4
 size: "500 MB"
 releaseYear: 2002
