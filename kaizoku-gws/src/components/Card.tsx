@@ -33,13 +33,13 @@ export default function Card({ item, category, showTags = false }: CardProps) {
         transition={{ duration: 0.2 }}
         className="bg-[#111418] rounded-xl overflow-hidden border border-[#222] transition-all duration-300 hover:border-[#4FD1FF] hover:shadow-[0_0_30px_rgba(79,209,255,0.15)]"
       >
-        <div className="relative h-44 overflow-hidden">
+        <div className="relative h-48 overflow-hidden flex items-center justify-center bg-[#0B0D10]">
           <div className={`absolute inset-0 bg-[#161A20] transition-opacity duration-300 ${imageLoaded ? 'opacity-0' : 'opacity-100'}`} />
           <Image
             src={item.thumbnail}
             alt={item.title}
             fill
-            className={`object-cover transition-all duration-300 group-hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`object-contain transition-all duration-300 group-hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
             sizes="(max-width: 768px) 100vw, 25vw"
             onLoad={() => setImageLoaded(true)}
           />
