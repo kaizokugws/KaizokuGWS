@@ -3,7 +3,6 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { X } from 'lucide-react';
 import { Item } from '@/lib/types';
 
 interface CardProps {
@@ -14,6 +13,7 @@ interface CardProps {
 
 export default function Card({ item, category, showTags = false }: CardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const href = `/${category}/${item.slug}`;
 
   const displayTags = useMemo(() => {
@@ -27,18 +27,24 @@ export default function Card({ item, category, showTags = false }: CardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="bg-[#111418] rounded-xl overflow-hidden border border-[#222] transition-all duration-300 hover:border-[#4FD1FF] hover:shadow-[0_0_20px_rgba(79,209,255,0.15)] hover:-translate-y-1">
+      <div className="bg-[#111418] rounded-xl overflow-hidden border border-[#222] transition-all duration-300 card-hover-lift">
         <div className="relative h-44 overflow-hidden">
+          <div className={`absolute inset-0 bg-[#161A20] transition-opacity duration-300 ${imageLoaded ? 'opacity-0' : 'opacity-100'}`} />
           <Image
             src={item.thumbnail}
             alt={item.title}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className={`object-cover transition-all duration-300 group-hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
             sizes="(max-width: 768px) 100vw, 25vw"
+            onLoad={() => setImageLoaded(true)}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div 
+            className={`absolute inset-0 bg-gradient-to-t from-[#0B0D10]/60 to-transparent transition-opacity duration-300 ${
+              isHovered ? 'opacity-100' : 'opacity-0'
+            }`} 
+          />
           {item.rating && item.rating > 0 && (
-            <div className="absolute top-2 right-2 px-2 py-0.5 bg-[#4FD1FF] text-[#0B0D10] text-xs font-semibold rounded">
+            <div className="absolute top-2 right-2 px-2 py-0.5 bg-[#4FD1FF] text-[#0B0D10] text-xs font-semibold rounded transition-transform duration-300 hover:scale-110">
               {item.rating}★
             </div>
           )}

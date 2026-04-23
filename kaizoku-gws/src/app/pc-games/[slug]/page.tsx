@@ -36,7 +36,12 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
         <ScreenshotGallery screenshots={item.screenshots} />
         <SystemRequirements requirements={item.systemRequirements} />
         <DownloadInfo item={item} />
-        <DownloadSection magnetFiles={downloadOptions} title={item.title} />
+        <DownloadSection 
+          magnetFiles={downloadOptions} 
+          title={item.title}
+          fileSize={item.size}
+          lastUpdated={item.lastUpdated}
+        />
         <InstallationGuide guide={item.installationGuide} />
         
         {relatedItems.length > 0 && (

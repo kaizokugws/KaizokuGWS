@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import { Item, SortOption } from '@/lib/types';
 import EmptyState from '@/components/EmptyState';
 import RequestCard from '@/components/RequestCard';
+import Card from '@/components/Card';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 interface CategoryGridProps {
   items: Item[];
@@ -254,27 +254,12 @@ export default function CategoryGrid({ items, category }: CategoryGridProps) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filteredItems.map((item) => (
-          <Link key={item.slug} href={`/${category}/${item.slug}`} className="group block">
-            <div className="bg-[#111418] rounded-xl overflow-hidden border border-[#222] transition-all duration-300 hover:border-[#4FD1FF] hover:shadow-[0_0_20px_rgba(79,209,255,0.15)] hover:-translate-y-1">
-              <div className="relative h-44 overflow-hidden">
-                <Image
-                  src={item.thumbnail}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-base truncate text-[#E6EDF3] group-hover:text-[#4FD1FF] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-[#9AA4AF] text-sm mt-1">{item.category}</p>
-              </div>
+        {filteredItems.map((item, index) => (
+          <ScrollReveal key={item.slug} animation="slide">
+            <div className={index === 0 ? 'animate-slide-up' : ''}>
+              <Card item={item} category={category} />
             </div>
-          </Link>
+          </ScrollReveal>
         ))}
         <RequestCard />
       </div>

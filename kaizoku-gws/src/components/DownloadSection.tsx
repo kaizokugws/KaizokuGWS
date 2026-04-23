@@ -11,9 +11,11 @@ interface DownloadOption {
 interface DownloadSectionProps {
   magnetFiles: DownloadOption[];
   title: string;
+  fileSize?: string;
+  lastUpdated?: string;
 }
 
-export default function DownloadSection({ magnetFiles, title }: DownloadSectionProps) {
+export default function DownloadSection({ magnetFiles, title, fileSize, lastUpdated }: DownloadSectionProps) {
   const [showModal, setShowModal] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [error, setError] = useState<string | null>(null);
@@ -48,6 +50,24 @@ export default function DownloadSection({ magnetFiles, title }: DownloadSectionP
     <>
       <div className="bg-[#111418] rounded-xl p-6 border border-[#222]">
         <h2 className="text-xl font-bold mb-4 text-[#E6EDF3]">Download</h2>
+        
+        {(fileSize || lastUpdated) && (
+          <div className="flex flex-wrap gap-4 mb-4 py-2 px-3 bg-[#161A20] rounded-lg border border-[#222]">
+            {fileSize && fileSize !== 'Unknown' && (
+              <div className="flex items-center gap-2 text-sm text-[#9AA4AF]">
+                <span className="w-2 h-2 rounded-full bg-[#4FD1FF]" />
+                <span>{fileSize}</span>
+              </div>
+            )}
+            {lastUpdated && (
+              <div className="flex items-center gap-2 text-sm text-[#9AA4AF]">
+                <span className="w-2 h-2 rounded-full bg-[#4FD1FF]" />
+                <span>Updated: {lastUpdated}</span>
+              </div>
+            )}
+          </div>
+        )}
+
         <div className="flex flex-col sm:flex-row gap-4">
           {magnetFiles.map((option, index) => {
             const valid = isValidMagnet(option.magnetFile);
