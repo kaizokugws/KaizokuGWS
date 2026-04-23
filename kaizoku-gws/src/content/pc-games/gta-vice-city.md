@@ -4,7 +4,6 @@ slug: "gta-vice-city"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-vice-city.jpeg"
-rating: 4
 size: "500 MB"
 releaseYear: 2002
 tags: ["action", "open-world", "crime", "classic", "80s", "rockstar"]

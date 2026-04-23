@@ -4,7 +4,6 @@ slug: "death-stranding"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/death-stranding.jpg"
-rating: 4
 size: "80 GB"
 releaseYear: 2019
 tags: ["action", "adventure", "open-world", "post-apocalyptic", "story", "kojima"]

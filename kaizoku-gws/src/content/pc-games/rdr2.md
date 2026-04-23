@@ -4,7 +4,6 @@ slug: "rdr2"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/rdr2-new.jpg"
-rating: 5
 size: "150 GB"
 releaseYear: 2019
 tags: ["open-world", "action", "western", "story", "rockstar"]

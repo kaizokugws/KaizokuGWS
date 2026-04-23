@@ -4,7 +4,6 @@ slug: "gta-san-andreas"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-san-andreas.jpg"
-rating: 4
 size: "3.6 GB"
 releaseYear: 2004
 tags: ["action", "open-world", "crime", "sandbox", "classic", "rockstar"]

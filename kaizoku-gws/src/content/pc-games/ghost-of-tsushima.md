@@ -4,7 +4,6 @@ slug: "ghost-of-tsushima"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/ghost-of-tsushima.jpg"
-rating: 5
 size: "50 GB"
 releaseYear: 2024
 tags: ["action", "adventure", "open-world", "stealth", "story"]

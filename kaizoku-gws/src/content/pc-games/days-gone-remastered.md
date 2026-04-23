@@ -4,7 +4,6 @@ slug: "days-gone-remastered"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/days-gone.jpg"
-rating: 4
 size: "90 GB"
 releaseYear: 2022
 tags: ["action", "adventure", "open-world", "post-apocalyptic", "zombies", "horde"]

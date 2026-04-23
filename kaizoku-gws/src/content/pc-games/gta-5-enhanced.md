@@ -4,7 +4,6 @@ slug: "gta-5-enhanced"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-5-enhanced.jpg"
-rating: 5
 size: "95 GB"
 releaseYear: 2026
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar"]

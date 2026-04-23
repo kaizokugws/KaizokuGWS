@@ -3,6 +3,11 @@ export interface Repack {
   magnetFile: string;
 }
 
+export interface DownloadSource {
+  name: string;
+  file: string;
+}
+
 export interface Item {
   slug: string;
   title: string;
@@ -11,8 +16,8 @@ export interface Item {
   thumbnail: string;
   magnetFile: string;
   repacks: Repack[];
+  sources?: DownloadSource[];
   aliases?: string[];
-  rating?: number;
   size?: string;
   releaseYear?: number;
   tags?: string[];
@@ -33,12 +38,11 @@ export interface ParsedItem extends Item {
 export interface ItemFilter {
   category?: string;
   releaseYear?: number;
-  rating?: number;
   tags?: string[];
   search?: string;
 }
 
-export type SortOption = 'rating' | 'lastUpdated' | 'title' | 'releaseYear';
+export type SortOption = 'lastUpdated' | 'title' | 'releaseYear';
 export type SortDirection = 'asc' | 'desc';
 
 export interface FilterState {

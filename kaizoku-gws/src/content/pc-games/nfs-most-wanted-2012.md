@@ -4,7 +4,6 @@ slug: "nfs-most-wanted-2012"
 platform: "PC"
 category: "Racing"
 thumbnail: "/images/nfs-most-wanted-2012.jpg"
-rating: 4
 size: "20 GB"
 releaseYear: 2012
 tags: ["racing", "open-world", "cars", "arcade"]

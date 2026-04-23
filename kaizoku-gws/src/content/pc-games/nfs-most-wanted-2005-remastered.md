@@ -4,7 +4,6 @@ slug: "nfs-most-wanted-2005-remastered"
 platform: "PC"
 category: "Racing"
 thumbnail: "/images/nfs-most-wanted-2005-remastered.jpg"
-rating: 4
 size: "40 GB"
 releaseYear: 2020
 tags: ["racing", "arcade", "cars", "street-racing"]

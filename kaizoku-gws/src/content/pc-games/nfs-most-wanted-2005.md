@@ -4,7 +4,6 @@ slug: "nfs-most-wanted-2005"
 platform: "PC"
 category: "Racing"
 thumbnail: "/images/nfs-most-wanted-2005.jpg"
-rating: 4
 size: "2 GB"
 releaseYear: 2005
 tags: ["racing", "arcade", "cars", "street-racing"]

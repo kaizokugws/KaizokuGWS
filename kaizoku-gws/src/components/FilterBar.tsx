@@ -11,7 +11,6 @@ interface FilterBarProps {
 
 const sortOptions: { value: SortOption; label: string }[] = [
   { value: 'title', label: 'Alphabetical' },
-  { value: 'rating', label: 'Highest Rated' },
   { value: 'releaseYear', label: 'Newest' },
   { value: 'lastUpdated', label: 'Recently Added' },
 ];
@@ -66,10 +65,6 @@ export default function FilterBar({ items, category }: FilterBarProps) {
       let bVal: string | number = '';
 
       switch (sortBy) {
-        case 'rating':
-          aVal = a.rating || 0;
-          bVal = b.rating || 0;
-          break;
         case 'releaseYear':
           aVal = a.releaseYear || 0;
           bVal = b.releaseYear || 0;

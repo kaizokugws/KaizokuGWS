@@ -5,7 +5,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
-import { Item, ParsedItem, FilterState } from './types';
+import { Item, ParsedItem, FilterState, DownloadSource } from './types';
 
 const contentDirectory = path.join(process.cwd(), 'src', 'content');
 
@@ -24,8 +24,11 @@ function normalizeTags(tags: string[] | undefined): string[] {
 
 function getDefaultValues(data: Record<string, unknown>, _slug: string): Partial<Item> {
   const d = data as Record<string, unknown>;
+  const sourcesRaw = d.sources as Record<string, string>[] | undefined;
+  const sources: DownloadSource[] = Array.isArray(sourcesRaw) 
+    ? sourcesRaw.map((s: Record<string, string>) => ({ name: s.name || '', file: s.file || '' }))
+    : [];
   return {
-    rating: typeof d.rating === 'number' ? Math.max(0, Math.min(5, d.rating)) : 0,
     size: typeof d.size === 'string' ? d.size : 'Unknown',
     releaseYear: typeof d.releaseYear === 'number' ? d.releaseYear : new Date().getFullYear(),
     tags: normalizeTags(d.tags as string[] | undefined),
@@ -34,6 +37,7 @@ function getDefaultValues(data: Record<string, unknown>, _slug: string): Partial
     lastUpdated: typeof d.lastUpdated === 'string' ? d.lastUpdated : new Date().toISOString().split('T')[0],
     aliases: Array.isArray(d.aliases) ? (d.aliases as string[]).map((a: string) => a.toLowerCase()) : [],
     related: Array.isArray(d.related) ? d.related as string[] : [],
+    sources,
   };
 }
 
@@ -59,12 +63,12 @@ export function getItemBySlug(category: string, slug: string): Item {
     slug: realSlug,
     title: data.title || realSlug,
     platform: data.platform === 'Mobile' ? 'Mobile' : 'PC',
-    category: data.category || category,
+    category: category,
     thumbnail: data.thumbnail || '/images/placeholder.jpg',
     magnetFile: data.magnetFile || '',
     repacks: data.repacks || [],
+    sources: defaults.sources,
     aliases: defaults.aliases,
-    rating: defaults.rating,
     size: defaults.size,
     releaseYear: defaults.releaseYear,
     tags: defaults.tags,
@@ -92,12 +96,12 @@ export async function getParsedItemBySlug(category: string, slug: string): Promi
     slug: realSlug,
     title: data.title || realSlug,
     platform: data.platform === 'Mobile' ? 'Mobile' : 'PC',
-    category: data.category || category,
+    category: category,
     thumbnail: data.thumbnail || '/images/placeholder.jpg',
     magnetFile: data.magnetFile || '',
     repacks: data.repacks || [],
+    sources: defaults.sources,
     aliases: defaults.aliases,
-    rating: defaults.rating,
     size: defaults.size,
     releaseYear: defaults.releaseYear,
     tags: defaults.tags,
@@ -179,7 +183,7 @@ export function getFeaturedItem(category?: string): Item | null {
 export function getPopularItems(category?: string, limit = 8): Item[] {
   const items = category ? getAllItems(category) : getAllItemsFlat();
   return [...items]
-    .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+    .sort((a, b) => (b.lastUpdated || '').localeCompare(a.lastUpdated || ''))
     .slice(0, limit);
 }
 
@@ -274,10 +278,6 @@ export function filterItems(
     let bVal: string | number = '';
     
     switch (sortBy) {
-      case 'rating':
-        aVal = a.rating || 0;
-        bVal = b.rating || 0;
-        break;
       case 'releaseYear':
         aVal = a.releaseYear || 0;
         bVal = b.releaseYear || 0;

@@ -4,7 +4,6 @@ slug: "nioh-2"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/nioh-2.jpg"
-rating: 4
 size: "65 GB"
 releaseYear: 2021
 tags: ["action", "rpg", "souls-like", "adventure", "horde"]

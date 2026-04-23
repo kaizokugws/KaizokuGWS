@@ -4,7 +4,6 @@ slug: "gta-v"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-5.jpg"
-rating: 5
 size: "51 GB"
 releaseYear: 2013
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar"]

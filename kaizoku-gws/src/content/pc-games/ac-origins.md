@@ -4,7 +4,6 @@ slug: "ac-origins"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/ac-origins.jpg"
-rating: 4
 size: "50 GB"
 releaseYear: 2017
 tags: ["action", "adventure", "open-world", "stealth", "ancient-egypt", "ubisoft"]

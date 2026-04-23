@@ -1,6 +1,6 @@
 'use client';
 
-import { Calendar, HardDrive, Star, Clock } from 'lucide-react';
+import { Calendar, HardDrive, Clock } from 'lucide-react';
 import { Item } from '@/lib/types';
 
 interface DownloadInfoProps {
@@ -14,12 +14,6 @@ export default function DownloadInfo({ item }: DownloadInfoProps) {
         <div className="flex items-center gap-2 text-sm text-[#9AA4AF]">
           <HardDrive className="w-4 h-4 text-[#4FD1FF]" />
           <span>{item.size}</span>
-        </div>
-      )}
-      {item.rating && item.rating > 0 && (
-        <div className="flex items-center gap-2 text-sm text-[#9AA4AF]">
-          <Star className="w-4 h-4 text-[#4FD1FF] fill-current" />
-          <span>{item.rating}/5</span>
         </div>
       )}
       {item.releaseYear && (

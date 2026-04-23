@@ -48,14 +48,6 @@ export default function Card({ item, category, showTags = false }: CardProps) {
               isHovered ? 'opacity-100' : 'opacity-0'
             }`} 
           />
-          {item.rating && item.rating > 0 && (
-            <motion.div 
-              whileHover={{ scale: 1.1 }}
-              className="absolute top-2 right-2 px-2 py-0.5 bg-[#4FD1FF] text-[#0B0D10] text-xs font-semibold rounded"
-            >
-              {item.rating}★
-            </motion.div>
-          )}
         </div>
         <div className="p-4">
           <h3 className="font-semibold text-base truncate text-[#E6EDF3] group-hover:text-[#4FD1FF] transition-colors">

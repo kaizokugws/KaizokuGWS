@@ -4,7 +4,6 @@ slug: "dark-souls-3"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/dark-souls-3.jpg"
-rating: 5
 size: "25 GB"
 releaseYear: 2016
 tags: ["action", "rpg", "souls-like", "fantasy", "fromsoftware"]

@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X, Gamepad2, Search, Monitor, Smartphone, Home } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Item } from '@/lib/types';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
@@ -15,14 +16,50 @@ const navLinks = [
   { href: '/request', label: 'Request' },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  allItems: Item[];
+}
+
+export default function Navbar({ allItems }: NavbarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const q = searchQuery.toLowerCase();
+    return allItems
+      .filter(item =>
+        item.title.toLowerCase().includes(q) ||
+        item.aliases?.some(alias => alias.toLowerCase().includes(q)) ||
+        item.tags?.some(tag => tag.toLowerCase().includes(q))
+      )
+      .slice(0, 6);
+  }, [searchQuery, allItems]);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setSearchOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
     return pathname.startsWith(href);
+  };
+
+  const handleResultClick = (item: Item) => {
+    const category = item.category || 'pc-games';
+    router.push(`/${category}/${item.slug}`);
+    setSearchQuery('');
+    setSearchOpen(false);
   };
 
   return (
@@ -59,14 +96,60 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center">
-            <Link
-              href="/pc-games"
-              className="flex items-center gap-2 bg-[#111418] border border-[#222] hover:border-[#4FD1FF] rounded-full py-1.5 pl-3 pr-4 text-sm transition-all"
-            >
-              <Search className="w-4 h-4 text-[#9AA4AF]" />
-              <span className="text-[#9AA4AF]">Search...</span>
-            </Link>
+          <div className="hidden md:flex items-center relative" ref={searchRef}>
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9AA4AF] pointer-events-none" />
+              <input
+                type="text"
+                placeholder="Search games..."
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setSearchOpen(true);
+                }}
+                onFocus={() => searchQuery.trim() && setSearchOpen(true)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && searchResults.length > 0) {
+                    handleResultClick(searchResults[0]);
+                  }
+                  if (e.key === 'Escape') setSearchOpen(false);
+                }}
+                className="w-48 bg-[#111418] border border-[#222] hover:border-[#4FD1FF] rounded-full py-1.5 pl-9 pr-3 text-sm transition-all placeholder:text-[#9AA4AF] text-[#E6EDF3] focus:w-64 focus:outline-none"
+              />
+            </div>
+
+            <AnimatePresence>
+              {searchOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute top-full right-0 mt-2 w-64 bg-[#111418] border border-[#222] rounded-lg overflow-hidden shadow-xl z-50"
+                >
+                  {searchResults.length > 0 ? (
+                    searchResults.map((item) => (
+                      <button
+                        key={item.slug}
+                        onClick={() => handleResultClick(item)}
+                        className="w-full flex items-center gap-3 p-3 hover:bg-[#161A20] transition-colors text-left"
+                      >
+                        <div className="w-8 h-8 rounded bg-[#222] overflow-hidden flex-shrink-0">
+                          <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm text-[#E6EDF3] truncate">{item.title}</p>
+                          <p className="text-xs text-[#9AA4AF]">{item.category}</p>
+                        </div>
+                      </button>
+                    ))
+                  ) : searchQuery.trim() ? (
+                    <div className="p-3 text-sm text-[#9AA4AF]">
+                      No results found
+                    </div>
+                  ) : null}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <button

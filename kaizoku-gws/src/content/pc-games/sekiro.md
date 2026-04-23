@@ -4,7 +4,6 @@ slug: "sekiro"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/sekiro.jpg"
-rating: 5
 size: "25 GB"
 releaseYear: 2019
 tags: ["action", "adventure", "souls-like", "stealth", "fromsoftware"]
