@@ -40,7 +40,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-[#222] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[#9AA4AF] text-sm">
-            © 2024 Kaizoku GWS. All rights reserved.
+            © 2026 Kaizoku GWS. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <p className="text-[#9AA4AF] text-sm">Contact: </p>
