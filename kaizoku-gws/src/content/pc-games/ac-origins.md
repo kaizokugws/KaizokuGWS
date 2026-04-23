@@ -9,7 +9,7 @@ size: "50 GB"
 releaseYear: 2017
 tags: ["action", "adventure", "open-world", "ancient-egypt", "ubisoft"]
 featured: false
-trending: false
+trending: true
 lastUpdated: "2024-01-10"
 magnetFile: "magnet:?xt=urn:btih:221F6FA9E0E1CAA8BE8C18A09AF1EDF5100749A3&dn=Assassins+Creed+Origins"
 repacks:

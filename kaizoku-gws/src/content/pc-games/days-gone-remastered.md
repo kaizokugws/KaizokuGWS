@@ -9,7 +9,7 @@ size: "90 GB"
 releaseYear: 2022
 tags: ["action", "open-world", "post-apocalyptic", "zombies", "horde"]
 featured: false
-trending: false
+trending: true
 lastUpdated: "2024-01-10"
 magnetFile: "magnet:?xt=urn:btih:2b0c0e4e8f9d1a6b3c5e7f9a1d2c4b6e8f0a2c4e&dn=Days+Gone+Remastered"
 repacks:

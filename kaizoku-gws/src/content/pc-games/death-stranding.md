@@ -9,7 +9,7 @@ size: "80 GB"
 releaseYear: 2019
 tags: ["action", "open-world", "post-apocalyptic", "story", "kojima"]
 featured: false
-trending: false
+trending: true
 lastUpdated: "2024-01-10"
 magnetFile: "magnet:?xt=urn:btih:22270D922398778DF01DA9E0BE5F22AD1DE60820&dn=Death+Stranding"
 repacks:
