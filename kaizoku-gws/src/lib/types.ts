@@ -19,6 +19,7 @@ export interface Item {
   featured?: boolean;
   trending?: boolean;
   lastUpdated?: string;
+  related?: string[];
 }
 
 export interface ParsedItem extends Item {

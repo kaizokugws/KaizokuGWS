@@ -31,6 +31,7 @@ function getDefaultValues(data: Record<string, unknown>, _slug: string): Partial
     trending: d.trending === true,
     lastUpdated: typeof d.lastUpdated === 'string' ? d.lastUpdated : new Date().toISOString().split('T')[0],
     aliases: Array.isArray(d.aliases) ? (d.aliases as string[]).map((a: string) => a.toLowerCase()) : [],
+    related: Array.isArray(d.related) ? d.related as string[] : [],
   };
 }
 
@@ -190,16 +191,24 @@ export function getRecentlyAdded(category?: string, limit = 8): Item[] {
 export function getRelatedItems(item: Item, limit = 4): Item[] {
   const categoryItems = getAllItems(item.category);
   const allItems = getAllItemsFlat();
+  const relatedSlugs = item.related || [];
   
-  const related = [...categoryItems, ...allItems]
+  const related: { item: Item; score: number }[] = [...allItems]
     .filter((i) => i.slug !== item.slug)
     .map((i) => {
       let score = 0;
+      
+      if (relatedSlugs.includes(i.slug)) {
+        score += 10;
+      }
+      
       if (i.category === item.category) score += 2;
+      
       if (i.tags && item.tags) {
         const sharedTags = i.tags.filter((t) => item.tags?.includes(t));
         score += sharedTags.length;
       }
+      
       return { item: i, score };
     })
     .sort((a, b) => b.score - a.score)
