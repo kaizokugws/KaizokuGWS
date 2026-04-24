@@ -21,33 +21,40 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchMagnets() {
+    async function fetchLinks() {
       if (!sources || sources.length === 0) {
         setLoading(false);
         return;
       }
 
-      const magnetMap = new Map<string, string>();
+      const linkMap = new Map<string, string>();
       
       for (let i = 0; i < sources.length; i++) {
         const source = sources[i];
         try {
-          const response = await fetch(`/magnets/${source.file}.txt`);
+          const response = await fetch(`/links/${source.file}.txt`);
           if (response.ok) {
             const text = await response.text();
             const trimmed = text.trim();
-            magnetMap.set(source.file, trimmed);
+            linkMap.set(source.file, trimmed);
+          } else {
+            const magnetResponse = await fetch(`/magnets/${source.file}.txt`);
+            if (magnetResponse.ok) {
+              const text = await magnetResponse.text();
+              const trimmed = text.trim();
+              linkMap.set(source.file, trimmed);
+            }
           }
-        } catch (e) {
-          console.error(`Failed to fetch magnet for ${source.file}`);
+        } catch {
+          console.error(`Failed to fetch link for ${source.file}`);
         }
       }
       
-      setMagnets(magnetMap);
+      setMagnets(linkMap);
       setLoading(false);
     }
 
-    fetchMagnets();
+    fetchLinks();
   }, [sources]);
 
   const getMagnet = (file: string): string => {
@@ -66,16 +73,16 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated 
   };
 
   const confirmDownload = () => {
-    const magnetLink = getMagnet(sources[selectedIndex].file);
+    const link = getMagnet(sources[selectedIndex].file);
     
-    if (!magnetLink || !magnetLink.startsWith('magnet:')) {
-      setError('Invalid or missing magnet link');
+    if (!link || (!link.startsWith('magnet:') && !link.startsWith('http'))) {
+      setError('Invalid or missing link');
       return;
     }
     
     setDownloading(true);
     setTimeout(() => {
-      window.location.href = magnetLink;
+      window.location.href = link;
     }, 500);
   };
 
@@ -86,9 +93,9 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated 
     setDownloading(false);
   };
 
-  const isValidMagnet = (file: string): boolean => {
+  const isValidLink = (file: string): boolean => {
     const link = getMagnet(file);
-    return typeof link === 'string' && link.startsWith('magnet:');
+    return typeof link === 'string' && (link.startsWith('magnet:') || link.startsWith('http'));
   };
 
   if (!sources || sources.length === 0) {
@@ -124,7 +131,7 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated 
 
         <div className="flex flex-col sm:flex-row gap-4">
           {sources.map((source, index) => {
-            const valid = loading || isValidMagnet(source.file);
+            const valid = loading || isValidLink(source.file);
             return (
               <button
                 key={source.file}
@@ -142,16 +149,30 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated 
             );
           })}
         </div>
-        {sources.some(s => !isValidMagnet(s.file)) && (
+        {sources.some(s => !isValidLink(s.file)) && (
           <p className="text-red-400 text-sm mt-4 flex items-center gap-2">
             <XCircle className="w-4 h-4" />
             Some download options unavailable
           </p>
         )}
-        <p className="text-[#9AA4AF] text-sm mt-4 flex items-center gap-2">
-          <AlertTriangle className="w-4 h-4" />
-          Requires BitTorrent client to download
-        </p>
+        {sources.some(s => {
+          const link = magnets.get(s.file) || '';
+          return link.startsWith('magnet:');
+        }) && (
+          <p className="text-[#9AA4AF] text-sm mt-4 flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4" />
+            Requires BitTorrent client to download
+          </p>
+        )}
+        {sources.every(s => {
+          const link = magnets.get(s.file) || '';
+          return link.startsWith('http');
+        }) && sources.length > 0 && (
+          <p className="text-[#4FD1FF] text-sm mt-4 flex items-center gap-2">
+            <CheckCircle className="w-4 h-4" />
+            Direct download link
+          </p>
+        )}
       </div>
 
       {showModal && (
@@ -280,7 +301,7 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated 
                     <span className="text-[#E6EDF3]">{sources[selectedIndex].name}</span>
                   </div>
                   <p className="text-[#9AA4AF] text-sm">
-                    This will open your BitTorrent client to begin downloading "{title}".
+                    This will open your BitTorrent client to begin downloading &ldquo;{title}&rdquo;.
                   </p>
                 </div>
                 
