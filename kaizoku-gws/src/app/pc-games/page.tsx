@@ -1,6 +1,12 @@
+import { Metadata } from 'next';
 import { getAllItems } from '@/lib/content';
 import CategoryGrid from '@/components/CategoryGrid';
 import { Gamepad2 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'PC Games',
+  description: 'Download premium PC games via BitTorrent. Repacks from FitGirl, DODI, and more.',
+};
 
 export default function PCGamesPage() {
   const items = getAllItems('pc-games');

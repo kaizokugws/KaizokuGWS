@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import { Gamepad2, Download, Shield, Zap } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Learn about Kaizoku GWS - your premium destination for games and software downloads.',
+};
 
 export default function AboutPage() {
   return (

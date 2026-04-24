@@ -11,8 +11,13 @@ import { getAllItemsFlat } from "@/lib/content";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kaizoku GWS - Premium Games & Software",
+  title: {
+    default: "Kaizoku GWS - Premium Games & Software",
+    template: "%s | Kaizoku GWS",
+  },
   description: "Your ultimate destination for premium games and software downloads via BitTorrent",
+  keywords: ["games", "software", "download", "torrent", "pc games", "repack"],
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({

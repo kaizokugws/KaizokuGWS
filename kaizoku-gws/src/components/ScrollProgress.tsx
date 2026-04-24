@@ -1,31 +1,48 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ChevronUp } from 'lucide-react';
 
 export function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const updateProgress = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollTop = window.scrollY;
-      const scrollPercent = scrollTop / scrollHeight;
-      setProgress(Math.min(100, Math.max(0, scrollPercent * 100)));
+      const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      const clampedPercent = Math.min(100, Math.max(0, scrollPercent));
+      
+      if (barRef.current) {
+        barRef.current.style.width = `${clampedPercent}%`;
+      }
+      rafRef.current = null;
+    };
+
+    const handleScroll = () => {
+      if (rafRef.current === null) {
+        rafRef.current = requestAnimationFrame(updateProgress);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    updateProgress();
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
   }, []);
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent">
       <div 
-        className="h-full bg-[#4FD1FF] transition-all duration-100 ease-out"
-        style={{
-          width: `${progress}%`,
-          boxShadow: progress > 0 ? '0 0 8px rgba(79, 209, 255, 0.8), 0 0 2px rgba(79, 209, 255, 1)' : 'none'
-        }}
+        ref={barRef}
+        className="h-full bg-[#4FD1FF] will-change-[width] scroll-progress-bar"
+        style={{ boxShadow: '0 0 8px rgba(79, 209, 255, 0.8), 0 0 2px rgba(79, 209, 255, 1)' }}
       />
     </div>
   );

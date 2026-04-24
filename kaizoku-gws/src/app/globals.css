@@ -453,3 +453,7 @@ h4, h5, h6, .heading-medium {
 .btn-primary:active {
   @apply scale-[0.97];
 }
+
+.scroll-progress-bar {
+  transition: width 0.05s linear;
+}
