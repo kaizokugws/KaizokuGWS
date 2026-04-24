@@ -54,7 +54,8 @@ export default function CategoryGrid({ items, category, isLoading = false }: Cat
           item.aliases?.some((a) => a.includes(q)) ||
           item.tags?.some((t) => t.includes(q)) ||
           item.category.toLowerCase().includes(q) ||
-          item.category.replace(/-/g, ' ').includes(q)
+          item.category.replace(/-/g, ' ').includes(q) ||
+          item.sources?.some((s) => s.name.toLowerCase().includes(q))
       );
     }
 
