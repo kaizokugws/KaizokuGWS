@@ -7,10 +7,12 @@ import RequestCard from '@/components/RequestCard';
 import Card from '@/components/Card';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { formatCategory } from '@/lib/utils';
+import { Loader2 } from 'lucide-react';
 
 interface CategoryGridProps {
   items: Item[];
   category: string;
+  isLoading?: boolean;
 }
 
 const sortOptions: { value: SortOption; label: string }[] = [
@@ -19,7 +21,7 @@ const sortOptions: { value: SortOption; label: string }[] = [
   { value: 'lastUpdated', label: 'Recently Added' },
 ];
 
-export default function CategoryGrid({ items, category }: CategoryGridProps) {
+export default function CategoryGrid({ items, category, isLoading = false }: CategoryGridProps) {
   const [search, setSearch] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('title');
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc');
@@ -109,6 +111,32 @@ export default function CategoryGrid({ items, category }: CategoryGridProps) {
 
   const hasActiveFilters = search || selectedTags.length > 0 || selectedYear;
 
+  if (isLoading) {
+    return (
+      <div className="space-y-6">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex-1 h-11 bg-[#111418] rounded-lg animate-pulse" />
+          <div className="flex gap-2">
+            <div className="w-32 h-11 bg-[#111418] rounded-lg animate-pulse" />
+            <div className="w-11 h-11 bg-[#111418] rounded-lg animate-pulse" />
+            <div className="w-11 h-11 bg-[#111418] rounded-lg animate-pulse" />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="bg-[#111418] rounded-xl overflow-hidden border border-[#222]">
+              <div className="relative h-48 skeleton" />
+              <div className="p-4 space-y-3">
+                <div className="h-5 w-3/4 skeleton" />
+                <div className="h-4 w-1/2 skeleton" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   if (items.length === 0) {
     return (
       <div className="text-center py-12">
@@ -139,7 +167,7 @@ export default function CategoryGrid({ items, category }: CategoryGridProps) {
             </button>
           )}
         </div>
-        <EmptyState searchQuery={search} />
+        <EmptyState searchQuery={search} category={`/${category}`} />
       </>
     );
   }
@@ -253,7 +281,7 @@ export default function CategoryGrid({ items, category }: CategoryGridProps) {
         {filteredItems.map((item, index) => (
           <ScrollReveal key={item.slug} animation="slide">
             <div className={index === 0 ? 'animate-slide-up' : ''}>
-              <Card item={item} category={category} />
+              <Card item={item} category={category} highlight={search} />
             </div>
           </ScrollReveal>
         ))}

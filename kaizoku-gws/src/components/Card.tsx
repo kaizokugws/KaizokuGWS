@@ -11,6 +11,25 @@ interface CardProps {
   item: Item;
   category: string;
   showTags?: boolean;
+  highlight?: string;
+}
+
+function HighlightText({ text, query }: { text: string; query: string }) {
+  if (!query.trim()) return <>{text}</>;
+  
+  const parts = text.split(new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'));
+  
+  return (
+    <>
+      {parts.map((part, i) => 
+        part.toLowerCase() === query.toLowerCase() ? (
+          <span key={i} className="bg-[#4FD1FF]/30 text-[#4FD1FF] rounded px-0.5">{part}</span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
 }
 
 function abbreviateSourceName(name: string): string {
@@ -23,7 +42,7 @@ function abbreviateSourceName(name: string): string {
   return name.split(' ')[0];
 }
 
-export default function Card({ item, category, showTags = false }: CardProps) {
+export default function Card({ item, category, showTags = false, highlight = '' }: CardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const href = `/${category}/${item.slug}`;
@@ -78,7 +97,7 @@ export default function Card({ item, category, showTags = false }: CardProps) {
         </div>
         <div className="p-4">
           <h3 className="font-semibold text-base truncate text-[#E6EDF3] group-hover:text-[#4FD1FF] transition-colors">
-            {item.title}
+            <HighlightText text={item.title} query={highlight} />
           </h3>
           <p className="text-[#9AA4AF] text-sm mt-1">{formatCategory(item.category)}</p>
           
