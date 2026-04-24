@@ -18,6 +18,14 @@ export const metadata: Metadata = {
   description: "Your ultimate destination for premium games and software downloads via BitTorrent",
   keywords: ["games", "software", "download", "torrent", "pc games", "repack"],
   viewport: "width=device-width, initial-scale=1",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", sizes: "16x16" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
