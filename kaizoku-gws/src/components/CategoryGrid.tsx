@@ -56,7 +56,7 @@ export default function CategoryGrid({ items, category }: CategoryGridProps) {
 
     if (selectedTags.length > 0) {
       result = result.filter((item) =>
-        selectedTags.some((tag) => item.tags?.includes(tag))
+        selectedTags.every((tag) => item.tags?.includes(tag))
       );
     }
 
