@@ -4,6 +4,7 @@ import { Search, X } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { Item } from '@/lib/types';
 import Link from 'next/link';
+import { formatCategory } from '@/lib/utils';
 
 interface SearchBarProps {
   items: Item[];
@@ -101,7 +102,7 @@ export default function SearchBar({ items, category }: SearchBarProps) {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-[#E6EDF3] truncate">{item.title}</p>
-                  <p className="text-xs text-[#9AA4AF]">{item.category}</p>
+                  <p className="text-xs text-[#9AA4AF]">{formatCategory(item.category)}</p>
                 </div>
               </Link>
             ))

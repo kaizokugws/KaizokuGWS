@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Item } from '@/lib/types';
-import { cn } from '@/lib/utils';
+import { cn, formatCategory } from '@/lib/utils';
 
 interface PerspectiveCarouselProps {
   items: Item[];
@@ -83,7 +83,7 @@ export function PerspectiveCarousel({ items, category, className }: PerspectiveC
                   <h3 className={cn("font-bold text-white truncate", isCenter ? "text-xl" : "text-sm")}>
                     {item.title}
                   </h3>
-                  <p className="text-xs text-gray-400">{item.category}</p>
+                  <p className="text-xs text-gray-400">{formatCategory(item.category)}</p>
                 </div>
               </Link>
             );

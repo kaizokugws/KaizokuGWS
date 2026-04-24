@@ -6,6 +6,7 @@ import EmptyState from '@/components/EmptyState';
 import RequestCard from '@/components/RequestCard';
 import Card from '@/components/Card';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { formatCategory } from '@/lib/utils';
 
 interface CategoryGridProps {
   items: Item[];
@@ -123,7 +124,7 @@ export default function CategoryGrid({ items, category }: CategoryGridProps) {
           <div className="flex items-center justify-between mb-4">
             <input
               type="text"
-              placeholder={`Search ${category.replace('-', ' ')}...`}
+              placeholder={`Search ${formatCategory(category)}...`}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="flex-1 bg-transparent text-sm focus:outline-none placeholder:text-[#9AA4AF] text-[#E6EDF3]"
@@ -148,7 +149,7 @@ export default function CategoryGrid({ items, category }: CategoryGridProps) {
       <div className="flex flex-col sm:flex-row gap-4">
         <input
           type="text"
-          placeholder={`Search ${category.replace('-', ' ')}...`}
+          placeholder={`Search ${formatCategory(category)}...`}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="flex-1 bg-[#111418] border border-[#222] rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:border-[#4FD1FF] transition-colors placeholder:text-[#9AA4AF] text-[#E6EDF3]"

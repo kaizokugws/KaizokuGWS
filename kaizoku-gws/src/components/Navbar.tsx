@@ -6,6 +6,7 @@ import { Menu, X, Gamepad2, Search, Monitor, Smartphone, Home } from 'lucide-rea
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Item } from '@/lib/types';
+import { formatCategory } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
@@ -138,7 +139,7 @@ export default function Navbar({ allItems }: NavbarProps) {
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-sm text-[#E6EDF3] truncate">{item.title}</p>
-                          <p className="text-xs text-[#9AA4AF]">{item.category}</p>
+                          <p className="text-xs text-[#9AA4AF]">{formatCategory(item.category)}</p>
                         </div>
                       </button>
                     ))
