@@ -6,6 +6,7 @@ import DownloadSection from '@/components/DownloadSection';
 import DownloadInfo from '@/components/DownloadInfo';
 import InstallationGuide from '@/components/InstallationGuide';
 import RelatedItems from '@/components/RelatedItems';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export async function generateStaticParams() {
   const slugs = getItemSlugs('pc-games');
@@ -25,8 +26,15 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
   const relatedItems = getRelatedItems(item, 4);
 
   return (
-    <div className="min-h-screen py-12">
+    <div className="min-h-screen py-8">
       <div className="max-w-5xl mx-auto px-4">
+        <div className="mb-6">
+          <Breadcrumbs items={[
+            { label: 'PC Games', href: '/pc-games' },
+            { label: item.title }
+          ]} />
+        </div>
+        
         <ItemHeader item={item} category="pc-games" about={item.about} />
 
         <ScreenshotGallery screenshots={item.screenshots} />
