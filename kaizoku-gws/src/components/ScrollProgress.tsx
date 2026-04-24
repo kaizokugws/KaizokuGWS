@@ -22,7 +22,10 @@ export function ScrollProgress() {
     <div className="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-transparent">
       <div 
         className="h-full bg-[#4FD1FF] transition-all duration-100 ease-out"
-        style={{ width: `${progress}%` }}
+        style={{
+          width: `${progress}%`,
+          boxShadow: progress > 0 ? '0 0 8px rgba(79, 209, 255, 0.8), 0 0 2px rgba(79, 209, 255, 1)' : 'none'
+        }}
       />
     </div>
   );
