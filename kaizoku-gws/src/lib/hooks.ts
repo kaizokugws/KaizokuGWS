@@ -23,21 +23,17 @@ export interface FavoriteItem {
   addedAt: string;
 }
 
-export function useRecentlyViewed() {
-  const [items, setItems] = useState<RecentlyViewedItem[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+function getStoredItems(key: string): RecentlyViewedItem[] {
+  try {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+}
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(RECENTLY_VIEWED_KEY);
-      if (stored) {
-        setItems(JSON.parse(stored));
-      }
-    } catch {
-      // ignore
-    }
-    setIsLoaded(true);
-  }, []);
+export function useRecentlyViewed() {
+  const [items, setItems] = useState<RecentlyViewedItem[]>(() => getStoredItems(RECENTLY_VIEWED_KEY));
 
   const addItem = useCallback((item: Omit<RecentlyViewedItem, 'viewedAt'>) => {
     setItems((prev) => {
@@ -69,27 +65,22 @@ export function useRecentlyViewed() {
 
   return {
     items,
-    isLoaded,
     addItem,
     clearItems,
   };
 }
 
-export function useFavorites() {
-  const [items, setItems] = useState<FavoriteItem[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+function getStoredFavorites(key: string): FavoriteItem[] {
+  try {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+}
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(FAVORITES_KEY);
-      if (stored) {
-        setItems(JSON.parse(stored));
-      }
-    } catch {
-      // ignore
-    }
-    setIsLoaded(true);
-  }, []);
+export function useFavorites() {
+  const [items, setItems] = useState<FavoriteItem[]>(() => getStoredFavorites(FAVORITES_KEY));
 
   const isFavorite = useCallback((slug: string) => {
     return items.some(item => item.slug === slug);
@@ -129,26 +120,22 @@ export function useFavorites() {
 
   return {
     items,
-    isLoaded,
     isFavorite,
     toggleFavorite,
     clearItems,
   };
 }
 
-export function useLastCategory() {
-  const [category, setCategory] = useState<string | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+function getStoredCategory(key: string): string | null {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(LAST_CATEGORY_KEY);
-      if (stored) {
-        setCategory(stored);
-      }
-    } catch {}
-    setIsLoaded(true);
-  }, []);
+export function useLastCategory() {
+  const [category, setCategory] = useState<string | null>(() => getStoredCategory(LAST_CATEGORY_KEY));
 
   const saveCategory = useCallback((cat: string) => {
     setCategory(cat);
@@ -159,24 +146,21 @@ export function useLastCategory() {
 
   return {
     category,
-    isLoaded,
     saveCategory,
   };
 }
 
-export function useSessionMemory<T>(key: string, initialValue: T) {
-  const [value, setValue] = useState<T>(initialValue);
+function getStoredSession<T>(key: string, initialValue: T): T {
+  try {
+    const stored = sessionStorage.getItem(key);
+    return stored ? JSON.parse(stored) : initialValue;
+  } catch {
+    return initialValue;
+  }
+}
 
-  useEffect(() => {
-    try {
-      const stored = sessionStorage.getItem(key);
-      if (stored) {
-        setValue(JSON.parse(stored));
-      }
-    } catch {
-      // ignore
-    }
-  }, [key]);
+export function useSessionMemory<T>(key: string, initialValue: T) {
+  const [value, setValue] = useState<T>(() => getStoredSession(key, initialValue));
 
   const saveValue = useCallback((newValue: T) => {
     setValue(newValue);

@@ -1,16 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRecentlyViewed, RecentlyViewedItem } from '@/lib/hooks';
+import { useRecentlyViewed } from '@/lib/hooks';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Clock, Trash2, X } from 'lucide-react';
+import { Clock, Trash2 } from 'lucide-react';
 
 export function RecentlyViewed() {
-  const { items, isLoaded, clearItems } = useRecentlyViewed();
+  const { items, clearItems } = useRecentlyViewed();
   const [isExpanded, setIsExpanded] = useState(true);
 
-  if (!isLoaded || items.length === 0) return null;
+  if (items.length === 0) return null;
 
   return (
     <section className="py-8">

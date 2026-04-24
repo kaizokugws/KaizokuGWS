@@ -13,7 +13,7 @@ interface FavoriteButtonProps {
 }
 
 export function FavoriteButton({ slug, title, thumbnail, category, className = '' }: FavoriteButtonProps) {
-  const { isFavorite, toggleFavorite, isLoaded } = useFavorites();
+  const { isFavorite, toggleFavorite } = useFavorites();
   
   const favorite = isFavorite(slug);
   
@@ -22,10 +22,6 @@ export function FavoriteButton({ slug, title, thumbnail, category, className = '
     e.stopPropagation();
     toggleFavorite({ slug, title, thumbnail, category });
   };
-  
-  if (!isLoaded) {
-    return <div className="w-8 h-8" />;
-  }
   
   return (
     <motion.button
@@ -45,9 +41,9 @@ export function FavoriteButton({ slug, title, thumbnail, category, className = '
 }
 
 export function FavoritesList() {
-  const { items, isLoaded, clearItems } = useFavorites();
+  const { items, clearItems } = useFavorites();
   
-  if (!isLoaded || items.length === 0) return null;
+  if (items.length === 0) return null;
   
   return (
     <section className="py-8">

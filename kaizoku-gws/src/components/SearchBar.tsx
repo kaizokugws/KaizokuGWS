@@ -1,7 +1,7 @@
 'use client';
 
 import { Search, X } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { Item } from '@/lib/types';
 import Link from 'next/link';
 import { formatCategory } from '@/lib/utils';
@@ -13,25 +13,19 @@ interface SearchBarProps {
 
 export default function SearchBar({ items, category }: SearchBarProps) {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<Item[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!query.trim()) {
-      setResults([]);
-      return;
-    }
-
+  const results = useMemo(() => {
+    if (!query.trim()) return [];
     const q = query.toLowerCase().trim();
-    const filtered = items
+    return items
       .filter(item =>
         item.title.toLowerCase().includes(q) ||
         item.aliases?.some(alias => alias.toLowerCase().includes(q)) ||
         item.tags?.some(tag => tag.toLowerCase().includes(q))
       )
       .slice(0, 8);
-    setResults(filtered);
   }, [query, items]);
 
   useEffect(() => {
@@ -73,7 +67,6 @@ export default function SearchBar({ items, category }: SearchBarProps) {
           <button
             onClick={() => {
               setQuery('');
-              setResults([]);
               setIsOpen(false);
             }}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9AA4AF] hover:text-[#E6EDF3] transition-colors"
@@ -108,7 +101,7 @@ export default function SearchBar({ items, category }: SearchBarProps) {
             ))
           ) : query.trim() ? (
             <div className="p-4 text-center text-[#9AA4AF] text-sm">
-              No results found for "{query}"
+              No results found for &quot;{query}&quot;
             </div>
           ) : null}
         </div>

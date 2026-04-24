@@ -127,7 +127,7 @@ function parseContentSections(htmlContent: string): Record<string, unknown> {
     const match = htmlContent.match(regex);
     
     if (match && match[1]) {
-      let content = match[1].trim();
+      const content = match[1].trim();
       if (heading === 'Screenshots') {
         const images: string[] = [];
         const imgRegex = /<img[^>]+src="([^"]+)"/g;
