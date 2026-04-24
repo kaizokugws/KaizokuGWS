@@ -108,7 +108,13 @@ export default function RequestPage() {
         </form>
 
         <p className="text-center text-[#9AA4AF] text-sm mt-8">
-          Or email us directly at <a href="mailto:kaizokugws@gmail.com" className="text-[#4FD1FF] hover:text-[#6ED8FF]">kaizokugws@gmail.com</a>
+          Or email us directly at{' '}
+          <a 
+            href="mailto:kaizokugws@gmail.com" 
+            className="inline-flex items-center gap-1 px-4 py-2 bg-[#4FD1FF]/10 border border-[#4FD1FF]/30 rounded-lg text-[#4FD1FF] font-bold hover:bg-[#4FD1FF]/20 hover:border-[#4FD1FF] transition-colors"
+          >
+            <span className="text-base">kaizokugws@gmail.com</span>
+          </a>
         </p>
       </div>
     </div>
