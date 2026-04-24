@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${inter.className} min-h-full flex flex-col bg-[#0B0D10]`}>
         <ScrollProgress />
         <Navbar allItems={allItems} />
-        <main className="flex-1 pt-16">
+        <main className="flex-1 pt-16 relative z-0">
           <PageTransition>
             {children}
           </PageTransition>

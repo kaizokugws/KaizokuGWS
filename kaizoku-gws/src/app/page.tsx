@@ -114,28 +114,31 @@ export default function Home() {
 
       {/* Trending */}
       {trendingGames.length > 0 && (
-        <section className="py-20 bg-[#0B0D10]">
+        <section className="py-20">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="flex items-center justify-between mb-10">
-              <h2 className="text-heading-2 text-[#E6EDF3]">Trending Games</h2>
-              <Link
-                href="/pc-games"
-                className="flex items-center gap-2 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors"
-              >
-                View All <ArrowRight className="w-4 h-4" />
-              </Link>
+            <div className="glass-panel rounded-3xl p-8 border border-[var(--glass-border)] border-t-[var(--glass-border-strong)] shadow-[var(--glass-shadow)]">
+              <div className="flex items-center justify-between mb-10">
+                <h2 className="text-heading-2 text-[#E6EDF3]">Trending Games</h2>
+                <Link
+                  href="/pc-games"
+                  className="flex items-center gap-2 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors"
+                >
+                  View All <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+              <TrendingCarousel items={trendingGames} category="pc-games" className="px-12" />
             </div>
-            <TrendingCarousel items={trendingGames} category="pc-games" className="px-12" />
           </div>
         </section>
       )}
 
-      {/* Featured */}
+{/* Featured */}
       {featuredGame && (
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="bg-[#111418] rounded-2xl overflow-hidden border border-[#222] hover:border-[#4FD1FF] transition-all duration-300">
-              <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div className="relative overflow-hidden rounded-3xl border border-[var(--glass-border)] shadow-[var(--glass-shadow)]">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#080810]/80 via-[#080810]/50 to-[rgba(79,209,255,0.08)] backdrop-blur-sm z-0" />
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2">
                 <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[400px]">
                   <Image
                     src={featuredGame.thumbnail}
@@ -144,12 +147,12 @@ export default function Home() {
                     className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent lg:bg-gradient-to-l lg:to-transparent to-[#0B0D10]/60" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent lg:bg-gradient-to-l lg:to-transparent to-[#080810]/60" />
                 </div>
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
                   <span className="text-sm text-[#4FD1FF] uppercase tracking-wider mb-2">Featured</span>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#E6EDF3]">{featuredGame.title}</h2>
-<p className="text-[#9AA4AF] mb-6">
+                  <p className="text-[#9AA4AF] mb-6">
                     {featuredDescription}
                   </p>
                   <div className="flex flex-wrap gap-4">
@@ -175,7 +178,7 @@ export default function Home() {
       )}
 
       {/* Categories */}
-      <section className="py-20 bg-[#0B0D10]">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center text-[#E6EDF3]">Browse by Category</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -243,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* Recently Added */}
-      <section className="py-20 bg-[#0B0D10]">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between mb-10">
             <h2 className="text-3xl font-bold text-[#E6EDF3]">Recently Added</h2>
@@ -263,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* Request CTA */}
-      <section className="py-20 bg-[#0B0D10]">
+      <section className="py-20">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div className="bg-[#111418] rounded-2xl p-12 border border-[#222] hover:border-[#4FD1FF] transition-all duration-300 hover:shadow-[0_0_40px_rgba(79,209,255,0.1)]">
             <div className="w-16 h-16 rounded-full bg-[#4FD1FF]/20 flex items-center justify-center mx-auto mb-6">
