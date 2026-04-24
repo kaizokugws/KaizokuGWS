@@ -109,14 +109,8 @@ export default function RequestPage() {
 
         <p className="text-center text-[#9AA4AF] text-lg mt-8">
           Or email us directly at{' '}
-          <a 
-            href="mailto:kaizokugws@gmail.com" 
-            className="inline-flex items-center gap-1 px-5 py-2.5 bg-transparent border border-[#4FD1FF] rounded-lg text-[#FFFFFF] font-bold text-lg hover:bg-[#4FD1FF]/10 transition-all duration-300"
-            style={{
-              textShadow: '0 0 8px rgba(79, 209, 255, 0.25)',
-            }}
-          >
-            <span className="text-xl">kaizokugws@gmail.com</span>
+          <a href="mailto:kaizokugws@gmail.com" className="text-[#4FD1FF] hover:text-[#6ED8FF] underline decoration-[#4FD1FF] bg-transparent">
+            kaizokugws@gmail.com
           </a>
         </p>
       </div>
