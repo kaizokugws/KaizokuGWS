@@ -5,6 +5,14 @@ import { getTrendingItems, getFeaturedItem, getPopularItems, getRecentlyAdded, g
 import { TrendingCarousel } from '@/components/TrendingCarousel';
 import Card from '@/components/Card';
 
+const GENERIC_DESCRIPTION = "Discover the ultimate gaming experience. Download now and dive into an epic adventure.";
+
+function truncateDescription(text: string, maxLength: number): string {
+  if (!text) return GENERIC_DESCRIPTION;
+  if (text.length <= maxLength) return text;
+  return text.substring(0, maxLength).trim() + '...';
+}
+
 export default function Home() {
   const pcGames = getAllItems('pc-games');
   
@@ -12,6 +20,10 @@ export default function Home() {
   const featuredGame = getFeaturedItem('pc-games');
   const popularGames = getPopularItems('pc-games', 8);
   const recentGames = getRecentlyAdded('pc-games', 8);
+  
+  const featuredDescription = featuredGame?.description 
+    ? truncateDescription(featuredGame.description, 120) 
+    : GENERIC_DESCRIPTION;
 
   return (
     <div>
@@ -137,8 +149,8 @@ export default function Home() {
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
                   <span className="text-sm text-[#4FD1FF] uppercase tracking-wider mb-2">Featured</span>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#E6EDF3]">{featuredGame.title}</h2>
-                  <p className="text-[#9AA4AF] mb-6">
-                    Discover the ultimate gaming experience. Download now and dive into an epic adventure.
+<p className="text-[#9AA4AF] mb-6">
+                    {featuredDescription}
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <Link

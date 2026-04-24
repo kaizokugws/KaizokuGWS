@@ -11,6 +11,7 @@ featured: true
 trending: true
 popular: true
 lastUpdated: "2024-02-20"
+description: "Experience the enhanced edition with ray-traced reflections, HDR support, and faster load times in Los Santos."
 sources:
   - name: "Dodi Repack"
     file: "gta-5-enhanced-dodi"

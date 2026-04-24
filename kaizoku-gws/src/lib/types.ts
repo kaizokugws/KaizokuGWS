@@ -24,6 +24,7 @@ export interface Item {
   popular?: boolean;
   lastUpdated?: string;
   related?: string[];
+  description?: string;
 }
 
 export interface ParsedItem extends Item {
@@ -32,6 +33,7 @@ export interface ParsedItem extends Item {
   screenshots: string[];
   systemRequirements: string;
   installationGuide: string;
+  description?: string;
 }
 
 export interface ItemFilter {

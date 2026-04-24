@@ -10,6 +10,7 @@ tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar"]
 featured: true
 trending: true
 lastUpdated: "2024-02-20"
+description: "Explore the sprawling sun-soaked metropolis of Los Santos in the ultimate GTA Online experience."
 sources:
   - name: "FitGirl Repack"
     file: "gta-v-fitgirl"

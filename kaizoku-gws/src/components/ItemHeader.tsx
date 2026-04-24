@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import { ArrowLeft, Monitor, Smartphone, Tag } from 'lucide-react';
+import { ArrowLeft, Monitor, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { Item } from '@/lib/types';
+import { formatCategory } from '@/lib/utils';
 
 interface ItemHeaderProps {
   item: Item;
@@ -17,7 +18,7 @@ export default function ItemHeader({ item, category, about }: ItemHeaderProps) {
         className="inline-flex items-center gap-2 text-[#9AA4AF] hover:text-[#4FD1FF] transition-colors mb-6"
       >
         <ArrowLeft className="w-4 h-4" />
-        Back to {category.replace('-', ' ')}
+        Back to {formatCategory(category)}
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -58,7 +59,7 @@ export default function ItemHeader({ item, category, about }: ItemHeaderProps) {
             </div>
             <div className="flex items-center gap-2 px-3 py-1.5 bg-[#111418] rounded-lg border border-[#222]">
               <span className="text-sm text-[#9AA4AF]">Category:</span>
-              <span className="text-sm text-[#E6EDF3]">{item.category}</span>
+              <span className="text-sm text-[#E6EDF3]">{formatCategory(item.category)}</span>
             </div>
           </div>
 

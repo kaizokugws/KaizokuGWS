@@ -5,11 +5,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Item } from '@/lib/types';
+import { formatCategory } from '@/lib/utils';
 
 interface CardProps {
   item: Item;
   category: string;
   showTags?: boolean;
+}
+
+function abbreviateSourceName(name: string): string {
+  const map: Record<string, string> = {
+    'FitGirl Repack': 'FitGirl',
+    'Dodi Repack': 'Dodi',
+    'MR DJ Repack': 'MR DJ',
+  };
+  if (map[name]) return map[name];
+  return name.split(' ')[0];
 }
 
 export default function Card({ item, category, showTags = false }: CardProps) {
@@ -20,6 +31,10 @@ export default function Card({ item, category, showTags = false }: CardProps) {
   const displayTags = useMemo(() => {
     return item.tags?.slice(0, 3) || [];
   }, [item.tags]);
+
+  const displaySources = useMemo(() => {
+    return item.sources?.slice(0, 2) || [];
+  }, [item.sources]);
 
   return (
     <Link 
@@ -48,12 +63,24 @@ export default function Card({ item, category, showTags = false }: CardProps) {
               isHovered ? 'opacity-100' : 'opacity-0'
             }`} 
           />
+          {displaySources.length > 0 && (
+            <div className="absolute bottom-2 left-2 flex flex-wrap gap-1">
+              {displaySources.map((source) => (
+                <span 
+                  key={source.file}
+                  className="px-2 py-0.5 text-[10px] bg-[#0B0D10]/80 text-[#4FD1FF] rounded border border-[#4FD1FF]/30 backdrop-blur-sm"
+                >
+                  {abbreviateSourceName(source.name)}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
         <div className="p-4">
           <h3 className="font-semibold text-base truncate text-[#E6EDF3] group-hover:text-[#4FD1FF] transition-colors">
             {item.title}
           </h3>
-          <p className="text-[#9AA4AF] text-sm mt-1">{item.category}</p>
+          <p className="text-[#9AA4AF] text-sm mt-1">{formatCategory(item.category)}</p>
           
           {showTags && displayTags.length > 0 && (
             <div className="flex flex-wrap gap-1 mt-2">

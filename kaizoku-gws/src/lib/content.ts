@@ -39,6 +39,7 @@ function getDefaultValues(data: Record<string, unknown>, _slug: string): Partial
     aliases: Array.isArray(d.aliases) ? (d.aliases as string[]).map((a: string) => a.toLowerCase()) : [],
     related: Array.isArray(d.related) ? d.related as string[] : [],
     sources,
+    description: typeof d.description === 'string' ? d.description : undefined,
   };
 }
 
@@ -75,6 +76,7 @@ export function getItemBySlug(category: string, slug: string): Item {
     trending: defaults.trending,
     popular: defaults.popular,
     lastUpdated: defaults.lastUpdated,
+    description: defaults.description,
   };
   
   validateItem(item, realSlug, category);
@@ -112,12 +114,13 @@ export async function getParsedItemBySlug(category: string, slug: string): Promi
     screenshots: (sections.screenshots as string[]) || [],
     systemRequirements: (sections.systemRequirements as string) || '',
     installationGuide: (sections.installationGuide as string) || '',
+    description: defaults.description,
   };
 }
 
 function parseContentSections(htmlContent: string): Record<string, unknown> {
   const sections: Record<string, unknown> = {};
-  const headings = ['About', 'Screenshots', 'System Requirements', 'Installation Guide'];
+  const headings = ['About', 'Screenshots', 'Download', 'System Requirements', 'Installation Guide'];
   
   for (const heading of headings) {
     const regex = new RegExp(`<h[1-3]>\\s*${heading}\\s*</h[1-3]>([\\s\\S]*?)(?=<h[1-3]>\\s*(${headings.join('|')})\\s*</h[1-3]>|$)`, 'i');

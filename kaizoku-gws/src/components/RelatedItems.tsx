@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Item } from '@/lib/types';
 import { ArrowRight } from 'lucide-react';
+import { formatCategory } from '@/lib/utils';
 
 interface RelatedItemsProps {
   items: Item[];
@@ -36,7 +37,7 @@ export default function RelatedItems({ items }: RelatedItemsProps) {
                 <h3 className="font-medium text-sm truncate text-[#E6EDF3] group-hover:text-[#4FD1FF] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-[#9AA4AF] text-xs mt-1">{item.category}</p>
+                <p className="text-[#9AA4AF] text-xs mt-1">{formatCategory(item.category)}</p>
               </div>
             </div>
           </Link>
