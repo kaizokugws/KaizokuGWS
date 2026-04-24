@@ -2,7 +2,7 @@
 title: "Sekiro: Shadows Die Twice"
 slug: "sekiro"
 platform: "PC"
-category: "Action"
+category: "pc-games"
 thumbnail: "/images/sekiro.jpg"
 size: "25 GB"
 releaseYear: 2019
@@ -10,8 +10,10 @@ tags: ["action", "adventure", "souls-like", "stealth", "fromsoftware"]
 featured: false
 trending: true
 popular: true
-lastUpdated: "2024-01-10"
+lastUpdated: "2026-04-24"
 sources:
+  - name: "FitGirl Repack"
+    file: "sekiro-fitgirl"
   - name: "Dodi Repack"
     file: "sekiro-dodi"
 aliases: ["sekiro", "shadows die twice", "fromsoftware", "souls"]
@@ -25,8 +27,7 @@ Hone your skills to master the arts of stealth, combat, and traversal, and disco
 
 ## Download
 
-- [DODI Repack](magnet:?xt=urn:btih:0F1C8FCA38A1EB75A6B85A580D16FACF74E2206E)
-- [Fitgirl Repack](magnet:?xt=urn:btih:7A3C8F72B5E9F6A1D4C8B3E2F9A6D5C8B1E3F7A2D9C)
+Torrents are sourced from trusted uploaders. Download speeds depend on seeders.
 
 ## System Requirements
 
