@@ -11,8 +11,8 @@ featured: false
 trending: false
 lastUpdated: "2024-01-10"
 sources:
-  - name: "Source Pending"
-    file: "nioh-2-unknown"
+  - name: "DODI Repack"
+    file: "nioh-2-dodi"
 aliases: ["nioh", "nioh 2", "team ninja", "souls", "action rpg"]
 ---
 
