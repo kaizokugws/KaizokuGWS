@@ -111,9 +111,9 @@ export default function RequestPage() {
           Or email us directly at{' '}
           <a 
             href="mailto:kaizokugws@gmail.com" 
-            className="inline-flex items-center gap-1 px-5 py-2.5 bg-[#4FD1FF]/20 border border-[#4FD1FF]/60 rounded-lg text-[#7FFFFF] font-bold text-lg hover:bg-[#4FD1FF]/30 hover:border-[#4FD1FF] transition-all duration-300"
+            className="inline-flex items-center gap-1 px-5 py-2.5 bg-[#4FD1FF]/25 border border-[#4FD1FF]/70 rounded-lg text-[#BFFFFD] font-bold text-lg hover:bg-[#4FD1FF]/35 hover:border-[#4FD1FF] transition-all duration-300"
             style={{
-              textShadow: '0 0 15px rgba(127, 255, 255, 0.9), 0 0 30px rgba(127, 255, 255, 0.6), 0 0 45px rgba(79, 209, 255, 0.4)',
+              textShadow: '0 0 20px rgba(127, 255, 255, 1), 0 0 40px rgba(127, 255, 255, 0.8), 0 0 60px rgba(79, 209, 255, 0.6)',
             }}
           >
             <span className="text-xl">kaizokugws@gmail.com</span>
