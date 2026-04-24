@@ -10,10 +10,9 @@ tags: ["rpg", "turn-based", "fantasy", "indie"]
 featured: false
 trending: true
 lastUpdated: "2025-01-01"
-magnetFile: "magnet:?xt=urn:btih:281DFF0811B3358363A34C88766363BA444A5C05&dn=Clair%20Obscur%20Expedition%2033%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce"
-repacks:
-  - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:281DFF0811B3358363A34C88766363BA444A5C05&dn=Clair%20Obscur%20Expedition%2033%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2fthetracker.org%3a80%2fannounce"
+sources:
+  - name: "Dodi Repack"
+    file: "expedition-33-dodi"
 aliases: ["expedition 33", "clair obscur", "expedition33"]
 ---
 

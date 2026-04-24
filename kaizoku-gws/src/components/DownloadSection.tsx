@@ -1,28 +1,58 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Download, AlertTriangle, CheckCircle, XCircle, FileText, HardDrive, Clock, ChevronRight, Check } from 'lucide-react';
-
-interface DownloadOption {
-  name: string;
-  magnetFile: string;
-  version?: string;
-  notes?: string;
-}
+import { DownloadSource } from '@/lib/types';
 
 interface DownloadSectionProps {
-  magnetFiles: DownloadOption[];
+  sources: DownloadSource[];
   title: string;
   fileSize?: string;
   lastUpdated?: string;
 }
 
-export default function DownloadSection({ magnetFiles, title, fileSize, lastUpdated }: DownloadSectionProps) {
+export default function DownloadSection({ sources, title, fileSize, lastUpdated }: DownloadSectionProps) {
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState(1);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [downloading, setDownloading] = useState(false);
+  const [magnets, setMagnets] = useState<Map<string, string>>(new Map());
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchMagnets() {
+      if (!sources || sources.length === 0) {
+        setLoading(false);
+        return;
+      }
+
+      const magnetMap = new Map<string, string>();
+      
+      for (let i = 0; i < sources.length; i++) {
+        const source = sources[i];
+        try {
+          const response = await fetch(`/magnets/${source.file}.txt`);
+          if (response.ok) {
+            const text = await response.text();
+            const trimmed = text.trim();
+            magnetMap.set(source.file, trimmed);
+          }
+        } catch (e) {
+          console.error(`Failed to fetch magnet for ${source.file}`);
+        }
+      }
+      
+      setMagnets(magnetMap);
+      setLoading(false);
+    }
+
+    fetchMagnets();
+  }, [sources]);
+
+  const getMagnet = (file: string): string => {
+    return magnets.get(file) || '';
+  };
 
   const handleDownload = (index: number) => {
     setSelectedIndex(index);
@@ -36,10 +66,10 @@ export default function DownloadSection({ magnetFiles, title, fileSize, lastUpda
   };
 
   const confirmDownload = () => {
-    const magnetLink = magnetFiles[selectedIndex].magnetFile;
+    const magnetLink = getMagnet(sources[selectedIndex].file);
     
     if (!magnetLink || !magnetLink.startsWith('magnet:')) {
-      setError('Invalid magnet link');
+      setError('Invalid or missing magnet link');
       return;
     }
     
@@ -56,11 +86,19 @@ export default function DownloadSection({ magnetFiles, title, fileSize, lastUpda
     setDownloading(false);
   };
 
-  const isValidMagnet = (url: string) => {
-    return url && url.startsWith('magnet:?xt=');
+  const isValidMagnet = (file: string): boolean => {
+    const link = getMagnet(file);
+    return link && link.startsWith('magnet:');
   };
 
-  const selectedOption = magnetFiles[selectedIndex];
+  if (!sources || sources.length === 0) {
+    return (
+      <div className="bg-[#111418] rounded-xl p-6 border border-[#222]">
+        <h2 className="text-xl font-bold mb-4 text-[#E6EDF3]">Download</h2>
+        <p className="text-[#9AA4AF]">No downloads available</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -85,11 +123,11 @@ export default function DownloadSection({ magnetFiles, title, fileSize, lastUpda
         )}
 
         <div className="flex flex-col sm:flex-row gap-4">
-          {magnetFiles.map((option, index) => {
-            const valid = isValidMagnet(option.magnetFile);
+          {sources.map((source, index) => {
+            const valid = loading || isValidMagnet(source.file);
             return (
               <button
-                key={option.name}
+                key={source.file}
                 onClick={() => handleDownload(index)}
                 disabled={!valid}
                 className={`flex items-center justify-center gap-2 font-semibold py-3 px-6 rounded-lg transition-all duration-200 ${
@@ -99,12 +137,12 @@ export default function DownloadSection({ magnetFiles, title, fileSize, lastUpda
                 }`}
               >
                 <Download className="w-5 h-5" />
-                {option.name}
+                {`Download — ${source.name}`}
               </button>
             );
           })}
         </div>
-        {magnetFiles.some(m => !isValidMagnet(m.magnetFile)) && (
+        {sources.some(s => !isValidMagnet(s.file)) && (
           <p className="text-red-400 text-sm mt-4 flex items-center gap-2">
             <XCircle className="w-4 h-4" />
             Some download options unavailable
@@ -123,7 +161,6 @@ export default function DownloadSection({ magnetFiles, title, fileSize, lastUpda
             onClick={closeModal}
           />
           <div className="relative bg-[#111418] rounded-xl p-6 max-w-lg w-full border border-[#222] animate-scale-in">
-            {/* Step indicator */}
             <div className="flex items-center justify-center gap-2 mb-6">
               {[1, 2, 3].map((s) => (
                 <div key={s} className="flex items-center">
@@ -154,9 +191,9 @@ export default function DownloadSection({ magnetFiles, title, fileSize, lastUpda
                 </div>
                 
                 <div className="space-y-3 mb-6">
-                  {magnetFiles.map((option, index) => (
+                  {sources.map((source, index) => (
                     <button
-                      key={option.name}
+                      key={source.file}
                       onClick={() => setSelectedIndex(index)}
                       className={`w-full p-4 rounded-lg border text-left transition-all ${
                         selectedIndex === index
@@ -166,10 +203,7 @@ export default function DownloadSection({ magnetFiles, title, fileSize, lastUpda
                     >
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="font-medium text-[#E6EDF3]">{option.name}</div>
-                          {option.version && (
-                            <div className="text-sm text-[#9AA4AF]">Version: {option.version}</div>
-                          )}
+                          <div className="font-medium text-[#E6EDF3]">{source.name}</div>
                         </div>
                         {selectedIndex === index && (
                           <CheckCircle className="w-5 h-5 text-[#4FD1FF]" />
@@ -216,24 +250,6 @@ export default function DownloadSection({ magnetFiles, title, fileSize, lastUpda
                       <div className="text-[#E6EDF3]">{fileSize || 'Unknown'}</div>
                     </div>
                   </div>
-                  {selectedOption.version && (
-                    <div className="flex items-center gap-3 p-3 bg-[#161A20] rounded-lg">
-                      <Clock className="w-5 h-5 text-[#4FD1FF]" />
-                      <div>
-                        <div className="text-sm text-[#9AA4AF]">Version</div>
-                        <div className="text-[#E6EDF3]">{selectedOption.version}</div>
-                      </div>
-                    </div>
-                  )}
-                  {selectedOption.notes && (
-                    <div className="flex items-start gap-3 p-3 bg-[#161A20] rounded-lg">
-                      <FileText className="w-5 h-5 text-[#4FD1FF] mt-0.5" />
-                      <div>
-                        <div className="text-sm text-[#9AA4AF]">Notes</div>
-                        <div className="text-[#E6EDF3]">{selectedOption.notes}</div>
-                      </div>
-                    </div>
-                  )}
                 </div>
                 
                 <button
@@ -261,7 +277,7 @@ export default function DownloadSection({ magnetFiles, title, fileSize, lastUpda
                 <div className="bg-[#161A20] rounded-lg p-4 mb-6">
                   <div className="flex items-center gap-3 mb-3">
                     <CheckCircle className="w-5 h-5 text-[#4FD1FF]" />
-                    <span className="text-[#E6EDF3]">{selectedOption.name}</span>
+                    <span className="text-[#E6EDF3]">{sources[selectedIndex].name}</span>
                   </div>
                   <p className="text-[#9AA4AF] text-sm">
                     This will open your BitTorrent client to begin downloading "{title}".

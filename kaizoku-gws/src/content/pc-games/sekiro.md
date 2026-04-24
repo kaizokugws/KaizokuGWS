@@ -9,13 +9,11 @@ releaseYear: 2019
 tags: ["action", "adventure", "souls-like", "stealth", "fromsoftware"]
 featured: false
 trending: true
+popular: true
 lastUpdated: "2024-01-10"
-magnetFile: "magnet:?xt=urn:btih:0F1C8FCA38A1EB75A6B85A580D16FACF74E2206E&dn=Sekiro%20Shadows%20Die%20Twice%20-%20%5bDODI%20Repack%5d"
-repacks:
-  - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:0F1C8FCA38A1EB75A6B85A580D16FACF74E2206E&dn=Sekiro%20Shadows%20Die%20Twice%20-%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2730%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce"
-  - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:7A3C8F72B5E9F6A1D4C8B3E2F9A6D5C8B1E3F7A2D9C&dn=Sekiro%20Shadows%20Die%20Twice%20%5bFitGirl%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce"
+sources:
+  - name: "Dodi Repack"
+    file: "sekiro-dodi"
 aliases: ["sekiro", "shadows die twice", "fromsoftware", "souls"]
 ---
 

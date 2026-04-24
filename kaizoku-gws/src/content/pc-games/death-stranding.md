@@ -9,13 +9,11 @@ releaseYear: 2019
 tags: ["action", "adventure", "open-world", "post-apocalyptic", "story", "kojima"]
 featured: false
 trending: true
+popular: true
 lastUpdated: "2024-01-10"
-magnetFile: "magnet:?xt=urn:btih:22270D922398778DF01DA9E0BE5F22AD1DE60820&dn=Death+Stranding"
-repacks:
-  - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:22270D922398778DF01DA9E0BE5F22AD1DE60820&dn=DEATH+STRANDING+DIRECTORS+CUT+%5bDODI+Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337"
-  - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:4FDE56AB234C89DE01F23CB56ADE789F01BCDEF2&dn=Death+Stranding+FitGirl+Repack&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337"
+sources:
+  - name: "Dodi Repack"
+    file: "death-stranding-dodi"
 aliases: ["ds", "death stranding", "kojima", "hideo kojima", "kojima productions"]
 ---
 

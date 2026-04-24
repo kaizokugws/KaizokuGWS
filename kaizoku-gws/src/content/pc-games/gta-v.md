@@ -10,12 +10,9 @@ tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar"]
 featured: true
 trending: true
 lastUpdated: "2024-02-20"
-magnetFile: "magnet:?xt=urn:btih:9FB620FFB9CB0D6F68AAA042DF9741D68221BF2D&dn=Grand+Theft+Auto+V"
-repacks:
-  - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:9FB620FFB9CB0D6F68AAA042DF9741D68221BF2D&dn=Grand+Theft+Auto+V+%28v1.0.3411%2F1.70+%2B+NVE+Platinum+Modpack+%2C+MULTi13%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce"
-  - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:8ABCD1234EFG567HIJ890KLMN123456PQRSTU&dn=GTA+V+DODI+Repack&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce"
+sources:
+  - name: "FitGirl Repack"
+    file: "gta-v-fitgirl"
 aliases: ["gta", "gta 5", "gta v", "grand theft auto", "gta online"]
 ---
 

@@ -9,13 +9,11 @@ releaseYear: 2017
 tags: ["action", "adventure", "open-world", "stealth", "ancient-egypt", "ubisoft"]
 featured: false
 trending: true
+popular: true
 lastUpdated: "2024-01-10"
-magnetFile: "magnet:?xt=urn:btih:221F6FA9E0E1CAA8BE8C18A09AF1EDF5100749A3&dn=Assassins+Creed+Origins"
-repacks:
-  - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:221F6FA9E0E1CAA8BE8C18A09AF1EDF5100749A3&dn=Assassins+Creed+Origins-DODI&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce"
-  - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:3CDE45FA12BC78D9AE01F23BA45CDEF890123ABCDE&dn=Assassins+Creed+Origins+FitGirl&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce"
+sources:
+  - name: "CPY Repack"
+    file: "ac-origins-cpy"
 aliases: ["ac", "assassin's creed", "assassins creed", "origins", "ancient egypt", "ubisoft"]
 ---
 

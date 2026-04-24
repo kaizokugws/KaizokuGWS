@@ -22,10 +22,6 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const item = await getParsedItemBySlug('mobile-apps', slug);
   
-  const downloadOptions = item.repacks && item.repacks.length > 0
-    ? item.repacks.map(r => ({ name: r.name, magnetFile: r.magnetFile }))
-    : [{ name: 'Download', magnetFile: item.magnetFile }];
-
   const relatedItems = getRelatedItems(item, 4);
 
   return (
@@ -37,7 +33,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
         <SystemRequirements requirements={item.systemRequirements} />
         <DownloadInfo item={item} />
         <DownloadSection 
-          magnetFiles={downloadOptions} 
+          sources={item.sources || []} 
           title={item.title}
           fileSize={item.size}
           lastUpdated={item.lastUpdated}

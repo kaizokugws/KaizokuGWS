@@ -14,8 +14,6 @@ export interface Item {
   platform: 'PC' | 'Mobile';
   category: string;
   thumbnail: string;
-  magnetFile: string;
-  repacks: Repack[];
   sources?: DownloadSource[];
   aliases?: string[];
   size?: string;
@@ -23,6 +21,7 @@ export interface Item {
   tags?: string[];
   featured?: boolean;
   trending?: boolean;
+  popular?: boolean;
   lastUpdated?: string;
   related?: string[];
 }

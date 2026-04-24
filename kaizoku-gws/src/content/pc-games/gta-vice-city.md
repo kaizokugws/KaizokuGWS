@@ -10,12 +10,9 @@ tags: ["action", "open-world", "crime", "classic", "80s", "rockstar"]
 featured: false
 trending: false
 lastUpdated: "2024-01-05"
-magnetFile: "magnet:?xt=urn:btih:fccc6da9292ce25df93f24ef110c83cee6a02188&dn=Grand+theft+Auto+GTA+Vice+City"
-repacks:
-  - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:fccc6da9292ce25df93f24ef110c83cee6a02188&dn=Grand+theft+Auto+GTA+Vice+City+v+1.1+repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:1ADF7EB2C3CE45DE91F35FA02B4C8D9EE7F6A1B3&dn=GTA+Vice+City+FitGirl+Repack&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+sources:
+  - name: "MR DJ Repack"
+    file: "gta-vice-city-mrdj"
 aliases: ["gta", "vice city", "gta vc", "grand theft auto vice city", "tom tommy"]
 ---
 

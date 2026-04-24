@@ -10,12 +10,9 @@ tags: ["open-world", "action", "western", "story", "rockstar"]
 featured: false
 trending: true
 lastUpdated: "2024-01-15"
-magnetFile: "magnet:?xt=urn:btih:A29E7776AA7132ACA680A3627F171779C5DD2E1C&dn=Red+Dead+Redemption+2"
-repacks:
-  - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:A29E7776AA7132ACA680A3627F171779C5DD2E1C&dn=Red+Dead+Redemption+2+%5bDODI+Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337"
-  - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:B38F886BB8234BDACA791B473828890D6DEE3F2D&dn=Red+Dead+Redemption+2+FitGirl+Repack&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce"
+sources:
+  - name: "Dodi Repack"
+    file: "rdr2-dodi"
 aliases: ["rdr", "red dead", "red dead redemption", "rdr 2"]
 ---
 

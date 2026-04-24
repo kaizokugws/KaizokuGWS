@@ -10,12 +10,9 @@ tags: ["racing", "arcade", "cars", "street-racing"]
 featured: false
 trending: false
 lastUpdated: "2024-01-05"
-magnetFile: "magnet:?xt=urn:btih:809AC4C0A4D1184AE057CE11B57B5E60FC2772E1&dn=Need+For+Speed+Most+Wanted+Black+Edition+Repack+Mr+DJ"
-repacks:
-  - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:809AC4C0A4D1184AE057CE11B57B5E60FC2772E1&dn=Need+For+Speed+Most+Wanted+Black+Edition+Repack+Mr+DJ&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:3F7B9A2C1D8E5F6B4A2C9D1E7F3B5A8C2D4F1E9B6A3C&dn=NFS+Most+Wanted+2005+FitGirl+Repack&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
+sources:
+  - name: "Dodi Repack"
+    file: "nfs-most-wanted-2005-dodi"
 aliases: ["nfs", "need for speed", "most wanted", "mw 2005", "mw", "nfsmw", "black edition"]
 ---
 

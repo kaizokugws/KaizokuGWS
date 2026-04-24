@@ -9,13 +9,8 @@ releaseYear: 2015
 tags: ["rpg", "open-world", "fantasy", "story", "cdpr"]
 featured: false
 trending: true
+popular: true
 lastUpdated: "2024-01-10"
-magnetFile: "magnet:?xt=urn:btih:2D971364A813BB7C79D85516C74FDFF33697B75B&dn=The+Witcher+3+Wild+Hunt"
-repacks:
-  - name: "DODI Repack"
-    magnetFile: "magnet:?xt=urn:btih:2D971364A813BB7C79D85516C74FDFF33697B75B&dn=The+Witcher+3+Wild+Hunt+%5bDODI+Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337"
-  - name: "Fitgirl Repack"
-    magnetFile: "magnet:?xt=urn:btih:7F9F2EA2A2BD89C65D14ED816987938FD5D48B07&dn=The+Witcher+3+Wild+Hunt+%5bFitGirl+Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce&tr=udp%3a%2f%2feddie4.nl%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337"
 sources:
   - name: "FitGirl Repack"
     file: "witcher-3-fitgirl"

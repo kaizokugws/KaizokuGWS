@@ -12,8 +12,8 @@ const contentDirectory = path.join(process.cwd(), 'src', 'content');
 function validateItem(item: Item, slug: string, category: string): void {
   if (!item.title) console.warn(`[WARN] Missing title in ${category}/${slug}`);
   if (!item.thumbnail) console.warn(`[WARN] Missing thumbnail in ${category}/${slug}`);
-  if (!item.magnetFile && (!item.repacks || item.repacks.length === 0)) {
-    console.warn(`[WARN] Missing magnetFile in ${category}/${slug}`);
+  if (!item.sources || item.sources.length === 0) {
+    console.warn(`[WARN] Missing sources in ${category}/${slug}`);
   }
 }
 
@@ -34,6 +34,7 @@ function getDefaultValues(data: Record<string, unknown>, _slug: string): Partial
     tags: normalizeTags(d.tags as string[] | undefined),
     featured: d.featured === true,
     trending: d.trending === true,
+    popular: d.popular === true,
     lastUpdated: typeof d.lastUpdated === 'string' ? d.lastUpdated : new Date().toISOString().split('T')[0],
     aliases: Array.isArray(d.aliases) ? (d.aliases as string[]).map((a: string) => a.toLowerCase()) : [],
     related: Array.isArray(d.related) ? d.related as string[] : [],
@@ -65,8 +66,6 @@ export function getItemBySlug(category: string, slug: string): Item {
     platform: data.platform === 'Mobile' ? 'Mobile' : 'PC',
     category: category,
     thumbnail: data.thumbnail || '/images/placeholder.jpg',
-    magnetFile: data.magnetFile || '',
-    repacks: data.repacks || [],
     sources: defaults.sources,
     aliases: defaults.aliases,
     size: defaults.size,
@@ -74,6 +73,7 @@ export function getItemBySlug(category: string, slug: string): Item {
     tags: defaults.tags,
     featured: defaults.featured,
     trending: defaults.trending,
+    popular: defaults.popular,
     lastUpdated: defaults.lastUpdated,
   };
   
@@ -98,8 +98,6 @@ export async function getParsedItemBySlug(category: string, slug: string): Promi
     platform: data.platform === 'Mobile' ? 'Mobile' : 'PC',
     category: category,
     thumbnail: data.thumbnail || '/images/placeholder.jpg',
-    magnetFile: data.magnetFile || '',
-    repacks: data.repacks || [],
     sources: defaults.sources,
     aliases: defaults.aliases,
     size: defaults.size,
@@ -107,6 +105,7 @@ export async function getParsedItemBySlug(category: string, slug: string): Promi
     tags: defaults.tags,
     featured: defaults.featured,
     trending: defaults.trending,
+    popular: defaults.popular,
     lastUpdated: defaults.lastUpdated,
     content: contentHtml,
     about: (sections.about as string) || '',
@@ -182,9 +181,20 @@ export function getFeaturedItem(category?: string): Item | null {
 
 export function getPopularItems(category?: string, limit = 8): Item[] {
   const items = category ? getAllItems(category) : getAllItemsFlat();
-  return [...items]
+  const popular = items.filter((item) => item.popular === true);
+  
+  if (popular.length >= limit) {
+    return popular.slice(0, limit);
+  }
+  
+  const remainingSlots = limit - popular.length;
+  const popularSlugs = new Set(popular.map((p) => p.slug));
+  const others = items
+    .filter((item) => !popularSlugs.has(item.slug) && item.lastUpdated)
     .sort((a, b) => (b.lastUpdated || '').localeCompare(a.lastUpdated || ''))
-    .slice(0, limit);
+    .slice(0, remainingSlots);
+  
+  return [...popular, ...others];
 }
 
 export function getRecentlyAdded(category?: string, limit = 8): Item[] {

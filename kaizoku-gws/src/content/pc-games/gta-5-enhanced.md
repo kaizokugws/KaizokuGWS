@@ -9,8 +9,11 @@ releaseYear: 2026
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar"]
 featured: true
 trending: true
+popular: true
 lastUpdated: "2024-02-20"
-magnetFile: "/magnets/gta-5-enhanced.txt"
+sources:
+  - name: "Dodi Repack"
+    file: "gta-5-enhanced-dodi"
 ---
 
 ## About

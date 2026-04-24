@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { useFavorites } from '@/lib/hooks';
@@ -14,8 +13,7 @@ interface FavoriteButtonProps {
 }
 
 export function FavoriteButton({ slug, title, thumbnail, category, className = '' }: FavoriteButtonProps) {
-  const { items, isFavorite, toggleFavorite } = useFavorites();
-  const [isLoaded, setIsLoaded] = useState(false);
+  const { isFavorite, toggleFavorite, isLoaded } = useFavorites();
   
   const favorite = isFavorite(slug);
   
@@ -25,7 +23,7 @@ export function FavoriteButton({ slug, title, thumbnail, category, className = '
     toggleFavorite({ slug, title, thumbnail, category });
   };
   
-  if (!isLoaded && items.length === 0) {
+  if (!isLoaded) {
     return <div className="w-8 h-8" />;
   }
   
