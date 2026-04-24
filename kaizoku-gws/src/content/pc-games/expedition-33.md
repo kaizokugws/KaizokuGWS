@@ -4,21 +4,21 @@ slug: "expedition-33"
 platform: "PC"
 category: "RPG"
 thumbnail: "/images/expedition-33.jpg"
-size: "12 GB"
+size: "34.8 GB"
 releaseYear: 2025
 tags: ["rpg", "turn-based", "fantasy", "indie"]
 featured: false
 trending: true
-lastUpdated: "2025-01-01"
+lastUpdated: "2024-04-24"
 sources:
   - name: "Dodi Repack"
     file: "expedition-33-dodi"
-aliases: ["expedition 33", "clair obscur", "expedition33"]
+aliases: ["expedition 33", "clair obscur", "expedition33", "clair obscur expedition 33"]
 ---
 
 ## About
 
-Expedition 33 is a turn-based tactical RPG developed by Wanderbots. Lead a team of skilled fighters against monsters in this challenging roguelike experience.
+Clair Obscur: Expedition 33 is a turn-based tactical RPG developed by Wanderbots. Lead a team of skilled fighters against monsters in this challenging roguelike experience set in a stunning art nouveau world.
 
 ## Download
 
@@ -28,17 +28,21 @@ Expedition 33 is a turn-based tactical RPG developed by Wanderbots. Lead a team 
 
 ### Minimum
 - OS: Windows 10 (64-bit)
-- Processor: Intel Core i5-4460 / AMD Ryzen 5 1600
+- Processor: Intel Core i7-8700K / AMD Ryzen 5 1600X
 - Memory: 8 GB RAM
-- Graphics: NVIDIA GeForce GTX 960 / AMD Radeon RX 570
-- Storage: 12 GB available space
+- Graphics: NVIDIA GeForce GTX 1060 6 GB / AMD Radeon RX 5600 XT 6 GB / Intel Arc A380 6 GB
+- DirectX: Version 12
+- Storage: 55 GB available space (SSD required)
+- Additional Notes: Minimum specs allow for 1080p 30FPS low settings gameplay
 
 ### Recommended
-- OS: Windows 10/11 (64-bit)
-- Processor: Intel Core i7-8700 / AMD Ryzen 5 3600
+- OS: Windows 11 (64-bit)
+- Processor: Intel Core i7-12700K / AMD Ryzen 7 5800X
 - Memory: 16 GB RAM
-- Graphics: NVIDIA GeForce RTX 2060 / AMD Radeon RX 6600
-- Storage: 12 GB SSD available space
+- Graphics: NVIDIA GeForce RTX 3060 Ti 8 GB / AMD Radeon RX 6800 XT 16 GB
+- DirectX: Version 12
+- Storage: 55 GB SSD available space
+- Additional Notes: Recommended specs allow for 1080p 60FPS high settings gameplay
 
 ## Installation Guide
 
