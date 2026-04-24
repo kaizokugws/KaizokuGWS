@@ -9,10 +9,12 @@ releaseYear: 2021
 tags: ["action", "rpg", "souls-like", "adventure", "horde"]
 featured: false
 trending: false
-lastUpdated: "2024-01-10"
+lastUpdated: "2024-04-24"
 sources:
   - name: "DODI Repack"
     file: "nioh-2-dodi"
+  - name: "Fitgirl Repack"
+    file: "nioh-2-fitgirl"
 aliases: ["nioh", "nioh 2", "team ninja", "souls", "action rpg"]
 ---
 
