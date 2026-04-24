@@ -11,8 +11,8 @@ featured: false
 trending: true
 lastUpdated: "2024-01-10"
 sources:
-  - name: "Source Pending"
-    file: "days-gone-remastered-unknown"
+  - name: "DODI Repack"
+    file: "days-gone-remastered-dodi"
 aliases: ["days gone", "dg", "bend studio", "zombies", "horde"]
 ---
 
