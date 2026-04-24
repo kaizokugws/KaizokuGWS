@@ -88,7 +88,7 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated 
 
   const isValidMagnet = (file: string): boolean => {
     const link = getMagnet(file);
-    return link && link.startsWith('magnet:');
+    return typeof link === 'string' && link.startsWith('magnet:');
   };
 
   if (!sources || sources.length === 0) {
