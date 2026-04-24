@@ -99,22 +99,16 @@ export default function Card({ item, category, showTags = false, highlight = '' 
           <h3 className="font-semibold text-base truncate text-[#E6EDF3] group-hover:text-[#4FD1FF] transition-colors">
             <HighlightText text={item.title} query={highlight} />
           </h3>
-          <p className="text-[#9AA4AF] text-sm mt-1">
-            <HighlightText text={formatCategory(item.category)} query={highlight} />
-          </p>
+          <p className="text-[#9AA4AF] text-sm mt-1">{formatCategory(item.category)}</p>
           
           {showTags && displayTags.length > 0 && (
             <div className="flex flex-wrap gap-1 mt-2">
               {displayTags.map((tag) => (
                 <span 
                   key={tag} 
-                  className={`px-2 py-0.5 text-xs rounded-full ${
-                    highlight && tag.toLowerCase().includes(highlight.toLowerCase())
-                      ? 'bg-[#4FD1FF]/20 text-[#4FD1FF]'
-                      : 'bg-[#161A20] text-[#9AA4AF]'
-                  }`}
+                  className="px-2 py-0.5 text-xs bg-[#161A20] text-[#9AA4AF] rounded-full"
                 >
-                  <HighlightText text={tag} query={highlight} />
+                  {tag}
                 </span>
               ))}
             </div>
