@@ -1,0 +1,10 @@
+How to install
+1- Run the installer as administrator
+2- Click on page
+3- Press the up arrow on your keyboard
+4- Click Install
+5- Click Continue
+6- Select installation destination
+7- Click Next
+8- Select component
+9- Install

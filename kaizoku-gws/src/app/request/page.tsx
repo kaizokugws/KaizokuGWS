@@ -1,10 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export default function RequestPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,9 +15,41 @@ export default function RequestPage() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSending(true);
+    setError(null);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS credentials are missing');
+      setError('System configuration error. Please contact us directly at kaizokugws@gmail.com');
+      setIsSending(false);
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          request_type: formData.type,
+          message: formData.message,
+        },
+        publicKey
+      );
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Failed to send email:', err);
+      setError('Failed to send request. Please try again or email us directly.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   if (submitted) {
@@ -29,7 +64,10 @@ export default function RequestPage() {
             Thank you for your submission. We&apos;ll review your request and get back to you soon.
           </p>
           <button
-            onClick={() => setSubmitted(false)}
+            onClick={() => {
+              setSubmitted(false);
+              setFormData({ name: '', email: '', type: 'Request Game', message: '' });
+            }}
             className="text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors"
           >
             Submit another request
@@ -48,6 +86,13 @@ export default function RequestPage() {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+          {error && (
+            <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-lg flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+              <p className="text-sm">{error}</p>
+            </div>
+          )}
+
           <div>
             <label className="block text-sm font-medium mb-2 text-[#E6EDF3]">Name</label>
             <input
@@ -57,6 +102,7 @@ export default function RequestPage() {
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full bg-[#111418] border border-[#222] rounded-lg py-3 px-4 focus:outline-none focus:border-[#4FD1FF] transition-colors text-[#E6EDF3]"
               placeholder="Your name"
+              disabled={isSending}
             />
           </div>
 
@@ -69,6 +115,7 @@ export default function RequestPage() {
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className="w-full bg-[#111418] border border-[#222] rounded-lg py-3 px-4 focus:outline-none focus:border-[#4FD1FF] transition-colors text-[#E6EDF3]"
               placeholder="your@email.com"
+              disabled={isSending}
             />
           </div>
 
@@ -78,6 +125,7 @@ export default function RequestPage() {
               value={formData.type}
               onChange={(e) => setFormData({ ...formData, type: e.target.value })}
               className="w-full bg-[#111418] border border-[#222] rounded-lg py-3 px-4 focus:outline-none focus:border-[#4FD1FF] transition-colors text-[#E6EDF3]"
+              disabled={isSending}
             >
               <option>Request Game</option>
               <option>Request Software</option>
@@ -95,15 +143,26 @@ export default function RequestPage() {
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               className="w-full bg-[#111418] border border-[#222] rounded-lg py-3 px-4 focus:outline-none focus:border-[#4FD1FF] transition-colors resize-none text-[#E6EDF3]"
               placeholder="Tell us what you need..."
+              disabled={isSending}
             />
           </div>
 
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FD1FF] to-[#4FD1FF] hover:from-[#6ED8FF] hover:to-[#6ED8FF] text-[#0B0D10] font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(79,209,255,0.4)]"
+            disabled={isSending}
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FD1FF] to-[#4FD1FF] hover:from-[#6ED8FF] hover:to-[#6ED8FF] text-[#0B0D10] font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(79,209,255,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <Send className="w-5 h-5" />
-            Submit Request
+            {isSending ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              <>
+                <Send className="w-5 h-5" />
+                Submit Request
+              </>
+            )}
           </button>
         </form>
 
