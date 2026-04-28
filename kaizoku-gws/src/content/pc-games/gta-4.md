@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/gta-4.jpg"
 size: "16 GB"
 releaseYear: 2008
-tags: ["open-world", "action", "crime", "sandbox", "rockstar", "gta"]
+tags: ["open-world", "action", "crime", "sandbox", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false
 lastUpdated: "2024-02-20"

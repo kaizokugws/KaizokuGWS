@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/rdr2-new.jpg"
 size: "150 GB"
 releaseYear: 2019
-tags: ["open-world", "action", "western", "story", "rockstar"]
+tags: ["open-world", "action", "western", "story", "rockstar", "rockstar"]
 featured: false
 trending: true
 lastUpdated: "2024-01-15"

@@ -41,25 +41,34 @@ export default function FranchiseCard({ franchise }: FranchiseCardProps) {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="relative overflow-hidden rounded-xl cursor-pointer group
-                    border border-white/10 
-                    hover:border-[franchise.accentColor]/60
-                    transition-all duration-300
-                    hover:shadow-[0_0_20px_rgba(accentColor,0.2)]">
-        
-        {/* Background image with crossfade */}
-        <div className="relative aspect-[16/9] w-full overflow-hidden">
+      <div 
+        className="relative overflow-hidden rounded-2xl cursor-pointer group border"
+        style={{
+          borderColor: 'rgba(255,255,255,0.1)',
+          borderWidth: '1px',
+          transition: 'all 0.3s',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = `${franchise.accentColor}60`;
+          e.currentTarget.style.boxShadow = `0 0 20px rgba(${franchise.accentColor.replace('#', '')},0.2)`;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+          e.currentTarget.style.boxShadow = 'none';
+        }}
+      >
+        {/* Background image with crossfade - SHORTER height */}
+        <div className="relative aspect-[16/10] w-full overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.img
               key={currentImageIndex}
               src={`/images/${franchise.games[currentImageIndex]}.jpg`}
               alt={`${franchise.name} - ${currentImageIndex + 1} of ${franchise.games.length}`}
-              className="absolute inset-0 w-full h-full object-cover
-                        transition-opacity duration-400 ease-in-out
-                        group-hover:scale-105 transition-transform duration-500"
+              className="absolute inset-0 w-full h-full object-cover"
               initial={{ opacity: 0 }}
               animate={{ opacity: isTransitioning ? 0 : 1 }}
               transition={{ duration: 0.4 }}
+              style={{ transition: 'opacity 0.4s ease-in-out' }}
             />
           </AnimatePresence>
           {/* Dark gradient overlay */}
@@ -68,38 +77,48 @@ export default function FranchiseCard({ franchise }: FranchiseCardProps) {
         </div>
 
         {/* Bottom content */}
-        <div className="absolute bottom-0 left-0 right-0 p-4">
+        <div className="absolute bottom-0 left-0 right-0 p-5">
           {/* Franchise name */}
-          <h3 className="text-white font-bold text-lg leading-tight
-                         drop-shadow-lg">
+          <h3 
+            className="text-[#E6EDF3] font-bold text-xl leading-tight"
+                         style={{ textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}
+          >
             {franchise.name}
           </h3>
           {/* Game count badge */}
-          <span className="text-xs font-mono mt-1 inline-block
-                           text-white/60">
+          <span 
+            className="text-sm font-mono mt-1.5 inline-block text-[#9AA4AF]"
+          >
             {franchise.games.length} Games
           </span>
         </div>
 
         {/* Accent glow line at bottom */}
         <div 
-          className="absolute bottom-0 left-0 right-0 h-[2px]
-                     opacity-0 group-hover:opacity-100 
-                     transition-opacity duration-300"
-          style={{ backgroundColor: franchise.accentColor }}
+          className="absolute bottom-0 left-0 right-0 h-[2px]"
+          style={{ 
+            backgroundColor: franchise.accentColor,
+            opacity: 0,
+            transition: 'opacity 0.3s',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.opacity = '0'; }}
         />
 
         {/* Image dot indicators */}
-        <div className="absolute top-3 right-3 flex gap-1">
+        <div className="absolute top-3 right-3 flex gap-1.5">
           {Array.from({ length: dotsToShow }, (_, i) => (
             <div
               key={i}
-              className="w-1 h-1 rounded-full transition-all duration-300"
               style={{
                 backgroundColor: i === currentImageIndex % dotsToShow 
                   ? franchise.accentColor 
                   : 'rgba(255,255,255,0.3)',
                 transform: i === currentImageIndex % dotsToShow ? 'scale(1.4)' : 'scale(1)',
+                width: '6px',
+                height: '6px',
+                borderRadius: '50%',
+                transition: 'all 0.3s',
               }}
             />
           ))}

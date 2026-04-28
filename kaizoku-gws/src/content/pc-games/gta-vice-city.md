@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/gta-vice-city.jpeg"
 size: "500 MB"
 releaseYear: 2002
-tags: ["action", "open-world", "crime", "sandbox", "classic", "80s", "rockstar", "gta"]
+tags: ["action", "open-world", "crime", "sandbox", "classic", "80s", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false
 lastUpdated: "2024-01-05"

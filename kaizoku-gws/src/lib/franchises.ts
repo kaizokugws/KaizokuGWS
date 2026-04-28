@@ -26,10 +26,17 @@ export const franchises: Franchise[] = [
     accentColor: "#b04a2f",
   },
   {
-    id: "gta",
-    name: "Grand Theft Auto",
-    tag: "gta",
-    games: ["gta-5-enhanced", "gta-v", "gta-4", "gta-san-andreas", "gta-vice-city"],
+    id: "rockstar",
+    name: "Rockstar Games",
+    tag: "rockstar",
+    games: [
+      "rdr2",
+      "gta-5-enhanced",
+      "gta-v",
+      "gta-4",
+      "gta-san-andreas",
+      "gta-vice-city",
+    ],
     accentColor: "#f97316",
   },
   {
