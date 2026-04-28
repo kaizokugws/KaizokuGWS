@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/wo-long.jpg"
 size: "60 GB"
 releaseYear: 2023
-tags: ["action", "rpg", "souls-like", "martial-arts", "koei", "fromsoftware"]
+tags: ["action", "rpg", "soulslike", "martial-arts", "koei"]
 featured: false
 trending: false
 lastUpdated: "2024-02-20"

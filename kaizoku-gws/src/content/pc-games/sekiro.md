@@ -6,7 +6,7 @@ category: "pc-games"
 thumbnail: "/images/sekiro.jpg"
 size: "25 GB"
 releaseYear: 2019
-tags: ["action", "adventure", "souls-like", "stealth", "fromsoftware"]
+tags: ["action", "adventure", "soulslike", "soulsborne", "stealth", "fromsoftware"]
 featured: false
 trending: true
 popular: true

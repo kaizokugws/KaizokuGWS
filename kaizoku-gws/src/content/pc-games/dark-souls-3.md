@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/dark-souls-3.jpg"
 size: "25 GB"
 releaseYear: 2016
-tags: ["action", "rpg", "souls-like", "fantasy", "fromsoftware"]
+tags: ["action", "rpg", "soulslike", "soulsborne", "fantasy", "fromsoftware"]
 featured: false
 trending: true
 popular: true

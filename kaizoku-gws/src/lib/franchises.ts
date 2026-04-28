@@ -22,7 +22,7 @@ export const franchises: Franchise[] = [
     id: "fromsoftware",
     name: "FromSoftware",
     tag: "fromsoftware",
-    games: ["elden-ring", "sekiro", "dark-souls-3", "nioh-2", "wo-long"],
+    games: ["elden-ring", "sekiro", "dark-souls-3"],
     accentColor: "#b04a2f",
   },
   {

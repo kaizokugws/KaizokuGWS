@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/nioh-2.jpg"
 size: "65 GB"
 releaseYear: 2021
-tags: ["action", "rpg", "souls-like", "adventure", "horde", "fromsoftware"]
+tags: ["action", "rpg", "soulslike", "adventure", "horde", "koei"]
 featured: false
 trending: false
 lastUpdated: "2024-04-24"

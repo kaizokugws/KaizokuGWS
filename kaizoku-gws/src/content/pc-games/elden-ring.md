@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/elden-ring.jpg"
 size: "60 GB"
 releaseYear: 2022
-tags: ["open-world", "rpg", "souls-like", "fantasy", "fromsoftware"]
+tags: ["open-world", "rpg", "soulslike", "soulsborne", "fantasy", "fromsoftware"]
 featured: true
 trending: true
 popular: true
