@@ -4,6 +4,7 @@ import { ArrowRight, Gamepad2, Monitor, Smartphone, Zap, Shield, Star, Download,
 import { getTrendingItems, getFeaturedItem, getPopularItems, getRecentlyAdded, getAllItems } from '@/lib/content';
 import { TrendingCarousel } from '@/components/TrendingCarousel';
 import Card from '@/components/Card';
+import FranchiseGrid from '@/components/FranchiseGrid';
 
 const GENERIC_DESCRIPTION = "Discover the ultimate gaming experience. Download now and dive into an epic adventure.";
 
@@ -247,25 +248,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Recently Added */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-3xl font-bold text-[#E6EDF3]">Recently Added</h2>
-            <Link
-              href="/pc-games"
-              className="flex items-center gap-2 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors"
-            >
-              View All <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recentGames.map((item) => (
-              <Card key={item.slug} item={item} category="pc-games" />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Franchises */}
+      <FranchiseGrid />
 
       {/* Request CTA */}
       <section className="py-20">

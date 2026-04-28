@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/gta-5.jpg"
 size: "51 GB"
 releaseYear: 2013
-tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar"]
+tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "gta"]
 featured: true
 trending: true
 lastUpdated: "2024-02-20"

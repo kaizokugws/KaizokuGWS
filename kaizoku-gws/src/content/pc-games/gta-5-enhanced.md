@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/gta-5-enhanced.jpg"
 size: "95 GB"
 releaseYear: 2025
-tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar"]
+tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "gta"]
 featured: true
 trending: true
 popular: true

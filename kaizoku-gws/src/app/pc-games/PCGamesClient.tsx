@@ -1,9 +1,11 @@
 'use client';
 
 import { Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { Item } from '@/lib/types';
 import CategoryGrid from '@/components/CategoryGrid';
 import { Gamepad2 } from 'lucide-react';
+import { franchises } from '@/lib/franchises';
 
 const title = 'PC Games';
 const description = 'Discover and download the best PC games';
@@ -13,6 +15,20 @@ interface PCGamesClientProps {
 }
 
 export default function PCGamesClient({ items }: PCGamesClientProps) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const franchiseFilter = searchParams.get('franchise') || '';
+
+  const filteredItems = franchiseFilter
+    ? items.filter(game => game.tags?.includes(franchiseFilter))
+    : items;
+
+  const activeFranchise = franchises.find(f => f.tag === franchiseFilter);
+
+  const clearFranchiseFilter = () => {
+    router.push('/pc-games');
+  };
+
   return (
     <Suspense fallback={<div className="min-h-screen py-12"><div className="max-w-7xl mx-auto px-4">Loading...</div></div>}>
       <div className="min-h-screen py-12">
@@ -29,7 +45,29 @@ export default function PCGamesClient({ items }: PCGamesClientProps) {
             </div>
           </div>
 
-          <CategoryGrid items={items} category="pc-games" basePath="/pc-games" />
+          {/* Franchise filter pill */}
+          {activeFranchise && (
+            <div className="mb-6 flex items-center gap-2">
+              <span 
+                className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono rounded-full"
+                style={{
+                  backgroundColor: 'rgba(0,0,0,0.3)',
+                  border: `1px solid ${activeFranchise.accentColor}40`,
+                  color: '#E6EDF3',
+                }}
+              >
+                Showing: {activeFranchise.name}
+                <button
+                  onClick={clearFranchiseFilter}
+                  className="ml-1 hover:text-[#4FD1FF] transition-colors"
+                >
+                  ×
+                </button>
+              </span>
+            </div>
+          )}
+
+          <CategoryGrid items={filteredItems} category="pc-games" basePath="/pc-games" />
         </div>
       </div>
     </Suspense>
