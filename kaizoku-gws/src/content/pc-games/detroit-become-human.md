@@ -9,7 +9,7 @@ releaseYear: 2019
 tags: ["adventure", "interactive-drama", "sci-fi", "choice-based", "quantic-dream"]
 featured: false
 trending: false
-lastUpdated: "2024-02-20"
+lastUpdated: "2026-04-29"
 description: "Detroit: Become Human is an interactive drama where your decisions affect the outcome of the story."
 sources:
   - name: "FitGirl Repack"

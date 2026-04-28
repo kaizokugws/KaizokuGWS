@@ -7,7 +7,7 @@ thumbnail: "/images/photoshop.jpg"
 size: "4.5 GB"
 releaseYear: 2024
 tags: ["Design", "Photo Editing", "Graphics", "Creative"]
-lastUpdated: "2024-04-24"
+lastUpdated: "2026-04-29"
 sources:
   - name: "Direct Download"
     file: "photoshop"

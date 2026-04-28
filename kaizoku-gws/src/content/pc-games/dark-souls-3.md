@@ -10,7 +10,7 @@ tags: ["action", "rpg", "soulslike", "soulsborne", "fantasy", "fromsoftware"]
 featured: false
 trending: true
 popular: true
-lastUpdated: "2024-01-10"
+lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"
     file: "dark-souls-3-fitgirl"

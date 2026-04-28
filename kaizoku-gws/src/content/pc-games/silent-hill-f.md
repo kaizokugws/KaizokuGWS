@@ -10,7 +10,7 @@ tags: ["horror", "silent-hill", "new-entry", "psychological-horror", "konami", "
 featured: false
 trending: true
 popular: true
-lastUpdated: "2026-04-28"
+lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"
     file: "silent-hill-f-dodi"

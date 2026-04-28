@@ -10,7 +10,7 @@ tags: ["action", "assassins-creed", "industrial-revolution", "london", "ubisoft"
 featured: false
 trending: false
 popular: false
-lastUpdated: "2026-04-28"
+lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"
     file: "ac-syndicate-dodi"

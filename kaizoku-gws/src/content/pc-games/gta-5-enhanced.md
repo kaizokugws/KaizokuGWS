@@ -10,7 +10,7 @@ tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "g
 featured: true
 trending: true
 popular: true
-lastUpdated: "2024-02-20"
+lastUpdated: "2026-04-29"
 description: "Experience the enhanced edition with ray-traced reflections, HDR support, and faster load times in Los Santos."
 sources:
   - name: "Dodi Repack"

@@ -10,7 +10,7 @@ tags: ["stealth", "action", "open-world", "military", "konami"]
 featured: true
 trending: true
 popular: true
-lastUpdated: "2024-01-15"
+lastUpdated: "2026-04-29"
 description: "Experience the epic conclusion to the Metal Gear Solid saga with open-world gameplay and stealth action."
 sources:
   - name: "Dodi Repack"

@@ -9,7 +9,7 @@ releaseYear: 2009
 tags: ["action", "adventure", "assassin", "historical", "ubisoft", "assassins-creed"]
 featured: false
 trending: false
-lastUpdated: "2024-02-20"
+lastUpdated: "2026-04-29"
 description: "Follow Ezio Auditore's journey from nobleman to Master Assassin in Renaissance Italy."
 sources:
   - name: "DODI Repack"

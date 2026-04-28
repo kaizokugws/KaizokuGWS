@@ -9,7 +9,7 @@ releaseYear: 2022
 tags: ["action", "adventure", "hack-and-slash", "mythology", "sony", "kratos", "atreus"]
 featured: false
 trending: false
-lastUpdated: "2024-02-20"
+lastUpdated: "2026-04-29"
 description: "God of War Ragnarök continues the epic journey of Kratos and Atreus as they face the impending Ragnarök in the world of Norse mythology."
 sources:
   - name: "FitGirl Repack"

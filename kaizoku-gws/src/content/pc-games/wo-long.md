@@ -9,7 +9,7 @@ releaseYear: 2023
 tags: ["action", "rpg", "soulslike", "martial-arts", "koei"]
 featured: false
 trending: false
-lastUpdated: "2024-02-20"
+lastUpdated: "2026-04-29"
 description: "A grueling action RPG set in a dark fantasy world inspired by Chinese mythology."
 sources:
   - name: "FitGirl Repack"

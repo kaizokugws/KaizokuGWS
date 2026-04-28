@@ -37,3 +37,10 @@ Old system - DO NOT USE:
 - `repacks` array in frontmatter
 
 These fields are deprecated. Use only `sources` array.
+
+## Date Rules
+
+Always update `lastUpdated` to the current date when editing any game or software markdown file.
+The date format is ISO 8601: "YYYY-MM-DD" (e.g., "2026-04-29").
+When adding a new game, set `lastUpdated` to the current date.
+Never leave `lastUpdated` with outdated dates like 2024 when the current year is 2026.

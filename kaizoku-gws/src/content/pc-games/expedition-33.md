@@ -9,7 +9,7 @@ releaseYear: 2025
 tags: ["rpg", "turn-based", "fantasy", "indie"]
 featured: false
 trending: true
-lastUpdated: "2024-04-24"
+lastUpdated: "2026-04-29"
 sources:
   - name: "Dodi Repack"
     file: "expedition-33-dodi"

@@ -10,7 +10,7 @@ tags: ["action", "adventure", "open-world", "stealth", "ancient-egypt", "ubisoft
 featured: false
 trending: true
 popular: true
-lastUpdated: "2024-01-10"
+lastUpdated: "2026-04-29"
 sources:
   - name: "CPY Repack"
     file: "ac-origins-cpy"

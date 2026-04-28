@@ -10,7 +10,7 @@ tags: ["action", "adventure", "tomb-raider", "definitive-edition", "crystal-dyna
 featured: false
 trending: false
 popular: false
-lastUpdated: "2026-04-28"
+lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"
     file: "shadow-of-the-tomb-raider-dodi"

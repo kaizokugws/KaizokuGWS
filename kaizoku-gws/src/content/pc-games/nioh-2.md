@@ -9,7 +9,7 @@ releaseYear: 2021
 tags: ["action", "rpg", "soulslike", "adventure", "horde", "koei"]
 featured: false
 trending: false
-lastUpdated: "2024-04-24"
+lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"
     file: "nioh-2-dodi"

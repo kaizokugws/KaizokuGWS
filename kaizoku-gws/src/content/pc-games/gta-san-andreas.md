@@ -9,7 +9,7 @@ releaseYear: 2004
 tags: ["action", "open-world", "crime", "sandbox", "classic", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false
-lastUpdated: "2024-01-05"
+lastUpdated: "2026-04-29"
 sources:
   - name: "MR DJ Repack"
     file: "gta-san-andreas-mrdj"

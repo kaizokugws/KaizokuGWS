@@ -9,7 +9,7 @@ releaseYear: 2013
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "gta", "rockstar"]
 featured: true
 trending: true
-lastUpdated: "2024-02-20"
+lastUpdated: "2026-04-29"
 description: "Explore the sprawling sun-soaked metropolis of Los Santos in the ultimate GTA Online experience."
 sources:
   - name: "FitGirl Repack"

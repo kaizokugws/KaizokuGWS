@@ -10,7 +10,7 @@ tags: ["rpg", "open-world", "fantasy", "story", "cdpr"]
 featured: false
 trending: true
 popular: true
-lastUpdated: "2026-04-28"
+lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"
     file: "witcher-3-fitgirl"

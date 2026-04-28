@@ -10,7 +10,7 @@ tags: ["action", "adventure", "soulslike", "soulsborne", "stealth", "fromsoftwar
 featured: false
 trending: true
 popular: true
-lastUpdated: "2026-04-24"
+lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"
     file: "sekiro-fitgirl"

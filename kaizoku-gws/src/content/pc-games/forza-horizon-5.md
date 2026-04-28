@@ -10,7 +10,7 @@ tags: ["racing", "open-world", "driving", "simulation", "multiplayer", "mexico",
 featured: true
 trending: true
 popular: true
-lastUpdated: "2026-04-27"
+lastUpdated: "2026-04-29"
 description: "Explore the vibrant open world of Mexico in Forza Horizon 5. The biggest, most diverse Horizon festival yet awaits with stunning visuals and hundreds of cars."
 sources:
   - name: "Dodi Repack"

@@ -9,7 +9,7 @@ releaseYear: 2019
 tags: ["open-world", "action", "western", "story", "rockstar", "rockstar"]
 featured: false
 trending: true
-lastUpdated: "2024-01-15"
+lastUpdated: "2026-04-29"
 sources:
   - name: "Dodi Repack"
     file: "Red Dead Redemption 2 Torrent Dodi Repack"

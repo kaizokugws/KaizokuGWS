@@ -9,7 +9,7 @@ releaseYear: 2022
 tags: ["action", "adventure", "open-world", "post-apocalyptic", "zombies", "horde"]
 featured: false
 trending: true
-lastUpdated: "2024-01-10"
+lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"
     file: "days-gone-remastered-dodi"

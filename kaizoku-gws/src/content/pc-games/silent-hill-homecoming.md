@@ -10,7 +10,7 @@ tags: ["horror", "silent-hill", "action", "survival-horror", "konami"]
 featured: false
 trending: false
 popular: false
-lastUpdated: "2026-04-28"
+lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"
     file: "silent-hill-homecoming-dodi"

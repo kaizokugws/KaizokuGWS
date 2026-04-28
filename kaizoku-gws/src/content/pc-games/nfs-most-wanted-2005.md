@@ -9,7 +9,7 @@ releaseYear: 2005
 tags: ["racing", "arcade", "cars", "street-racing", "nfs"]
 featured: false
 trending: false
-lastUpdated: "2024-01-05"
+lastUpdated: "2026-04-29"
 sources:
   - name: "Dodi Repack"
     file: "nfs-most-wanted-2005-dodi"

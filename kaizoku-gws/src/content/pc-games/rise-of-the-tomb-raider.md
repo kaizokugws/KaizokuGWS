@@ -10,7 +10,7 @@ tags: ["action", "adventure", "tomb-raider", "-survival", "crystal-dynamics"]
 featured: false
 trending: false
 popular: false
-lastUpdated: "2026-04-28"
+lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"
     file: "rise-of-the-tomb-raider-dodi"

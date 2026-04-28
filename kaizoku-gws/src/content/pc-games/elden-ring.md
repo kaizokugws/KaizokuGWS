@@ -10,7 +10,7 @@ tags: ["open-world", "rpg", "soulslike", "soulsborne", "fantasy", "fromsoftware"
 featured: true
 trending: true
 popular: true
-lastUpdated: "2024-01-15"
+lastUpdated: "2026-04-29"
 description: "Venture into the Lands Between and become an Elden Lord in this groundbreaking open-world RPG from FromSoftware."
 sources:
   - name: "FitGirl Repack"

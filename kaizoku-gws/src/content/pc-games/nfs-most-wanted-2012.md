@@ -9,7 +9,7 @@ releaseYear: 2012
 tags: ["racing", "open-world", "cars", "arcade", "nfs"]
 featured: false
 trending: false
-lastUpdated: "2024-01-05"
+lastUpdated: "2026-04-29"
 sources:
   - name: "Source Pending"
     file: "nfs-most-wanted-2012-unknown"

@@ -9,7 +9,7 @@ releaseYear: 2008
 tags: ["open-world", "action", "crime", "sandbox", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false
-lastUpdated: "2024-02-20"
+lastUpdated: "2026-04-29"
 description: "Experience the story of Niko Bellic in Liberty City - an epic open-world adventure from Rockstar Games."
 sources:
   - name: "DODI Repack"

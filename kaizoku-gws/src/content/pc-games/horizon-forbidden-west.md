@@ -10,7 +10,7 @@ tags: ["action", "open-world", "rpg", "horizon", "guerrilla-games"]
 featured: false
 trending: false
 popular: false
-lastUpdated: "2026-04-28"
+lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"
     file: "horizon-forbidden-west-dodi"

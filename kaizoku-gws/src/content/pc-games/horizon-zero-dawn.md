@@ -9,7 +9,7 @@ releaseYear: 2017
 tags: ["action", "rpg", "open-world", "post-apocalyptic", "guerrilla", "horizon"]
 featured: false
 trending: false
-lastUpdated: "2024-02-20"
+lastUpdated: "2026-04-29"
 description: "An action RPG where humanity has been reverted to a primitive state and robotic machines roam the wild."
 sources:
   - name: "DODI Repack"
