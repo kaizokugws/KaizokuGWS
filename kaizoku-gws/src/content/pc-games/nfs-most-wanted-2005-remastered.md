@@ -6,7 +6,7 @@ category: "Racing"
 thumbnail: "/images/nfs-most-wanted-2005-remastered.jpg"
 size: "40 GB"
 releaseYear: 2020
-tags: ["racing", "arcade", "cars", "street-racing"]
+tags: ["racing", "arcade", "cars", "street-racing", "nfs"]
 featured: false
 trending: true
 lastUpdated: "2024-01-05"

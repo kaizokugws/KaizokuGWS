@@ -6,7 +6,7 @@ category: "Racing"
 thumbnail: "/images/nfs-most-wanted-2005.jpg"
 size: "2 GB"
 releaseYear: 2005
-tags: ["racing", "arcade", "cars", "street-racing"]
+tags: ["racing", "arcade", "cars", "street-racing", "nfs"]
 featured: false
 trending: false
 lastUpdated: "2024-01-05"

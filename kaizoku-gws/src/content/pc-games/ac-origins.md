@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/ac-origins.jpg"
 size: "50 GB"
 releaseYear: 2017
-tags: ["action", "adventure", "open-world", "stealth", "ancient-egypt", "ubisoft"]
+tags: ["action", "adventure", "open-world", "stealth", "ancient-egypt", "ubisoft", "assassins-creed"]
 featured: false
 trending: true
 popular: true

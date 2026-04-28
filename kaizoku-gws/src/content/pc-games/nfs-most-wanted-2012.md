@@ -6,7 +6,7 @@ category: "Racing"
 thumbnail: "/images/nfs-most-wanted-2012.jpg"
 size: "20 GB"
 releaseYear: 2012
-tags: ["racing", "open-world", "cars", "arcade"]
+tags: ["racing", "open-world", "cars", "arcade", "nfs"]
 featured: false
 trending: false
 lastUpdated: "2024-01-05"

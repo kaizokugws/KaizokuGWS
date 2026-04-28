@@ -10,7 +10,7 @@ export default function FranchiseGrid() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Section header — match existing section header style on the page */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-[#E6EDF3] font-mono tracking-wide">
+          <h2 className="text-3xl font-bold text-[#E6EDF3]">
             Top Franchises
           </h2>
           <a 

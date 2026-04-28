@@ -6,7 +6,7 @@ category: "Racing"
 thumbnail: "/images/forza-horizon-4.jpg"
 size: "95 GB"
 releaseYear: 2018
-tags: ["racing", "open-world", "driving", "simulation", "multiplayer"]
+tags: ["racing", "open-world", "driving", "simulation", "multiplayer", "forza"]
 featured: true
 trending: false
 popular: true

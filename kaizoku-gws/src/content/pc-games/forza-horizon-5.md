@@ -6,7 +6,7 @@ category: "Racing"
 thumbnail: "/images/forza-horizon-5.jpg"
 size: "177 GB"
 releaseYear: 2021
-tags: ["racing", "open-world", "driving", "simulation", "multiplayer", "mexico"]
+tags: ["racing", "open-world", "driving", "simulation", "multiplayer", "mexico", "forza"]
 featured: true
 trending: true
 popular: true

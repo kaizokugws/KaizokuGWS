@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/ac-2.jpg"
 size: "8 GB"
 releaseYear: 2009
-tags: ["action", "adventure", "assassin", "historical", "ubisoft"]
+tags: ["action", "adventure", "assassin", "historical", "ubisoft", "assassins-creed"]
 featured: false
 trending: false
 lastUpdated: "2024-02-20"
