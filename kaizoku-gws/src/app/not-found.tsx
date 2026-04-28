@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Home, Search, Gamepad2 } from 'lucide-react';
+import { Home, Gamepad2 } from 'lucide-react';
 
 export default function NotFound() {
   return (

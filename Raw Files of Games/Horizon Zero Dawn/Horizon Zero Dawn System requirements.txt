@@ -1,8 +1,0 @@
-SYSTEM REQUIREMENTS:
-Minimum system requirements:
-– Requires 64-bit processor and operating system
-– OS: Windows 10 (64-bit only)
-– Processor: Intel Core i5-2500K 3.3GHz / AMD FX 6300 3.5GHz
-– RAM: 8 GB of RAM
-– Video card: Nvidia GeForce GTX 780 (3 GB) / AMD Radeon R9 290 (4GB)
-– Disk space: 75.4 GB

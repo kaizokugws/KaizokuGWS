@@ -10,7 +10,7 @@ tags: ["rpg", "open-world", "fantasy", "story", "cdpr"]
 featured: false
 trending: true
 popular: true
-lastUpdated: "2024-01-10"
+lastUpdated: "2026-04-28"
 sources:
   - name: "FitGirl Repack"
     file: "witcher-3-fitgirl"
@@ -24,11 +24,6 @@ aliases: ["witcher", "tw3", "wild hunt", "geralt", "cdpr", "cd project red"]
 The Witcher 3: Wild Hunt is an action role-playing game developed by CD Projekt Red. The third installment in the series, it is based on The Witcher novels by Andrzej Sapkowski.
 
 Embark on the epic journey of Geralt of Rivia as he searches for his adopted daughter, Ciri, across a stunning open-world fantasy realm.
-
-## Download
-
-- [DODI Repack](magnet:?xt=urn:btih:2D971364A813BB7C79D85516C74FDFF33697B75B)
-- [Fitgirl Repack](magnet:?xt=urn:btih:7F9F2EA2A2BD89C65D14ED816987938FD5D48B07)
 
 ## System Requirements
 
@@ -52,5 +47,5 @@ Embark on the epic journey of Geralt of Rivia as he searches for his adopted dau
 2. Wait for download to complete
 3. Extract all files using WinRAR or 7-Zip
 4. Run setup.exe and follow installation prompts
-5. Copy crack files to game directory if required
+5. Copy crack files to game directory if required by the repack instructionsred
 6. Enjoy the game!
