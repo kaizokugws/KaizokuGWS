@@ -8,30 +8,31 @@ export default function FranchiseGrid() {
   return (
     <section className="w-full py-20">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Section header — match existing section header style on the page */}
-        <div className="flex items-center justify-between mb-6">
+        {/* Section header */}
+        <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-[#E6EDF3]">
             Top Franchises
           </h2>
           <a 
             href="/pc-games"
             className="text-sm text-white/40 hover:text-white/80 
-                       transition-colors duration-200 font-mono"
+                       transition-colors duration-200 font-mono flex items-center gap-1"
           >
-            Browse All →
+            Browse All 
+            <span className="text-lg">→</span>
           </a>
         </div>
 
-        {/* Grid - wider cards (fewer columns), shorter height */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Responsive grid - portrait cards with balanced spacing */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {franchises.map((franchise, index) => (
             <motion.div
               key={franchise.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                delay: index * 0.06,
-                duration: 0.35,
+                delay: index * 0.08,
+                duration: 0.5,
                 ease: [0.25, 0.46, 0.45, 0.94],
               }}
             >
