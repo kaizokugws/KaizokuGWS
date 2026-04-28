@@ -1,0 +1,1 @@
+[IO.File]::ReadAllText("C:\Users\USER\Desktop\+\KaizokuGWS\Raw Files of Games\AC Odyssey\Assassin's Creed Odyssey Torrent Dodi.txt")

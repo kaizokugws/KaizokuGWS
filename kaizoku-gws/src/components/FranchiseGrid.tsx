@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { franchises } from "@/lib/franchises";
 import FranchiseCard from "./FranchiseCard";
@@ -11,7 +13,7 @@ export default function FranchiseGrid() {
           Top Franchises
         </h2>
         <a 
-          href="/pc-games" 
+          href="/pc-games"
           className="text-sm text-white/40 hover:text-white/80 
                      transition-colors duration-200 font-mono"
         >

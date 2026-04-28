@@ -1,0 +1,2 @@
+$src = Get-ChildItem "C:\Users\USER\Desktop\+\KaizokuGWS\Raw Files of Games\Assassins Creed Odyssey" -Filter "*.jpeg"
+Copy-Item $src.FullName "C:\Users\USER\Desktop\+\KaizokuGWS\kaizoku-gws\public\images\ac-odyssey.jpg"
