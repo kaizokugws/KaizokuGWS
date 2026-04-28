@@ -3,7 +3,7 @@ title: "Red Dead Redemption 2"
 slug: "rdr2"
 platform: "PC"
 category: "Action"
-thumbnail: "/images/rdr2-new.jpg"
+thumbnail: "/images/rdr2.jpg"
 size: "150 GB"
 releaseYear: 2019
 tags: ["open-world", "action", "western", "story", "rockstar", "rockstar"]
@@ -12,7 +12,9 @@ trending: true
 lastUpdated: "2024-01-15"
 sources:
   - name: "Dodi Repack"
-    file: "rdr2-dodi"
+    file: "Red Dead Redemption 2 Torrent Dodi Repack"
+  - name: "FitGirl Repack"
+    file: "Red Dead Redemption 2 Torrent Fitgirl Repack"
 aliases: ["rdr", "red dead", "red dead redemption", "rdr 2"]
 ---
 
