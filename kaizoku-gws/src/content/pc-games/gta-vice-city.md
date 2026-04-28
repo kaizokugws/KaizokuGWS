@@ -9,6 +9,7 @@ releaseYear: 2002
 tags: ["action", "open-world", "crime", "sandbox", "classic", "80s", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false
+popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "MR DJ Repack"

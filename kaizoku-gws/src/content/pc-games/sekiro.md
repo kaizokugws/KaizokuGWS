@@ -9,7 +9,7 @@ releaseYear: 2019
 tags: ["action", "adventure", "soulslike", "soulsborne", "stealth", "fromsoftware"]
 featured: false
 trending: false
-popular: false
+popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"

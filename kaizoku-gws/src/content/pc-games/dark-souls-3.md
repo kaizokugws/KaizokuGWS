@@ -9,7 +9,7 @@ releaseYear: 2016
 tags: ["action", "rpg", "soulslike", "soulsborne", "fantasy", "fromsoftware"]
 featured: false
 trending: false
-popular: false
+popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"
