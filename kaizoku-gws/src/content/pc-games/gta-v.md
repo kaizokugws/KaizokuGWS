@@ -9,6 +9,7 @@ releaseYear: 2013
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "gta", "rockstar"]
 featured: true
 trending: true
+popular: true
 lastUpdated: "2026-04-29"
 description: "Explore the sprawling sun-soaked metropolis of Los Santos in the ultimate GTA Online experience."
 sources:

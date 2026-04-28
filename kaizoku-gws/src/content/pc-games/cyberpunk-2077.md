@@ -9,6 +9,7 @@ releaseYear: 2020
 tags: ["rpg", "open-world", "sci-fi", "cyberpunk", "cdpr"]
 featured: true
 trending: true
+popular: true
 lastUpdated: "2026-04-29"
 description: "An open-world action RPG set in the megalopolis of Night City."
 sources:

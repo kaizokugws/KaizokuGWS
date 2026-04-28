@@ -8,8 +8,8 @@ size: "25 GB"
 releaseYear: 2019
 tags: ["action", "adventure", "soulslike", "soulsborne", "stealth", "fromsoftware"]
 featured: false
-trending: true
-popular: true
+trending: false
+popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"

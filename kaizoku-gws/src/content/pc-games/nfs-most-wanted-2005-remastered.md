@@ -8,7 +8,7 @@ size: "40 GB"
 releaseYear: 2020
 tags: ["racing", "arcade", "cars", "street-racing", "nfs"]
 featured: false
-trending: true
+trending: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "Dodi Repack"

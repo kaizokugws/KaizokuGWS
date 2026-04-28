@@ -8,8 +8,8 @@ size: "40 GB"
 releaseYear: 2015
 tags: ["rpg", "open-world", "fantasy", "story", "cdpr"]
 featured: false
-trending: true
-popular: true
+trending: false
+popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"

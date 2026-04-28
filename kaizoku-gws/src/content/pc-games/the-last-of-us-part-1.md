@@ -8,7 +8,8 @@ size: "80 GB"
 releaseYear: 2023
 tags: ["action", "adventure", "survival", "zombie", "naughty-dog"]
 featured: true
-trending: true
+trending: false
+popular: false
 lastUpdated: "2026-04-29"
 description: "A remade version of the critically acclaimed survival adventure."
 sources:

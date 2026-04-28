@@ -9,6 +9,7 @@ releaseYear: 2019
 tags: ["open-world", "action", "western", "story", "rockstar", "rockstar"]
 featured: false
 trending: true
+popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "Dodi Repack"

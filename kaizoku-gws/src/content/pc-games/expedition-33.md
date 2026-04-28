@@ -9,6 +9,7 @@ releaseYear: 2025
 tags: ["rpg", "turn-based", "fantasy", "indie"]
 featured: false
 trending: true
+popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "Dodi Repack"

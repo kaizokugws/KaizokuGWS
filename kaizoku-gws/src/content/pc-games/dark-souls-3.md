@@ -8,8 +8,8 @@ size: "25 GB"
 releaseYear: 2016
 tags: ["action", "rpg", "soulslike", "soulsborne", "fantasy", "fromsoftware"]
 featured: false
-trending: true
-popular: true
+trending: false
+popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"
