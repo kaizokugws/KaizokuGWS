@@ -14,6 +14,7 @@ export interface Item {
   platform: 'PC' | 'Mobile';
   category: string;
   thumbnail: string;
+  site?: string;
   sources?: DownloadSource[];
   aliases?: string[];
   size?: string;

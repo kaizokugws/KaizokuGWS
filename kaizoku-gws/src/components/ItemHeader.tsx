@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ArrowLeft, Monitor, Smartphone } from 'lucide-react';
+import { ArrowLeft, Monitor, Smartphone, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Item } from '@/lib/types';
 import { formatCategory } from '@/lib/utils';
@@ -62,6 +62,18 @@ export default function ItemHeader({ item, category, about }: ItemHeaderProps) {
               <span className="text-sm text-[#E6EDF3]">{formatCategory(item.category)}</span>
             </div>
           </div>
+
+          {item.site && (
+            <a
+              href={item.site}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#111418] rounded-lg border border-[#222] text-sm text-[#4FD1FF] hover:border-[#4FD1FF] transition-colors mb-6 w-fit"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Official Site
+            </a>
+          )}
 
           {about && (
             <div className="mt-4">

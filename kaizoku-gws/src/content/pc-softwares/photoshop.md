@@ -4,6 +4,7 @@ slug: "photoshop"
 platform: "PC"
 category: "Design"
 thumbnail: "/images/photoshop.jpg"
+site: "https://www.adobe.com/products/photoshop.html"
 size: "4.5 GB"
 releaseYear: 2024
 tags: ["Design", "Photo Editing", "Graphics", "Creative"]
