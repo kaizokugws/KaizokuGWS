@@ -45,6 +45,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
           title={item.title}
           fileSize={item.size}
           lastUpdated={item.lastUpdated}
+          downloadLink={item.downloadLink}
         />
         <InstallationGuide guide={item.installationGuide} />
         

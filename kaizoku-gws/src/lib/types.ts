@@ -15,6 +15,7 @@ export interface Item {
   category: string;
   thumbnail: string;
   site?: string;
+  downloadLink?: string;
   sources?: DownloadSource[];
   aliases?: string[];
   size?: string;

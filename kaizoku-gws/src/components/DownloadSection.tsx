@@ -9,9 +9,10 @@ interface DownloadSectionProps {
   title: string;
   fileSize?: string;
   lastUpdated?: string;
+  downloadLink?: string;
 }
 
-export default function DownloadSection({ sources, title, fileSize, lastUpdated }: DownloadSectionProps) {
+export default function DownloadSection({ sources, title, fileSize, lastUpdated, downloadLink }: DownloadSectionProps) {
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState(1);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -73,6 +74,14 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated 
   };
 
   const confirmDownload = () => {
+    if (downloadLink) {
+      setDownloading(true);
+      setTimeout(() => {
+        window.location.href = downloadLink;
+      }, 500);
+      return;
+    }
+
     const link = getMagnet(sources[selectedIndex].file);
     
     if (!link || (!link.startsWith('magnet:') && !link.startsWith('http'))) {
@@ -301,7 +310,10 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated 
                     <span className="text-[#E6EDF3]">{sources[selectedIndex].name}</span>
                   </div>
                   <p className="text-[#9AA4AF] text-sm">
-                    This will open your BitTorrent client to begin downloading &ldquo;{title}&rdquo;.
+                    {downloadLink 
+                      ? "You will be redirected to the external download page."
+                      : "This will open your BitTorrent client to begin downloading &ldquo;{title}&rdquo;."
+                    }
                   </p>
                 </div>
                 
