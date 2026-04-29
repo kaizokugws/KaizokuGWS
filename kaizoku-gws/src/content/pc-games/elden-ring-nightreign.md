@@ -6,7 +6,7 @@ category: "Action"
 thumbnail: "/images/elden-ring-nightreign.jpg"
 size: "30 GB"
 releaseYear: 2025
-tags: ["action", "rpg", "soulslike", "co-op", "multiplayer", "fromsoftware", "dark-fantasy", "pve"]
+tags: ["action", "rpg", "soulslike", "soulsborne", "co-op", "multiplayer", "fromsoftware", "dark-fantasy", "pve"]
 featured: true
 trending: true
 popular: true

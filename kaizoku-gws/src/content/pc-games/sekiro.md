@@ -2,7 +2,7 @@
 title: "Sekiro: Shadows Die Twice"
 slug: "sekiro"
 platform: "PC"
-category: "pc-games"
+category: "Action"
 thumbnail: "/images/sekiro.jpg"
 size: "25 GB"
 releaseYear: 2019
