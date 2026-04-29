@@ -23,11 +23,6 @@ aliases: ["ds", "ds3", "dark souls", "souls", "fromsoftware"]
 
 Dark Souls III is an action role-playing game developed by FromSoftware. As the Fire Keeper, travel through the kingdom of Lothric and defeat the Lords of Cinder in this epic conclusion to the Dark Souls series.
 
-## Download
-
-- [Dodi Repack](magnet:?xt=urn:btih:EXAMPLE1)
-- [Fitgirl Repack](magnet:?xt=urn:btih:EXAMPLE2)
-
 ## System Requirements
 
 ### Minimum

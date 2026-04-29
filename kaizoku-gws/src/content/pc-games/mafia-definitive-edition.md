@@ -11,6 +11,7 @@ featured: false
 trending: false
 popular: false
 lastUpdated: "2026-04-29"
+description: "Mafia: Definitive Edition is a complete remake of the original Mafia game. Experience the story of Tommy Angelo in 1930s Lost Heaven with modernized gameplay and visuals."
 sources:
   - name: "DODI Repack"
     file: "mafia-definitive-edition-dodi"

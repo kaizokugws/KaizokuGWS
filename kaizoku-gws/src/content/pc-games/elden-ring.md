@@ -26,11 +26,6 @@ Elden Ring is an action role-playing game developed by FromSoftware and publishe
 
 Venture into the Lands Between and become an Elden Lord in this groundbreaking open-world RPG.
 
-## Download
-
-- [Dodi Repack](magnet:?xt=urn:btih:B3CB238628956851CDE7D10D3A2693D8CEFAEFA2&dn=ELDEN%20RING%20%5bDODI%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce)
-- [Fitgirl Repack](magnet:?xt=urn:btih:9C46D83BB0D8BB5CC06A64F1B0C97F80B79CBAD3EC3&dn=Elden%20Ring%20%5bFitGirl%20Repack%5d&tr=udp%3a%2f%2f9.rarbg.to%3a2870%2fannounce)
-
 ## System Requirements
 
 ### Minimum
