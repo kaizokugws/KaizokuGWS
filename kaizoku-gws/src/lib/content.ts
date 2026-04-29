@@ -40,6 +40,8 @@ function getDefaultValues(data: Record<string, unknown>, _slug: string): Partial
     related: Array.isArray(d.related) ? d.related as string[] : [],
     sources,
     description: typeof d.description === 'string' ? d.description : undefined,
+    site: typeof d.site === 'string' ? d.site : undefined,
+    downloadLink: typeof d.downloadLink === 'string' ? d.downloadLink : undefined,
   };
 }
 
@@ -77,6 +79,8 @@ export function getItemBySlug(category: string, slug: string): Item {
     popular: defaults.popular,
     lastUpdated: defaults.lastUpdated,
     description: defaults.description,
+    site: defaults.site,
+    downloadLink: defaults.downloadLink,
   };
   
   validateItem(item, realSlug, category);
@@ -115,6 +119,8 @@ export async function getParsedItemBySlug(category: string, slug: string): Promi
     systemRequirements: (sections.systemRequirements as string) || '',
     installationGuide: (sections.installationGuide as string) || '',
     description: defaults.description,
+    site: defaults.site,
+    downloadLink: defaults.downloadLink,
   };
 }
 
