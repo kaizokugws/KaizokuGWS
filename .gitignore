@@ -1,2 +1,10 @@
 .vercel
 Raw Files of Games/
+**/Raw Files of Games/
+Raw Files of Softwares/
+**/Raw Files of Softwares/
+*.zip
+*.rar
+*.7z
+*.iso
+*.bin
