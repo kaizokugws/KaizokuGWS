@@ -29,7 +29,7 @@ export default function DotWaveBackground() {
     const isMobile = window.innerWidth < 768;
     const DOT_SPACING = isMobile ? 36 : 28;
     const DOT_RADIUS = 1.2;
-    const WAVE_AMPLITUDE = 10;
+    const WAVE_AMPLITUDE = 5;
     const WAVE_FREQUENCY = 0.018;
     const WAVE_SPEED = 0.012;
     const BASE_OPACITY = 0.25;
