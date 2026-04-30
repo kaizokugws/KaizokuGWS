@@ -1,1 +1,0 @@
-Get-ChildItem "C:\Users\USER\Desktop\+\KaizokuGWS\Raw Files of Games\AC Odyssey" -Recurse | ForEach-Object { Write-Host $_.Name }

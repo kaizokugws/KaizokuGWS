@@ -1,1 +1,0 @@
-Get-ChildItem "C:\Users\USER\Desktop\+\KaizokuGWS\Raw Files of Games\AC Odyssey" | ForEach-Object { Write-Host $_.Name; Get-Content $_.FullName }
