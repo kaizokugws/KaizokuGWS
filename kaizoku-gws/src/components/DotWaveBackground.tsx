@@ -46,11 +46,11 @@ export default function DotWaveBackground() {
     const MAX_RADIUS = 1.5;
 
     const auroraRibbons: AuroraRibbon[] = [
-      { yOffset: 0.3, amplitude: 80, frequency: 0.003, speed: 0.00002, opacity: 0.04, thickness: 100, phaseOffset: 0 },
-      { yOffset: 0.45, amplitude: 60, frequency: 0.004, speed: 0.000015, opacity: 0.035, thickness: 80, phaseOffset: 1.5 },
-      { yOffset: 0.55, amplitude: 90, frequency: 0.0025, speed: 0.000025, opacity: 0.03, thickness: 120, phaseOffset: 3 },
-      { yOffset: 0.7, amplitude: 50, frequency: 0.005, speed: 0.000018, opacity: 0.025, thickness: 70, phaseOffset: 4.5 },
-      { yOffset: 0.2, amplitude: 70, frequency: 0.0035, speed: 0.000022, opacity: 0.02, thickness: 90, phaseOffset: 2 },
+      { yOffset: 0.3, amplitude: 80, frequency: 0.003, speed: 0.00000094, opacity: 0.04, thickness: 100, phaseOffset: 0 },
+      { yOffset: 0.45, amplitude: 60, frequency: 0.004, speed: 0.0000007, opacity: 0.035, thickness: 80, phaseOffset: 1.5 },
+      { yOffset: 0.55, amplitude: 90, frequency: 0.0025, speed: 0.00000117, opacity: 0.03, thickness: 120, phaseOffset: 3 },
+      { yOffset: 0.7, amplitude: 50, frequency: 0.005, speed: 0.00000085, opacity: 0.025, thickness: 70, phaseOffset: 4.5 },
+      { yOffset: 0.2, amplitude: 70, frequency: 0.0035, speed: 0.00000103, opacity: 0.02, thickness: 90, phaseOffset: 2 },
     ];
 
     const prefersReducedMotion = window.matchMedia(
