@@ -69,10 +69,10 @@ export default function Navbar({ allItems }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="transition-transform duration-200 group-hover:scale-105">
+            <div className="transition-transform duration-200 group-hover:scale-[1.05] drop-shadow-[0_0_6px_rgba(79,209,255,0.2)]">
               <PirateLogo />
             </div>
-            <span className="text-lg font-bold tracking-wider hidden sm:block">
+            <span className="text-[17px] font-bold tracking-[0.08em] hidden sm:block" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
               KAIZOKU <span className="bg-gradient-to-r from-[#4FD1FF] to-[#22D3EE] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">GWS</span>
             </span>
           </Link>

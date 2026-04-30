@@ -37,43 +37,43 @@ export default function Home() {
         </div>
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide mb-6 animate-slide-up leading-tight">
+          <div className="text-center lg:text-left" style={{ fontFamily: "Inter, Poppins, system-ui, sans-serif" }}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-[0.06em] mb-4 animate-slide-up leading-tight" style={{ fontFamily: "Inter, Poppins, system-ui, sans-serif" }}>
               KAIZOKU <span className="bg-gradient-to-r from-[#4FD1FF] to-[#22D3EE] bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(34,211,238,0.4)]">GWS</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-[#9AA4AF]/90 max-w-xl mx-auto lg:mx-0 mb-10 animate-slide-up stagger-1 font-light leading-relaxed">
+            <p className="text-xl md:text-2xl text-[#E6EDF3]/90 font-semibold mb-3 animate-slide-up stagger-1" style={{ fontFamily: "Inter, Poppins, system-ui, sans-serif" }}>
               Built for Gamers Who Don&apos;t Wait.
             </p>
 
-            <p className="text-sm md:text-base text-[#9AA4AF]/70 max-w-lg mx-auto lg:mx-0 mb-10 animate-slide-up stagger-1">
+            <p className="text-base md:text-lg text-[#9AA4AF]/75 max-w-lg mx-auto lg:mx-0 mb-10 animate-slide-up stagger-1 leading-relaxed" style={{ fontFamily: "Inter, Poppins, system-ui, sans-serif" }}>
               Curated PC games and software. No clutter, no nonsense — just fast, clean downloads that work.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-slide-up stagger-2">
               <Link
                 href="/pc-games"
-                className="group flex items-center gap-2.5 bg-gradient-to-r from-[#22D3EE] to-[#4FD1FF] hover:from-[#6ED8FF] hover:to-[#22D3EE] text-[#0B0D10] font-bold py-3.5 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(34,211,238,0.4)] hover:-translate-y-0.5"
+                className="group flex items-center gap-2.5 bg-gradient-to-r from-[#22D3EE] to-[#4FD1FF] hover:from-[#67E8F9] hover:to-[#22D3EE] text-[#0B0D10] font-bold py-4 px-9 rounded-xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.45)] hover:-translate-y-1 text-base"
               >
-                <span className="text-lg">🎮</span> Browse Games
+                <span className="text-lg leading-none">🎮</span> Browse Games
               </Link>
               <Link
                 href="/pc-softwares"
-                className="flex items-center gap-2.5 border border-[#22D3EE]/40 hover:border-[#22D3EE] text-[#9AA4AF] hover:text-[#E6EDF3] hover:bg-[#22D3EE]/5 py-3.5 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+                className="flex items-center gap-2.5 border-2 border-[#22D3EE]/50 hover:border-[#22D3EE] bg-[#22D3EE]/5 hover:bg-[#22D3EE]/10 text-[#E6EDF3] font-semibold py-4 px-9 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] text-base"
               >
-                <span className="text-lg">🧰</span> Get Software
+                <span className="text-lg leading-none">🧰</span> Get Software
               </Link>
             </div>
 
             <div className="mt-6 text-center lg:text-left animate-slide-up stagger-2">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#111418]/80 backdrop-blur border border-[#222] rounded-full">
-                <span className="text-sm text-[#E6EDF3]/80">⚡ Optimized Torrents • Clean Files • No BS</span>
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111418]/80 backdrop-blur border border-[#222]/60 rounded-full">
+                <span className="text-sm text-[#E6EDF3]/85 font-medium tracking-wide">⚡ Optimized Torrents • Clean Files • No BS</span>
               </div>
             </div>
 
-            <div className="mt-5 text-center lg:text-left animate-slide-up stagger-3">
-              <div className="inline-flex items-center gap-6 text-xs text-[#E6EDF3]/40 font-medium tracking-wide">
-                <span>✔ Pre-installed builds</span>
+            <div className="mt-4 text-center lg:text-left animate-slide-up stagger-3">
+              <div className="inline-flex items-center gap-5 text-[13px] text-[#E6EDF3]/40 font-medium tracking-wide">
+                <span>✔ Premium Games</span>
                 <span>✔ No broken links</span>
                 <span>✔ Regular updates</span>
               </div>
