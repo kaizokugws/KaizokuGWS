@@ -1,5 +1,0 @@
-The instructions for installing the app is - 
-1.Download file from the link. 
-2.Extract the file using Winrar or 7zip or any other tools. 3.Extract the Adobe.Photoshop.2024.u12.Multilingual.iso file with         winrar or 7zip . 
-4.Run the Set-up.exe file inside the Adobe 2024 Folder . 
-5.Set the file location according to your interest and Continue
