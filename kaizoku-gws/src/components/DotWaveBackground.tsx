@@ -13,11 +13,23 @@ interface Star {
   phase: number;
 }
 
+interface AuroraRibbon {
+  yOffset: number;
+  amplitude: number;
+  frequency: number;
+  speed: number;
+  opacity: number;
+  thickness: number;
+  phaseOffset: number;
+}
+
 export default function DotWaveBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { showDotWave } = useBackground();
 
   useEffect(() => {
+    if (!showDotWave) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -32,7 +44,14 @@ export default function DotWaveBackground() {
     const MAX_SPEED = 0.15;
     const MIN_RADIUS = 0.5;
     const MAX_RADIUS = 1.5;
-    const AURORA_BANDS = isMobile ? 3 : 5;
+
+    const auroraRibbons: AuroraRibbon[] = [
+      { yOffset: 0.3, amplitude: 80, frequency: 0.003, speed: 0.0002, opacity: 0.04, thickness: 100, phaseOffset: 0 },
+      { yOffset: 0.45, amplitude: 60, frequency: 0.004, speed: 0.00015, opacity: 0.035, thickness: 80, phaseOffset: 1.5 },
+      { yOffset: 0.55, amplitude: 90, frequency: 0.0025, speed: 0.00025, opacity: 0.03, thickness: 120, phaseOffset: 3 },
+      { yOffset: 0.7, amplitude: 50, frequency: 0.005, speed: 0.00018, opacity: 0.025, thickness: 70, phaseOffset: 4.5 },
+      { yOffset: 0.2, amplitude: 70, frequency: 0.0035, speed: 0.00022, opacity: 0.02, thickness: 90, phaseOffset: 2 },
+    ];
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -100,27 +119,75 @@ export default function DotWaveBackground() {
       }
     };
 
-    const drawAurora = (time: number) => {
-      for (let i = 0; i < AURORA_BANDS; i++) {
-        const yBase = (canvas.height * 0.25) + (i * canvas.height * 0.15);
-        const alpha = 0.03 + (i * 0.005);
+    const drawAuroraRibbon = (ribbon: AuroraRibbon, time: number) => {
+      const baseY = canvas.height * ribbon.yOffset;
+      const points: { x: number; y: number }[] = [];
+      const steps = canvas.width / 2;
 
-        const gradient = ctx.createLinearGradient(
-          0, yBase - 60,
-          canvas.width, yBase + 60
-        );
-
-        const shift1 = Math.sin(time * 0.0003 + i * 0.8) * 0.5 + 0.5;
-        const shift2 = Math.cos(time * 0.0005 + i * 1.2) * 0.5 + 0.5;
-
-        gradient.addColorStop(0, `rgba(34, 197, 94, ${alpha * shift1})`);
-        gradient.addColorStop(0.3, `rgba(79, 209, 255, ${alpha * shift2 * 0.5})`);
-        gradient.addColorStop(0.6, `rgba(34, 197, 94, ${alpha * shift1 * 0.7})`);
-        gradient.addColorStop(1, `rgba(34, 197, 94, ${alpha * shift2})`);
-
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, yBase - 60, canvas.width, 120);
+      for (let i = 0; i <= steps; i++) {
+        const x = i * 2;
+        const wave1 = Math.sin(x * ribbon.frequency + time * ribbon.speed * 1000 + ribbon.phaseOffset) * ribbon.amplitude;
+        const wave2 = Math.sin(x * ribbon.frequency * 1.7 + time * ribbon.speed * 600 + ribbon.phaseOffset * 2) * ribbon.amplitude * 0.5;
+        const wave3 = Math.cos(x * ribbon.frequency * 0.8 + time * ribbon.speed * 400 + ribbon.phaseOffset * 0.5) * ribbon.amplitude * 0.3;
+        
+        const y = baseY + wave1 + wave2 + wave3;
+        points.push({ x, y });
       }
+
+      const gradient = ctx.createLinearGradient(
+        0, baseY - ribbon.thickness,
+        canvas.width, baseY + ribbon.thickness
+      );
+
+      const greenShift = Math.sin(time * ribbon.speed * 500 + ribbon.phaseOffset) * 0.5 + 0.5;
+      const cyanShift = Math.cos(time * ribbon.speed * 700 + ribbon.phaseOffset * 1.5) * 0.5 + 0.5;
+
+      gradient.addColorStop(0, `rgba(34, 197, 94, ${ribbon.opacity * greenShift * 0.3})`);
+      gradient.addColorStop(0.2, `rgba(34, 197, 94, ${ribbon.opacity * greenShift})`);
+      gradient.addColorStop(0.5, `rgba(56, 180, 120, ${ribbon.opacity * 0.7})`);
+      gradient.addColorStop(0.8, `rgba(79, 209, 255, ${ribbon.opacity * cyanShift * 0.5})`);
+      gradient.addColorStop(1, `rgba(34, 197, 94, ${ribbon.opacity * greenShift * 0.3})`);
+
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+
+      for (let i = 1; i < points.length - 1; i++) {
+        const xc = (points[i].x + points[i + 1].x) / 2;
+        const yc = (points[i].y + points[i + 1].y) / 2;
+        ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc);
+      }
+
+      ctx.lineTo(canvas.width, canvas.height);
+      ctx.lineTo(0, canvas.height);
+      ctx.closePath();
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      for (let band = 1; band <= 3; band++) {
+        ctx.beginPath();
+        for (let i = 0; i < points.length; i++) {
+          const y = points[i].y + (band * ribbon.thickness * 0.4);
+          if (i === 0) ctx.moveTo(points[i].x, y);
+          else {
+            const prevY = points[i - 1].y + (band * ribbon.thickness * 0.4);
+            const xc = (points[i - 1].x + points[i].x) / 2;
+            const yc = (prevY + y) / 2;
+            ctx.quadraticCurveTo(points[i - 1].x, prevY, xc, yc);
+          }
+        }
+        ctx.strokeStyle = `rgba(34, 197, 94, ${ribbon.opacity * 0.5 * (1 - band * 0.3)})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+    };
+
+    const drawAurora = (time: number) => {
+      ctx.save();
+      ctx.globalCompositeOperation = "lighter";
+      for (const ribbon of auroraRibbons) {
+        drawAuroraRibbon(ribbon, time);
+      }
+      ctx.restore();
     };
 
     const drawStatic = () => {
@@ -163,7 +230,7 @@ export default function DotWaveBackground() {
       window.removeEventListener("resize", resize);
       document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, []);
+  }, [showDotWave]);
 
   if (!showDotWave) return null;
 
