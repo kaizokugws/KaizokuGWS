@@ -3,14 +3,14 @@
 import { useEffect, useRef } from "react";
 import { useBackground } from "@/context/BackgroundContext";
 
-interface Dot {
+interface Star {
   x: number;
   y: number;
-  baseY: number;
-  size: number;
+  vx: number;
+  vy: number;
+  radius: number;
   opacity: number;
-  speed: number;
-  offset: number;
+  phase: number;
 }
 
 export default function DotWaveBackground() {
@@ -24,83 +24,118 @@ export default function DotWaveBackground() {
     if (!ctx) return;
 
     let animationId: number;
-    let dots: Dot[] = [];
+    let stars: Star[] = [];
 
     const isMobile = window.innerWidth < 768;
-    const DOT_SPACING = isMobile ? 36 : 28;
-    const DOT_RADIUS = 1.2;
-    const WAVE_AMPLITUDE = 5;
-    const WAVE_FREQUENCY = 0.018;
-    const WAVE_SPEED = 0.012;
-    const BASE_OPACITY = 0.25;
-    const WAVE_OPACITY_BOOST = 0.35;
-    const DOT_COLOR = [79, 209, 255];
+    const STAR_COUNT = isMobile ? 60 : 120;
+    const CONNECTION_DISTANCE = 120;
+    const MAX_SPEED = 0.15;
+    const MIN_RADIUS = 0.5;
+    const MAX_RADIUS = 1.5;
+    const AURORA_BANDS = isMobile ? 3 : 5;
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    let time = 0;
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      buildStars();
+    };
 
-    const buildDots = () => {
-      dots = [];
-      const cols = Math.ceil(canvas.width / DOT_SPACING) + 1;
-      const rows = Math.ceil(canvas.height / DOT_SPACING) + 1;
+    const buildStars = () => {
+      stars = [];
+      for (let i = 0; i < STAR_COUNT; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * MAX_SPEED,
+          vy: (Math.random() - 0.5) * MAX_SPEED,
+          radius: MIN_RADIUS + Math.random() * (MAX_RADIUS - MIN_RADIUS),
+          opacity: 0.2 + Math.random() * 0.4,
+          phase: Math.random() * Math.PI * 2,
+        });
+      }
+    };
 
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-          dots.push({
-            x: col * DOT_SPACING,
-            y: row * DOT_SPACING,
-            baseY: row * DOT_SPACING,
-            size: DOT_RADIUS,
-            opacity: BASE_OPACITY,
-            speed: WAVE_SPEED,
-            offset: col * WAVE_FREQUENCY * DOT_SPACING,
-          });
+    const updateStars = (time: number) => {
+      for (const star of stars) {
+        star.x += star.vx;
+        star.y += star.vy;
+
+        if (star.x < 0) star.x = canvas.width;
+        if (star.x > canvas.width) star.x = 0;
+        if (star.y < 0) star.y = canvas.height;
+        if (star.y > canvas.height) star.y = 0;
+      }
+    };
+
+    const drawConnections = () => {
+      for (let i = 0; i < stars.length; i++) {
+        for (let j = i + 1; j < stars.length; j++) {
+          const dx = stars[i].x - stars[j].x;
+          const dy = stars[i].y - stars[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < CONNECTION_DISTANCE) {
+            const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.06;
+            ctx.beginPath();
+            ctx.moveTo(stars[i].x, stars[i].y);
+            ctx.lineTo(stars[j].x, stars[j].y);
+            ctx.strokeStyle = `rgba(79, 209, 255, ${alpha})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
         }
       }
     };
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      buildDots();
+    const drawStars = () => {
+      for (const star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(200, 230, 255, ${star.opacity})`;
+        ctx.fill();
+      }
+    };
+
+    const drawAurora = (time: number) => {
+      for (let i = 0; i < AURORA_BANDS; i++) {
+        const yBase = (canvas.height * 0.25) + (i * canvas.height * 0.15);
+        const alpha = 0.03 + (i * 0.005);
+
+        const gradient = ctx.createLinearGradient(
+          0, yBase - 60,
+          canvas.width, yBase + 60
+        );
+
+        const shift1 = Math.sin(time * 0.0003 + i * 0.8) * 0.5 + 0.5;
+        const shift2 = Math.cos(time * 0.0005 + i * 1.2) * 0.5 + 0.5;
+
+        gradient.addColorStop(0, `rgba(34, 197, 94, ${alpha * shift1})`);
+        gradient.addColorStop(0.3, `rgba(79, 209, 255, ${alpha * shift2 * 0.5})`);
+        gradient.addColorStop(0.6, `rgba(34, 197, 94, ${alpha * shift1 * 0.7})`);
+        gradient.addColorStop(1, `rgba(34, 197, 94, ${alpha * shift2})`);
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, yBase - 60, canvas.width, 120);
+      }
     };
 
     const drawStatic = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const dot of dots) {
-        ctx.beginPath();
-        ctx.arc(dot.x, dot.baseY, dot.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${DOT_COLOR[0]}, ${DOT_COLOR[1]}, ${DOT_COLOR[2]}, ${BASE_OPACITY})`;
-        ctx.fill();
-      }
+      drawAurora(0);
+      drawStars();
     };
 
-    const draw = () => {
+    const animate = (timestamp: number) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      time += WAVE_SPEED;
-
-      for (const dot of dots) {
-        const waveY = Math.sin(dot.x * WAVE_FREQUENCY + time + dot.offset)
-          * WAVE_AMPLITUDE;
-
-        const waveY2 = Math.sin(dot.x * WAVE_FREQUENCY * 0.5 + time * 0.7)
-          * (WAVE_AMPLITUDE * 0.4);
-
-        const finalY = dot.baseY + waveY + waveY2;
-
-        const wavePeak = (Math.sin(dot.x * WAVE_FREQUENCY + time) + 1) / 2;
-        const finalOpacity = BASE_OPACITY + wavePeak * WAVE_OPACITY_BOOST;
-
-        ctx.beginPath();
-        ctx.arc(dot.x, finalY, dot.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${DOT_COLOR[0]}, ${DOT_COLOR[1]}, ${DOT_COLOR[2]}, ${finalOpacity})`;
-        ctx.fill();
-      }
-
-      animationId = requestAnimationFrame(draw);
+      updateStars(timestamp);
+      drawAurora(timestamp);
+      drawConnections();
+      drawStars();
+      animationId = requestAnimationFrame(animate);
     };
 
     resize();
@@ -108,7 +143,7 @@ export default function DotWaveBackground() {
     if (prefersReducedMotion) {
       drawStatic();
     } else {
-      draw();
+      animate(0);
     }
 
     const handleVisibility = () => {
@@ -116,7 +151,7 @@ export default function DotWaveBackground() {
         cancelAnimationFrame(animationId);
       } else {
         if (!prefersReducedMotion) {
-          draw();
+          animate(0);
         }
       }
     };

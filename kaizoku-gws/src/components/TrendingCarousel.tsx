@@ -37,7 +37,7 @@ const TrendingCarousel = ({
         duration: 0.3,
         delay: 0.5,
       }}
-      className={cn("relative w-full rounded-2xl bg-[#0B0D10]/60 backdrop-blur-md border border-[#222]/50", className)}
+      className={cn("relative w-full", className)}
     >
       <Swiper
         spaceBetween={40}
