@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { Menu, X, Search, Monitor, Smartphone, Home } from 'lucide-react';
+import { Menu, X, Search, Monitor, Smartphone, Home, Gamepad2 } from 'lucide-react';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Item } from '@/lib/types';
