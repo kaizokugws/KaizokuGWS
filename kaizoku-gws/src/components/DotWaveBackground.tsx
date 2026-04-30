@@ -72,7 +72,7 @@ export default function DotWaveBackground() {
           vx: (Math.random() - 0.5) * MAX_SPEED,
           vy: (Math.random() - 0.5) * MAX_SPEED,
           radius: MIN_RADIUS + Math.random() * (MAX_RADIUS - MIN_RADIUS),
-          opacity: 0.2 + Math.random() * 0.4,
+          opacity: 0.4 + Math.random() * 0.5,
           phase: Math.random() * Math.PI * 2,
         });
       }
@@ -98,12 +98,12 @@ export default function DotWaveBackground() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < CONNECTION_DISTANCE) {
-            const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.06;
+            const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.14;
             ctx.beginPath();
             ctx.moveTo(stars[i].x, stars[i].y);
             ctx.lineTo(stars[j].x, stars[j].y);
             ctx.strokeStyle = `rgba(79, 209, 255, ${alpha})`;
-            ctx.lineWidth = 0.5;
+            ctx.lineWidth = 0.6;
             ctx.stroke();
           }
         }

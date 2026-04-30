@@ -7,6 +7,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Item } from '@/lib/types';
 import { formatCategory } from '@/lib/utils';
+import PirateLogo from '@/components/PirateLogo';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: Home },
@@ -67,12 +68,12 @@ export default function Navbar({ allItems }: NavbarProps) {
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-[#222]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#4FD1FF] to-[#4FD1FF]/60 flex items-center justify-center shadow-[0_0_15px_rgba(79,209,255,0.3)] group-hover:shadow-[0_0_25px_rgba(79,209,255,0.5)] transition-shadow">
-              <Gamepad2 className="w-5 h-5 text-[#0B0D10]" />
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="transition-transform duration-200 group-hover:scale-105">
+              <PirateLogo />
             </div>
-            <span className="text-lg font-bold tracking-tight hidden sm:block">
-              KAIZOKU <span className="text-[#4FD1FF]">GWS</span>
+            <span className="text-lg font-bold tracking-wider hidden sm:block">
+              KAIZOKU <span className="bg-gradient-to-r from-[#4FD1FF] to-[#22D3EE] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">GWS</span>
             </span>
           </Link>
 

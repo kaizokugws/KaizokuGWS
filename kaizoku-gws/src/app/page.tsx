@@ -38,34 +38,44 @@ export default function Home() {
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <h1 className="text-display font-bold tracking-tight mb-6 animate-slide-up">
-              KAIZOKU <span className="text-accent">GWS</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-wide mb-6 animate-slide-up leading-tight">
+              KAIZOKU <span className="bg-gradient-to-r from-[#4FD1FF] to-[#22D3EE] bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(34,211,238,0.4)]">GWS</span>
             </h1>
             
-            <p className="text-heading-3 text-muted max-w-xl mx-auto lg:mx-0 mb-10 animate-slide-up stagger-1">
-              Your ultimate destination for premium games and software. 
-              Lightning-fast downloads powered by BitTorrent technology.
+            <p className="text-xl md:text-2xl text-[#9AA4AF]/90 max-w-xl mx-auto lg:mx-0 mb-10 animate-slide-up stagger-1 font-light leading-relaxed">
+              Built for Gamers Who Don&apos;t Wait.
+            </p>
+
+            <p className="text-sm md:text-base text-[#9AA4AF]/70 max-w-lg mx-auto lg:mx-0 mb-10 animate-slide-up stagger-1">
+              Curated PC games and software. No clutter, no nonsense — just fast, clean downloads that work.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-slide-up stagger-2">
               <Link
                 href="/pc-games"
-                className="group flex items-center gap-2 bg-gradient-to-r from-[#4FD1FF] to-[#4FD1FF] hover:from-[#6ED8FF] hover:to-[#6ED8FF] text-[#0B0D10] font-semibold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(79,209,255,0.4)]"
+                className="group flex items-center gap-2.5 bg-gradient-to-r from-[#22D3EE] to-[#4FD1FF] hover:from-[#6ED8FF] hover:to-[#22D3EE] text-[#0B0D10] font-bold py-3.5 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(34,211,238,0.4)] hover:-translate-y-0.5"
               >
-                Explore Games
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span className="text-lg">🎮</span> Browse Games
               </Link>
               <Link
                 href="/pc-softwares"
-                className="flex items-center gap-2 border border-[#222] hover:border-[#4FD1FF] text-[#9AA4AF] hover:text-[#E6EDF3] py-3 px-8 rounded-lg transition-all duration-300"
+                className="flex items-center gap-2.5 border border-[#22D3EE]/40 hover:border-[#22D3EE] text-[#9AA4AF] hover:text-[#E6EDF3] hover:bg-[#22D3EE]/5 py-3.5 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
               >
-                Browse Software
+                <span className="text-lg">🧰</span> Get Software
               </Link>
             </div>
-            <div className="mt-6 text-center lg:text-left">
+
+            <div className="mt-6 text-center lg:text-left animate-slide-up stagger-2">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#111418]/80 backdrop-blur border border-[#222] rounded-full">
-                <Zap className="w-4 h-4 text-accent" />
-                <span className="text-sm text-muted">Fast & Secure BitTorrent Downloads</span>
+                <span className="text-sm text-[#E6EDF3]/80">⚡ Optimized Torrents • Clean Files • No BS</span>
+              </div>
+            </div>
+
+            <div className="mt-5 text-center lg:text-left animate-slide-up stagger-3">
+              <div className="inline-flex items-center gap-6 text-xs text-[#E6EDF3]/40 font-medium tracking-wide">
+                <span>✔ Pre-installed builds</span>
+                <span>✔ No broken links</span>
+                <span>✔ Regular updates</span>
               </div>
             </div>
           </div>
