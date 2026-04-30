@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import { ScrollProgress, BackToTop } from "@/components/ScrollProgress";
 import PageTransition from "@/components/PageTransition";
 import ViewTracker from "@/components/ViewTracker";
+import DotWaveBackground from "@/components/DotWaveBackground";
+import { BackgroundProvider } from "@/context/BackgroundContext";
 import { getAllItemsFlat } from "@/lib/content";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -38,16 +40,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={`${inter.className} min-h-full flex flex-col bg-[#0B0D10]`}>
-        <ScrollProgress />
-        <Navbar allItems={allItems} />
-        <main className="flex-1 pt-16 relative z-0">
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </main>
-        <Footer />
-        <BackToTop />
-        <ViewTracker />
+        <BackgroundProvider>
+          <DotWaveBackground />
+          <div className="relative z-10 flex flex-col min-h-full">
+            <ScrollProgress />
+            <Navbar allItems={allItems} />
+            <main className="flex-1 pt-16">
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </main>
+            <Footer />
+            <BackToTop />
+            <ViewTracker />
+          </div>
+        </BackgroundProvider>
       </body>
     </html>
   );

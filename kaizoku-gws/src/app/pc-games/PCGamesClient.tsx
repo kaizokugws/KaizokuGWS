@@ -51,7 +51,7 @@ export default function PCGamesClient({ items }: PCGamesClientProps) {
               <span 
                 className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono rounded-full"
                 style={{
-                  backgroundColor: 'rgba(0,0,0,0.3)',
+                  backgroundColor: 'rgba(0,0,0,0.6)',
                   border: `1px solid ${activeFranchise.accentColor}40`,
                   color: '#E6EDF3',
                 }}

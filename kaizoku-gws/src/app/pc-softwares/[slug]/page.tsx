@@ -7,6 +7,7 @@ import DownloadInfo from '@/components/DownloadInfo';
 import InstallationGuide from '@/components/InstallationGuide';
 import RelatedItems from '@/components/RelatedItems';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import HideDotWave from '@/components/HideDotWave';
 
 export async function generateStaticParams() {
   const slugs = getItemSlugs('pc-softwares');
@@ -27,6 +28,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
 
   return (
     <div className="min-h-screen py-8">
+      <HideDotWave />
       <div className="max-w-5xl mx-auto px-4">
         <div className="mb-6">
           <Breadcrumbs items={[

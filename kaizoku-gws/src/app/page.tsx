@@ -33,8 +33,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#161A20] via-[#0B0D10] to-[#0B0D10]" />
         <div className="absolute inset-0 opacity-40">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4FD1FF] rounded-full blur-[150px] opacity-30 animate-pulse-glow" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#4FD1FF] rounded-full blur-[120px] opacity-15" 
-               style={{ animation: 'antigravity-slow 22s ease-in-out infinite alternate' }} />
+           <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#4FD1FF] rounded-full blur-[120px] opacity-15 animate-pulse" />
         </div>
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
