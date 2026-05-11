@@ -176,4 +176,11 @@ export const franchises: Franchise[] = [
     games: ["hellblade-senuas-sacrifice", "senuas-saga-hellblade-2"],
     accentColor: "#6d28d9",
   },
+  {
+    id: "batman",
+    name: "Batman",
+    tag: "batman",
+    games: ["batman-arkham-asylum", "batman-the-enemy-within"],
+    accentColor: "#fbbf24",
+  },
 ];
