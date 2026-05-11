@@ -114,13 +114,6 @@ export const franchises: Franchise[] = [
     accentColor: "#dc2626",
   },
   {
-    id: "uncharted",
-    name: "Uncharted",
-    tag: "uncharted",
-    games: ["uncharted-legacy-of-thieves-collection"],
-    accentColor: "#d4a017",
-  },
-  {
     id: "mafia",
     name: "Mafia",
     tag: "mafia",
@@ -133,5 +126,54 @@ export const franchises: Franchise[] = [
     tag: "doom",
     games: ["doom-eternal"],
     accentColor: "#991b1b",
+  },
+  {
+    id: "resident-evil",
+    name: "Resident Evil",
+    tag: "resident-evil",
+    games: [
+      "resident-evil-2-remake", "resident-evil-3-remake", "resident-evil-4-remake",
+      "resident-evil-5", "resident-evil-6", "resident-evil-7-biohazard",
+      "resident-evil-8-village", "resident-evil-hd-remaster", "re0-hd-remaster"
+    ],
+    accentColor: "#8b0000",
+  },
+  {
+    id: "dying-light",
+    name: "Dying Light",
+    tag: "dying-light",
+    games: [
+      "dying-light-2015", "dying-light-2", "dying-light-the-following",
+      "dying-light-the-beast", "dying-light-definitive-edition"
+    ],
+    accentColor: "#f59e0b",
+  },
+  {
+    id: "star-wars",
+    name: "Star Wars",
+    tag: "star-wars",
+    games: [
+      "star-wars-jedi-fallen-order", "star-wars-jedi-survivor",
+      "star-wars-battlefront", "star-wars-battlefront-ii",
+      "star-wars-battlefront-classic-collection", "star-wars-battlefront-2-classic",
+      "star-wars-dark-forces", "star-wars-bounty-hunter",
+      "star-wars-jedi-power-battles", "star-wars-squadrons",
+      "lego-star-wars-skywalker-saga"
+    ],
+    accentColor: "#ffd700",
+  },
+  {
+    id: "middle-earth",
+    name: "Middle-earth",
+    tag: "middle-earth",
+    games: ["middle-earth-shadow-of-mordor", "middle-earth-shadow-of-war"],
+    accentColor: "#4a6741",
+  },
+  {
+    id: "hellblade",
+    name: "Hellblade",
+    tag: "hellblade",
+    games: ["hellblade-senuas-sacrifice", "senuas-saga-hellblade-2"],
+    accentColor: "#6d28d9",
   },
 ];
