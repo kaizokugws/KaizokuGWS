@@ -183,4 +183,11 @@ export const franchises: Franchise[] = [
     games: ["batman-arkham-asylum", "batman-the-enemy-within"],
     accentColor: "#fbbf24",
   },
+  {
+    id: "god-of-war",
+    name: "God of War",
+    tag: "god-of-war",
+    games: ["god-of-war-2018", "god-of-war-ragnarok"],
+    accentColor: "#0ea5e9",
+  },
 ];
