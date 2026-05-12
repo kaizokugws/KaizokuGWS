@@ -206,15 +206,10 @@ export default function DotWaveBackground() {
       drawStars();
     };
 
-    let frameCount = 0;
-
     const animate = (timestamp: number) => {
-      frameCount++;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       updateStars(timestamp);
-      if (frameCount % 2 === 0) {
-        drawAurora(timestamp);
-      }
+      drawAurora(timestamp);
       drawConnections();
       drawStars();
       animationId = requestAnimationFrame(animate);
@@ -253,7 +248,7 @@ export default function DotWaveBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 0, willChange: 'contents' }}
+      style={{ zIndex: 0 }}
       aria-hidden="true"
     />
   );
