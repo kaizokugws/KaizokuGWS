@@ -91,6 +91,8 @@ export default function DotWaveBackground() {
     };
 
     const drawConnections = () => {
+      const batches: Map<string, { x1: number; y1: number; x2: number; y2: number }[]> = new Map();
+
       for (let i = 0; i < stars.length; i++) {
         for (let j = i + 1; j < stars.length; j++) {
           const dx = stars[i].x - stars[j].x;
@@ -98,15 +100,23 @@ export default function DotWaveBackground() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < CONNECTION_DISTANCE) {
-            const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.14;
-            ctx.beginPath();
-            ctx.moveTo(stars[i].x, stars[i].y);
-            ctx.lineTo(stars[j].x, stars[j].y);
-            ctx.strokeStyle = `rgba(79, 209, 255, ${alpha})`;
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
+            const alpha = Math.round((1 - dist / CONNECTION_DISTANCE) * 14) / 100;
+            const key = alpha.toFixed(2);
+            if (!batches.has(key)) batches.set(key, []);
+            batches.get(key)!.push({ x1: stars[i].x, y1: stars[i].y, x2: stars[j].x, y2: stars[j].y });
           }
         }
+      }
+
+      for (const [alpha, lines] of batches) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(79, 209, 255, ${alpha})`;
+        ctx.lineWidth = 0.6;
+        for (const { x1, y1, x2, y2 } of lines) {
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+        }
+        ctx.stroke();
       }
     };
 
@@ -122,10 +132,10 @@ export default function DotWaveBackground() {
     const drawAuroraRibbon = (ribbon: AuroraRibbon, time: number) => {
       const baseY = canvas.height * ribbon.yOffset;
       const points: { x: number; y: number }[] = [];
-      const steps = canvas.width / 2;
+      const steps = Math.ceil(canvas.width / 8);
 
       for (let i = 0; i <= steps; i++) {
-        const x = i * 2;
+        const x = i * 8;
         const wave1 = Math.sin(x * ribbon.frequency + time * ribbon.speed * 1000 + ribbon.phaseOffset) * ribbon.amplitude;
         const wave2 = Math.sin(x * ribbon.frequency * 1.7 + time * ribbon.speed * 600 + ribbon.phaseOffset * 2) * ribbon.amplitude * 0.5;
         const wave3 = Math.cos(x * ribbon.frequency * 0.8 + time * ribbon.speed * 400 + ribbon.phaseOffset * 0.5) * ribbon.amplitude * 0.3;
@@ -196,10 +206,15 @@ export default function DotWaveBackground() {
       drawStars();
     };
 
+    let frameCount = 0;
+
     const animate = (timestamp: number) => {
+      frameCount++;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       updateStars(timestamp);
-      drawAurora(timestamp);
+      if (frameCount % 2 === 0) {
+        drawAurora(timestamp);
+      }
       drawConnections();
       drawStars();
       animationId = requestAnimationFrame(animate);
@@ -238,7 +253,7 @@ export default function DotWaveBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 0 }}
+      style={{ zIndex: 0, willChange: 'contents' }}
       aria-hidden="true"
     />
   );

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Gamepad2, Monitor, Smartphone, Zap, Shield, Star, Download, Users } from 'lucide-react';
-import { getTrendingItems, getFeaturedItem, getPopularItems, getRecentlyAdded, getAllItems } from '@/lib/content';
+import { getTrendingItems, getFeaturedItem, getPopularItems } from '@/lib/content';
 import { TrendingCarousel } from '@/components/TrendingCarousel';
 import Card from '@/components/Card';
 import FranchiseGrid from '@/components/FranchiseGrid';
@@ -15,12 +15,9 @@ function truncateDescription(text: string, maxLength: number): string {
 }
 
 export default function Home() {
-  const pcGames = getAllItems('pc-games');
-  
   const trendingGames = getTrendingItems('pc-games');
   const featuredGame = getFeaturedItem('pc-games');
   const popularGames = getPopularItems('pc-games', 8);
-  const recentGames = getRecentlyAdded('pc-games', 8);
   
   const featuredDescription = featuredGame?.description 
     ? truncateDescription(featuredGame.description, 120) 
@@ -83,7 +80,7 @@ export default function Home() {
           <div className="relative hidden lg:block animate-slow-zoom">
             <div className="relative w-full max-w-md mx-auto flex justify-center">
               <Image
-                src="/images/luffy image.png"
+                src="/images/luffy-image.png"
                 alt="Featured"
                 width={500}
                 height={500}

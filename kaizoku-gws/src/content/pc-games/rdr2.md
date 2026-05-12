@@ -13,9 +13,9 @@ popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "Dodi Repack"
-    file: "Red Dead Redemption 2 Torrent Dodi Repack"
+    file: "rdr2-dodi"
   - name: "FitGirl Repack"
-    file: "Red Dead Redemption 2 Torrent Fitgirl Repack"
+    file: "rdr2-fitgirl"
 aliases: ["rdr", "red dead", "red dead redemption", "rdr 2"]
 ---
 

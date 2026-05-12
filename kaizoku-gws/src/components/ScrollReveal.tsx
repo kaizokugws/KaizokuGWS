@@ -30,16 +30,10 @@ export function ScrollReveal({ children, className = '', animation = 'slide' }: 
     return () => observer.disconnect();
   }, []);
 
-  const animations = {
-    fade: 'animate-fade-in',
-    slide: 'animate-slide-up',
-    scale: 'animate-scale-in',
-  };
-
   return (
     <div
       ref={ref}
-      className={`scroll-animate ${isVisible ? 'visible' : ''} ${animations[animation]} ${className}`}
+      className={`scroll-animate ${isVisible ? 'visible' : ''} ${className}`}
     >
       {children}
     </div>
