@@ -180,7 +180,7 @@ export const franchises: Franchise[] = [
     id: "batman",
     name: "Batman",
     tag: "batman",
-    games: ["batman-arkham-asylum", "batman-the-enemy-within"],
+    games: ["batman-arkham-asylum", "batman-arkham-city", "batman-arkham-knight", "batman-arkham-origins", "batman-the-enemy-within", "gotham-knights"],
     accentColor: "#fbbf24",
   },
   {
