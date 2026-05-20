@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/the-amazing-spider-man.jpg"
 size: "8.6 GB"
 releaseYear: 2012
+releaseDate: "10 Aug, 2012"
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "third-person", "being-a-game"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Experience an original story inspired by the hit film The Amazing Spider-Man. Swing, battle, and explore New York City as Spider-Man."
 sources:
   - name: "Dodi Repack"

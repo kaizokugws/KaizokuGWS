@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/death-stranding.jpg"
 size: "80 GB"
 releaseYear: 2020
+releaseDate: "14 Jul, 2020"
 tags: ["action", "adventure", "open-world", "post-apocalyptic", "story", "kojima"]
 featured: false
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "Dodi Repack"
     file: "death-stranding-dodi"

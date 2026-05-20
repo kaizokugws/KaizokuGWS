@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/horizon-zero-dawn.jpg"
 size: "75 GB"
 releaseYear: 2020
+releaseDate: "7 Aug, 2020"
 tags: ["action", "rpg", "open-world", "post-apocalyptic", "guerrilla", "horizon"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "An action RPG where humanity has been reverted to a primitive state and robotic machines roam the wild."
 sources:
   - name: "DODI Repack"

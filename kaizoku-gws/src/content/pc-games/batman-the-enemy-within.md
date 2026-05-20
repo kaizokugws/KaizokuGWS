@@ -4,8 +4,10 @@ slug: "batman-the-enemy-within"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/batman-the-enemy-within.jpg"
+releaseYear: 2017
+releaseDate: "8 Aug, 2017"
 tags: ["batman", "adventure", "story-rich", "dc", "superhero", "telltale", "episodic", "choice-driven"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "In Season 4, Batman - The Telltale Series, both Bruce Wayne and Batman get pushed into uncomfortable new roles. But the Riddler is there to continue to terrorize Gotham City, with his gruesome puzzles. But this time their is a bigger problem. Joining the fray is a ruthless federal agent and the return of the Joker."
 sources:
   - name: "FitGirl Repack"

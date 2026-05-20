@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/shadow-of-the-tomb-raider.jpg"
 size: "40 GB"
 releaseYear: 2018
+releaseDate: "14 Sep, 2018"
 tags: ["action", "adventure", "tomb-raider", "definitive-edition", "crystal-dynamics"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "shadow-of-the-tomb-raider-dodi"

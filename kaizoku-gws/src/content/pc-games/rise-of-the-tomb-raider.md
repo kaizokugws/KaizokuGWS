@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/rise-of-the-tomb-raider.jpg"
 size: "36 GB"
 releaseYear: 2016
+releaseDate: "9 Feb, 2016"
 tags: ["action", "adventure", "tomb-raider", "-survival", "crystal-dynamics"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "rise-of-the-tomb-raider-dodi"

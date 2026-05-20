@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/watch-dogs-2.jpg"
 size: "50 GB"
 releaseYear: 2016
+releaseDate: "29 Nov, 2016"
 tags: ["action", "open-world", "hacking", "watch-dogs", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "watch-dogs-2-dodi"

@@ -6,8 +6,9 @@ category: "Horror"
 thumbnail: "/images/still-wakes-the-deep.jpg"
 size: "9 GB"
 releaseYear: 2024
+releaseDate: "18 Jun, 2024"
 tags: ["horror", "first-person", "narrative", "singleplayer", "indie"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "A first-person narrative horror game set on an oil rig in the North Sea."
 sources:
   - name: "FitGirl Repack"

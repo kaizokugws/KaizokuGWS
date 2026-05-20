@@ -5,11 +5,12 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/days-gone.jpg"
 size: "90 GB"
-releaseYear: 2025
+releaseYear: 2021
+releaseDate: "18 May, 2021"
 tags: ["action", "adventure", "open-world", "post-apocalyptic", "zombies", "horde"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "days-gone-remastered-dodi"

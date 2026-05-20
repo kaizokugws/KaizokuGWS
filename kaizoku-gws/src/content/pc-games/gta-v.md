@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/gta-5.jpg"
 size: "51 GB"
 releaseYear: 2015
+releaseDate: "14 Apr, 2015"
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "gta", "rockstar"]
 featured: true
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Explore the sprawling sun-soaked metropolis of Los Santos in the ultimate GTA Online experience."
 sources:
   - name: "FitGirl Repack"

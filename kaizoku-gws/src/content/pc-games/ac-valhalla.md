@@ -6,10 +6,8 @@ category: "Action"
 thumbnail: "/images/ac-valhalla.jpg"
 size: "50 GB"
 releaseYear: 2020
-tags: ["action", "assassins-creed", "viking-age", "ubisoft"]
-featured: false
-trending: false
-lastUpdated: "2026-04-29"
+releaseDate: "10 Nov, 2020"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-valhalla-dodi"

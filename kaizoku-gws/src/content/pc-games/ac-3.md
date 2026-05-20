@@ -6,10 +6,8 @@ category: "Action"
 thumbnail: "/images/ac-3.jpg"
 size: "17 GB"
 releaseYear: 2012
-tags: ["action", "assassins-creed", "american-revolution", "ubisoft", "open-world", "stealth"]
-featured: false
-trending: false
-lastUpdated: "2026-04-29"
+releaseDate: "20 Nov, 2012"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-3-dodi"

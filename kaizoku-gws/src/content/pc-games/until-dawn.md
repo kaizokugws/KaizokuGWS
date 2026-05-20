@@ -6,8 +6,9 @@ category: "Horror"
 thumbnail: "/images/until-dawn.jpg"
 size: "70 GB"
 releaseYear: 2024
+releaseDate: "4 Oct, 2024"
 tags: ["horror", "interactive-drama", "narrative", "singleplayer", "aaa", "choice-driven"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "An interactive drama horror game where every choice determines who survives the night."
 sources:
   - name: "Dodi Repack"

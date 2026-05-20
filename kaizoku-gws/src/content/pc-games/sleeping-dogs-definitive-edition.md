@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/sleeping-dogs-definitive-edition.jpg"
 size: "20 GB"
 releaseYear: 2014
+releaseDate: "10 Oct, 2014"
 tags: ["action", "crime", "sleeping-dogs", "Definitive Edition", "triple-a"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "sleeping-dogs-definitive-edition-dodi"

@@ -6,7 +6,8 @@ category: "Action"
 thumbnail: "/images/gotham-knights.jpg"
 tags: ["batman", "action", "rpg", "open-world", "dc", "superhero", "third-person", "singleplayer", "co-op", "multiplayer", "aaa"]
 releaseYear: 2022
-lastUpdated: "2026-05-19"
+releaseDate: "21 Oct, 2022"
+lastUpdated: "2026-05-20"
 sources:
   - name: "Dodi Repack"
     file: "gotham-knights-dodi"

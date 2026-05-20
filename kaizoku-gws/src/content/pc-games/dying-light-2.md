@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/dying-light-2.jpg"
 size: "60 GB"
 releaseYear: 2022
+releaseDate: "3 Feb, 2022"
 tags: ["action", "survival-horror", "open-world", "zombie", "first-person", "parkour", "singleplayer", "multiplayer", "dying-light"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "Continue the fight for survival in a post-apocalyptic open world with enhanced parkour and combat."
 sources:
   - name: "Dodi Repack"

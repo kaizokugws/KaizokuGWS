@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/gta-4.jpg"
 size: "16 GB"
 releaseYear: 2008
+releaseDate: "2 Dec, 2008"
 tags: ["open-world", "action", "crime", "sandbox", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Experience the story of Niko Bellic in Liberty City - an epic open-world adventure from Rockstar Games."
 sources:
   - name: "DODI Repack"

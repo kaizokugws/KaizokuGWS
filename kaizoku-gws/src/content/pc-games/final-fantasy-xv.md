@@ -6,6 +6,7 @@ category: "RPG"
 thumbnail: "/images/final-fantasy-xv.jpg"
 size: "100 GB"
 releaseYear: 2018
+releaseDate: "6 Mar, 2018"
 tags: ["rpg", "jrpg", "fantasy", "action", "open-world", "singleplayer", "aaa"]
 trending: true
 lastUpdated: "2026-05-20"

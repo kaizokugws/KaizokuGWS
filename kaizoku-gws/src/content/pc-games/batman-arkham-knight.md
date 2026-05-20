@@ -6,7 +6,8 @@ category: "Action"
 thumbnail: "/images/batman-arkham-knight.jpg"
 tags: ["batman", "action", "adventure", "stealth", "open-world", "dc", "superhero", "third-person", "singleplayer", "aaa"]
 releaseYear: 2015
-lastUpdated: "2026-05-19"
+releaseDate: "23 Jun, 2015"
+lastUpdated: "2026-05-20"
 sources:
   - name: "Dodi Repack"
     file: "batman-arkham-knight-dodi"

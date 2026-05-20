@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X, Search, Monitor, Smartphone, Home, Gamepad2 } from 'lucide-react';
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { Item } from '@/lib/types';
 import { formatCategory } from '@/lib/utils';
 
@@ -69,7 +69,7 @@ export default function Navbar({ allItems }: NavbarProps) {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="transition-transform duration-200 group-hover:scale-[1.05]">
-              <img src="/logo.jpeg" alt="Kaizoku GWS" className="w-8 h-8 rounded-lg object-contain" />
+              <img src="/logo.jpeg" alt="Kaizoku GWS" className="w-8 h-8 rounded-lg object-contain" loading="eager" />
             </div>
             <span className="text-[17px] font-bold tracking-[0.08em] hidden sm:block" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
               KAIZOKU <span className="bg-gradient-to-r from-[#4FD1FF] to-[#22D3EE] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">GWS</span>
@@ -78,22 +78,17 @@ export default function Navbar({ allItems }: NavbarProps) {
 
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <motion.div
+              <Link
                 key={link.href}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                href={link.href}
+                className={`text-sm font-medium transition-all duration-250 hover:scale-105 hover:text-[#4FD1FF] active:scale-95 ${
+                  isActive(link.href)
+                    ? 'text-[#4FD1FF]'
+                    : 'text-[#9AA4AF]'
+                }`}
               >
-                <Link
-                  href={link.href}
-                  className={`text-sm font-medium transition-all duration-250 hover:text-[#4FD1FF] ${
-                    isActive(link.href)
-                      ? 'text-[#4FD1FF]'
-                      : 'text-[#9AA4AF]'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
+                {link.label}
+              </Link>
             ))}
           </div>
 
@@ -119,13 +114,9 @@ export default function Navbar({ allItems }: NavbarProps) {
               />
             </div>
 
-            <AnimatePresence>
-              {searchOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute top-full right-0 mt-2 w-64 bg-[#111418] border border-[#222] rounded-lg overflow-hidden shadow-xl z-50"
+            {searchOpen && (
+                <div
+                  className="absolute top-full right-0 mt-2 w-64 bg-[#111418] border border-[#222] rounded-lg overflow-hidden shadow-xl z-50 animate-fadeIn"
                 >
                   {searchResults.length > 0 ? (
                     searchResults.map((item) => (
@@ -134,8 +125,8 @@ export default function Navbar({ allItems }: NavbarProps) {
                         onClick={() => handleResultClick(item)}
                         className="w-full flex items-center gap-3 p-3 hover:bg-[#161A20] transition-colors text-left"
                       >
-                        <div className="w-8 h-8 rounded bg-[#222] overflow-hidden flex-shrink-0">
-                          <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover" />
+                        <div className="w-8 h-8 rounded bg-[#222] overflow-hidden flex-shrink-0 relative">
+                          <Image src={item.thumbnail} alt={item.title} fill className="object-cover" sizes="32px" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-sm text-[#E6EDF3] truncate">{item.title}</p>
@@ -148,9 +139,8 @@ export default function Navbar({ allItems }: NavbarProps) {
                       No results found
                     </div>
                   ) : null}
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
           </div>
 
           <button

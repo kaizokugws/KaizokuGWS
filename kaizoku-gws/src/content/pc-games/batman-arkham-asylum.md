@@ -4,8 +4,10 @@ slug: "batman-arkham-asylum"
 platform: "PC"
 category: "Action"
 thumbnail: "/images/batman-arkham-asylum.jpg"
+releaseYear: 2009
+releaseDate: "15 Sep, 2009"
 tags: ["batman", "action", "adventure", "stealth", "open-world", "dc", "superhero", "third-person"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 sources:
   - name: "FitGirl Repack"
     file: "batman-arkham-asylum-fitgirl"

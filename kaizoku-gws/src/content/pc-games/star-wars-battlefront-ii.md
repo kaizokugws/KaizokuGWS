@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/star-wars-battlefront-ii.jpg"
 size: "90 GB"
 releaseYear: 2017
+releaseDate: "17 Nov, 2017"
 tags: ["action", "shooter", "multiplayer", "first-person", "third-person", "star-wars", "aaa"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The 2017 sequel to Star Wars Battlefront with a single-player campaign and expanded multiplayer."
 sources:
   - name: "Dodi Repack"

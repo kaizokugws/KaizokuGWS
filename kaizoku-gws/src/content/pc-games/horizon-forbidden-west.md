@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/horizon-forbidden-west.jpg"
 size: "150 GB"
 releaseYear: 2024
+releaseDate: "21 Mar, 2024"
 tags: ["action", "open-world", "rpg", "horizon", "guerrilla-games"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "horizon-forbidden-west-dodi"

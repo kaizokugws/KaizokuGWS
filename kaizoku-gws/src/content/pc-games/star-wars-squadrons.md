@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/star-wars-squadrons.jpg"
 size: "40 GB"
 releaseYear: 2020
+releaseDate: "1 Oct, 2020"
 tags: ["action", "simulation", "multiplayer", "first-person", "star-wars", "aaa", "vr"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "An immersive first-person space combat game set in the Star Wars universe."
 sources:
   - name: "Dodi Repack"

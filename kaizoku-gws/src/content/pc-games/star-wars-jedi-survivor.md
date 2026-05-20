@@ -6,9 +6,10 @@ category: "Action"
 thumbnail: "/images/star-wars-jedi-survivor.jpg"
 size: "130 GB"
 releaseYear: 2023
+releaseDate: "28 Apr, 2023"
 tags: ["action", "adventure", "third-person", "singleplayer", "star-wars", "aaa", "soulslike"]
 trending: true
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The sequel to Jedi Fallen Order, continuing Cal Kestis's fight against the Empire."
 sources:
   - name: "Dodi Repack"

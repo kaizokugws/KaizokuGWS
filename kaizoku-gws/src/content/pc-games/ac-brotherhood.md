@@ -5,11 +5,12 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/ac-brotherhood.jpg"
 size: "8 GB"
-releaseYear: 2010
+releaseYear: 2011
+releaseDate: "17 Mar, 2011"
 tags: ["action", "assassins-creed", "renaissance", "rome", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-brotherhood-dodi"

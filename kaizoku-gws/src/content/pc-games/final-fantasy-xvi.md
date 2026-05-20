@@ -6,6 +6,7 @@ category: "RPG"
 thumbnail: "/images/final-fantasy-xvi.jpg"
 size: "170 GB"
 releaseYear: 2024
+releaseDate: "17 Sep, 2024"
 tags: ["rpg", "jrpg", "fantasy", "action", "singleplayer", "aaa"]
 trending: true
 lastUpdated: "2026-05-20"

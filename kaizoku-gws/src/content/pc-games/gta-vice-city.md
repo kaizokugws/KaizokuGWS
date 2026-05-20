@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/gta-vice-city.jpg"
 size: "500 MB"
 releaseYear: 2003
+releaseDate: "12 May, 2003"
 tags: ["action", "open-world", "crime", "sandbox", "classic", "80s", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "MR DJ Repack"
     file: "gta-vice-city-mrdj"

@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/dark-souls-3.jpg"
 size: "25 GB"
 releaseYear: 2016
+releaseDate: "11 Apr, 2016"
 tags: ["action", "rpg", "soulslike", "soulsborne", "fantasy", "fromsoftware"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "FitGirl Repack"
     file: "dark-souls-3-fitgirl"

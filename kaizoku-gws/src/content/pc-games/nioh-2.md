@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/nioh-2.jpg"
 size: "65 GB"
 releaseYear: 2021
+releaseDate: "5 Feb, 2021"
 tags: ["action", "rpg", "soulslike", "adventure", "horde", "koei"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "nioh-2-dodi"

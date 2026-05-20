@@ -20,6 +20,7 @@ export interface Item {
   aliases?: string[];
   size?: string;
   releaseYear?: number;
+  releaseDate?: string;
   tags?: string[];
   featured?: boolean;
   trending?: boolean;

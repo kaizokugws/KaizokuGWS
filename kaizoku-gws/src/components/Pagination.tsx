@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface PaginationProps {
@@ -39,12 +38,7 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
   const pageNumbers = getPageNumbers(currentPage, totalPages);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.3, duration: 0.3, ease: 'easeOut' }}
-      className="flex items-center justify-center gap-1.5 mt-12 mb-8 flex-wrap"
-    >
+    <div className="flex items-center justify-center gap-1.5 mt-12 mb-8 flex-wrap animate-fadeIn">
       <button
         onClick={() => goToPage(currentPage - 1)}
         disabled={currentPage === 1}
@@ -78,11 +72,7 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
             }`}
           >
             {isActive && (
-              <motion.span
-                layoutId="activePage"
-                className="absolute inset-0 rounded-md border border-[#4FD1FF] bg-[#4FD1FF]/10"
-                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-              />
+              <span className="absolute inset-0 rounded-md border border-[#4FD1FF] bg-[#4FD1FF]/10" />
             )}
             <span className="relative z-10">{page}</span>
           </button>
@@ -97,6 +87,6 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
         <ChevronRight size={16} />
         <span className="sr-only">Next</span>
       </button>
-    </motion.div>
+    </div>
   );
 }

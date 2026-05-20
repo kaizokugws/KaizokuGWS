@@ -5,11 +5,12 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-5-enhanced.jpg"
 size: "95 GB"
-releaseYear: 2022
+releaseYear: 2025
+releaseDate: "4 Mar, 2025"
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "gta", "rockstar"]
 featured: true
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Experience the enhanced edition with ray-traced reflections, HDR support, and faster load times in Los Santos."
 sources:
   - name: "Dodi Repack"

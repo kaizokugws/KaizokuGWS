@@ -6,10 +6,8 @@ category: "Action"
 thumbnail: "/images/ac-mirage.jpg"
 size: "40 GB"
 releaseYear: 2023
-tags: ["action", "assassins-creed", "baghdad", "ubisoft"]
-featured: false
-trending: false
-lastUpdated: "2026-04-29"
+releaseDate: "5 Oct, 2023"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-mirage-dodi"

@@ -89,8 +89,18 @@ button {
   background: #444;
 }
 
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -124,8 +134,21 @@ button {
   to { opacity: 1; transform: scale(1); }
 }
 
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
 }
 
 .animate-pulse-glow {
@@ -225,19 +248,6 @@ button {
 .stagger-3 { animation-delay: 0.3s; }
 .stagger-4 { animation-delay: 0.4s; }
 .stagger-5 { animation-delay: 0.5s; }
-
-.TrendingCarousel {
-  padding-bottom: 50px !important;
-}
-
-.TrendingCarousel .swiper-pagination-bullet {
-  background: #4FD1FF !important;
-  opacity: 0.5 !important;
-}
-
-.TrendingCarousel .swiper-pagination-bullet-active {
-  opacity: 1 !important;
-}
 
 .glass {
   background: rgba(11, 13, 16, 0.75);

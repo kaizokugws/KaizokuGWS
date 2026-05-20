@@ -5,11 +5,12 @@ platform: "PC"
 category: "Adventure"
 thumbnail: "/images/detroit-become-human.jpg"
 size: "22.1 GB"
-releaseYear: 2019
+releaseYear: 2020
+releaseDate: "18 Jun, 2020"
 tags: ["adventure", "interactive-drama", "sci-fi", "choice-based", "quantic-dream"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Detroit: Become Human is an interactive drama where your decisions affect the outcome of the story."
 sources:
   - name: "FitGirl Repack"

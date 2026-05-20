@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from "framer-motion";
 import { franchises } from "@/lib/franchises";
 import FranchiseCard from "./FranchiseCard";
 
@@ -8,7 +7,6 @@ export default function FranchiseGrid() {
   return (
     <section className="w-full py-20">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Section header */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl font-bold text-[#E6EDF3]">
             Top Franchises
@@ -23,22 +21,15 @@ export default function FranchiseGrid() {
           </a>
         </div>
 
-        {/* Responsive grid - portrait cards with balanced spacing */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-          {franchises.map((franchise, index) => (
-            <motion.div
+          {franchises.map((franchise) => (
+            <div
               key={franchise.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                delay: index * 0.05,
-                duration: 0.4,
-                ease: [0.25, 0.46, 0.45, 0.94],
-              }}
+              className="animate-fadeInUp"
+              style={{ animationDelay: `${franchises.indexOf(franchise) * 50}ms` }}
             >
               <FranchiseCard franchise={franchise} />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

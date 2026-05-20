@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/ac-4-black-flag.jpg"
 size: "30 GB"
 releaseYear: 2013
+releaseDate: "19 Nov, 2013"
 tags: ["action", "assassins-creed", "pirates", "golden-age", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-4-black-flag-dodi"

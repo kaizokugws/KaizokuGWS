@@ -5,9 +5,17 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { cache } from 'react';
 import { Item, ParsedItem, FilterState, DownloadSource } from './types';
 
 const contentDirectory = path.join(process.cwd(), 'src', 'content');
+
+const itemCache = new Map<string, Item>();
+const parsedItemCache = new Map<string, ParsedItem>();
+const slugsCache = new Map<string, string[]>();
+const allItemsCache = new Map<string, Item[]>();
+const allItemsFlatCache: { items: Item[] | null; timestamp: number } = { items: null, timestamp: 0 };
+const CACHE_TTL = 60_000;
 
 function validateItem(item: Item, slug: string, category: string): void {
   if (!item.title) console.warn(`[WARN] Missing title in ${category}/${slug}`);
@@ -31,6 +39,7 @@ function getDefaultValues(data: Record<string, unknown>, _slug: string): Partial
   return {
     size: typeof d.size === 'string' ? d.size : 'Unknown',
     releaseYear: typeof d.releaseYear === 'number' ? d.releaseYear : new Date().getFullYear(),
+    releaseDate: typeof d.releaseDate === 'string' ? d.releaseDate : undefined,
     tags: normalizeTags(d.tags as string[] | undefined),
     featured: d.featured === true,
     trending: d.trending === true,
@@ -44,14 +53,26 @@ function getDefaultValues(data: Record<string, unknown>, _slug: string): Partial
   };
 }
 
-export function getItemSlugs(category: string): string[] {
+function getItemSlugsUncached(category: string): string[] {
   const dir = path.join(contentDirectory, category);
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir).filter((file) => file.endsWith('.md'));
 }
 
+export function getItemSlugs(category: string): string[] {
+  const cached = slugsCache.get(category);
+  if (cached) return cached;
+  const slugs = getItemSlugsUncached(category);
+  slugsCache.set(category, slugs);
+  return slugs;
+}
+
 export function getItemBySlug(category: string, slug: string): Item {
   const realSlug = slug.replace(/\.md$/, '');
+  const cacheKey = `${category}:${realSlug}`;
+  const cached = itemCache.get(cacheKey);
+  if (cached) return cached;
+
   const fullPath = path.join(contentDirectory, category, `${realSlug}.md`);
   
   if (!fs.existsSync(fullPath)) {
@@ -72,6 +93,7 @@ export function getItemBySlug(category: string, slug: string): Item {
     aliases: defaults.aliases,
     size: defaults.size,
     releaseYear: defaults.releaseYear,
+    releaseDate: defaults.releaseDate,
     tags: defaults.tags,
     featured: defaults.featured,
     trending: defaults.trending,
@@ -82,11 +104,16 @@ export function getItemBySlug(category: string, slug: string): Item {
   };
   
   validateItem(item, realSlug, category);
+  itemCache.set(cacheKey, item);
   return item;
 }
 
-export async function getParsedItemBySlug(category: string, slug: string): Promise<ParsedItem> {
+export const getParsedItemBySlug = cache(async (category: string, slug: string): Promise<ParsedItem> => {
   const realSlug = slug.replace(/\.md$/, '');
+  const cacheKey = `${category}:${realSlug}`;
+  const cached = parsedItemCache.get(cacheKey);
+  if (cached) return cached;
+
   const fullPath = path.join(contentDirectory, category, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
@@ -96,7 +123,7 @@ export async function getParsedItemBySlug(category: string, slug: string): Promi
   const sections = parseContentSections(contentHtml);
   const defaults = getDefaultValues(data, realSlug);
   
-  return {
+  const item: ParsedItem = {
     slug: realSlug,
     title: data.title || realSlug,
     platform: data.platform === 'Mobile' ? 'Mobile' : 'PC',
@@ -106,6 +133,7 @@ export async function getParsedItemBySlug(category: string, slug: string): Promi
     aliases: defaults.aliases,
     size: defaults.size,
     releaseYear: defaults.releaseYear,
+    releaseDate: defaults.releaseDate,
     tags: defaults.tags,
     featured: defaults.featured,
     trending: defaults.trending,
@@ -119,7 +147,10 @@ export async function getParsedItemBySlug(category: string, slug: string): Promi
     site: defaults.site,
     downloadLink: defaults.downloadLink,
   };
-}
+  
+  parsedItemCache.set(cacheKey, item);
+  return item;
+});
 
 function parseContentSections(htmlContent: string): Record<string, unknown> {
   const sections: Record<string, unknown> = {};
@@ -152,10 +183,16 @@ function toCamelCase(str: string): string {
 }
 
 export function getAllItems(category: string): Item[] {
+  const cached = allItemsCache.get(category);
+  if (cached) return cached;
+
   const slugs = getItemSlugs(category);
-  return slugs
+  const items = slugs
     .map((slug) => getItemBySlug(category, slug))
     .sort((a, b) => a.title.localeCompare(b.title));
+  
+  allItemsCache.set(category, items);
+  return items;
 }
 
 export function getAllCategories(): string[] {
@@ -166,12 +203,23 @@ export function getAllCategories(): string[] {
 }
 
 export function getAllItemsFlat(): Item[] {
+  if (allItemsFlatCache.items) return allItemsFlatCache.items;
+
   const categories = getAllCategories();
   const allItems: Item[] = [];
   for (const category of categories) {
     allItems.push(...getAllItems(category));
   }
+  allItemsFlatCache.items = allItems;
   return allItems;
+}
+
+export function clearCache(): void {
+  itemCache.clear();
+  parsedItemCache.clear();
+  slugsCache.clear();
+  allItemsCache.clear();
+  allItemsFlatCache.items = null;
 }
 
 export function getTrendingItems(category?: string): Item[] {

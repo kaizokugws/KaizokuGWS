@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/ac-origins.jpg"
 size: "50 GB"
 releaseYear: 2017
+releaseDate: "26 Oct, 2017"
 tags: ["action", "adventure", "open-world", "stealth", "ancient-egypt", "ubisoft", "assassins-creed"]
 featured: false
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "CPY Repack"
     file: "ac-origins-cpy"

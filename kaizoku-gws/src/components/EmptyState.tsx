@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { SearchX, Send, RefreshCw, ArrowLeft, Frown } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 interface EmptyStateProps {
   searchQuery?: string;
@@ -13,49 +12,25 @@ export default function EmptyState({ searchQuery, category }: EmptyStateProps) {
   const browseUrl = category || '/pc-games';
   
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="flex flex-col items-center justify-center py-20 text-center px-4"
-    >
-      <motion.div 
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="relative w-24 h-24 rounded-full bg-gradient-to-br from-[#4FD1FF]/20 to-[#4FD1FF]/5 flex items-center justify-center mb-8 border border-[#4FD1FF]/20"
-      >
+    <div className="flex flex-col items-center justify-center py-20 text-center px-4 animate-fadeInUp">
+      <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-[#4FD1FF]/20 to-[#4FD1FF]/5 flex items-center justify-center mb-8 border border-[#4FD1FF]/20 animate-bounce-slow">
         <Frown className="w-12 h-12 text-[#4FD1FF]/60" />
         <div className="absolute inset-0 rounded-full bg-[#4FD1FF]/5 animate-pulse" />
-      </motion.div>
+      </div>
       
-      <motion.h3 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.1 }}
-        className="text-2xl font-bold mb-3 text-[#E6EDF3]"
-      >
+      <h3 className="text-2xl font-bold mb-3 text-[#E6EDF3]">
         No results found
-      </motion.h3>
+      </h3>
       
-      <motion.p 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="text-[#9AA4AF] mb-8 max-w-md"
-      >
+      <p className="text-[#9AA4AF] mb-8 max-w-md">
         {searchQuery ? (
           <>No items matching <span className="text-[#4FD1FF] font-medium">"{searchQuery}"</span>. Try different keywords.</>
         ) : (
           'No items match your current filters. Try adjusting your search or filters.'
         )}
-      </motion.p>
+      </p>
       
-      <motion.div 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="flex flex-col sm:flex-row gap-4"
-      >
+      <div className="flex flex-col sm:flex-row gap-4">
         <Link
           href="/request"
           className="group flex items-center justify-center gap-2 bg-gradient-to-r from-[#4FD1FF] to-[#4FD1FF] hover:from-[#6ED8FF] hover:to-[#6ED8FF] text-[#0B0D10] font-semibold py-3 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(79,209,255,0.5)] hover:scale-105"
@@ -70,17 +45,12 @@ export default function EmptyState({ searchQuery, category }: EmptyStateProps) {
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           Browse All
         </Link>
-      </motion.div>
+      </div>
       
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="mt-12 text-sm text-[#9AA4AF]/60"
-      >
+      <div className="mt-12 text-sm text-[#9AA4AF]/60">
         <p>Tip: Try using fewer filters or search for a simpler term</p>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
@@ -112,11 +82,7 @@ export function ErrorState({
   onRetry 
 }: ErrorStateProps) {
   return (
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className="flex flex-col items-center justify-center py-20 text-center"
-    >
+    <div className="flex flex-col items-center justify-center py-20 text-center animate-fadeIn">
       <div className="w-20 h-20 rounded-full bg-red-500/10 flex items-center justify-center mb-6">
         <SearchX className="w-10 h-10 text-red-400" />
       </div>
@@ -135,6 +101,6 @@ export function ErrorState({
           Try Again
         </button>
       )}
-    </motion.div>
+    </div>
   );
 }

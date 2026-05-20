@@ -5,11 +5,12 @@ platform: "PC"
 category: "Racing"
 thumbnail: "/images/nfs-most-wanted-2005-remastered.jpg"
 size: "40 GB"
-releaseYear: 2005
+releaseYear: 2020
+releaseDate: "4 Jun, 2020"
 tags: ["racing", "arcade", "cars", "street-racing", "nfs"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "Dodi Repack"
     file: "nfs-most-wanted-2005-remastered-dodi"

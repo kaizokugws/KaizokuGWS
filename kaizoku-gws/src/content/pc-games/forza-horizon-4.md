@@ -6,10 +6,11 @@ category: "Racing"
 thumbnail: "/images/forza-horizon-4.jpg"
 size: "95 GB"
 releaseYear: 2018
+releaseDate: "2 Oct, 2018"
 tags: ["racing", "open-world", "driving", "simulation", "multiplayer", "forza"]
 featured: true
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Explore a vibrant open world in Forza Horizon 4. Collect and customize over 450 cars, or discover new landscapes with your friends."
 sources:
   - name: "Dodi Repack"

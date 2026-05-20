@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/wo-long.jpg"
 size: "60 GB"
 releaseYear: 2023
+releaseDate: "3 Mar, 2023"
 tags: ["action", "rpg", "soulslike", "martial-arts", "koei"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "A grueling action RPG set in a dark fantasy world inspired by Chinese mythology."
 sources:
   - name: "FitGirl Repack"

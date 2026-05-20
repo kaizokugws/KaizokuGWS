@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/doom-eternal.jpg"
 size: "50 GB"
 releaseYear: 2020
+releaseDate: "19 Mar, 2020"
 tags: ["action", "fps", "shooter", "demons", "gore", "fast-paced", "id-software", "singleplayer"]
 featured: true
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "DOOM Eternal includes The Ancient Gods DLC. Rip and tear through the forces of Hell as the Doom Slayer in this fast-paced FPS."
 sources:
   - name: "Dodi Repack"

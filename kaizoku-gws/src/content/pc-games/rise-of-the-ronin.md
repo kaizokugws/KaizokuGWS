@@ -5,7 +5,8 @@ platform: "PC"
 category: "Action RPG"
 thumbnail: "/images/rise-of-the-ronin.jpg"
 size: "180 GB"
-releaseYear: 2024
+releaseYear: 2025
+releaseDate: "11 Mar, 2025"
 tags: ["action", "rpg", "open-world", "samurai", "adventure", "singleplayer", "aaa"]
 trending: true
 lastUpdated: "2026-05-20"

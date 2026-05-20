@@ -5,11 +5,12 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/ac-rogue.jpg"
 size: "12 GB"
-releaseYear: 2014
+releaseYear: 2015
+releaseDate: "23 Mar, 2015"
 tags: ["action", "assassins-creed", "templars", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-rogue-dodi"

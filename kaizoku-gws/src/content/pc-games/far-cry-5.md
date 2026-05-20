@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/far-cry-5.jpg"
 size: "56 GB"
 releaseYear: 2018
+releaseDate: "26 Mar, 2018"
 tags: ["action", "open-world", "far-cry", "shooter", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "far-cry-5-dodi"

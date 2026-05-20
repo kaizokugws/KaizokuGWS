@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/far-cry-6.jpg"
 size: "60 GB"
 releaseYear: 2021
+releaseDate: "7 Oct, 2021"
 tags: ["action", "open-world", "far-cry", "shooter", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "far-cry-6-dodi"

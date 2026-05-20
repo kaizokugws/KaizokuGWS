@@ -6,8 +6,9 @@ category: "Racing"
 thumbnail: "/images/carx-street.jpg"
 size: "20 GB"
 releaseYear: 2024
+releaseDate: "29 Aug, 2024"
 tags: ["racing", "arcade", "cars", "driving", "street-racing", "open-world", "multiplayer", "simulation"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "CarX Street is a high-fidelity, open-world racing simulator developed by CarX Technologies, LLC that serves as a spiritual successor to the CarX Drift Racing series. Built on the proprietary CarX Technology physics engine, the game emphasizes realistic weight transfer, tire friction, and aerodynamic downforce."
 sources:
   - name: "Dodi Repack"

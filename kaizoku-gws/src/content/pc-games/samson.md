@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/samson.jpg"
 size: "Unknown"
 releaseYear: 2026
+releaseDate: "8 Apr, 2026"
 tags: ["action", "adventure", "singleplayer", "indie"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "Samson is an action-adventure game."
 sources:
   - name: "Dodi Repack"

@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/the-last-of-us-part-1.jpg"
 size: "80 GB"
 releaseYear: 2023
+releaseDate: "28 Mar, 2023"
 tags: ["action", "adventure", "survival", "zombie", "naughty-dog"]
 featured: true
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "A remade version of the critically acclaimed survival adventure."
 sources:
   - name: "DODI Repack"

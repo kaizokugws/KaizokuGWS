@@ -6,9 +6,10 @@ category: "Horror"
 thumbnail: "/images/resident-evil-8-village.jpg"
 size: "37 GB"
 releaseYear: 2021
+releaseDate: "7 May, 2021"
 tags: ["horror", "survival-horror", "first-person", "action", "singleplayer", "aaa", "resident-evil"]
 trending: true
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "Ethan Winters returns in a first-person survival horror set in a mysterious village."
 sources:
   - name: "Dodi Repack"

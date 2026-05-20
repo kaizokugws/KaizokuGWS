@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/ac-odyssey.jpg"
 size: "46 GB"
 releaseYear: 2018
+releaseDate: "5 Oct, 2018"
 tags: ["action", "rpg", "assassins-creed", "ancient-greece", "ubisoft", "open-world"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-odyssey-dodi"

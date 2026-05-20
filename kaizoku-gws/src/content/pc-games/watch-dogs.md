@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/watch-dogs.jpg"
 size: "25 GB"
 releaseYear: 2014
+releaseDate: "27 May, 2014"
 tags: ["action", "open-world", "hacking", "watch-dogs", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "watch-dogs-dodi"

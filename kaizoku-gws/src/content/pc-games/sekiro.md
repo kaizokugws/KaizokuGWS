@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/sekiro.jpg"
 size: "25 GB"
 releaseYear: 2019
+releaseDate: "22 Mar, 2019"
 tags: ["action", "adventure", "soulslike", "soulsborne", "stealth", "fromsoftware"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "FitGirl Repack"
     file: "sekiro-fitgirl"

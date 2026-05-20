@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/ac-unity.jpg"
 size: "50 GB"
 releaseYear: 2014
+releaseDate: "12 Nov, 2014"
 tags: ["action", "assassins-creed", "french-revolution", "paris", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-unity-dodi"

@@ -6,8 +6,9 @@ category: "Horror"
 thumbnail: "/images/resident-evil-hd-remaster.jpg"
 size: "20 GB"
 releaseYear: 2015
+releaseDate: "20 Jan, 2015"
 tags: ["horror", "survival-horror", "classic", "remaster", "singleplayer", "resident-evil"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The HD remaster of the original survival horror masterpiece that defined a genre."
 sources:
   - name: "Dodi Repack"

@@ -8,7 +8,6 @@ import Card from '@/components/Card';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { formatCategory } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import Pagination from '@/components/Pagination';
 import { useSearchParams } from 'next/navigation';
 
@@ -19,44 +18,6 @@ const sortOptions: { value: SortOption; label: string }[] = [
   { value: 'releaseYear', label: 'Newest' },
   { value: 'lastUpdated', label: 'Recently Added' },
 ];
-
-// Grid container animation variants
-const gridVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.03,
-      delayChildren: 0.05,
-    } as any,
-  },
-  exit: {
-    opacity: 0,
-    y: -10,
-    transition: {
-      duration: 0.15,
-      ease: 'easeIn',
-    } as any,
-  },
-};
-
-// Individual card animation variants  
-const cardVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 20,
-    scale: 0.97,
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.25,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    } as any,
-  },
-};
 
 interface CategoryGridProps {
   items: Item[];
@@ -337,28 +298,21 @@ export default function CategoryGrid({ items, category, isLoading = false, baseP
         Showing {Math.min(startIndex + 1, filteredItems.length)}-{Math.min(startIndex + ITEMS_PER_PAGE, filteredItems.length)} of {filteredItems.length} items
       </div>
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentPage}
-          id="game-grid"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={gridVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
-          {paginatedItems.map((item) => (
-            <motion.div key={item.slug} variants={cardVariants}>
-              <ScrollReveal animation="slide">
-                <Card item={item} category={category} highlight={search} />
-              </ScrollReveal>
-            </motion.div>
-          ))}
-          <motion.div variants={cardVariants}>
-            <RequestCard />
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
+      <div
+        id="game-grid"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
+        {paginatedItems.map((item) => (
+          <div key={item.slug}>
+            <ScrollReveal animation="slide">
+              <Card item={item} category={category} highlight={search} />
+            </ScrollReveal>
+          </div>
+        ))}
+        <div>
+          <RequestCard />
+        </div>
+      </div>
 
       {totalPages > 1 && basePath && (
         <Pagination currentPage={currentPage} totalPages={totalPages} basePath={basePath} />

@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/god-of-war-2018.jpg"
 size: "26 GB"
 releaseYear: 2022
+releaseDate: "14 Jan, 2022"
 tags: ["action", "adventure", "hack-and-slash", "mythology", "sony", "kratos"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "God of War is a reimagining of the franchise where Kratos, now a father, must educate his son Atreus in a world of Norse mythology."
 sources:
   - name: "FitGirl Repack"

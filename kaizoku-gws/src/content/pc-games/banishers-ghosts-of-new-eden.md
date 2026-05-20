@@ -6,6 +6,7 @@ category: "Action RPG"
 thumbnail: "/images/banishers-ghosts-of-new-eden.jpg"
 size: "52 GB"
 releaseYear: 2024
+releaseDate: "12 Feb, 2024"
 tags: ["action", "rpg", "horror", "supernatural", "adventure", "singleplayer", "aaa"]
 trending: true
 lastUpdated: "2026-05-20"

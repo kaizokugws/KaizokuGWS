@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/south-of-midnight.jpg"
 size: "60 GB"
 releaseYear: 2025
+releaseDate: "8 Apr, 2025"
 tags: ["action", "adventure", "third-person", "singleplayer", "aaa"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "A third-person action-adventure game set in the American Deep South."
 sources:
   - name: "Dodi Repack"

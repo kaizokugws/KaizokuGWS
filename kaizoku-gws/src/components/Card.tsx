@@ -3,7 +3,6 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Item } from '@/lib/types';
 import { formatCategory } from '@/lib/utils';
 
@@ -62,11 +61,7 @@ export default function Card({ item, category, showTags = false, highlight = '' 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <motion.div 
-        whileHover={{ scale: 1.03, y: -4 }}
-        transition={{ duration: 0.2 }}
-        className="bg-[#111418] rounded-xl overflow-hidden border border-[#222] transition-all duration-300 hover:border-[#4FD1FF] hover:shadow-[0_0_30px_rgba(79,209,255,0.15)]"
-      >
+      <div className="bg-[#111418] rounded-xl overflow-hidden border border-[#222] transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:border-[#4FD1FF] hover:shadow-[0_0_30px_rgba(79,209,255,0.15)]">
         <div className="relative h-48 overflow-hidden flex items-center justify-center bg-[#0B0D10]">
           <div className={`absolute inset-0 bg-[#161A20] transition-opacity duration-300 ${imageLoaded ? 'opacity-0' : 'opacity-100'}`} />
           <Image
@@ -114,7 +109,7 @@ export default function Card({ item, category, showTags = false, highlight = '' 
             </div>
           )}
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 }

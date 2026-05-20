@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/dying-light-the-beast.jpg"
 size: "70 GB"
 releaseYear: 2025
+releaseDate: "18 Sep, 2025"
 tags: ["action", "survival-horror", "open-world", "zombie", "first-person", "parkour", "singleplayer", "dying-light"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "A standalone adventure in the Dying Light universe featuring a new story and restored land to explore."
 sources:
   - name: "Dodi Repack"

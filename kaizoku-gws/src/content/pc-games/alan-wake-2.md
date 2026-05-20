@@ -6,6 +6,7 @@ category: "Horror"
 thumbnail: "/images/alan-wake-2.jpg"
 size: "111 GB"
 releaseYear: 2023
+releaseDate: "27 Oct, 2023"
 tags: ["horror", "survival-horror", "action", "psychological", "singleplayer", "aaa"]
 trending: true
 lastUpdated: "2026-05-20"

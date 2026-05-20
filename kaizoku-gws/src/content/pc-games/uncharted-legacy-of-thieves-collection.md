@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/uncharted-legacy-of-thieves-collection.jpg"
 size: "65 GB"
 releaseYear: 2022
+releaseDate: "19 Oct, 2022"
 tags: ["action", "adventure", "third-person-shooter", "platformer", "sony", "naughty-dog", "treasure-hunting"]
 featured: true
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Experience the complete adventures of Nathan Drake and Chloe Frazer in UNCHARTED: Legacy of Thieves Collection, featuring UNCHARTED 4: A Thief's End and UNCHARTED: The Lost Legacy."
 sources:
   - name: "Dodi Repack"

@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/metro-2033-redux.jpg"
 size: "10 GB"
 releaseYear: 2014
+releaseDate: "26 Aug, 2014"
 tags: ["action", "fps", "shooter", "post-apocalyptic", "singleplayer", "story-rich", "survival"]
 featured: false
 trending: false
-lastUpdated: "2026-04-30"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "metro-2033-redux-dodi"

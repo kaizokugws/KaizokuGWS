@@ -5,11 +5,12 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-san-andreas.jpg"
 size: "3.6 GB"
-releaseYear: 2005
+releaseYear: 2025
+releaseDate: "4 Mar, 2025"
 tags: ["action", "open-world", "crime", "sandbox", "classic", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "MR DJ Repack"
     file: "gta-san-andreas-mrdj"

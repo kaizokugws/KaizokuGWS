@@ -6,9 +6,10 @@ category: "Action"
 thumbnail: "/images/senuas-saga-hellblade-2.jpg"
 size: "70 GB"
 releaseYear: 2024
+releaseDate: "21 May, 2024"
 tags: ["action", "adventure", "dark-fantasy", "psychological", "singleplayer", "aaa", "hellblade"]
 trending: true
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The sequel to Hellblade: Senua's Sacrifice, continuing Senua's journey through a mythic Iceland."
 sources:
   - name: "Dodi Repack"

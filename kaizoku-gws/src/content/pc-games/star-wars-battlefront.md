@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/star-wars-battlefront.jpg"
 size: "55 GB"
 releaseYear: 2015
+releaseDate: "17 Nov, 2015"
 tags: ["action", "shooter", "multiplayer", "first-person", "third-person", "star-wars", "aaa"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The 2015 reboot of Star Wars Battlefront featuring epic multiplayer battles."
 sources:
   - name: "Dodi Repack"

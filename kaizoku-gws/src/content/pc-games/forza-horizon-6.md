@@ -5,7 +5,8 @@ platform: "PC"
 category: "Racing"
 thumbnail: "/images/forza-horizon-6.jpg"
 size: "167 GB"
-releaseYear: 2025
+releaseYear: 2026
+releaseDate: "18 May, 2026"
 tags: ["racing", "open-world", "driving", "simulation", "multiplayer", "forza", "aaa"]
 featured: true
 trending: true

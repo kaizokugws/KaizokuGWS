@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/dark-souls-2-scholar-of-the-first-sin.jpg"
 size: "23 GB"
 releaseYear: 2015
+releaseDate: "2 Apr, 2015"
 tags: ["action", "rpg", "soulslike", "soulsborne", "dark-fantasy", "fromsoftware", "challenging"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Dark Souls II: Scholar of the First Sin includes the Crown of the Sunken King, Crown of the Old Iron King, and Crown of the Ivory King DLCs."
 sources:
   - name: "Dodi Repack"

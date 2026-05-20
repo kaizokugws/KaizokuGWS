@@ -37,20 +37,21 @@ export default function DotWaveBackground() {
 
     let animationId: number;
     let stars: Star[] = [];
+    let lastFrame = 0;
+    const FRAME_INTERVAL = 1000 / 30;
 
     const isMobile = window.innerWidth < 768;
-    const STAR_COUNT = isMobile ? 60 : 120;
-    const CONNECTION_DISTANCE = 120;
+    const isLowPower = isMobile || !!(navigator as any).connection?.saveData;
+    const STAR_COUNT = isLowPower ? 30 : isMobile ? 60 : 80;
+    const CONNECTION_DISTANCE = isLowPower ? 0 : 120;
     const MAX_SPEED = 0.15;
     const MIN_RADIUS = 0.5;
-    const MAX_RADIUS = 1.5;
+    const MAX_RADIUS = isLowPower ? 1 : 1.5;
 
-    const auroraRibbons: AuroraRibbon[] = [
+    const auroraRibbons: AuroraRibbon[] = isLowPower ? [] : [
       { yOffset: 0.3, amplitude: 80, frequency: 0.003, speed: 0.00000094, opacity: 0.04, thickness: 100, phaseOffset: 0 },
       { yOffset: 0.45, amplitude: 60, frequency: 0.004, speed: 0.0000007, opacity: 0.035, thickness: 80, phaseOffset: 1.5 },
       { yOffset: 0.55, amplitude: 90, frequency: 0.0025, speed: 0.00000117, opacity: 0.03, thickness: 120, phaseOffset: 3 },
-      { yOffset: 0.7, amplitude: 50, frequency: 0.005, speed: 0.00000085, opacity: 0.025, thickness: 70, phaseOffset: 4.5 },
-      { yOffset: 0.2, amplitude: 70, frequency: 0.0035, speed: 0.00000103, opacity: 0.02, thickness: 90, phaseOffset: 2 },
     ];
 
     const prefersReducedMotion = window.matchMedia(
@@ -202,15 +203,21 @@ export default function DotWaveBackground() {
 
     const drawStatic = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drawAurora(0);
+      if (!isLowPower) drawAurora(0);
       drawStars();
     };
 
     const animate = (timestamp: number) => {
+      if (timestamp - lastFrame < FRAME_INTERVAL) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrame = timestamp;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       updateStars(timestamp);
-      drawAurora(timestamp);
-      drawConnections();
+      if (!isLowPower) drawAurora(timestamp);
+      if (!isLowPower) drawConnections();
       drawStars();
       animationId = requestAnimationFrame(animate);
     };

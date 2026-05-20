@@ -6,10 +6,11 @@ category: "Horror"
 thumbnail: "/images/silent-hill-2-remake.jpg"
 size: "50 GB"
 releaseYear: 2024
+releaseDate: "8 Oct, 2024"
 tags: ["horror", "silent-hill", "remake", "psychological-horror", "konami", "open-world"]
 featured: false
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "silent-hill-2-remake-dodi"

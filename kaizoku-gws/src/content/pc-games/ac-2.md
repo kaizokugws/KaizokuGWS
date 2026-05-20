@@ -6,10 +6,8 @@ category: "Action"
 thumbnail: "/images/ac-2.jpg"
 size: "8 GB"
 releaseYear: 2009
-tags: ["action", "adventure", "assassin", "historical", "ubisoft", "assassins-creed"]
-featured: false
-trending: false
-lastUpdated: "2026-04-29"
+releaseDate: "9 Mar, 2010"
+lastUpdated: "2026-05-20"
 description: "Follow Ezio Auditore's journey from nobleman to Master Assassin in Renaissance Italy."
 sources:
   - name: "DODI Repack"

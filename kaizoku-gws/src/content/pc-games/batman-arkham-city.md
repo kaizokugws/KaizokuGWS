@@ -6,7 +6,8 @@ category: "Action"
 thumbnail: "/images/batman-arkham-city.jpg"
 tags: ["batman", "action", "adventure", "stealth", "open-world", "dc", "superhero", "third-person", "singleplayer", "aaa"]
 releaseYear: 2011
-lastUpdated: "2026-05-19"
+releaseDate: "18 Oct, 2011"
+lastUpdated: "2026-05-20"
 sources:
   - name: "FitGirl Repack"
     file: "batman-arkham-city-fitgirl"

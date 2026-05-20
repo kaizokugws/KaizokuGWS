@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/star-wars-battlefront-2-classic.jpg"
 size: "9 GB"
 releaseYear: 2005
+releaseDate: "1 Nov, 2005"
 tags: ["action", "shooter", "multiplayer", "first-person", "third-person", "star-wars", "classic"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The beloved 2005 classic Star Wars Battlefront 2 with epic battles across the galaxy."
 sources:
   - name: "Dodi Repack"

@@ -5,11 +5,12 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/tomb-raider-goty.jpg"
 size: "6 GB"
-releaseYear: 2013
+releaseYear: 2024
+releaseDate: "Coming soon"
 tags: ["action", "adventure", "tomb-raider", "crystal-dynamics"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "tomb-raider-goty-dodi"

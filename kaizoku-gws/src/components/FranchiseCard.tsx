@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
 import { franchises } from '@/lib/franchises';
 
 interface FranchiseCardProps {
@@ -60,21 +59,12 @@ export default function FranchiseCard({ franchise }: FranchiseCardProps) {
       >
         {/* Portrait image container with fixed aspect ratio */}
         <div className="relative aspect-[3/4] w-full overflow-hidden rounded-t-2xl">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={currentImageIndex}
-              src={`/images/${franchise.games[currentImageIndex]}.jpg`}
-              alt={`${franchise.name} - ${currentImageIndex + 1} of ${franchise.games.length}`}
-              className="absolute inset-0 w-full h-full object-cover object-center"
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ 
-                opacity: isTransitioning ? 0 : 1,
-                scale: isTransitioning ? 1.05 : 1
-              }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              loading="lazy"
-            />
-          </AnimatePresence>
+          <img
+            src={`/images/${franchise.games[currentImageIndex]}.jpg`}
+            alt={`${franchise.name} - ${currentImageIndex + 1} of ${franchise.games.length}`}
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-500 ease-in-out ${isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'}`}
+            loading="lazy"
+          />
           
           {/* Multi-layer gradient overlay for premium look */}
           <div className="absolute inset-0 bg-gradient-to-t 

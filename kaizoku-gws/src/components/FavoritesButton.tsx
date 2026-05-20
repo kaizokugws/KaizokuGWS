@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { useFavorites } from '@/lib/hooks';
 
@@ -24,11 +23,9 @@ export function FavoriteButton({ slug, title, thumbnail, category, className = '
   };
   
   return (
-    <motion.button
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+    <button
       onClick={handleClick}
-      className={`absolute top-2 left-2 z-10 w-8 h-8 flex items-center justify-center rounded-full transition-all ${
+      className={`absolute top-2 left-2 z-10 w-8 h-8 flex items-center justify-center rounded-full transition-all hover:scale-110 active:scale-90 ${
         favorite 
           ? 'bg-[#4FD1FF] text-[#0B0D10]' 
           : 'bg-[#111418]/80 text-[#9AA4AF] hover:text-[#4FD1FF]'
@@ -36,7 +33,7 @@ export function FavoriteButton({ slug, title, thumbnail, category, className = '
       aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
     >
       <Star className={`w-4 h-4 ${favorite ? 'fill-current' : ''}`} />
-    </motion.button>
+    </button>
   );
 }
 

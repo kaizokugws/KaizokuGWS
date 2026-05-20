@@ -5,9 +5,10 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/dying-light-definitive-edition.jpg"
 size: "40 GB"
-releaseYear: 2022
+releaseYear: 2015
+releaseDate: "27 Jan, 2015"
 tags: ["action", "survival-horror", "open-world", "zombie", "first-person", "parkour", "singleplayer", "multiplayer", "dying-light"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The complete Dying Light experience with all DLCs and updates."
 sources:
   - name: "Dodi Repack"

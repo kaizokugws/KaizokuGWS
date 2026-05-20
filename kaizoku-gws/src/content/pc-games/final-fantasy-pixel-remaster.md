@@ -6,8 +6,9 @@ category: "RPG"
 thumbnail: "/images/final-fantasy-pixel-remaster.jpg"
 size: "3.9 GB"
 releaseYear: 2023
+releaseDate: "19 Apr, 2023"
 tags: ["rpg", "jrpg", "fantasy", "retro", "pixel-art", "singleplayer", "remaster"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The beloved classic Final Fantasy titles I through VI beautifully remastered with updated pixel graphics and sound."
 sources:
   - name: "FitGirl Repack"

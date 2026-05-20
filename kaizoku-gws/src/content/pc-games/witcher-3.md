@@ -6,10 +6,11 @@ category: "RPG"
 thumbnail: "/images/witcher-3.jpg"
 size: "40 GB"
 releaseYear: 2015
+releaseDate: "19 May, 2015"
 tags: ["rpg", "open-world", "fantasy", "story", "cdpr"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "FitGirl Repack"
     file: "witcher-3-fitgirl"

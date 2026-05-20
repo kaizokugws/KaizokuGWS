@@ -6,8 +6,9 @@ category: "Horror"
 thumbnail: "/images/resident-evil-7-biohazard.jpg"
 size: "65 GB"
 releaseYear: 2017
+releaseDate: "24 Jan, 2017"
 tags: ["horror", "survival-horror", "first-person", "singleplayer", "aaa", "resident-evil"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "A return to the series' survival horror roots with a first-person perspective."
 sources:
   - name: "Dodi Repack"

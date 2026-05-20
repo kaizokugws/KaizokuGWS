@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/dying-light-the-following.jpg"
 size: "40 GB"
 releaseYear: 2016
+releaseDate: "9 Feb, 2016"
 tags: ["action", "survival-horror", "open-world", "zombie", "first-person", "parkour", "singleplayer", "multiplayer", "dying-light"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The Enhanced Edition of Dying Light includes the massive expansion The Following and all updates."
 sources:
   - name: "GOG Repack"

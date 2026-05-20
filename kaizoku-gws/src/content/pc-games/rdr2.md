@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/rdr2.jpg"
 size: "150 GB"
 releaseYear: 2019
+releaseDate: "5 Dec, 2019"
 tags: ["open-world", "action", "western", "story", "rockstar", "rockstar"]
 featured: false
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "Dodi Repack"
     file: "rdr2-dodi"

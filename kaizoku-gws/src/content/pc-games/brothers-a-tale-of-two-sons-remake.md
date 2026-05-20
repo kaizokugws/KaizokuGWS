@@ -6,6 +6,7 @@ category: "Adventure"
 thumbnail: "/images/brothers-a-tale-of-two-sons-remake.jpg"
 size: "35 GB"
 releaseYear: 2024
+releaseDate: "28 Feb, 2024"
 tags: ["adventure", "puzzle", "story-rich", "singleplayer", "remake", "indie"]
 lastUpdated: "2026-05-20"
 description: "Brothers A Tale of Two Sons Remake is a beautifully remade version of the award-winning adventure game about two brothers on a journey to save their father."

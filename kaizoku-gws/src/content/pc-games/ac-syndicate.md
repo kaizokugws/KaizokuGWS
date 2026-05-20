@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/ac-syndicate.jpg"
 size: "50 GB"
 releaseYear: 2015
+releaseDate: "18 Nov, 2015"
 tags: ["action", "assassins-creed", "industrial-revolution", "london", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-syndicate-dodi"

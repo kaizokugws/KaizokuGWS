@@ -5,11 +5,12 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/mafia-3-definitive-edition.jpg"
 size: "50 GB"
-releaseYear: 2020
+releaseYear: 2017
+releaseDate: "28 Mar, 2017"
 tags: ["action", "open-world", "crime", "mafia", "third-person-shooter", "hangar-13", "story-rich"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Mafia III: Definitive Edition follows Lincoln Clay, a Vietnam veteran seeking revenge against the Italian mafia who betrayed his family in 1960s New Bordeaux."
 sources:
   - name: "Dodi Repack"

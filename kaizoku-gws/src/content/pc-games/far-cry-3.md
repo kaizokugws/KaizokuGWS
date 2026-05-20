@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/far-cry-3.jpg"
 size: "30 GB"
 releaseYear: 2012
+releaseDate: "28 Nov, 2012"
 tags: ["action", "open-world", "far-cry", "shooter", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "far-cry-3-dodi"

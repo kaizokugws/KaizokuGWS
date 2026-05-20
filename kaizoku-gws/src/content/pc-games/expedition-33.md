@@ -6,10 +6,11 @@ category: "RPG"
 thumbnail: "/images/expedition-33.jpg"
 size: "34.8 GB"
 releaseYear: 2025
+releaseDate: "24 Apr, 2025"
 tags: ["rpg", "turn-based", "fantasy", "indie"]
 featured: false
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "Dodi Repack"
     file: "expedition-33-dodi"

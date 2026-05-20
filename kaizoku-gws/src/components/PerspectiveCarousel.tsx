@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Item } from '@/lib/types';
 import { cn, formatCategory } from '@/lib/utils';
@@ -77,7 +78,7 @@ export function PerspectiveCarousel({ items, category, className }: PerspectiveC
                   transition: 'transform 500ms ease-out, opacity 500ms ease-out, left 500ms ease-out, right 500ms ease-out',
                 }}
               >
-                <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover" />
+                <Image src={item.thumbnail} alt={item.title} fill className="object-cover" sizes="240px" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <h3 className={cn("font-bold text-white truncate", isCenter ? "text-xl" : "text-sm")}>

@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/lego-star-wars-skywalker-saga.jpg"
 size: "40 GB"
 releaseYear: 2022
+releaseDate: "5 Apr, 2022"
 tags: ["action", "adventure", "lego", "star-wars", "family", "singleplayer", "multiplayer", "aaa", "open-world"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The complete Star Wars saga reimagined in LEGO form with all nine Skywalker saga films."
 sources:
   - name: "Dodi Repack"

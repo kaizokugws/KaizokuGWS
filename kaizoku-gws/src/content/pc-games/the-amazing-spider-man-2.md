@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/the-amazing-spider-man-2.jpg"
 size: "9 GB"
 releaseYear: 2014
+releaseDate: "29 Apr, 2014"
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "third-person", "being-a-game"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Become the Amazing Spider-Man once again in this open-world adventure based on the blockbuster film."
 sources:
   - name: "Dodi Repack"

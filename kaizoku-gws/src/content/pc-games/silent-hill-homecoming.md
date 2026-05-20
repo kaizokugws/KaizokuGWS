@@ -6,10 +6,11 @@ category: "Horror"
 thumbnail: "/images/silent-hill-homecoming.jpg"
 size: "10 GB"
 releaseYear: 2008
+releaseDate: "30 Sep, 2008"
 tags: ["horror", "silent-hill", "action", "survival-horror", "konami"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "silent-hill-homecoming-dodi"

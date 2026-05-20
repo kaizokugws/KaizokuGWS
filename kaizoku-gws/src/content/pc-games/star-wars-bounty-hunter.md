@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/star-wars-bounty-hunter.jpg"
 size: "15 GB"
 releaseYear: 2024
+releaseDate: "31 Jul, 2024"
 tags: ["action", "adventure", "third-person", "singleplayer", "star-wars", "remaster"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The remastered classic Star Wars Bounty Hunter following the legendary bounty hunter Jango Fett."
 sources:
   - name: "Dodi Repack"

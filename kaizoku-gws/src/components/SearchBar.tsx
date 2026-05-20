@@ -2,6 +2,7 @@
 
 import { Search, X } from 'lucide-react';
 import { useState, useEffect, useRef, useMemo } from 'react';
+import Image from 'next/image';
 import { Item } from '@/lib/types';
 import Link from 'next/link';
 import { formatCategory } from '@/lib/utils';
@@ -90,8 +91,8 @@ export default function SearchBar({ items, category }: SearchBarProps) {
                 }}
                 className="flex items-center gap-3 p-3 hover:bg-[#161A20] transition-colors border-b border-[#222]/50 last:border-0"
               >
-                <div className="w-10 h-10 rounded bg-[#222] overflow-hidden flex-shrink-0">
-                  <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover" />
+                <div className="w-10 h-10 rounded bg-[#222] overflow-hidden flex-shrink-0 relative">
+                  <Image src={item.thumbnail} alt={item.title} fill className="object-cover" sizes="40px" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-[#E6EDF3] truncate">{item.title}</p>

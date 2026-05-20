@@ -6,7 +6,8 @@ category: "Action"
 thumbnail: "/images/batman-arkham-origins.jpg"
 tags: ["batman", "action", "adventure", "stealth", "open-world", "dc", "superhero", "third-person", "singleplayer", "aaa"]
 releaseYear: 2013
-lastUpdated: "2026-05-19"
+releaseDate: "25 Oct, 2013"
+lastUpdated: "2026-05-20"
 sources:
   - name: "FitGirl Repack"
     file: "batman-arkham-origins-fitgirl"

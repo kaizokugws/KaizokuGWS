@@ -6,10 +6,8 @@ category: "Action"
 thumbnail: "/images/ac-1.jpg"
 size: "8 GB"
 releaseYear: 2007
-tags: ["action", "assassins-creed", "stealth", "ubisoft", "medieval", "open-world"]
-featured: false
-trending: false
-lastUpdated: "2026-04-29"
+releaseDate: "8 Apr, 2008"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-1-dodi"

@@ -6,9 +6,10 @@ category: "Horror"
 thumbnail: "/images/alone-in-the-dark.jpg"
 size: "20 GB"
 releaseYear: 2024
+releaseDate: "20 Mar, 2024"
 tags: ["horror", "survival-horror", "action", "adventure", "singleplayer", "aaa", "remake"]
 trending: true
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "A reimagining of the classic survival horror game that started it all."
 sources:
   - name: "Dodi Repack"

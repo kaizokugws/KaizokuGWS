@@ -6,9 +6,10 @@ category: "RPG"
 thumbnail: "/images/avowed.jpg"
 size: "75 GB"
 releaseYear: 2025
+releaseDate: "18 Feb, 2025"
 tags: ["rpg", "open-world", "fantasy", "action", "singleplayer", "aaa", "first-person"]
 trending: true
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "An epic first-person RPG set in the living world of Eora from Obsidian Entertainment."
 sources:
   - name: "Dodi Repack"

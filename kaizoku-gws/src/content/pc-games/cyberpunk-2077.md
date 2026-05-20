@@ -6,10 +6,11 @@ category: "RPG"
 thumbnail: "/images/cyberpunk-2077.jpg"
 size: "153 GB"
 releaseYear: 2020
+releaseDate: "9 Dec, 2020"
 tags: ["rpg", "open-world", "sci-fi", "cyberpunk", "cdpr"]
 featured: true
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "An open-world action RPG set in the megalopolis of Night City."
 sources:
   - name: "DODI Repack"

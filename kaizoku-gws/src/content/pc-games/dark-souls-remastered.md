@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/dark-souls-remastered.jpg"
 size: "8 GB"
 releaseYear: 2018
+releaseDate: "24 May, 2018"
 tags: ["action", "rpg", "soulslike", "soulsborne", "dark-fantasy", "fromsoftware", "challenging"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Dark Souls Remastered brings the original Dark Souls experience to modern platforms with improved visuals and performance."
 sources:
   - name: "Dodi Repack"

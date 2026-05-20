@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/spider-man-miles-morales.jpg"
 size: "50 GB"
 releaseYear: 2022
+releaseDate: "18 Nov, 2022"
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "insomniac", "third-person"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Experience the rise of Miles Morales as the new hero masters incredible powers to become his own Spider-Man."
 sources:
   - name: "Dodi Repack"

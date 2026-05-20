@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/spider-man-remastered.jpg"
 size: "55 GB"
 releaseYear: 2022
+releaseDate: "12 Aug, 2022"
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "insomniac", "third-person"]
 featured: true
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Swing through Marvel's New York as Peter Parker in this critically acclaimed open-world adventure from Insomniac Games."
 sources:
   - name: "Dodi Repack"

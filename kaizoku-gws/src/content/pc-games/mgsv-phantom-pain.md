@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/mgsv-phantom-pain.jpg"
 size: "30 GB"
 releaseYear: 2015
+releaseDate: "1 Sep, 2015"
 tags: ["stealth", "action", "open-world", "military", "konami"]
 featured: true
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Experience the epic conclusion to the Metal Gear Solid saga with open-world gameplay and stealth action."
 sources:
   - name: "Dodi Repack"

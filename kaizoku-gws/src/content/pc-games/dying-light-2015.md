@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/dying-light-2015.jpg"
 size: "40 GB"
 releaseYear: 2015
+releaseDate: "27 Jan, 2015"
 tags: ["action", "survival-horror", "open-world", "zombie", "first-person", "parkour", "singleplayer", "multiplayer", "dying-light"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "An open-world first-person survival horror game with parkour mechanics from Techland."
 sources:
   - name: "FitGirl Repack"

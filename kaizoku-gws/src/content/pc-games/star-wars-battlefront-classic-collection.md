@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/star-wars-battlefront-classic-collection.jpg"
 size: "63 GB"
 releaseYear: 2024
+releaseDate: "14 Mar, 2024"
 tags: ["action", "shooter", "multiplayer", "first-person", "third-person", "star-wars", "classic"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The classic Star Wars Battlefront games collected and enhanced for modern platforms."
 sources:
   - name: "Dodi Repack"

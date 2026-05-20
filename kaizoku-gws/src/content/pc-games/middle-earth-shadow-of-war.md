@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/middle-earth-shadow-of-war.jpg"
 size: "70 GB"
 releaseYear: 2017
+releaseDate: "10 Oct, 2017"
 tags: ["action", "adventure", "open-world", "fantasy", "stealth", "singleplayer", "aaa", "middle-earth"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "The sequel to Shadow of Mordor with an expanded Nemesis system and epic open-world battles."
 sources:
   - name: "Dodi Repack"

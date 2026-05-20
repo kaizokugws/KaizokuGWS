@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/elden-ring-nightreign.jpg"
 size: "30 GB"
 releaseYear: 2025
+releaseDate: "30 May, 2025"
 tags: ["action", "rpg", "soulslike", "soulsborne", "co-op", "multiplayer", "fromsoftware", "dark-fantasy", "pve"]
 featured: true
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Elden Ring: Nightreign is a standalone co-op spin-off set in the Lands Between, featuring 3-player cooperative survival gameplay."
 sources:
   - name: "Dodi Repack"

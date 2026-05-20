@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/ac-revelations.jpg"
 size: "12 GB"
 releaseYear: 2011
+releaseDate: "30 Nov, 2011"
 tags: ["action", "assassins-creed", "istanbul", "ubisoft"]
 featured: false
 trending: false
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "DODI Repack"
     file: "ac-revelations-dodi"

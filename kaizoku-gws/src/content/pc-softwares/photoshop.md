@@ -8,8 +8,9 @@ site: "https://www.adobe.com/products/photoshop.html"
 downloadLink: "https://alsabouh.com/rank/ps2024.htm"
 size: "4.5 GB"
 releaseYear: 2024
+releaseDate: "24 May, 2024"
 tags: ["Design", "Photo Editing", "Graphics", "Creative"]
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 sources:
   - name: "Direct Download"
     file: "photoshop"

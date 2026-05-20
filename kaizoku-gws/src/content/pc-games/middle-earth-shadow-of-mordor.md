@@ -6,8 +6,9 @@ category: "Action"
 thumbnail: "/images/middle-earth-shadow-of-mordor.jpg"
 size: "40 GB"
 releaseYear: 2014
+releaseDate: "30 Sep, 2014"
 tags: ["action", "adventure", "open-world", "fantasy", "stealth", "singleplayer", "aaa", "middle-earth"]
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "An open-world action game set in Middle-earth featuring the innovative Nemesis system."
 sources:
   - name: "Dodi Repack"

@@ -6,10 +6,11 @@ category: "Action"
 thumbnail: "/images/elden-ring.jpg"
 size: "60 GB"
 releaseYear: 2022
+releaseDate: "24 Feb, 2022"
 tags: ["open-world", "rpg", "soulslike", "soulsborne", "fantasy", "fromsoftware"]
 featured: true
 trending: true
-lastUpdated: "2026-04-29"
+lastUpdated: "2026-05-20"
 description: "Venture into the Lands Between and become an Elden Lord in this groundbreaking open-world RPG from FromSoftware."
 sources:
   - name: "FitGirl Repack"

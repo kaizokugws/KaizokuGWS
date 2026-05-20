@@ -6,9 +6,10 @@ category: "Horror"
 thumbnail: "/images/resident-evil-2-remake.jpg"
 size: "23.7 GB"
 releaseYear: 2019
+releaseDate: "25 Jan, 2019"
 tags: ["horror", "survival-horror", "action", "remake", "singleplayer", "aaa", "resident-evil"]
 trending: true
-lastUpdated: "2026-05-11"
+lastUpdated: "2026-05-20"
 description: "A ground-up remake of the survival horror classic Resident Evil 2."
 sources:
   - name: "Dodi Repack"
