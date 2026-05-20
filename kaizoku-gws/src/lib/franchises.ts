@@ -97,7 +97,7 @@ export const franchises: Franchise[] = [
     id: "forza",
     name: "Forza Horizon",
     tag: "forza",
-    games: ["forza-horizon-5", "forza-horizon-4"],
+    games: ["forza-horizon-6", "forza-horizon-5", "forza-horizon-4"],
     accentColor: "#3b82f6",
   },
   {
@@ -189,5 +189,12 @@ export const franchises: Franchise[] = [
     tag: "god-of-war",
     games: ["god-of-war-2018", "god-of-war-ragnarok"],
     accentColor: "#0ea5e9",
+  },
+  {
+    id: "final-fantasy",
+    name: "Final Fantasy",
+    tag: "final-fantasy",
+    games: ["final-fantasy-xvi", "final-fantasy-xv", "final-fantasy-pixel-remaster"],
+    accentColor: "#6b21a8",
   },
 ];

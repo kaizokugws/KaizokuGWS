@@ -6,11 +6,11 @@ category: "Horror"
 thumbnail: "/images/scary-game-2-the-mad-shepherd.jpg"
 size: "5 GB"
 tags: ["horror", "singleplayer", "indie"]
-lastUpdated: "2026-05-19"
+lastUpdated: "2026-05-20"
 description: "Scary Game 2 The Mad Shepherd is a horror game."
 sources:
-  - name: "Source Pending"
-    file: "scary-game-2-the-mad-shepherd-unknown"
+  - name: "SteamUnlocked"
+    file: "scary-game-2-the-mad-shepherd-steamunlocked"
 aliases: []
 ---
 
