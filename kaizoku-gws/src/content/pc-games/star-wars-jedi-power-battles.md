@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/star-wars-jedi-power-battles.jpg"
 size: "10 GB"
-releaseYear: 2000
+releaseYear: 2025
 tags: ["action", "adventure", "third-person", "singleplayer", "multiplayer", "star-wars", "remaster"]
 lastUpdated: "2026-05-11"
 description: "The remastered classic action game following Jedi Knights through the events of Episode I."

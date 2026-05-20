@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-vice-city.jpg"
 size: "500 MB"
-releaseYear: 2002
+releaseYear: 2003
 tags: ["action", "open-world", "crime", "sandbox", "classic", "80s", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false

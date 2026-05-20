@@ -5,7 +5,7 @@ platform: "PC"
 category: "Horror"
 thumbnail: "/images/until-dawn.jpg"
 size: "70 GB"
-releaseYear: 2015
+releaseYear: 2024
 tags: ["horror", "interactive-drama", "narrative", "singleplayer", "aaa", "choice-driven"]
 lastUpdated: "2026-05-11"
 description: "An interactive drama horror game where every choice determines who survives the night."

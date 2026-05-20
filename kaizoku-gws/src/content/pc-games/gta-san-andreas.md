@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-san-andreas.jpg"
 size: "3.6 GB"
-releaseYear: 2004
+releaseYear: 2005
 tags: ["action", "open-world", "crime", "sandbox", "classic", "rockstar", "gta", "rockstar"]
 featured: false
 trending: false

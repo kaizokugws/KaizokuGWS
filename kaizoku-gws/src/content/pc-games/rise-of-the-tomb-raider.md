@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/rise-of-the-tomb-raider.jpg"
 size: "36 GB"
-releaseYear: 2015
+releaseYear: 2016
 tags: ["action", "adventure", "tomb-raider", "-survival", "crystal-dynamics"]
 featured: false
 trending: false

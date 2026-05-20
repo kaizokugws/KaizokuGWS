@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/samson.jpg"
 size: "Unknown"
-releaseYear: 2024
+releaseYear: 2026
 tags: ["action", "adventure", "singleplayer", "indie"]
 lastUpdated: "2026-05-11"
 description: "Samson is an action-adventure game."

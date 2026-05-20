@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/horizon-zero-dawn.jpg"
 size: "75 GB"
-releaseYear: 2017
+releaseYear: 2020
 tags: ["action", "rpg", "open-world", "post-apocalyptic", "guerrilla", "horizon"]
 featured: false
 trending: false

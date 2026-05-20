@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/horizon-forbidden-west.jpg"
 size: "150 GB"
-releaseYear: 2022
+releaseYear: 2024
 tags: ["action", "open-world", "rpg", "horizon", "guerrilla-games"]
 featured: false
 trending: false

@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/god-of-war-ragnarok.jpg"
 size: "65.1 GB"
-releaseYear: 2022
+releaseYear: 2024
 tags: ["action", "adventure", "hack-and-slash", "mythology", "sony", "kratos", "atreus"]
 featured: false
 trending: false

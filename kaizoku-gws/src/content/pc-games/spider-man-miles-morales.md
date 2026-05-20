@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/spider-man-miles-morales.jpg"
 size: "50 GB"
-releaseYear: 2020
+releaseYear: 2022
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "insomniac", "third-person"]
 featured: false
 trending: false

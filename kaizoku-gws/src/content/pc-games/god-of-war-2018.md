@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/god-of-war-2018.jpg"
 size: "26 GB"
-releaseYear: 2018
+releaseYear: 2022
 tags: ["action", "adventure", "hack-and-slash", "mythology", "sony", "kratos"]
 featured: false
 trending: false

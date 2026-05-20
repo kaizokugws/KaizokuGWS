@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-5.jpg"
 size: "51 GB"
-releaseYear: 2013
+releaseYear: 2015
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "gta", "rockstar"]
 featured: true
 trending: true
