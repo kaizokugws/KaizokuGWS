@@ -9,8 +9,10 @@ tags: ["horror", "singleplayer", "indie"]
 lastUpdated: "2026-05-20"
 description: "Scary Game 2 The Mad Shepherd is a horror game."
 sources:
-  - name: "SteamUnlocked"
+  - name: "Direct Download — SteamUnlocked"
     file: "scary-game-2-the-mad-shepherd-steamunlocked"
+  - name: "Torrent"
+    file: "scary-game-2-the-mad-shepherd-torrent"
 aliases: []
 ---
 
