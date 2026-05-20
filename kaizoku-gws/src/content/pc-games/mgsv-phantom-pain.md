@@ -9,7 +9,6 @@ releaseYear: 2015
 tags: ["stealth", "action", "open-world", "military", "konami"]
 featured: true
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 description: "Experience the epic conclusion to the Metal Gear Solid saga with open-world gameplay and stealth action."
 sources:

@@ -9,7 +9,6 @@ releaseYear: 2012
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "third-person", "being-a-game"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 description: "Experience an original story inspired by the hit film The Amazing Spider-Man. Swing, battle, and explore New York City as Spider-Man."
 sources:

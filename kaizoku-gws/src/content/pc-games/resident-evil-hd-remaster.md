@@ -7,7 +7,6 @@ thumbnail: "/images/resident-evil-hd-remaster.jpg"
 size: "20 GB"
 releaseYear: 2015
 tags: ["horror", "survival-horror", "classic", "remaster", "singleplayer", "resident-evil"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "The HD remaster of the original survival horror masterpiece that defined a genre."
 sources:

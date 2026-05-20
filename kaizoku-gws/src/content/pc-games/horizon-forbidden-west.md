@@ -9,7 +9,6 @@ releaseYear: 2022
 tags: ["action", "open-world", "rpg", "horizon", "guerrilla-games"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

@@ -9,7 +9,6 @@ releaseYear: 2014
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "third-person", "being-a-game"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 description: "Become the Amazing Spider-Man once again in this open-world adventure based on the blockbuster film."
 sources:

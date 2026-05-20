@@ -7,7 +7,6 @@ thumbnail: "/images/avowed.jpg"
 size: "75 GB"
 releaseYear: 2025
 tags: ["rpg", "open-world", "fantasy", "action", "singleplayer", "aaa", "first-person"]
-popular: true
 trending: true
 lastUpdated: "2026-05-11"
 description: "An epic first-person RPG set in the living world of Eora from Obsidian Entertainment."

@@ -9,7 +9,6 @@ releaseYear: 2018
 tags: ["action", "rpg", "soulslike", "soulsborne", "dark-fantasy", "fromsoftware", "challenging"]
 featured: false
 trending: false
-popular: true
 lastUpdated: "2026-04-29"
 description: "Dark Souls Remastered brings the original Dark Souls experience to modern platforms with improved visuals and performance."
 sources:

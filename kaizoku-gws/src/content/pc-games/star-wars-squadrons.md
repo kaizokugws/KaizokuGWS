@@ -7,7 +7,6 @@ thumbnail: "/images/star-wars-squadrons.jpg"
 size: "40 GB"
 releaseYear: 2020
 tags: ["action", "simulation", "multiplayer", "first-person", "star-wars", "aaa", "vr"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "An immersive first-person space combat game set in the Star Wars universe."
 sources:

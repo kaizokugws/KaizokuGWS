@@ -9,7 +9,6 @@ releaseYear: 2012
 tags: ["action", "assassins-creed", "american-revolution", "ubisoft", "open-world", "stealth"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

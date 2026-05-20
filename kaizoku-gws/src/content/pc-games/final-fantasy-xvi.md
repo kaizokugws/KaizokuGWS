@@ -7,7 +7,6 @@ thumbnail: "/images/final-fantasy-xvi.jpg"
 size: "170 GB"
 releaseYear: 2023
 tags: ["rpg", "jrpg", "fantasy", "action", "singleplayer", "aaa"]
-popular: true
 trending: true
 lastUpdated: "2026-05-20"
 description: "Final Fantasy XVI is a dark fantasy action RPG set in the world of Valisthea, following Clive Rosfield on a journey of revenge and redemption."

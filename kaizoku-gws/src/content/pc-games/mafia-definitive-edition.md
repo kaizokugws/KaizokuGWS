@@ -9,7 +9,6 @@ releaseYear: 2020
 tags: ["action", "crime", "mafia", "Definitive Edition", "hangar-13"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 description: "Mafia: Definitive Edition is a complete remake of the original Mafia game. Experience the story of Tommy Angelo in 1930s Lost Heaven with modernized gameplay and visuals."
 sources:

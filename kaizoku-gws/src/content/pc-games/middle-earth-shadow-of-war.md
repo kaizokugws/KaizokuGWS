@@ -7,7 +7,6 @@ thumbnail: "/images/middle-earth-shadow-of-war.jpg"
 size: "70 GB"
 releaseYear: 2017
 tags: ["action", "adventure", "open-world", "fantasy", "stealth", "singleplayer", "aaa", "middle-earth"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "The sequel to Shadow of Mordor with an expanded Nemesis system and epic open-world battles."
 sources:

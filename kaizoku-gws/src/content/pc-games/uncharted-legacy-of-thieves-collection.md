@@ -9,7 +9,6 @@ releaseYear: 2022
 tags: ["action", "adventure", "third-person-shooter", "platformer", "sony", "naughty-dog", "treasure-hunting"]
 featured: true
 trending: true
-popular: true
 lastUpdated: "2026-04-29"
 description: "Experience the complete adventures of Nathan Drake and Chloe Frazer in UNCHARTED: Legacy of Thieves Collection, featuring UNCHARTED 4: A Thief's End and UNCHARTED: The Lost Legacy."
 sources:

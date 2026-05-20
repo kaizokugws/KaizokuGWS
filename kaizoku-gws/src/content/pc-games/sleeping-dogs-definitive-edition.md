@@ -9,7 +9,6 @@ releaseYear: 2014
 tags: ["action", "crime", "sleeping-dogs", "Definitive Edition", "triple-a"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

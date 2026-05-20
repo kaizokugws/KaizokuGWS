@@ -7,7 +7,6 @@ thumbnail: "/images/rise-of-the-ronin.jpg"
 size: "180 GB"
 releaseYear: 2024
 tags: ["action", "rpg", "open-world", "samurai", "adventure", "singleplayer", "aaa"]
-popular: true
 trending: true
 lastUpdated: "2026-05-20"
 description: "Rise of the Ronin is an open-world action RPG set in 19th-century Japan during the final days of the Edo period."

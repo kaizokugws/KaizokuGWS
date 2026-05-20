@@ -9,7 +9,6 @@ releaseYear: 2025
 tags: ["horror", "silent-hill", "new-entry", "psychological-horror", "konami", "open-world"]
 featured: false
 trending: true
-popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

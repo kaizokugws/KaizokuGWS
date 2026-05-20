@@ -9,7 +9,6 @@ releaseYear: 2023
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "insomniac", "third-person", "venom", "symbiote"]
 featured: true
 trending: true
-popular: true
 lastUpdated: "2026-04-29"
 description: "Swing, jump and utilize the new Web Wings to travel across Marvel's New York as both Peter Parker and Miles Morales in this epic sequel."
 sources:

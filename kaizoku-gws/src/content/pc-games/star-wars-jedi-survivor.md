@@ -7,7 +7,6 @@ thumbnail: "/images/star-wars-jedi-survivor.jpg"
 size: "130 GB"
 releaseYear: 2023
 tags: ["action", "adventure", "third-person", "singleplayer", "star-wars", "aaa", "soulslike"]
-popular: true
 trending: true
 lastUpdated: "2026-05-11"
 description: "The sequel to Jedi Fallen Order, continuing Cal Kestis's fight against the Empire."

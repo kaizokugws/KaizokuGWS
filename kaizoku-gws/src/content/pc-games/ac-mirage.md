@@ -9,7 +9,6 @@ releaseYear: 2023
 tags: ["action", "assassins-creed", "baghdad", "ubisoft"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

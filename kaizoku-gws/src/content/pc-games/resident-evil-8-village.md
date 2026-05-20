@@ -7,7 +7,6 @@ thumbnail: "/images/resident-evil-8-village.jpg"
 size: "37 GB"
 releaseYear: 2021
 tags: ["horror", "survival-horror", "first-person", "action", "singleplayer", "aaa", "resident-evil"]
-popular: true
 trending: true
 lastUpdated: "2026-05-11"
 description: "Ethan Winters returns in a first-person survival horror set in a mysterious village."

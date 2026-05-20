@@ -9,7 +9,6 @@ releaseYear: 2021
 tags: ["racing", "open-world", "driving", "simulation", "multiplayer", "mexico", "forza"]
 featured: true
 trending: true
-popular: true
 lastUpdated: "2026-04-29"
 description: "Explore the vibrant open world of Mexico in Forza Horizon 5. The biggest, most diverse Horizon festival yet awaits with stunning visuals and hundreds of cars."
 sources:

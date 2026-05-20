@@ -7,7 +7,6 @@ thumbnail: "/images/star-wars-battlefront.jpg"
 size: "55 GB"
 releaseYear: 2015
 tags: ["action", "shooter", "multiplayer", "first-person", "third-person", "star-wars", "aaa"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "The 2015 reboot of Star Wars Battlefront featuring epic multiplayer battles."
 sources:

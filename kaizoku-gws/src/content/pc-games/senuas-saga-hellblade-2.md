@@ -7,7 +7,6 @@ thumbnail: "/images/senuas-saga-hellblade-2.jpg"
 size: "70 GB"
 releaseYear: 2024
 tags: ["action", "adventure", "dark-fantasy", "psychological", "singleplayer", "aaa", "hellblade"]
-popular: true
 trending: true
 lastUpdated: "2026-05-11"
 description: "The sequel to Hellblade: Senua's Sacrifice, continuing Senua's journey through a mythic Iceland."

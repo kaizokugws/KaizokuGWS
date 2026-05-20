@@ -7,7 +7,6 @@ thumbnail: "/images/resident-evil-4-remake.jpg"
 size: "70 GB"
 releaseYear: 2023
 tags: ["horror", "survival-horror", "action", "remake", "singleplayer", "aaa", "resident-evil"]
-popular: true
 trending: true
 lastUpdated: "2026-05-11"
 description: "The critically acclaimed remake of Resident Evil 4, rebuilt for a new generation."

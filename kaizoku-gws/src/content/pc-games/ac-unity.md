@@ -9,7 +9,6 @@ releaseYear: 2014
 tags: ["action", "assassins-creed", "french-revolution", "paris", "ubisoft"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

@@ -7,7 +7,6 @@ thumbnail: "/images/banishers-ghosts-of-new-eden.jpg"
 size: "52 GB"
 releaseYear: 2024
 tags: ["action", "rpg", "horror", "supernatural", "adventure", "singleplayer", "aaa"]
-popular: true
 trending: true
 lastUpdated: "2026-05-20"
 description: "Banishers Ghosts of New Eden is an action RPG set in 17th-century New England where ghost hunters must choose between helping the living or the dead."

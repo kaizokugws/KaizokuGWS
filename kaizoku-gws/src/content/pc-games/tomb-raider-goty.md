@@ -9,7 +9,6 @@ releaseYear: 2013
 tags: ["action", "adventure", "tomb-raider", "crystal-dynamics"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

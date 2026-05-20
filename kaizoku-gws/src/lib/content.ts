@@ -34,7 +34,6 @@ function getDefaultValues(data: Record<string, unknown>, _slug: string): Partial
     tags: normalizeTags(d.tags as string[] | undefined),
     featured: d.featured === true,
     trending: d.trending === true,
-    popular: d.popular === true,
     lastUpdated: typeof d.lastUpdated === 'string' ? d.lastUpdated : new Date().toISOString().split('T')[0],
     aliases: Array.isArray(d.aliases) ? (d.aliases as string[]).map((a: string) => a.toLowerCase()) : [],
     related: Array.isArray(d.related) ? d.related as string[] : [],
@@ -76,7 +75,6 @@ export function getItemBySlug(category: string, slug: string): Item {
     tags: defaults.tags,
     featured: defaults.featured,
     trending: defaults.trending,
-    popular: defaults.popular,
     lastUpdated: defaults.lastUpdated,
     description: defaults.description,
     site: defaults.site,
@@ -111,7 +109,6 @@ export async function getParsedItemBySlug(category: string, slug: string): Promi
     tags: defaults.tags,
     featured: defaults.featured,
     trending: defaults.trending,
-    popular: defaults.popular,
     lastUpdated: defaults.lastUpdated,
     content: contentHtml,
     about: (sections.about as string) || '',
@@ -186,24 +183,6 @@ export function getFeaturedItem(category?: string): Item | null {
   const items = category ? getAllItems(category) : getAllItemsFlat();
   const featured = items.find((item) => item.featured === true);
   return featured || items[0] || null;
-}
-
-export function getPopularItems(category?: string, limit = 8): Item[] {
-  const items = category ? getAllItems(category) : getAllItemsFlat();
-  const popular = items.filter((item) => item.popular === true);
-  
-  if (popular.length >= limit) {
-    return popular.slice(0, limit);
-  }
-  
-  const remainingSlots = limit - popular.length;
-  const popularSlugs = new Set(popular.map((p) => p.slug));
-  const others = items
-    .filter((item) => !popularSlugs.has(item.slug) && item.lastUpdated)
-    .sort((a, b) => (b.lastUpdated || '').localeCompare(a.lastUpdated || ''))
-    .slice(0, remainingSlots);
-  
-  return [...popular, ...others];
 }
 
 export function getRecentlyAdded(category?: string, limit = 8): Item[] {

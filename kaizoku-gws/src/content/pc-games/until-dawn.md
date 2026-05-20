@@ -7,7 +7,6 @@ thumbnail: "/images/until-dawn.jpg"
 size: "70 GB"
 releaseYear: 2015
 tags: ["horror", "interactive-drama", "narrative", "singleplayer", "aaa", "choice-driven"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "An interactive drama horror game where every choice determines who survives the night."
 sources:

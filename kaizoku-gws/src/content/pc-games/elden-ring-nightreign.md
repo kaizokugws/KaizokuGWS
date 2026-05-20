@@ -9,7 +9,6 @@ releaseYear: 2025
 tags: ["action", "rpg", "soulslike", "soulsborne", "co-op", "multiplayer", "fromsoftware", "dark-fantasy", "pve"]
 featured: true
 trending: true
-popular: true
 lastUpdated: "2026-04-29"
 description: "Elden Ring: Nightreign is a standalone co-op spin-off set in the Lands Between, featuring 3-player cooperative survival gameplay."
 sources:

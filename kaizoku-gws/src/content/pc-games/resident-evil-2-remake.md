@@ -7,7 +7,6 @@ thumbnail: "/images/resident-evil-2-remake.jpg"
 size: "23.7 GB"
 releaseYear: 2019
 tags: ["horror", "survival-horror", "action", "remake", "singleplayer", "aaa", "resident-evil"]
-popular: true
 trending: true
 lastUpdated: "2026-05-11"
 description: "A ground-up remake of the survival horror classic Resident Evil 2."

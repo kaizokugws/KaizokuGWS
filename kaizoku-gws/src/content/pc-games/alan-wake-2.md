@@ -7,7 +7,6 @@ thumbnail: "/images/alan-wake-2.jpg"
 size: "111 GB"
 releaseYear: 2023
 tags: ["horror", "survival-horror", "action", "psychological", "singleplayer", "aaa"]
-popular: true
 trending: true
 lastUpdated: "2026-05-20"
 description: "Alan Wake 2 is a survival horror game developed by Remedy Entertainment. A sequel to the 2010 game, it follows Alan Wake and FBI agent Saga Anderson."

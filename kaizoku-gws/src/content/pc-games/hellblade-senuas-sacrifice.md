@@ -7,7 +7,6 @@ thumbnail: "/images/hellblade-senuas-sacrifice.jpg"
 size: "30 GB"
 releaseYear: 2017
 tags: ["action", "adventure", "dark-fantasy", "psychological", "singleplayer", "aaa", "hellblade"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "A dark fantasy action-adventure game that explores the psychological journey of a Celtic warrior."
 sources:

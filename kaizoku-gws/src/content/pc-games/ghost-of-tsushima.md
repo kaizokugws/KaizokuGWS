@@ -9,7 +9,6 @@ releaseYear: 2020
 tags: ["action", "adventure", "open-world", "stealth", "story"]
 featured: false
 trending: true
-popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"

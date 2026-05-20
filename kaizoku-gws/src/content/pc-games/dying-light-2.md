@@ -7,7 +7,6 @@ thumbnail: "/images/dying-light-2.jpg"
 size: "60 GB"
 releaseYear: 2022
 tags: ["action", "survival-horror", "open-world", "zombie", "first-person", "parkour", "singleplayer", "multiplayer", "dying-light"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "Continue the fight for survival in a post-apocalyptic open world with enhanced parkour and combat."
 sources:

@@ -9,7 +9,6 @@ releaseYear: 2022
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "gta", "rockstar"]
 featured: true
 trending: true
-popular: true
 lastUpdated: "2026-04-29"
 description: "Experience the enhanced edition with ray-traced reflections, HDR support, and faster load times in Los Santos."
 sources:

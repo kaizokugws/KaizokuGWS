@@ -9,7 +9,6 @@ releaseYear: 2015
 tags: ["rpg", "open-world", "fantasy", "story", "cdpr"]
 featured: false
 trending: false
-popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "FitGirl Repack"

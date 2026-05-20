@@ -9,7 +9,6 @@ releaseYear: 2025
 tags: ["racing", "open-world", "driving", "simulation", "multiplayer", "forza", "aaa"]
 featured: true
 trending: true
-popular: true
 lastUpdated: "2026-05-20"
 description: "Forza Horizon 6 is an open-world racing game set in a stunning new location with hundreds of cars and dynamic seasons."
 sources:

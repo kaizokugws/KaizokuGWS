@@ -9,7 +9,6 @@ releaseYear: 2020
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "insomniac", "third-person"]
 featured: false
 trending: false
-popular: true
 lastUpdated: "2026-04-29"
 description: "Experience the rise of Miles Morales as the new hero masters incredible powers to become his own Spider-Man."
 sources:

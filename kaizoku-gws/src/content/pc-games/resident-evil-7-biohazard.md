@@ -7,7 +7,6 @@ thumbnail: "/images/resident-evil-7-biohazard.jpg"
 size: "65 GB"
 releaseYear: 2017
 tags: ["horror", "survival-horror", "first-person", "singleplayer", "aaa", "resident-evil"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "A return to the series' survival horror roots with a first-person perspective."
 sources:

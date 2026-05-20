@@ -9,7 +9,6 @@ releaseYear: 2020
 tags: ["action", "fps", "shooter", "demons", "gore", "fast-paced", "id-software", "singleplayer"]
 featured: true
 trending: false
-popular: true
 lastUpdated: "2026-04-29"
 description: "DOOM Eternal includes The Ancient Gods DLC. Rip and tear through the forces of Hell as the Doom Slayer in this fast-paced FPS."
 sources:

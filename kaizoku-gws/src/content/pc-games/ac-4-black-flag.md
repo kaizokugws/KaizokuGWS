@@ -9,7 +9,6 @@ releaseYear: 2013
 tags: ["action", "assassins-creed", "pirates", "golden-age", "ubisoft"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

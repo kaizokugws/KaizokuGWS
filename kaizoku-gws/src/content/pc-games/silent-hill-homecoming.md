@@ -9,7 +9,6 @@ releaseYear: 2008
 tags: ["horror", "silent-hill", "action", "survival-horror", "konami"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

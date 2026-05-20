@@ -7,7 +7,6 @@ thumbnail: "/images/resident-evil-3-remake.jpg"
 size: "45 GB"
 releaseYear: 2020
 tags: ["horror", "survival-horror", "action", "remake", "singleplayer", "aaa", "resident-evil"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "The remake of the classic Resident Evil 3 featuring Jill Valentine's escape from Raccoon City."
 sources:

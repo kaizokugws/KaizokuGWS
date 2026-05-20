@@ -9,7 +9,6 @@ releaseYear: 2007
 tags: ["action", "assassins-creed", "stealth", "ubisoft", "medieval", "open-world"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

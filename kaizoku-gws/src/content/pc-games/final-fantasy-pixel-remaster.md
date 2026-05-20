@@ -7,7 +7,6 @@ thumbnail: "/images/final-fantasy-pixel-remaster.jpg"
 size: "3.9 GB"
 releaseYear: 2023
 tags: ["rpg", "jrpg", "fantasy", "retro", "pixel-art", "singleplayer", "remaster"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "The beloved classic Final Fantasy titles I through VI beautifully remastered with updated pixel graphics and sound."
 sources:

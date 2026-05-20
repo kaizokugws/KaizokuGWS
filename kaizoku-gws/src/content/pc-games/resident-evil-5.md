@@ -7,7 +7,6 @@ thumbnail: "/images/resident-evil-5.jpg"
 size: "15 GB"
 releaseYear: 2009
 tags: ["action", "horror", "co-op", "third-person", "singleplayer", "multiplayer", "resident-evil"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "The action-packed entry in the Resident Evil series featuring Chris Redfield in Africa."
 sources:

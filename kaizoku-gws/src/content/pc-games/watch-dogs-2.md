@@ -9,7 +9,6 @@ releaseYear: 2016
 tags: ["action", "open-world", "hacking", "watch-dogs", "ubisoft"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

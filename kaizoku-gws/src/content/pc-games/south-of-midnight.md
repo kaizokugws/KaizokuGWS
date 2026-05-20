@@ -7,7 +7,6 @@ thumbnail: "/images/south-of-midnight.jpg"
 size: "60 GB"
 releaseYear: 2025
 tags: ["action", "adventure", "third-person", "singleplayer", "aaa"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "A third-person action-adventure game set in the American Deep South."
 sources:

@@ -7,7 +7,6 @@ thumbnail: "/images/still-wakes-the-deep.jpg"
 size: "9 GB"
 releaseYear: 2024
 tags: ["horror", "first-person", "narrative", "singleplayer", "indie"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "A first-person narrative horror game set on an oil rig in the North Sea."
 sources:

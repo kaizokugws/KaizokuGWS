@@ -23,7 +23,6 @@ export interface Item {
   tags?: string[];
   featured?: boolean;
   trending?: boolean;
-  popular?: boolean;
   lastUpdated?: string;
   related?: string[];
   description?: string;

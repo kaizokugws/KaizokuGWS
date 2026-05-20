@@ -9,7 +9,6 @@ releaseYear: 2014
 tags: ["action", "fps", "shooter", "post-apocalyptic", "singleplayer", "story-rich", "survival"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-30"
 sources:
   - name: "DODI Repack"

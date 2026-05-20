@@ -9,7 +9,6 @@ releaseYear: 2015
 tags: ["action", "rpg", "soulslike", "soulsborne", "dark-fantasy", "fromsoftware", "challenging"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 description: "Dark Souls II: Scholar of the First Sin includes the Crown of the Sunken King, Crown of the Old Iron King, and Crown of the Ivory King DLCs."
 sources:

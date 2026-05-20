@@ -7,7 +7,6 @@ thumbnail: "/images/dying-light-the-beast.jpg"
 size: "70 GB"
 releaseYear: 2025
 tags: ["action", "survival-horror", "open-world", "zombie", "first-person", "parkour", "singleplayer", "dying-light"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "A standalone adventure in the Dying Light universe featuring a new story and restored land to explore."
 sources:

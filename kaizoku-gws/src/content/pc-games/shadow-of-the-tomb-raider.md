@@ -9,7 +9,6 @@ releaseYear: 2018
 tags: ["action", "adventure", "tomb-raider", "definitive-edition", "crystal-dynamics"]
 featured: false
 trending: false
-popular: false
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

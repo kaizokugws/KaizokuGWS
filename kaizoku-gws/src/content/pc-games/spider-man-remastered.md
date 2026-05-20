@@ -9,7 +9,6 @@ releaseYear: 2022
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "insomniac", "third-person"]
 featured: true
 trending: true
-popular: true
 lastUpdated: "2026-04-29"
 description: "Swing through Marvel's New York as Peter Parker in this critically acclaimed open-world adventure from Insomniac Games."
 sources:

@@ -9,7 +9,6 @@ releaseYear: 2018
 tags: ["action", "rpg", "assassins-creed", "ancient-greece", "ubisoft", "open-world"]
 featured: false
 trending: false
-popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "DODI Repack"

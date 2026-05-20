@@ -7,7 +7,6 @@ thumbnail: "/images/final-fantasy-xv.jpg"
 size: "100 GB"
 releaseYear: 2016
 tags: ["rpg", "jrpg", "fantasy", "action", "open-world", "singleplayer", "aaa"]
-popular: true
 trending: true
 lastUpdated: "2026-05-20"
 description: "Final Fantasy XV follows Prince Noctis and his friends on a road trip to reclaim his throne in a stunning open-world adventure."

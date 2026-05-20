@@ -7,7 +7,6 @@ thumbnail: "/images/star-wars-jedi-fallen-order.jpg"
 size: "55 GB"
 releaseYear: 2019
 tags: ["action", "adventure", "third-person", "singleplayer", "star-wars", "aaa", "soulslike"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "A third-person action-adventure game following Cal Kestis, a Jedi Padawan on the run from the Empire."
 sources:

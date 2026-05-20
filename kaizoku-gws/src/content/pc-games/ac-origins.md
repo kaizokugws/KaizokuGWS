@@ -9,7 +9,6 @@ releaseYear: 2017
 tags: ["action", "adventure", "open-world", "stealth", "ancient-egypt", "ubisoft", "assassins-creed"]
 featured: false
 trending: true
-popular: true
 lastUpdated: "2026-04-29"
 sources:
   - name: "CPY Repack"

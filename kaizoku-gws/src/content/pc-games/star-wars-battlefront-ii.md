@@ -7,7 +7,6 @@ thumbnail: "/images/star-wars-battlefront-ii.jpg"
 size: "90 GB"
 releaseYear: 2017
 tags: ["action", "shooter", "multiplayer", "first-person", "third-person", "star-wars", "aaa"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "The 2017 sequel to Star Wars Battlefront with a single-player campaign and expanded multiplayer."
 sources:

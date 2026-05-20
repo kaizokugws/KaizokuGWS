@@ -7,7 +7,6 @@ thumbnail: "/images/re0-hd-remaster.webp"
 size: "23 GB"
 releaseYear: 2016
 tags: ["horror", "survival-horror", "classic", "singleplayer", "resident-evil"]
-popular: true
 lastUpdated: "2026-05-11"
 description: "The HD remaster of the classic survival horror prequel Resident Evil 0."
 sources:

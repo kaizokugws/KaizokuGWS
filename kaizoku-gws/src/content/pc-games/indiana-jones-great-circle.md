@@ -7,7 +7,6 @@ thumbnail: "/images/indiana-jones-great-circle.jpg"
 size: "140 GB"
 releaseYear: 2024
 tags: ["action", "adventure", "first-person", "puzzle", "singleplayer", "aaa"]
-popular: true
 trending: true
 lastUpdated: "2026-05-11"
 description: "An original Indiana Jones adventure set between the events of Raiders of the Lost Ark and The Last Crusade."
