@@ -213,6 +213,17 @@ export function getRecentlyAdded(category?: string, limit = 8): Item[] {
     .slice(0, limit);
 }
 
+export function getLatestReleases(category?: string, limit = 8): Item[] {
+  const items = category ? getAllItems(category) : getAllItemsFlat();
+  return [...items]
+    .sort((a, b) => {
+      const yearDiff = (b.releaseYear || 0) - (a.releaseYear || 0);
+      if (yearDiff !== 0) return yearDiff;
+      return (b.lastUpdated || '').localeCompare(a.lastUpdated || '');
+    })
+    .slice(0, limit);
+}
+
 export function getRelatedItems(item: Item, limit = 4): Item[] {
   const allItems = getAllItemsFlat();
   const relatedSlugs = item.related || [];

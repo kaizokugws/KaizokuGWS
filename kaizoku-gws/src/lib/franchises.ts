@@ -163,20 +163,6 @@ export const franchises: Franchise[] = [
     accentColor: "#ffd700",
   },
   {
-    id: "middle-earth",
-    name: "Middle-earth",
-    tag: "middle-earth",
-    games: ["middle-earth-shadow-of-mordor", "middle-earth-shadow-of-war"],
-    accentColor: "#4a6741",
-  },
-  {
-    id: "hellblade",
-    name: "Hellblade",
-    tag: "hellblade",
-    games: ["hellblade-senuas-sacrifice", "senuas-saga-hellblade-2"],
-    accentColor: "#6d28d9",
-  },
-  {
     id: "batman",
     name: "Batman",
     tag: "batman",
