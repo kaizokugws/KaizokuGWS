@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/mafia-3-definitive-edition.jpg"
 size: "50 GB"
-releaseYear: 2016
+releaseYear: 2020
 tags: ["action", "open-world", "crime", "mafia", "third-person-shooter", "hangar-13", "story-rich"]
 featured: false
 trending: false

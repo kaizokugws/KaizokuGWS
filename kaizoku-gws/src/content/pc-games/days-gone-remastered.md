@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/days-gone.jpg"
 size: "90 GB"
-releaseYear: 2022
+releaseYear: 2025
 tags: ["action", "adventure", "open-world", "post-apocalyptic", "zombies", "horde"]
 featured: false
 trending: false

@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/star-wars-dark-forces.jpg"
 size: "1.9 GB"
-releaseYear: 2024
+releaseYear: 1995
 tags: ["action", "shooter", "first-person", "singleplayer", "star-wars", "classic", "remaster"]
 lastUpdated: "2026-05-11"
 description: "The remastered classic first-person shooter that introduced Kyle Katarn to the Star Wars universe."

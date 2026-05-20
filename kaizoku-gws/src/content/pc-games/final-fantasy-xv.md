@@ -5,7 +5,7 @@ platform: "PC"
 category: "RPG"
 thumbnail: "/images/final-fantasy-xv.jpg"
 size: "100 GB"
-releaseYear: 2018
+releaseYear: 2016
 tags: ["rpg", "jrpg", "fantasy", "action", "open-world", "singleplayer", "aaa"]
 popular: true
 trending: true

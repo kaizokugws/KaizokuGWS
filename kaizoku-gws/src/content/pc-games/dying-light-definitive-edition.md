@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/dying-light-definitive-edition.jpg"
 size: "40 GB"
-releaseYear: 2021
+releaseYear: 2022
 tags: ["action", "survival-horror", "open-world", "zombie", "first-person", "parkour", "singleplayer", "multiplayer", "dying-light"]
 lastUpdated: "2026-05-11"
 description: "The complete Dying Light experience with all DLCs and updates."

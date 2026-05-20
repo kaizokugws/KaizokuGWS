@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/rdr2.jpg"
 size: "150 GB"
-releaseYear: 2019
+releaseYear: 2018
 tags: ["open-world", "action", "western", "story", "rockstar", "rockstar"]
 featured: false
 trending: true

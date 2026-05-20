@@ -5,7 +5,7 @@ platform: "PC"
 category: "Adventure"
 thumbnail: "/images/detroit-become-human.jpg"
 size: "22.1 GB"
-releaseYear: 2019
+releaseYear: 2018
 tags: ["adventure", "interactive-drama", "sci-fi", "choice-based", "quantic-dream"]
 featured: false
 trending: false

@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/metro-2033-redux.jpg"
 size: "10 GB"
-releaseYear: 2010
+releaseYear: 2014
 tags: ["action", "fps", "shooter", "post-apocalyptic", "singleplayer", "story-rich", "survival"]
 featured: false
 trending: false

@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/gta-5-enhanced.jpg"
 size: "95 GB"
-releaseYear: 2025
+releaseYear: 2022
 tags: ["open-world", "action", "crime", "sandbox", "multiplayer", "rockstar", "gta", "rockstar"]
 featured: true
 trending: true

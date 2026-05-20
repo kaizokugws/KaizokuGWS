@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Gamepad2, Monitor, Smartphone, Zap, Shield, Star, Download, Users } from 'lucide-react';
-import { getTrendingItems, getFeaturedItem, getPopularItems, getLatestReleases } from '@/lib/content';
+import { getTrendingItems, getFeaturedItem, getLatestReleases } from '@/lib/content';
 import { TrendingCarousel } from '@/components/TrendingCarousel';
 import Card from '@/components/Card';
 import FranchiseGrid from '@/components/FranchiseGrid';
@@ -17,7 +17,6 @@ function truncateDescription(text: string, maxLength: number): string {
 export default function Home() {
   const trendingGames = getTrendingItems('pc-games');
   const featuredGame = getFeaturedItem('pc-games');
-  const popularGames = getPopularItems('pc-games', 8);
   const latestGames = getLatestReleases('pc-games', 8);
   
   const featuredDescription = featuredGame?.description 
@@ -231,26 +230,6 @@ export default function Home() {
                 <p className="text-[#9AA4AF]">APK files for Android devices</p>
               </div>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Popular Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-3xl font-bold text-[#E6EDF3]">Popular</h2>
-            <Link
-              href="/pc-games"
-              className="flex items-center gap-2 text-[#4FD1FF] hover:text-[#6ED8FF] transition-colors"
-            >
-              View All <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {popularGames.map((item) => (
-              <Card key={item.slug} item={item} category="pc-games" />
-            ))}
           </div>
         </div>
       </section>

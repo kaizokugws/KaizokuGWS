@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/nioh-2.jpg"
 size: "65 GB"
-releaseYear: 2021
+releaseYear: 2020
 tags: ["action", "rpg", "soulslike", "adventure", "horde", "koei"]
 featured: false
 trending: false

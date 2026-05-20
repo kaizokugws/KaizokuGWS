@@ -5,7 +5,7 @@ platform: "PC"
 category: "RPG"
 thumbnail: "/images/final-fantasy-xvi.jpg"
 size: "170 GB"
-releaseYear: 2024
+releaseYear: 2023
 tags: ["rpg", "jrpg", "fantasy", "action", "singleplayer", "aaa"]
 popular: true
 trending: true

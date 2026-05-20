@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/spider-man-2.jpg"
 size: "85 GB"
-releaseYear: 2025
+releaseYear: 2023
 tags: ["action", "adventure", "open-world", "superhero", "marvel", "spider-man", "insomniac", "third-person", "venom", "symbiote"]
 featured: true
 trending: true

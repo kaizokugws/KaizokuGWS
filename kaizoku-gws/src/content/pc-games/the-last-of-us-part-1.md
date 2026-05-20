@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/the-last-of-us-part-1.jpg"
 size: "80 GB"
-releaseYear: 2023
+releaseYear: 2022
 tags: ["action", "adventure", "survival", "zombie", "naughty-dog"]
 featured: true
 trending: false

@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/resident-evil-6.jpg"
 size: "16 GB"
-releaseYear: 2013
+releaseYear: 2012
 tags: ["action", "horror", "co-op", "third-person", "singleplayer", "multiplayer", "resident-evil"]
 popular: true
 lastUpdated: "2026-05-11"

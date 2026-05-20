@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/shadow-of-the-tomb-raider.jpg"
 size: "40 GB"
-releaseYear: 2019
+releaseYear: 2018
 tags: ["action", "adventure", "tomb-raider", "definitive-edition", "crystal-dynamics"]
 featured: false
 trending: false

@@ -5,7 +5,7 @@ platform: "PC"
 category: "Action"
 thumbnail: "/images/ghost-of-tsushima.jpg"
 size: "50 GB"
-releaseYear: 2024
+releaseYear: 2020
 tags: ["action", "adventure", "open-world", "stealth", "story"]
 featured: false
 trending: true
