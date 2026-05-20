@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Star } from 'lucide-react';
 import { useFavorites } from '@/lib/hooks';
 
@@ -65,10 +66,12 @@ export function FavoritesList() {
             className="block group"
           >
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-[#222] group-hover:border-[#4FD1FF] transition-colors">
-              <img
+              <Image
                 src={item.thumbnail}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/80 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-2">
