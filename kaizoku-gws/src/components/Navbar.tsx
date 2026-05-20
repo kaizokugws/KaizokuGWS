@@ -69,7 +69,7 @@ export default function Navbar({ allItems }: NavbarProps) {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="transition-transform duration-200 group-hover:scale-[1.05]">
-              <img src="/logo.jpeg" alt="Kaizoku GWS" className="w-8 h-8 rounded-lg object-contain" loading="eager" />
+              <Image src="/logo.jpeg" alt="Kaizoku GWS" width={32} height={32} className="rounded-lg object-contain" />
             </div>
             <span className="text-[17px] font-bold tracking-[0.08em] hidden sm:block" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
               KAIZOKU <span className="bg-gradient-to-r from-[#4FD1FF] to-[#22D3EE] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">GWS</span>

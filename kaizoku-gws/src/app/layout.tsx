@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -12,6 +12,11 @@ import { getAllItemsFlat } from "@/lib/content";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Kaizoku GWS - Premium Games & Software",
@@ -19,7 +24,6 @@ export const metadata: Metadata = {
   },
   description: "Your ultimate destination for premium games and software downloads via BitTorrent",
   keywords: ["games", "software", "download", "torrent", "pc games", "repack"],
-  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

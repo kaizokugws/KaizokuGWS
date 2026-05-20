@@ -1,8 +1,3 @@
-export interface Repack {
-  name: string;
-  magnetFile: string;
-}
-
 export interface DownloadSource {
   name: string;
   file: string;

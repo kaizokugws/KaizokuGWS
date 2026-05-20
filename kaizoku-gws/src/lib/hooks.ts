@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from 'react';
 
 const RECENTLY_VIEWED_KEY = 'kaizoku_recently_viewed';
 const FAVORITES_KEY = 'kaizoku_favorites';
-const LAST_CATEGORY_KEY = 'kaizoku_last_category';
 const MAX_ITEMS = 10;
 
 export interface RecentlyViewedItem {
@@ -126,59 +125,3 @@ export function useFavorites() {
   };
 }
 
-function getStoredCategory(key: string): string | null {
-  try {
-    return localStorage.getItem(key);
-  } catch {
-    return null;
-  }
-}
-
-export function useLastCategory() {
-  const [category, setCategory] = useState<string | null>(() => getStoredCategory(LAST_CATEGORY_KEY));
-
-  const saveCategory = useCallback((cat: string) => {
-    setCategory(cat);
-    try {
-      localStorage.setItem(LAST_CATEGORY_KEY, cat);
-    } catch {}
-  }, []);
-
-  return {
-    category,
-    saveCategory,
-  };
-}
-
-function getStoredSession<T>(key: string, initialValue: T): T {
-  try {
-    const stored = sessionStorage.getItem(key);
-    return stored ? JSON.parse(stored) : initialValue;
-  } catch {
-    return initialValue;
-  }
-}
-
-export function useSessionMemory<T>(key: string, initialValue: T) {
-  const [value, setValue] = useState<T>(() => getStoredSession(key, initialValue));
-
-  const saveValue = useCallback((newValue: T) => {
-    setValue(newValue);
-    try {
-      sessionStorage.setItem(key, JSON.stringify(newValue));
-    } catch {
-      // ignore
-    }
-  }, [key]);
-
-  const clearValue = useCallback(() => {
-    try {
-      sessionStorage.removeItem(key);
-    } catch {
-      // ignore
-    }
-    setValue(initialValue);
-  }, [key, initialValue]);
-
-  return { value, saveValue, clearValue };
-}

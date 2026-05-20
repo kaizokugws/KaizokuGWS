@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { franchises } from '@/lib/franchises';
 
 interface FranchiseCardProps {
@@ -59,11 +60,12 @@ export default function FranchiseCard({ franchise }: FranchiseCardProps) {
       >
         {/* Portrait image container with fixed aspect ratio */}
         <div className="relative aspect-[3/4] w-full overflow-hidden rounded-t-2xl">
-          <img
+          <Image
             src={`/images/${franchise.games[currentImageIndex]}.jpg`}
             alt={`${franchise.name} - ${currentImageIndex + 1} of ${franchise.games.length}`}
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-500 ease-in-out ${isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'}`}
-            loading="lazy"
+            fill
+            className={`object-cover object-center transition-all duration-500 ease-in-out ${isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'}`}
+            sizes="(max-width: 768px) 50vw, 25vw"
           />
           
           {/* Multi-layer gradient overlay for premium look */}
