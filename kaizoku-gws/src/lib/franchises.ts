@@ -84,16 +84,6 @@ export const franchises: Franchise[] = [
     accentColor: "#06b6d4",
   },
   {
-    id: "nfs",
-    name: "Need for Speed",
-    tag: "nfs",
-    games: [
-      "nfs-most-wanted-2005-remastered", "nfs-most-wanted-2005", 
-      "nfs-most-wanted-2012"
-    ],
-    accentColor: "#ef4444",
-  },
-  {
     id: "forza",
     name: "Forza Horizon",
     tag: "forza",
@@ -182,5 +172,44 @@ export const franchises: Franchise[] = [
     tag: "final-fantasy",
     games: ["final-fantasy-xvi", "final-fantasy-xv", "final-fantasy-pixel-remaster"],
     accentColor: "#6b21a8",
+  },
+  {
+    id: "nfs",
+    name: "Need for Speed",
+    tag: "nfs",
+    games: [
+      "nfs-heat", "nfs-rivals", "nfs-carbon-remastered",
+      "nfs-most-wanted-2005-remastered", "nfs-most-wanted-2005",
+      "nfs-most-wanted-2012"
+    ],
+    accentColor: "#ef4444",
+  },
+  {
+    id: "alan-wake",
+    name: "Alan Wake",
+    tag: "alan-wake",
+    games: ["alan-wake-2", "alan-wake-remastered", "alan-wake", "alan-wakes-american-nightmare"],
+    accentColor: "#f97316",
+  },
+  {
+    id: "ninja-gaiden",
+    name: "Ninja Gaiden",
+    tag: "ninja-gaiden",
+    games: ["ninja-gaiden-4", "ninja-gaiden-2-black", "ninja-gaiden-master-collection", "ninja-gaiden-ragebound"],
+    accentColor: "#22c55e",
+  },
+  {
+    id: "vampire-masquerade",
+    name: "Vampire: The Masquerade",
+    tag: "vampire",
+    games: ["vampire-bloodlines-2", "vampire-bloodlines"],
+    accentColor: "#dc2626",
+  },
+  {
+    id: "dark-pictures",
+    name: "The Dark Pictures Anthology",
+    tag: "dark-pictures",
+    games: ["man-of-medan", "the-devil-in-me", "the-quarry"],
+    accentColor: "#7c3aed",
   },
 ];
