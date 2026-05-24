@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Item } from "@/lib/types";
 
@@ -16,9 +16,14 @@ const TrendingCarousel = ({
   className?: string;
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const dragRef = useRef({ isDragging: false, startX: 0, currentX: 0, wasDragged: false });
 
   const next = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % items.length);
+  }, [items.length]);
+
+  const prev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
   }, [items.length]);
 
   useEffect(() => {
@@ -26,12 +31,62 @@ const TrendingCarousel = ({
     return () => clearInterval(interval);
   }, [next]);
 
+  const endDrag = useCallback(() => {
+    if (!dragRef.current.isDragging) return;
+    dragRef.current.isDragging = false;
+    const delta = dragRef.current.currentX - dragRef.current.startX;
+    if (Math.abs(delta) > 50) {
+      dragRef.current.wasDragged = true;
+      if (delta < 0) next();
+      else prev();
+    }
+  }, [next, prev]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    dragRef.current = { isDragging: true, startX: e.clientX, currentX: e.clientX, wasDragged: false };
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!dragRef.current.isDragging) return;
+    dragRef.current.currentX = e.clientX;
+  };
+
+  const handleMouseUp = endDrag;
+  const handleMouseLeave = endDrag;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    dragRef.current = { isDragging: true, startX: e.touches[0].clientX, currentX: e.touches[0].clientX, wasDragged: false };
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!dragRef.current.isDragging) return;
+    dragRef.current.currentX = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = endDrag;
+
+  const handleLinkClick = (e: React.MouseEvent) => {
+    if (dragRef.current.wasDragged) {
+      e.preventDefault();
+      dragRef.current.wasDragged = false;
+    }
+  };
+
   const getIndex = (offset: number) =>
     (activeIndex + offset + items.length) % items.length;
 
   return (
-    <div className={cn("relative w-full animate-fadeIn", className)}>
-      <div className="relative h-[320px] overflow-hidden">
+    <div className={cn("relative w-full animate-fadeIn select-none", className)}>
+      <div
+        className="relative h-[320px] overflow-hidden"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="flex items-center justify-center h-full">
           {items.map((item, i) => {
             const offset = ((i - activeIndex + items.length) % items.length);
@@ -44,6 +99,7 @@ const TrendingCarousel = ({
               <Link
                 key={item.slug}
                 href={`/${category}/${item.slug}`}
+                onClick={handleLinkClick}
                 className="absolute rounded-xl overflow-hidden transition-all duration-500 ease-out group"
                 style={{
                   width: isCenter ? '280px' : `${220 - distance * 30}px`,
