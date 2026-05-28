@@ -87,7 +87,7 @@ export const franchises: Franchise[] = [
     id: "forza",
     name: "Forza Horizon",
     tag: "forza",
-    games: ["forza-horizon-6", "forza-horizon-5", "forza-horizon-4"],
+    games: ["forza-horizon-6", "forza-horizon-5", "forza-horizon-4", "forza-horizon-3", "forza-motorsport", "forza-motorsport-7"],
     accentColor: "#3b82f6",
   },
   {
@@ -107,7 +107,7 @@ export const franchises: Franchise[] = [
     id: "mafia",
     name: "Mafia",
     tag: "mafia",
-    games: ["mafia-definitive-edition", "mafia-3-definitive-edition"],
+    games: ["mafia-definitive-edition", "mafia-2-definitive-edition", "mafia-3-definitive-edition"],
     accentColor: "#6b4423",
   },
   {
@@ -180,7 +180,7 @@ export const franchises: Franchise[] = [
     games: [
       "nfs-heat", "nfs-rivals", "nfs-carbon-remastered",
       "nfs-most-wanted-2005-remastered", "nfs-most-wanted-2005",
-      "nfs-most-wanted-2012"
+      "nfs-most-wanted-2012", "nfs-hot-pursuit-remastered", "nfs-payback", "nfs-the-run", "nfs-undercover", "nfs-undercover-remastered"
     ],
     accentColor: "#ef4444",
   },
