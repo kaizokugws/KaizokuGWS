@@ -209,7 +209,7 @@ export const franchises: Franchise[] = [
     id: "dark-pictures",
     name: "The Dark Pictures Anthology",
     tag: "dark-pictures",
-    games: ["man-of-medan", "the-devil-in-me", "the-quarry"],
+    games: ["man-of-medan", "the-devil-in-me"],
     accentColor: "#7c3aed",
   },
 ];
