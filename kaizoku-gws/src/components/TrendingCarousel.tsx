@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Item } from "@/lib/types";
 
 const DRAG_THRESHOLD = 60;
+const ANIMATION_DURATION = 250;
 
 const TrendingCarousel = ({
   items,
@@ -20,9 +21,9 @@ const TrendingCarousel = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const autoPlayRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
   const animatingRef = useRef(false);
+  const animTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const autoTimerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
   const startXRef = useRef(0);
   const currentXRef = useRef(0);
   const isDraggingRef = useRef(false);
@@ -30,66 +31,56 @@ const TrendingCarousel = ({
 
   const itemCount = items.length;
 
-  const cleanupAnimation = useCallback(() => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = undefined;
-    }
-    animatingRef.current = false;
-  }, []);
+  const nextRef = useRef<() => void>(() => {});
+  const prevRef = useRef<() => void>(() => {});
 
-  const goTo = useCallback(
-    (index: number) => {
-      if (animatingRef.current || isDraggingRef.current) return;
-      cleanupAnimation();
-      animatingRef.current = true;
-      setActiveIndex(((index % itemCount) + itemCount) % itemCount);
-      timeoutRef.current = setTimeout(() => {
-        animatingRef.current = false;
-        timeoutRef.current = undefined;
-      }, 500);
-    },
-    [itemCount, cleanupAnimation]
-  );
-
-  const next = useCallback(() => {
+  const goTo = (index: number) => {
     if (animatingRef.current || isDraggingRef.current) return;
-    cleanupAnimation();
+    clearTimeout(animTimerRef.current);
+    animatingRef.current = true;
+    setActiveIndex(((index % itemCount) + itemCount) % itemCount);
+    animTimerRef.current = setTimeout(() => {
+      animatingRef.current = false;
+    }, ANIMATION_DURATION);
+  };
+
+  const next = () => {
+    if (animatingRef.current || isDraggingRef.current) return;
+    clearTimeout(animTimerRef.current);
     animatingRef.current = true;
     setActiveIndex((prev) => ((prev + 1) % itemCount + itemCount) % itemCount);
-    timeoutRef.current = setTimeout(() => {
+    animTimerRef.current = setTimeout(() => {
       animatingRef.current = false;
-      timeoutRef.current = undefined;
-    }, 500);
-  }, [itemCount, cleanupAnimation]);
+    }, ANIMATION_DURATION);
+  };
 
-  const prev = useCallback(() => {
+  const prev = () => {
     if (animatingRef.current || isDraggingRef.current) return;
-    cleanupAnimation();
+    clearTimeout(animTimerRef.current);
     animatingRef.current = true;
     setActiveIndex((prev) => ((prev - 1) % itemCount + itemCount) % itemCount);
-    timeoutRef.current = setTimeout(() => {
+    animTimerRef.current = setTimeout(() => {
       animatingRef.current = false;
-      timeoutRef.current = undefined;
-    }, 500);
-  }, [itemCount, cleanupAnimation]);
+    }, ANIMATION_DURATION);
+  };
 
-  const resetAutoplay = useCallback(() => {
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-    }
-    autoPlayRef.current = setInterval(next, 3000);
-  }, [next]);
+  nextRef.current = next;
+  prevRef.current = prev;
+
+  const resetAutoplay = () => {
+    clearInterval(autoTimerRef.current);
+    autoTimerRef.current = setInterval(() => nextRef.current(), 3000);
+  };
 
   useEffect(() => {
-    autoPlayRef.current = setInterval(next, 3000);
+    autoTimerRef.current = setInterval(() => nextRef.current(), 3000);
     return () => {
-      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
-      cleanupAnimation();
+      clearInterval(autoTimerRef.current);
+      clearTimeout(animTimerRef.current);
     };
-  }, [next, cleanupAnimation]);
+  }, []);
 
-  const resolveDrag = useCallback(() => {
+  const resolveDrag = () => {
     if (!isDraggingRef.current) return;
     isDraggingRef.current = false;
 
@@ -102,47 +93,44 @@ const TrendingCarousel = ({
     if (Math.abs(delta) >= DRAG_THRESHOLD) {
       wasDraggedRef.current = true;
       resetAutoplay();
-      if (delta < 0) next();
-      else prev();
+      if (delta < 0) nextRef.current();
+      else prevRef.current();
     }
-  }, [next, prev, resetAutoplay]);
+  };
 
-  const handlePointerDown = useCallback(
-    (e: React.PointerEvent) => {
-      if (animatingRef.current) return;
-      isDraggingRef.current = true;
-      startXRef.current = e.clientX;
-      currentXRef.current = e.clientX;
-      wasDraggedRef.current = false;
+  const handlePointerDown = (e: React.PointerEvent) => {
+    if (animatingRef.current) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.clientX;
+    currentXRef.current = e.clientX;
+    wasDraggedRef.current = false;
 
-      if (containerRef.current) {
-        containerRef.current.setPointerCapture(e.pointerId);
-        containerRef.current.style.cursor = "grabbing";
-      }
-    },
-    []
-  );
+    if (containerRef.current) {
+      containerRef.current.setPointerCapture(e.pointerId);
+      containerRef.current.style.cursor = "grabbing";
+    }
+  };
 
-  const handlePointerMove = useCallback((e: React.PointerEvent) => {
+  const handlePointerMove = (e: React.PointerEvent) => {
     if (!isDraggingRef.current) return;
     currentXRef.current = e.clientX;
-  }, []);
+  };
 
-  const handlePointerUp = useCallback(() => {
+  const handlePointerUp = () => {
     resolveDrag();
-  }, [resolveDrag]);
+  };
 
-  const handlePointerCancel = useCallback(() => {
+  const handlePointerCancel = () => {
     if (!isDraggingRef.current) return;
     resolveDrag();
-  }, [resolveDrag]);
+  };
 
-  const handleLinkClick = useCallback((e: React.MouseEvent) => {
+  const handleLinkClick = (e: React.MouseEvent) => {
     if (wasDraggedRef.current) {
       e.preventDefault();
       wasDraggedRef.current = false;
     }
-  }, []);
+  };
 
   useEffect(() => {
     const container = containerRef.current;
@@ -163,43 +151,40 @@ const TrendingCarousel = ({
       if (e.key === "ArrowLeft") {
         e.preventDefault();
         resetAutoplay();
-        prev();
+        prevRef.current();
       } else if (e.key === "ArrowRight") {
         e.preventDefault();
         resetAutoplay();
-        next();
+        nextRef.current();
       }
     };
 
     container.addEventListener("keydown", onKeyDown);
     return () => container.removeEventListener("keydown", onKeyDown);
-  }, [next, prev, resetAutoplay]);
+  }, []);
 
-  const getItemStyle = useCallback(
-    (index: number) => {
-      const offset = ((index - activeIndex + itemCount) % itemCount);
-      const isCenter = offset === 0;
-      const distance = Math.min(offset, itemCount - offset);
-      const scale = isCenter ? 1 : Math.max(0.7, 1 - distance * 0.15);
-      const zIndex = isCenter ? 10 : 10 - distance;
+  const getItemStyle = (index: number) => {
+    const offset = ((index - activeIndex + itemCount) % itemCount);
+    const isCenter = offset === 0;
+    const distance = Math.min(offset, itemCount - offset);
+    const scale = isCenter ? 1 : Math.max(0.7, 1 - distance * 0.15);
+    const zIndex = isCenter ? 10 : 10 - distance;
 
-      const xPos =
-        offset === 0
-          ? 0
-          : offset < itemCount / 2
-            ? 120 + (distance - 1) * 80
-            : -(120 + (distance - 1) * 80);
+    const xPos =
+      offset === 0
+        ? 0
+        : offset < itemCount / 2
+          ? 120 + (distance - 1) * 80
+          : -(120 + (distance - 1) * 80);
 
-      return {
-        width: isCenter ? "280px" : `${220 - distance * 30}px`,
-        height: isCenter ? "320px" : `${280 - distance * 40}px`,
-        transform: `translate3d(${xPos}px, 0, 0) scale(${scale})`,
-        opacity: isCenter ? 1 : Math.max(0.3, 1 - distance * 0.25),
-        zIndex,
-      } as const;
-    },
-    [activeIndex, itemCount]
-  );
+    return {
+      width: isCenter ? "280px" : `${220 - distance * 30}px`,
+      height: isCenter ? "320px" : `${280 - distance * 40}px`,
+      transform: `translate3d(${xPos}px, 0, 0) scale(${scale})`,
+      opacity: isCenter ? 1 : Math.max(0.3, 1 - distance * 0.25),
+      zIndex,
+    } as const;
+  };
 
   if (itemCount === 0) return null;
 
@@ -212,14 +197,9 @@ const TrendingCarousel = ({
               e.stopPropagation();
               if (animatingRef.current || isDraggingRef.current) return;
               resetAutoplay();
-              prev();
+              prevRef.current();
             }}
-            className={cn(
-              "absolute z-20",
-              "w-12 h-12 flex items-center justify-center rounded-full",
-              "text-white/80 hover:text-white hover:scale-110",
-              "transition-all duration-200 cursor-pointer"
-            )}
+            className="absolute z-20 w-12 h-12 flex items-center justify-center rounded-full text-white/80 hover:text-white hover:scale-110 transition-all duration-200 cursor-pointer"
             style={{
               left: "24px",
               top: "160px",
@@ -238,14 +218,9 @@ const TrendingCarousel = ({
               e.stopPropagation();
               if (animatingRef.current || isDraggingRef.current) return;
               resetAutoplay();
-              next();
+              nextRef.current();
             }}
-            className={cn(
-              "absolute z-20",
-              "w-12 h-12 flex items-center justify-center rounded-full",
-              "text-white/80 hover:text-white hover:scale-110",
-              "transition-all duration-200 cursor-pointer"
-            )}
+            className="absolute z-20 w-12 h-12 flex items-center justify-center rounded-full text-white/80 hover:text-white hover:scale-110 transition-all duration-200 cursor-pointer"
             style={{
               right: "24px",
               top: "160px",
@@ -261,6 +236,7 @@ const TrendingCarousel = ({
           </button>
         </>
       )}
+
       <div className="relative h-[320px]">
         <div
           className="absolute inset-0 overflow-hidden rounded-xl"
@@ -282,12 +258,12 @@ const TrendingCarousel = ({
                   key={item.slug}
                   href={`/${category}/${item.slug}`}
                   onClick={handleLinkClick}
-                  className="absolute rounded-xl overflow-hidden transition-all duration-500 ease-out group"
+                  className="absolute rounded-xl overflow-hidden transition-all duration-[250ms] ease-out group"
                   style={style}
                   draggable={false}
                 >
                   <Image
-                    className="object-contain transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain transition-transform duration-[250ms] group-hover:scale-105"
                     src={item.thumbnail}
                     alt={item.title}
                     fill
@@ -313,16 +289,15 @@ const TrendingCarousel = ({
             key={i}
             onClick={() => {
               if (animatingRef.current || isDraggingRef.current) return;
-              cleanupAnimation();
+              clearTimeout(animTimerRef.current);
               animatingRef.current = true;
               setActiveIndex(
                 ((i % itemCount) + itemCount) % itemCount
               );
               resetAutoplay();
-              timeoutRef.current = setTimeout(() => {
+              animTimerRef.current = setTimeout(() => {
                 animatingRef.current = false;
-                timeoutRef.current = undefined;
-              }, 500);
+              }, ANIMATION_DURATION);
             }}
             className={cn(
               "h-2 rounded-full transition-all duration-300",
