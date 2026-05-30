@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Item } from "@/lib/types";
 
-const DRAG_THRESHOLD = 60;
+const SLIDE_WIDTH = 120;
 const ANIMATION_DURATION = 100;
 
 const TrendingCarousel = ({
@@ -20,12 +20,14 @@ const TrendingCarousel = ({
   className?: string;
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [visualOffset, setVisualOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animatingRef = useRef(false);
   const animTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const autoTimerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
   const startXRef = useRef(0);
-  const currentXRef = useRef(0);
+  const visualOffsetRef = useRef(0);
   const isDraggingRef = useRef(false);
   const wasDraggedRef = useRef(false);
 
@@ -80,29 +82,13 @@ const TrendingCarousel = ({
     };
   }, []);
 
-  const resolveDrag = () => {
-    if (!isDraggingRef.current) return;
-    isDraggingRef.current = false;
-
-    if (containerRef.current) {
-      containerRef.current.style.cursor = "grab";
-    }
-
-    const delta = currentXRef.current - startXRef.current;
-
-    if (Math.abs(delta) >= DRAG_THRESHOLD) {
-      wasDraggedRef.current = true;
-      resetAutoplay();
-      if (delta < 0) nextRef.current();
-      else prevRef.current();
-    }
-  };
-
   const handlePointerDown = (e: React.PointerEvent) => {
     if (animatingRef.current) return;
     isDraggingRef.current = true;
+    setIsDragging(true);
     startXRef.current = e.clientX;
-    currentXRef.current = e.clientX;
+    visualOffsetRef.current = 0;
+    setVisualOffset(0);
     wasDraggedRef.current = false;
 
     if (containerRef.current) {
@@ -113,16 +99,35 @@ const TrendingCarousel = ({
 
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!isDraggingRef.current) return;
-    currentXRef.current = e.clientX;
+    const delta = e.clientX - startXRef.current;
+    visualOffsetRef.current = delta;
+    setVisualOffset(delta);
   };
 
   const handlePointerUp = () => {
-    resolveDrag();
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
+
+    const slides = Math.round(visualOffsetRef.current / SLIDE_WIDTH);
+    if (slides !== 0) {
+      wasDraggedRef.current = true;
+      resetAutoplay();
+      setActiveIndex((prev) => ((prev + slides) % itemCount + itemCount) % itemCount);
+    } else {
+      wasDraggedRef.current = false;
+    }
+    visualOffsetRef.current = 0;
+    setVisualOffset(0);
+    setIsDragging(false);
+
+    if (containerRef.current) {
+      containerRef.current.style.cursor = "grab";
+    }
   };
 
   const handlePointerCancel = () => {
     if (!isDraggingRef.current) return;
-    resolveDrag();
+    handlePointerUp();
   };
 
   const handleLinkClick = (e: React.MouseEvent) => {
@@ -163,30 +168,40 @@ const TrendingCarousel = ({
     return () => container.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  const getItemStyle = (index: number) => {
-    const offset = ((index - activeIndex + itemCount) % itemCount);
-    const isCenter = offset === 0;
-    const distance = Math.min(offset, itemCount - offset);
-    const scale = isCenter ? 1 : Math.max(0.7, 1 - distance * 0.15);
-    const zIndex = isCenter ? 10 : 10 - distance;
+  const getItemStyle = (index: number, effectiveIdx: number) => {
+    const rawOffset = index - effectiveIdx;
+    let offset = rawOffset;
+    const half = itemCount / 2;
+    while (offset > half) offset -= itemCount;
+    while (offset < -half) offset += itemCount;
 
-    const xPos =
-      offset === 0
-        ? 0
-        : offset < itemCount / 2
-          ? 120 + (distance - 1) * 80
-          : -(120 + (distance - 1) * 80);
+    const absDist = Math.abs(offset);
+    const isCenter = absDist < 0.5;
+    const clampedDist = Math.min(absDist, 5);
 
-    return {
-      width: isCenter ? "280px" : `${220 - distance * 30}px`,
-      height: isCenter ? "320px" : `${280 - distance * 40}px`,
-      transform: `translate3d(${xPos}px, 0, 0) scale(${scale})`,
-      opacity: isCenter ? 1 : Math.max(0.3, 1 - distance * 0.25),
-      zIndex,
-    } as const;
+    const scale = isCenter ? 1 : Math.max(0.7, 1 - clampedDist * 0.15);
+    const zIndex = isCenter ? 10 : Math.max(1, 10 - Math.round(clampedDist));
+
+    let xPos;
+    if (absDist < 1) {
+      xPos = offset * SLIDE_WIDTH;
+    } else {
+      const sign = offset >= 0 ? 1 : -1;
+      xPos = sign * (SLIDE_WIDTH + (absDist - 1) * 80);
+    }
+
+    const width = isCenter ? "280px" : `${Math.max(160, 220 - clampedDist * 30)}px`;
+    const height = isCenter ? "320px" : `${Math.max(200, 280 - clampedDist * 40)}px`;
+    const opacity = isCenter ? 1 : Math.max(0.3, 1 - clampedDist * 0.25);
+
+    return { xPos, scale, width, height, opacity, zIndex };
   };
 
   if (itemCount === 0) return null;
+
+  const effectiveIndex = isDragging
+    ? activeIndex + visualOffset / SLIDE_WIDTH
+    : activeIndex;
 
   return (
     <div className={cn("relative w-full animate-fadeIn select-none", className)}>
@@ -252,18 +267,30 @@ const TrendingCarousel = ({
         >
           <div className="flex items-center justify-center h-full">
             {items.map((item, i) => {
-              const style = getItemStyle(i);
+              const { xPos, scale, width, height, opacity, zIndex } = getItemStyle(i, effectiveIndex);
               return (
                 <Link
                   key={item.slug}
                   href={`/${category}/${item.slug}`}
                   onClick={handleLinkClick}
-                  className="absolute rounded-xl overflow-hidden transition-all duration-100 ease-out group"
-                  style={style}
+                  className={cn(
+                    "absolute rounded-xl overflow-hidden group",
+                    isDragging ? "" : "transition-all duration-100 ease-out"
+                  )}
+                  style={{
+                    width,
+                    height,
+                    transform: `translate3d(${xPos}px, 0, 0) scale(${scale})`,
+                    opacity,
+                    zIndex,
+                  }}
                   draggable={false}
                 >
                   <Image
-                    className="object-contain transition-transform duration-100 group-hover:scale-105"
+                    className={cn(
+                      "object-contain",
+                      isDragging ? "" : "transition-transform duration-100 group-hover:scale-105"
+                    )}
                     src={item.thumbnail}
                     alt={item.title}
                     fill
