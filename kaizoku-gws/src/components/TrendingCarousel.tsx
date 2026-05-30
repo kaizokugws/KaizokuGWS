@@ -9,7 +9,7 @@ import { Item } from "@/lib/types";
 
 const SLIDE_WIDTH = 100;
 const DRAG_SENSITIVITY = 0.35;
-const ANIM_DURATION = 2500;
+const ANIM_DURATION = 700;
 const IDLE_PAUSE = 2000;
 const RESUME_DELAY = 3000;
 
