@@ -10,7 +10,7 @@ import { Item } from "@/lib/types";
 const SLIDE_WIDTH = 100;
 const DRAG_SENSITIVITY = 0.35;
 const ANIM_DURATION = 2500;
-const IDLE_PAUSE = 4500;
+const IDLE_PAUSE = 2000;
 const RESUME_DELAY = 3000;
 
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
