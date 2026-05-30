@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Item } from "@/lib/types";
 
+const DRAG_THRESHOLD = 65;
+
 const TrendingCarousel = ({
   items,
   category,
@@ -18,7 +20,6 @@ const TrendingCarousel = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const autoPlayRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
   const animatingRef = useRef(false);
@@ -27,8 +28,6 @@ const TrendingCarousel = ({
     startX: 0,
     startY: 0,
     currentX: 0,
-    previousX: 0,
-    velocity: 0,
     wasDragged: false,
   });
 
@@ -93,29 +92,22 @@ const TrendingCarousel = ({
     };
   }, [next, cleanupAnimation]);
 
-  const commitDrag = useCallback(() => {
+  const resolveDrag = useCallback(() => {
     const drag = dragRef.current;
     if (!drag.isDragging) return;
     drag.isDragging = false;
 
     const delta = drag.currentX - drag.startX;
-    const absDelta = Math.abs(delta);
 
     if (containerRef.current) {
       containerRef.current.style.cursor = "grab";
     }
 
-    if (absDelta > 50 || (Math.abs(drag.velocity) > 0.5 && absDelta > 20)) {
+    if (Math.abs(delta) >= DRAG_THRESHOLD) {
       drag.wasDragged = true;
       resetAutoplay();
       if (delta < 0) next();
       else prev();
-    }
-
-    if (trackRef.current) {
-      const duration = Math.min(400, 150 + absDelta * 1.5);
-      trackRef.current.style.transition = `transform ${duration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
-      trackRef.current.style.transform = "translate3d(0px, 0, 0)";
     }
   }, [next, prev, resetAutoplay]);
 
@@ -174,13 +166,7 @@ const TrendingCarousel = ({
     drag.startX = e.clientX;
     drag.startY = e.clientY;
     drag.currentX = e.clientX;
-    drag.previousX = e.clientX;
-    drag.velocity = 0;
     drag.wasDragged = false;
-
-    if (trackRef.current) {
-      trackRef.current.style.transition = "none";
-    }
     if (containerRef.current) {
       containerRef.current.style.cursor = "grabbing";
     }
@@ -188,24 +174,16 @@ const TrendingCarousel = ({
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!dragRef.current.isDragging) return;
-    const drag = dragRef.current;
-    drag.velocity = e.clientX - drag.previousX;
-    drag.previousX = e.clientX;
-    drag.currentX = e.clientX;
-
-    const delta = e.clientX - drag.startX;
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translate3d(${delta}px, 0, 0)`;
-    }
+    dragRef.current.currentX = e.clientX;
   };
 
   const handleMouseUp = () => {
-    commitDrag();
+    resolveDrag();
   };
 
   const handleMouseLeave = () => {
     if (!dragRef.current.isDragging) return;
-    commitDrag();
+    resolveDrag();
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -216,31 +194,16 @@ const TrendingCarousel = ({
     drag.startX = touch.clientX;
     drag.startY = touch.clientY;
     drag.currentX = touch.clientX;
-    drag.previousX = touch.clientX;
-    drag.velocity = 0;
     drag.wasDragged = false;
-
-    if (trackRef.current) {
-      trackRef.current.style.transition = "none";
-    }
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!dragRef.current.isDragging) return;
-    const touch = e.touches[0];
-    const drag = dragRef.current;
-    drag.velocity = touch.clientX - drag.previousX;
-    drag.previousX = touch.clientX;
-    drag.currentX = touch.clientX;
-
-    const delta = touch.clientX - drag.startX;
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translate3d(${delta}px, 0, 0)`;
-    }
+    dragRef.current.currentX = e.touches[0].clientX;
   };
 
   const handleTouchEnd = () => {
-    commitDrag();
+    resolveDrag();
   };
 
   const handleLinkClick = (e: React.MouseEvent) => {
@@ -280,54 +243,52 @@ const TrendingCarousel = ({
 
   return (
     <div className={cn("relative w-full animate-fadeIn select-none", className)}>
-      <div
-        className="relative h-[320px] overflow-hidden"
-        tabIndex={0}
-        role="region"
-        aria-label="Trending games carousel"
-        ref={containerRef}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        style={{ touchAction: "pan-y pinch-zoom" }}
-      >
+      <div className="relative h-[320px]">
         <div
-          ref={trackRef}
-          className="flex items-center justify-center h-full"
-          style={{ willChange: "transform" }}
+          className="absolute inset-0 overflow-hidden rounded-xl"
+          tabIndex={0}
+          role="region"
+          aria-label="Trending games carousel"
+          ref={containerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{ touchAction: "pan-y pinch-zoom", cursor: "grab" }}
         >
-          {items.map((item, i) => {
-            const style = getItemStyle(i);
-            return (
-              <Link
-                key={item.slug}
-                href={`/${category}/${item.slug}`}
-                onClick={handleLinkClick}
-                className="absolute rounded-xl overflow-hidden transition-all duration-500 ease-out group"
-                style={style}
-                draggable={false}
-              >
-                <Image
-                  className="object-contain transition-transform duration-500 group-hover:scale-105"
-                  src={item.thumbnail}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
+          <div className="flex items-center justify-center h-full">
+            {items.map((item, i) => {
+              const style = getItemStyle(i);
+              return (
+                <Link
+                  key={item.slug}
+                  href={`/${category}/${item.slug}`}
+                  onClick={handleLinkClick}
+                  className="absolute rounded-xl overflow-hidden transition-all duration-500 ease-out group"
+                  style={style}
                   draggable={false}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="font-semibold text-lg text-white truncate">
-                    {item.title}
-                  </h3>
-                </div>
-              </Link>
-            );
-          })}
+                >
+                  <Image
+                    className="object-contain transition-transform duration-500 group-hover:scale-105"
+                    src={item.thumbnail}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    draggable={false}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="font-semibold text-lg text-white truncate">
+                      {item.title}
+                    </h3>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
 
         {itemCount > 1 && (
@@ -339,7 +300,13 @@ const TrendingCarousel = ({
                 resetAutoplay();
                 prev();
               }}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full text-white/80 hover:text-white hover:scale-110 transition-all duration-200 cursor-pointer"
+              className={cn(
+                "absolute top-1/2 -translate-y-1/2 z-20",
+                "w-12 h-12 flex items-center justify-center rounded-full",
+                "text-white/80 hover:text-white hover:scale-110",
+                "transition-all duration-200 cursor-pointer",
+                "left-4 md:left-6"
+              )}
               style={{
                 background: "rgba(255,255,255,0.08)",
                 backdropFilter: "blur(12px)",
@@ -357,7 +324,13 @@ const TrendingCarousel = ({
                 resetAutoplay();
                 next();
               }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full text-white/80 hover:text-white hover:scale-110 transition-all duration-200 cursor-pointer"
+              className={cn(
+                "absolute top-1/2 -translate-y-1/2 z-20",
+                "w-12 h-12 flex items-center justify-center rounded-full",
+                "text-white/80 hover:text-white hover:scale-110",
+                "transition-all duration-200 cursor-pointer",
+                "right-4 md:right-6"
+              )}
               style={{
                 background: "rgba(255,255,255,0.08)",
                 backdropFilter: "blur(12px)",
