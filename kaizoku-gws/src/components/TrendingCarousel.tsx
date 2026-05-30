@@ -12,7 +12,7 @@ const DRAG_SENSITIVITY = 0.35;
 const SETTLE_DURATION = 500;
 const IDLE_SPEED = 0.002;
 const RESUME_DELAY = 3000;
-const ROTATION_ANGLE = -10;
+
 const WIDTH_FALLOFF = 60;
 const HEIGHT_FALLOFF = 80;
 
@@ -224,7 +224,8 @@ const TrendingCarousel = ({
     const scale = Math.max(0.7, 1 - clampedDist * 0.12);
     const zIndex = Math.max(1, 10 - Math.round(clampedDist));
     const opacity = Math.max(0.4, 1 - clampedDist * 0.15);
-    const rotateY = offset * ROTATION_ANGLE;
+    const cappedDeg = Math.min(Math.abs(offset) * 3, 8);
+    const rotateY = Math.sign(offset) * cappedDeg;
     const xPos = offset * SLIDE_WIDTH;
     const width = `${Math.max(180, 280 - clampedDist * WIDTH_FALLOFF)}px`;
     const height = `${Math.max(220, 320 - clampedDist * HEIGHT_FALLOFF)}px`;
