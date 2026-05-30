@@ -9,12 +9,9 @@ import { Item } from "@/lib/types";
 
 const SLIDE_WIDTH = 100;
 const DRAG_SENSITIVITY = 0.35;
-const SETTLE_DURATION = 500;
-const IDLE_SPEED = 0.002;
+const ANIM_DURATION = 700;
+const IDLE_PAUSE = 4500;
 const RESUME_DELAY = 3000;
-
-const WIDTH_FALLOFF = 60;
-const HEIGHT_FALLOFF = 80;
 
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
@@ -30,18 +27,19 @@ const TrendingCarousel = ({
   const [carouselPos, setCarouselPos] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const posRef = useRef(0);
-  const modeRef = useRef<"idle" | "dragging" | "settling">("idle");
+  const modeRef = useRef<"idle" | "animating" | "dragging">("idle");
   const rAFRef = useRef(0);
   const startXRef = useRef(0);
-  const dragOffsetRef = useRef(0);
   const dragBaseRef = useRef(0);
-  const settleFromRef = useRef(0);
-  const settleToRef = useRef(0);
-  const settleStartRef = useRef(0);
+  const dragOffsetRef = useRef(0);
+  const animFromRef = useRef(0);
+  const animToRef = useRef(0);
+  const animStartRef = useRef(0);
+  const isDraggingRef = useRef(false);
+  const wasDraggedRef = useRef(false);
   const isPausedRef = useRef(false);
   const isHoveredRef = useRef(false);
-  const wasDraggedRef = useRef(false);
-  const isDraggingRef = useRef(false);
+  const idleTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const pauseTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const lastRenderRef = useRef(0);
 
@@ -50,27 +48,42 @@ const TrendingCarousel = ({
   const nextRef = useRef<() => void>(() => {});
   const prevRef = useRef<() => void>(() => {});
 
+  const startAnimation = (from: number, to: number) => {
+    modeRef.current = "animating";
+    animFromRef.current = from;
+    animToRef.current = to;
+    animStartRef.current = performance.now();
+  };
+
+  const startIdleTimer = () => {
+    clearTimeout(idleTimerRef.current);
+    if (!isPausedRef.current && !isHoveredRef.current && modeRef.current === "idle") {
+      idleTimerRef.current = setTimeout(() => {
+        if (modeRef.current === "idle" && !isPausedRef.current && !isHoveredRef.current) {
+          const current = posRef.current;
+          const target = Math.round(current) + 1;
+          startAnimation(current, target);
+        }
+      }, IDLE_PAUSE);
+    }
+  };
+
   const scheduleResume = () => {
     clearTimeout(pauseTimerRef.current);
     pauseTimerRef.current = setTimeout(() => {
       if (modeRef.current === "idle" && !isHoveredRef.current) {
         isPausedRef.current = false;
+        startIdleTimer();
       }
     }, RESUME_DELAY);
   };
 
-  const startSettle = (from: number, to: number) => {
-    modeRef.current = "settling";
-    settleFromRef.current = from;
-    settleToRef.current = to;
-    settleStartRef.current = performance.now();
-  };
-
   const goNext = () => {
     if (isDraggingRef.current) return;
+    clearTimeout(idleTimerRef.current);
     const current = posRef.current;
     const target = Math.round(current) + 1;
-    startSettle(current, target);
+    startAnimation(current, target);
     isPausedRef.current = true;
     clearTimeout(pauseTimerRef.current);
     scheduleResume();
@@ -78,9 +91,10 @@ const TrendingCarousel = ({
 
   const goPrev = () => {
     if (isDraggingRef.current) return;
+    clearTimeout(idleTimerRef.current);
     const current = posRef.current;
     const target = Math.round(current) - 1;
-    startSettle(current, target);
+    startAnimation(current, target);
     isPausedRef.current = true;
     clearTimeout(pauseTimerRef.current);
     scheduleResume();
@@ -93,20 +107,20 @@ const TrendingCarousel = ({
     const loop = () => {
       if (modeRef.current === "dragging") {
         posRef.current = dragBaseRef.current - dragOffsetRef.current / SLIDE_WIDTH;
-      } else if (modeRef.current === "settling") {
-        const elapsed = performance.now() - settleStartRef.current;
-        const t = Math.min(elapsed / SETTLE_DURATION, 1);
+      } else if (modeRef.current === "animating") {
+        const elapsed = performance.now() - animStartRef.current;
+        const t = Math.min(elapsed / ANIM_DURATION, 1);
         const eased = easeOut(t);
-        posRef.current = settleFromRef.current + (settleToRef.current - settleFromRef.current) * eased;
+        posRef.current = animFromRef.current + (animToRef.current - animFromRef.current) * eased;
         if (t >= 1) {
-          posRef.current = settleToRef.current;
+          posRef.current = animToRef.current;
           modeRef.current = "idle";
           if (isPausedRef.current && !isHoveredRef.current) {
             scheduleResume();
+          } else if (!isPausedRef.current && !isHoveredRef.current) {
+            startIdleTimer();
           }
         }
-      } else if (modeRef.current === "idle" && !isPausedRef.current) {
-        posRef.current += IDLE_SPEED;
       }
 
       if (Math.abs(posRef.current - lastRenderRef.current) > 0.005) {
@@ -117,10 +131,18 @@ const TrendingCarousel = ({
       rAFRef.current = requestAnimationFrame(loop);
     };
     rAFRef.current = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(rAFRef.current);
+
+    startIdleTimer();
+
+    return () => {
+      cancelAnimationFrame(rAFRef.current);
+      clearTimeout(idleTimerRef.current);
+      clearTimeout(pauseTimerRef.current);
+    };
   }, []);
 
   const handlePointerDown = (e: React.PointerEvent) => {
+    clearTimeout(idleTimerRef.current);
     isDraggingRef.current = true;
     modeRef.current = "dragging";
     startXRef.current = e.clientX;
@@ -148,7 +170,7 @@ const TrendingCarousel = ({
     isDraggingRef.current = false;
     const current = posRef.current;
     const nearest = Math.round(current);
-    startSettle(current, nearest);
+    startAnimation(current, nearest);
 
     if (containerRef.current) {
       containerRef.current.style.cursor = "grab";
@@ -170,6 +192,7 @@ const TrendingCarousel = ({
   const handleMouseEnter = () => {
     isHoveredRef.current = true;
     isPausedRef.current = true;
+    clearTimeout(idleTimerRef.current);
     clearTimeout(pauseTimerRef.current);
   };
 
@@ -197,11 +220,13 @@ const TrendingCarousel = ({
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
         e.preventDefault();
+        clearTimeout(idleTimerRef.current);
         isPausedRef.current = true;
         clearTimeout(pauseTimerRef.current);
         prevRef.current();
       } else if (e.key === "ArrowRight") {
         e.preventDefault();
+        clearTimeout(idleTimerRef.current);
         isPausedRef.current = true;
         clearTimeout(pauseTimerRef.current);
         nextRef.current();
@@ -221,14 +246,14 @@ const TrendingCarousel = ({
     const absDist = Math.abs(offset);
     const clampedDist = Math.min(absDist, 5);
 
-    const scale = Math.max(0.7, 1 - clampedDist * 0.12);
-    const zIndex = Math.max(1, 10 - Math.round(clampedDist));
-    const opacity = Math.max(0.4, 1 - clampedDist * 0.15);
-    const cappedDeg = Math.min(Math.abs(offset) * 3, 8);
+    const scale = Math.max(0.85, 1 - clampedDist * 0.06);
+    const zIndex = Math.max(1, 10 - Math.round(clampedDist * 1.5));
+    const opacity = Math.max(0.5, 1 - clampedDist * 0.1);
+    const cappedDeg = Math.min(Math.abs(offset) * 3, 5);
     const rotateY = Math.sign(offset) * cappedDeg;
     const xPos = offset * SLIDE_WIDTH;
-    const width = `${Math.max(180, 280 - clampedDist * WIDTH_FALLOFF)}px`;
-    const height = `${Math.max(220, 320 - clampedDist * HEIGHT_FALLOFF)}px`;
+    const width = `${Math.max(200, 280 - clampedDist * 40)}px`;
+    const height = `${Math.max(220, 320 - clampedDist * 50)}px`;
 
     return { xPos, scale, width, height, opacity, zIndex, rotateY };
   };
@@ -248,6 +273,7 @@ const TrendingCarousel = ({
           <button
             onClick={(e) => {
               e.stopPropagation();
+              clearTimeout(idleTimerRef.current);
               isPausedRef.current = true;
               clearTimeout(pauseTimerRef.current);
               prevRef.current();
@@ -269,6 +295,7 @@ const TrendingCarousel = ({
           <button
             onClick={(e) => {
               e.stopPropagation();
+              clearTimeout(idleTimerRef.current);
               isPausedRef.current = true;
               clearTimeout(pauseTimerRef.current);
               nextRef.current();
@@ -315,19 +342,18 @@ const TrendingCarousel = ({
                   key={item.slug}
                   href={`/${category}/${item.slug}`}
                   onClick={handleLinkClick}
-                  className="absolute rounded-xl overflow-hidden group transition-all ease-out"
+                  className="absolute rounded-xl overflow-hidden group"
                   style={{
                     width,
                     height,
                     transform: `translate3d(${xPos}px, 0, 0) scale(${scale}) rotateY(${rotateY}deg)`,
                     opacity,
                     zIndex,
-                    transitionDuration: modeRef.current === "idle" && isPausedRef.current ? "0ms" : `${SETTLE_DURATION}ms`,
                   }}
                   draggable={false}
                 >
                   <Image
-                    className="object-contain transition-transform duration-100 group-hover:scale-105"
+                    className="object-contain"
                     src={item.thumbnail}
                     alt={item.title}
                     fill
@@ -353,8 +379,9 @@ const TrendingCarousel = ({
             key={i}
             onClick={() => {
               if (isDraggingRef.current) return;
+              clearTimeout(idleTimerRef.current);
               const current = posRef.current;
-              startSettle(current, i);
+              startAnimation(current, i);
               isPausedRef.current = true;
               clearTimeout(pauseTimerRef.current);
               scheduleResume();
