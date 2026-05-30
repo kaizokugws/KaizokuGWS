@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Item } from "@/lib/types";
 
-const DRAG_THRESHOLD = 65;
+const DRAG_THRESHOLD = 60;
 
 const TrendingCarousel = ({
   items,
@@ -23,13 +23,10 @@ const TrendingCarousel = ({
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const autoPlayRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
   const animatingRef = useRef(false);
-  const dragRef = useRef({
-    isDragging: false,
-    startX: 0,
-    startY: 0,
-    currentX: 0,
-    wasDragged: false,
-  });
+  const startXRef = useRef(0);
+  const currentXRef = useRef(0);
+  const isDraggingRef = useRef(false);
+  const wasDraggedRef = useRef(false);
 
   const itemCount = items.length;
 
@@ -43,7 +40,7 @@ const TrendingCarousel = ({
 
   const goTo = useCallback(
     (index: number) => {
-      if (animatingRef.current || dragRef.current.isDragging) return;
+      if (animatingRef.current || isDraggingRef.current) return;
       cleanupAnimation();
       animatingRef.current = true;
       setActiveIndex(((index % itemCount) + itemCount) % itemCount);
@@ -56,7 +53,7 @@ const TrendingCarousel = ({
   );
 
   const next = useCallback(() => {
-    if (animatingRef.current || dragRef.current.isDragging) return;
+    if (animatingRef.current || isDraggingRef.current) return;
     cleanupAnimation();
     animatingRef.current = true;
     setActiveIndex((prev) => ((prev + 1) % itemCount + itemCount) % itemCount);
@@ -67,7 +64,7 @@ const TrendingCarousel = ({
   }, [itemCount, cleanupAnimation]);
 
   const prev = useCallback(() => {
-    if (animatingRef.current || dragRef.current.isDragging) return;
+    if (animatingRef.current || isDraggingRef.current) return;
     cleanupAnimation();
     animatingRef.current = true;
     setActiveIndex((prev) => ((prev - 1) % itemCount + itemCount) % itemCount);
@@ -93,40 +90,70 @@ const TrendingCarousel = ({
   }, [next, cleanupAnimation]);
 
   const resolveDrag = useCallback(() => {
-    const drag = dragRef.current;
-    if (!drag.isDragging) return;
-    drag.isDragging = false;
-
-    const delta = drag.currentX - drag.startX;
+    if (!isDraggingRef.current) return;
+    isDraggingRef.current = false;
 
     if (containerRef.current) {
       containerRef.current.style.cursor = "grab";
     }
 
+    const delta = currentXRef.current - startXRef.current;
+
     if (Math.abs(delta) >= DRAG_THRESHOLD) {
-      drag.wasDragged = true;
+      wasDraggedRef.current = true;
       resetAutoplay();
       if (delta < 0) next();
       else prev();
     }
   }, [next, prev, resetAutoplay]);
 
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent) => {
+      if (animatingRef.current) return;
+      isDraggingRef.current = true;
+      startXRef.current = e.clientX;
+      currentXRef.current = e.clientX;
+      wasDraggedRef.current = false;
+
+      if (containerRef.current) {
+        containerRef.current.setPointerCapture(e.pointerId);
+        containerRef.current.style.cursor = "grabbing";
+      }
+    },
+    []
+  );
+
+  const handlePointerMove = useCallback((e: React.PointerEvent) => {
+    if (!isDraggingRef.current) return;
+    currentXRef.current = e.clientX;
+  }, []);
+
+  const handlePointerUp = useCallback(() => {
+    resolveDrag();
+  }, [resolveDrag]);
+
+  const handlePointerCancel = useCallback(() => {
+    if (!isDraggingRef.current) return;
+    resolveDrag();
+  }, [resolveDrag]);
+
+  const handleLinkClick = useCallback((e: React.MouseEvent) => {
+    if (wasDraggedRef.current) {
+      e.preventDefault();
+      wasDraggedRef.current = false;
+    }
+  }, []);
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-
-    const onTouchMove = (e: TouchEvent) => {
-      if (!dragRef.current.isDragging) return;
-      const dx = Math.abs(e.touches[0].clientX - dragRef.current.startX);
-      const dy = Math.abs(e.touches[0].clientY - dragRef.current.startY);
-      if (dx > dy && dx > 10) {
-        e.preventDefault();
-      }
+    const preventDrag = (e: Event) => e.preventDefault();
+    const imgs = container.querySelectorAll("img");
+    imgs.forEach((img) => img.addEventListener("dragstart", preventDrag));
+    return () => {
+      imgs.forEach((img) => img.removeEventListener("dragstart", preventDrag));
     };
-
-    container.addEventListener("touchmove", onTouchMove, { passive: false });
-    return () => container.removeEventListener("touchmove", onTouchMove);
-  }, []);
+  }, [items]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -147,71 +174,6 @@ const TrendingCarousel = ({
     container.addEventListener("keydown", onKeyDown);
     return () => container.removeEventListener("keydown", onKeyDown);
   }, [next, prev, resetAutoplay]);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    const preventDrag = (e: Event) => e.preventDefault();
-    const imgs = container.querySelectorAll("img");
-    imgs.forEach((img) => img.addEventListener("dragstart", preventDrag));
-    return () => {
-      imgs.forEach((img) => img.removeEventListener("dragstart", preventDrag));
-    };
-  }, [items]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (animatingRef.current) return;
-    const drag = dragRef.current;
-    drag.isDragging = true;
-    drag.startX = e.clientX;
-    drag.startY = e.clientY;
-    drag.currentX = e.clientX;
-    drag.wasDragged = false;
-    if (containerRef.current) {
-      containerRef.current.style.cursor = "grabbing";
-    }
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!dragRef.current.isDragging) return;
-    dragRef.current.currentX = e.clientX;
-  };
-
-  const handleMouseUp = () => {
-    resolveDrag();
-  };
-
-  const handleMouseLeave = () => {
-    if (!dragRef.current.isDragging) return;
-    resolveDrag();
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (animatingRef.current) return;
-    const touch = e.touches[0];
-    const drag = dragRef.current;
-    drag.isDragging = true;
-    drag.startX = touch.clientX;
-    drag.startY = touch.clientY;
-    drag.currentX = touch.clientX;
-    drag.wasDragged = false;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!dragRef.current.isDragging) return;
-    dragRef.current.currentX = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    resolveDrag();
-  };
-
-  const handleLinkClick = (e: React.MouseEvent) => {
-    if (dragRef.current.wasDragged) {
-      e.preventDefault();
-      dragRef.current.wasDragged = false;
-    }
-  };
 
   const getItemStyle = useCallback(
     (index: number) => {
@@ -243,20 +205,73 @@ const TrendingCarousel = ({
 
   return (
     <div className={cn("relative w-full animate-fadeIn select-none", className)}>
+      {itemCount > 1 && (
+        <>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              if (animatingRef.current || isDraggingRef.current) return;
+              resetAutoplay();
+              prev();
+            }}
+            className={cn(
+              "absolute z-20",
+              "w-12 h-12 flex items-center justify-center rounded-full",
+              "text-white/80 hover:text-white hover:scale-110",
+              "transition-all duration-200 cursor-pointer"
+            )}
+            style={{
+              left: "24px",
+              top: "160px",
+              transform: "translateY(-50%)",
+              background: "rgba(255,255,255,0.08)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+              border: "1px solid rgba(255,255,255,0.15)",
+            }}
+            aria-label="Previous game"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              if (animatingRef.current || isDraggingRef.current) return;
+              resetAutoplay();
+              next();
+            }}
+            className={cn(
+              "absolute z-20",
+              "w-12 h-12 flex items-center justify-center rounded-full",
+              "text-white/80 hover:text-white hover:scale-110",
+              "transition-all duration-200 cursor-pointer"
+            )}
+            style={{
+              right: "24px",
+              top: "160px",
+              transform: "translateY(-50%)",
+              background: "rgba(255,255,255,0.08)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+              border: "1px solid rgba(255,255,255,0.15)",
+            }}
+            aria-label="Next game"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </>
+      )}
       <div className="relative h-[320px]">
         <div
           className="absolute inset-0 overflow-hidden rounded-xl"
+          ref={containerRef}
           tabIndex={0}
           role="region"
           aria-label="Trending games carousel"
-          ref={containerRef}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerCancel}
           style={{ touchAction: "pan-y pinch-zoom", cursor: "grab" }}
         >
           <div className="flex items-center justify-center h-full">
@@ -290,59 +305,6 @@ const TrendingCarousel = ({
             })}
           </div>
         </div>
-
-        {itemCount > 1 && (
-          <>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                if (animatingRef.current || dragRef.current.isDragging) return;
-                resetAutoplay();
-                prev();
-              }}
-              className={cn(
-                "absolute top-1/2 -translate-y-1/2 z-20",
-                "w-12 h-12 flex items-center justify-center rounded-full",
-                "text-white/80 hover:text-white hover:scale-110",
-                "transition-all duration-200 cursor-pointer",
-                "left-4 md:left-6"
-              )}
-              style={{
-                background: "rgba(255,255,255,0.08)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.15)",
-              }}
-              aria-label="Previous game"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                if (animatingRef.current || dragRef.current.isDragging) return;
-                resetAutoplay();
-                next();
-              }}
-              className={cn(
-                "absolute top-1/2 -translate-y-1/2 z-20",
-                "w-12 h-12 flex items-center justify-center rounded-full",
-                "text-white/80 hover:text-white hover:scale-110",
-                "transition-all duration-200 cursor-pointer",
-                "right-4 md:right-6"
-              )}
-              style={{
-                background: "rgba(255,255,255,0.08)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.15)",
-              }}
-              aria-label="Next game"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </>
-        )}
       </div>
 
       <div className="flex justify-center gap-2 mt-4">
@@ -350,7 +312,7 @@ const TrendingCarousel = ({
           <button
             key={i}
             onClick={() => {
-              if (animatingRef.current || dragRef.current.isDragging) return;
+              if (animatingRef.current || isDraggingRef.current) return;
               cleanupAnimation();
               animatingRef.current = true;
               setActiveIndex(
