@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Item } from "@/lib/types";
 
 const DRAG_THRESHOLD = 60;
-const ANIMATION_DURATION = 250;
+const ANIMATION_DURATION = 100;
 
 const TrendingCarousel = ({
   items,
@@ -258,12 +258,12 @@ const TrendingCarousel = ({
                   key={item.slug}
                   href={`/${category}/${item.slug}`}
                   onClick={handleLinkClick}
-                  className="absolute rounded-xl overflow-hidden transition-all duration-[250ms] ease-out group"
+                  className="absolute rounded-xl overflow-hidden transition-all duration-100 ease-out group"
                   style={style}
                   draggable={false}
                 >
                   <Image
-                    className="object-contain transition-transform duration-[250ms] group-hover:scale-105"
+                    className="object-contain transition-transform duration-100 group-hover:scale-105"
                     src={item.thumbnail}
                     alt={item.title}
                     fill
