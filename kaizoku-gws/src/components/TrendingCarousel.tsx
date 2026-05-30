@@ -24,7 +24,7 @@ const TrendingCarousel = ({
   category: string;
   className?: string;
 }) => {
-  const [carouselPos, setCarouselPos] = useState(0);
+  const [pageDot, setPageDot] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const posRef = useRef(0);
   const modeRef = useRef<"idle" | "animating" | "dragging">("idle");
@@ -41,12 +41,49 @@ const TrendingCarousel = ({
   const isHoveredRef = useRef(false);
   const idleTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const pauseTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-  const lastRenderRef = useRef(0);
+  const lastDotRef = useRef(0);
 
   const itemCount = items.length;
 
   const nextRef = useRef<() => void>(() => {});
   const prevRef = useRef<() => void>(() => {});
+
+  const getItemStyle = (index: number, effectiveIdx: number) => {
+    const rawOffset = index - effectiveIdx;
+    let offset = rawOffset;
+    const half = itemCount / 2;
+    while (offset > half) offset -= itemCount;
+    while (offset < -half) offset += itemCount;
+
+    const absDist = Math.abs(offset);
+    const clampedDist = Math.min(absDist, 5);
+
+    const scale = Math.max(0.85, 1 - clampedDist * 0.06);
+    const zIndex = Math.max(1, 10 - Math.round(clampedDist * 1.5));
+    const opacity = Math.max(0.5, 1 - clampedDist * 0.1);
+    const cappedDeg = Math.min(Math.abs(offset) * 3, 5);
+    const rotateY = Math.sign(offset) * cappedDeg;
+    const xPos = offset * SLIDE_WIDTH;
+    const width = `${Math.max(200, 280 - clampedDist * 40)}px`;
+    const height = `${Math.max(220, 320 - clampedDist * 50)}px`;
+
+    return { xPos, scale, width, height, opacity, zIndex, rotateY };
+  };
+
+  const syncCards = (effectiveIdx: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const cards = el.querySelectorAll<HTMLElement>("[data-card]");
+    for (let i = 0; i < cards.length; i++) {
+      const s = getItemStyle(i, effectiveIdx);
+      const card = cards[i];
+      card.style.transform = `translate3d(${s.xPos}px, 0, 0) scale(${s.scale}) rotateY(${s.rotateY}deg)`;
+      card.style.opacity = String(s.opacity);
+      card.style.zIndex = String(s.zIndex);
+      card.style.width = s.width;
+      card.style.height = s.height;
+    }
+  };
 
   const startAnimation = (from: number, to: number) => {
     modeRef.current = "animating";
@@ -103,17 +140,31 @@ const TrendingCarousel = ({
   nextRef.current = goNext;
   prevRef.current = goPrev;
 
+  const updateDot = () => {
+    const dot = ((Math.round(posRef.current) % itemCount) + itemCount) % itemCount;
+    if (dot !== lastDotRef.current) {
+      lastDotRef.current = dot;
+      setPageDot(dot);
+    }
+  };
+
   useEffect(() => {
     const loop = () => {
       if (modeRef.current === "dragging") {
         posRef.current = dragBaseRef.current - dragOffsetRef.current / SLIDE_WIDTH;
+        syncCards(posRef.current);
+        updateDot();
       } else if (modeRef.current === "animating") {
         const elapsed = performance.now() - animStartRef.current;
         const t = Math.min(elapsed / ANIM_DURATION, 1);
         const eased = easeOut(t);
         posRef.current = animFromRef.current + (animToRef.current - animFromRef.current) * eased;
+        syncCards(posRef.current);
+        updateDot();
         if (t >= 1) {
           posRef.current = animToRef.current;
+          syncCards(posRef.current);
+          updateDot();
           modeRef.current = "idle";
           if (isPausedRef.current && !isHoveredRef.current) {
             scheduleResume();
@@ -121,11 +172,6 @@ const TrendingCarousel = ({
             startIdleTimer();
           }
         }
-      }
-
-      if (Math.abs(posRef.current - lastRenderRef.current) > 0.005) {
-        lastRenderRef.current = posRef.current;
-        setCarouselPos(posRef.current);
       }
 
       rAFRef.current = requestAnimationFrame(loop);
@@ -236,31 +282,13 @@ const TrendingCarousel = ({
     return () => container.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  const getItemStyle = (index: number, effectiveIdx: number) => {
-    const rawOffset = index - effectiveIdx;
-    let offset = rawOffset;
-    const half = itemCount / 2;
-    while (offset > half) offset -= itemCount;
-    while (offset < -half) offset += itemCount;
-
-    const absDist = Math.abs(offset);
-    const clampedDist = Math.min(absDist, 5);
-
-    const scale = Math.max(0.85, 1 - clampedDist * 0.06);
-    const zIndex = Math.max(1, 10 - Math.round(clampedDist * 1.5));
-    const opacity = Math.max(0.5, 1 - clampedDist * 0.1);
-    const cappedDeg = Math.min(Math.abs(offset) * 3, 5);
-    const rotateY = Math.sign(offset) * cappedDeg;
-    const xPos = offset * SLIDE_WIDTH;
-    const width = `${Math.max(200, 280 - clampedDist * 40)}px`;
-    const height = `${Math.max(220, 320 - clampedDist * 50)}px`;
-
-    return { xPos, scale, width, height, opacity, zIndex, rotateY };
-  };
+  useEffect(() => {
+    if (containerRef.current) {
+      syncCards(posRef.current);
+    }
+  }, [items]);
 
   if (itemCount === 0) return null;
-
-  const activeIndex = ((Math.round(carouselPos) % itemCount) + itemCount) % itemCount;
 
   return (
     <div
@@ -335,40 +363,35 @@ const TrendingCarousel = ({
           }}
         >
           <div className="flex items-center justify-center h-full">
-            {items.map((item, i) => {
-              const { xPos, scale, width, height, opacity, zIndex, rotateY } = getItemStyle(i, carouselPos);
-              return (
-                <Link
-                  key={item.slug}
-                  href={`/${category}/${item.slug}`}
-                  onClick={handleLinkClick}
-                  className="absolute rounded-xl overflow-hidden group"
-                  style={{
-                    width,
-                    height,
-                    transform: `translate3d(${xPos}px, 0, 0) scale(${scale}) rotateY(${rotateY}deg)`,
-                    opacity,
-                    zIndex,
-                  }}
+            {items.map((item, i) => (
+              <Link
+                key={item.slug}
+                href={`/${category}/${item.slug}`}
+                onClick={handleLinkClick}
+                data-card=""
+                className="absolute rounded-xl overflow-hidden group"
+                style={{
+                  willChange: "transform",
+                  backfaceVisibility: "hidden",
+                }}
+                draggable={false}
+              >
+                <Image
+                  className="object-contain"
+                  src={item.thumbnail}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
                   draggable={false}
-                >
-                  <Image
-                    className="object-contain"
-                    src={item.thumbnail}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                    draggable={false}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="font-semibold text-lg text-white truncate">
-                      {item.title}
-                    </h3>
-                  </div>
-                </Link>
-              );
-            })}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="font-semibold text-lg text-white truncate">
+                    {item.title}
+                  </h3>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
@@ -388,7 +411,7 @@ const TrendingCarousel = ({
             }}
             className={cn(
               "h-2 rounded-full transition-all duration-300",
-              i === activeIndex
+              i === pageDot
                 ? "w-8 bg-[#4FD1FF]"
                 : "w-2 bg-[#333] hover:bg-[#555]"
             )}
