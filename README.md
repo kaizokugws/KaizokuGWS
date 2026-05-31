@@ -90,14 +90,6 @@
 | **Server Guard** | [server-only](https://www.npmjs.com/package/server-only) | `^0.0.1` |
 | **Linting** | [ESLint](https://eslint.org/) + `eslint-config-next` | `^9` / `16.2.4` |
 
-### Dev Dependencies
-
-| Tool | Version |
-|------|---------|
-| `@types/node` | `^20` |
-| `@types/react` | `^19` |
-| `@types/react-dom` | `^19` |
-
 ---
 
 ## Architecture & Data Flow
@@ -105,33 +97,33 @@
 ### Project Structure
 
 ```
-kaizoku-gws/
-├── public/                          # Static assets
-│   ├── magnets/                     # Magnet link .txt files
-│   └── links/                       # Direct download link .txt files
+kaizoku-gws/                    # Next.js application root
+├── public/
+│   ├── magnets/                # Magnet link .txt files
+│   └── links/                  # Direct download link .txt files
 ├── src/
-│   ├── app/                         # Next.js App Router pages
-│   │   ├── layout.tsx               # Root layout (navbar, footer, background)
-│   │   ├── page.tsx                 # Homepage
-│   │   ├── sitemap.ts               # Dynamic sitemap
-│   │   ├── pc-games/                # PC Games listing + [slug] detail
-│   │   ├── pc-softwares/            # PC Software listing + [slug] detail
-│   │   ├── mobile-apps/             # Mobile Apps listing + [slug] detail
-│   │   ├── request/                 # Contact/request form
-│   │   ├── about/                   # About page
-│   │   └── privacy/                 # Privacy policy
-│   ├── components/                  # Reusable React components
-│   ├── context/                     # React context providers
-│   ├── lib/                         # Core utilities
-│   │   ├── types.ts                 # TypeScript interfaces
-│   │   ├── content.ts               # Data layer (read, cache, parse, filter)
-│   │   ├── hooks.ts                 # Client hooks (favorites, recently viewed)
-│   │   ├── utils.ts                 # Utility functions
-│   │   └── franchises.ts            # Franchise definitions
-│   └── content/                     # Markdown content files
-│       ├── pc-games/                # ~100+ game markdown files
-│       ├── pc-softwares/            # Software markdown files
-│       └── mobile-apps/             # Mobile app placeholders
+│   ├── app/                    # Next.js App Router pages
+│   │   ├── layout.tsx          # Root layout (navbar, footer, background)
+│   │   ├── page.tsx            # Homepage
+│   │   ├── sitemap.ts          # Dynamic sitemap
+│   │   ├── pc-games/           # PC Games listing + [slug] detail
+│   │   ├── pc-softwares/       # PC Software listing + [slug] detail
+│   │   ├── mobile-apps/        # Mobile Apps listing + [slug] detail
+│   │   ├── request/            # Contact/request form
+│   │   ├── about/              # About page
+│   │   └── privacy/            # Privacy policy
+│   ├── components/             # Reusable React components
+│   ├── context/                # React context providers
+│   ├── lib/
+│   │   ├── types.ts            # TypeScript interfaces
+│   │   ├── content.ts          # Data layer (read, cache, parse, filter)
+│   │   ├── hooks.ts            # Client hooks (favorites, recently viewed)
+│   │   ├── utils.ts            # Utility functions
+│   │   └── franchises.ts       # Franchise definitions
+│   └── content/                # Markdown content files
+│       ├── pc-games/           # ~100+ game markdown files
+│       ├── pc-softwares/       # Software markdown files
+│       └── mobile-apps/        # Mobile app placeholders
 ├── next.config.ts
 ├── tsconfig.json
 ├── postcss.config.mjs
@@ -141,12 +133,12 @@ kaizoku-gws/
 
 ### Design Patterns
 
-- **Static Site Generation (SSG)** — all pages are statically generated at build time via `generateStaticParams()`
-- **Server/Client Component Split** — Server Components fetch and prepare data; Client Components handle interactivity
-- **Markdown-as-Database** — no traditional database. All content lives as Markdown files with YAML frontmatter in `src/content/`, read via Node.js `fs` module
-- **In-Memory Caching** — `content.ts` uses `Map`-based caches with 60-second TTL for efficient data access
-- **Repository Pattern** — `content.ts` serves as a centralized data repository with read/cache/query/filter/sort methods
-- **Context Provider** — `BackgroundContext` controls the DotWave canvas animation visibility
+- **Static Site Generation (SSG)** — all pages statically generated at build time via `generateStaticParams()`
+- **Server/Client Component Split** — Server Components fetch data; Client Components handle interactivity
+- **Markdown-as-Database** — no traditional database. Content lives as Markdown files with YAML frontmatter, read via Node.js `fs`
+- **In-Memory Caching** — `content.ts` uses `Map`-based caches with 60-second TTL
+- **Repository Pattern** — `content.ts` is the centralized data repository with read/cache/query/filter/sort methods
+- **Context Provider** — `BackgroundContext` controls DotWave canvas animation visibility
 
 ### Data Flow
 
@@ -155,42 +147,33 @@ kaizoku-gws/
        │
 2. Next.js App Router matches route
        │
-3. Root layout (layout.tsx) renders:
-   ┌──────────────────────────────────────┐
-   │  BackgroundProvider (context)        │
-   │  DotWaveBackground (canvas)          │
-   │  ScrollProgress                      │
-   │  Navbar (allItems for search)        │
-   │  PageTransition > {children}         │
-   │  Footer                              │
-   │  ViewTracker (recent views)          │
-   └──────────────────────────────────────┘
+3. Root layout renders:
+   BackgroundProvider → DotWaveBackground
+   ScrollProgress
+   Navbar (allItems for search)
+   PageTransition > {children}
+   Footer
+   ViewTracker (recent views)
        │
 4. Page Server Components call content.ts:
-   │  getAllItems('pc-games')        → .md files → frontmatter
-   │  getParsedItemBySlug(slug)      → .md → HTML sections
-   │  getTrendingItems() / getFeaturedItem()
-   │  getLatestReleases() / getRelatedItems()
+   getAllItems('pc-games')        → .md → frontmatter
+   getParsedItemBySlug(slug)      → .md → HTML sections
+   getTrendingItems() / getFeaturedItem()
+   getLatestReleases() / getRelatedItems()
        │
 5. Data passed as props to Client Components
        │
 6. Client Components handle interactivity:
-   │  CategoryGrid    → search, filter, sort, pagination
-   │  DownloadSection → magnet fetch → 3-step modal → download
-   │  ScreenshotGallery → lightbox viewer
-   │  FavoritesButton → localStorage toggle
-   │  TrendingCarousel → drag/autoplay 3D carousel
-       │
-7. DOWNLOAD FLOW:
-   │  Click Download → fetch magnet .txt from /magnets/
-   │  3-step modal: Select Source → Info → Confirm
-   │  On confirm → window.location.href = magnet: link
-   │  User's BitTorrent client handles the download
+   CategoryGrid      → search, filter, sort, pagination
+   DownloadSection   → magnet fetch → 3-step modal → download
+   ScreenshotGallery → lightbox viewer
+   FavoritesButton   → localStorage toggle
+   TrendingCarousel  → drag/autoplay 3D carousel
 ```
 
 ### Content Model
 
-All items are defined as Markdown files with YAML frontmatter:
+Items are Markdown files with YAML frontmatter:
 
 ```yaml
 ---
@@ -198,15 +181,9 @@ title: "Cyberpunk 2077"
 slug: "cyberpunk-2077"
 platform: "PC"
 category: "pc-games"
-thumbnail: "/images/cyberpunk-2077.jpg"
-size: "103 GB"
-releaseYear: 2020
-releaseDate: "2020-12-10"
 tags: ["Action", "RPG", "Open-World"]
 featured: true
 trending: true
-lastUpdated: "2026-04-29"
-description: "..."
 sources:
   - name: "FitGirl Repack"
     file: "cyberpunk-2077-fitgirl"
@@ -215,7 +192,7 @@ sources:
 ---
 ```
 
-> **Note**: This project has no API routes, no authentication, no user accounts, and no database. It is a fully static Next.js site.
+> **Note**: No API routes, no authentication, no user accounts, no database — fully static.
 
 ---
 
@@ -237,7 +214,7 @@ npm run build
 
 ### Environment Variables
 
-Copy `.env.local.example` to `.env.local` and configure EmailJS credentials for the request form:
+Copy `.env.local.example` to `.env.local` and configure EmailJS credentials:
 
 ```
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_key
