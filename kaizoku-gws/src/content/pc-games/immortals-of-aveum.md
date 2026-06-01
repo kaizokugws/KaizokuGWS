@@ -8,9 +8,11 @@ size: "70 GB"
 releaseYear: 2023
 releaseDate: "22 Aug, 2023"
 tags: ["action", "fps", "fantasy", "magic", "first-person", "singleplayer", "aaa"]
-lastUpdated: "2026-05-24"
+lastUpdated: "2026-06-01"
 description: "A single-player first-person magic shooter where you wield devastating spells as a battle mage."
 sources:
+  - name: "Dodi Repack"
+    file: "immortals-of-aveum-dodi"
   - name: "FitGirl Repack"
     file: "immortals-of-aveum-fitgirl"
 aliases: ["immortals aveum", "iofa"]

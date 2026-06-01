@@ -9,11 +9,13 @@ releaseYear: 2024
 releaseDate: "26 Oct, 2024"
 tags: ["rpg", "action-rpg", "vampire", "modern-fantasy", "open-world", "seattle", "aaa"]
 trending: true
-lastUpdated: "2026-05-24"
+lastUpdated: "2026-06-01"
 description: "Enter the World of Darkness in Seattle as a newly embraced vampire in this long-awaited sequel."
 sources:
   - name: "Dodi Repack"
     file: "vampire-bloodlines-2-dodi"
+  - name: "FitGirl Repack"
+    file: "vampire-bloodlines-2-fitgirl"
 aliases: ["vampire bloodlines 2", "vtmb2", "world of darkness 2"]
 related: ["vampire-bloodlines"]
 ---

@@ -8,11 +8,13 @@ size: "20 GB"
 releaseYear: 2022
 releaseDate: "12 Mar, 2022"
 tags: ["action", "horror", "first-person", "tokyo", "supernatural", "japanese", "aaa"]
-lastUpdated: "2026-05-24"
+lastUpdated: "2026-06-01"
 description: "Face supernatural forces in a Tokyo where the population has vanished and spirits roam free."
 sources:
   - name: "Dodi Repack"
     file: "ghostwire-tokyo-dodi"
+  - name: "FitGirl Repack"
+    file: "ghostwire-tokyo-fitgirl"
 aliases: ["ghostwire tokyo", "ghostwire"]
 related: []
 ---
