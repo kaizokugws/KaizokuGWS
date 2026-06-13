@@ -212,4 +212,11 @@ export const franchises: Franchise[] = [
     games: ["man-of-medan", "the-devil-in-me"],
     accentColor: "#7c3aed",
   },
+  {
+    id: "death-stranding",
+    name: "Death Stranding",
+    tag: "death-stranding",
+    games: ["death-stranding", "death-stranding-2"],
+    accentColor: "#4FD1FF",
+  },
 ];

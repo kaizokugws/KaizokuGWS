@@ -7,7 +7,7 @@ thumbnail: "/images/death-stranding.jpg"
 size: "80 GB"
 releaseYear: 2020
 releaseDate: "14 Jul, 2020"
-tags: ["action", "adventure", "open-world", "post-apocalyptic", "story", "kojima"]
+tags: ["action", "adventure", "open-world", "post-apocalyptic", "story", "kojima", "death-stranding"]
 featured: false
 trending: true
 lastUpdated: "2026-05-20"
