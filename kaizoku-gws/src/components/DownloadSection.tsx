@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Download, AlertTriangle, CheckCircle, XCircle, FileText, HardDrive, Clock, ChevronRight, Check } from 'lucide-react';
 import { DownloadSource } from '@/lib/types';
+import { injectTrackers } from '@/lib/trackers';
 
 interface DownloadSectionProps {
   sources: DownloadSource[];
@@ -89,9 +90,11 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated,
       return;
     }
     
+    const finalLink = injectTrackers(link);
+    
     setDownloading(true);
     setTimeout(() => {
-      window.location.href = link;
+      window.location.href = finalLink;
     }, 500);
   };
 
