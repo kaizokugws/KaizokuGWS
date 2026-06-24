@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Download, AlertTriangle, CheckCircle, XCircle, FileText, HardDrive, Clock, ChevronRight, Check } from 'lucide-react';
 import { DownloadSource } from '@/lib/types';
 import { injectTrackers } from '@/lib/trackers';
@@ -13,6 +13,12 @@ interface DownloadSectionProps {
   downloadLink?: string;
 }
 
+const MAGNET_REGEX = /^magnet:\?xt=urn:btih:[0-9a-fA-F]{32,40}/;
+
+function isValidMagnet(link: string): boolean {
+  return MAGNET_REGEX.test(link);
+}
+
 export default function DownloadSection({ sources, title, fileSize, lastUpdated, downloadLink }: DownloadSectionProps) {
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState(1);
@@ -21,13 +27,22 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated,
   const [downloading, setDownloading] = useState(false);
   const [magnets, setMagnets] = useState<Map<string, string>>(new Map());
   const [loading, setLoading] = useState(true);
+  const downloadLog = useRef<string[]>([]);
+
+  const log = (msg: string) => {
+    downloadLog.current.push(`[${new Date().toISOString()}] ${msg}`);
+    console.log(`[DownloadSection] ${msg}`);
+  };
 
   useEffect(() => {
     async function fetchLinks() {
       if (!sources || sources.length === 0) {
+        log('No sources provided, skipping fetch');
         setLoading(false);
         return;
       }
+
+      log(`Fetching links for ${sources.length} source(s): ${sources.map(s => s.file).join(', ')}`);
 
       const linkMap = new Map<string, string>();
       
@@ -38,13 +53,23 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated,
           if (response.ok) {
             const text = await response.text();
             const trimmed = text.trim();
+            log(`Loaded HTTP link for ${source.file} from /links/ (${trimmed.length} chars)`);
             linkMap.set(source.file, trimmed);
           } else {
             const magnetResponse = await fetch(`/magnets/${source.file}.txt`);
             if (magnetResponse.ok) {
               const text = await magnetResponse.text();
               const trimmed = text.trim();
+              if (trimmed.startsWith('magnet:')) {
+                const hash = trimmed.match(/urn:btih:([0-9a-fA-F]+)/)?.[1] || 'unknown';
+                const trackerCount = (trimmed.match(/&tr=/g) || []).length;
+                log(`Loaded magnet for ${source.file} (hash: ${hash}, ${trackerCount} existing trackers, ${trimmed.length} chars)`);
+              } else {
+                log(`Loaded link for ${source.file} (${trimmed.substring(0, 50)}..., ${trimmed.length} chars)`);
+              }
               linkMap.set(source.file, trimmed);
+            } else {
+              log(`Source file not found: ${source.file} (tried /links/ and /magnets/)`);
             }
           }
         } catch {
@@ -54,6 +79,7 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated,
       
       setMagnets(linkMap);
       setLoading(false);
+      log(`Finished fetching. ${linkMap.size}/${sources.length} sources loaded.`);
     }
 
     fetchLinks();
@@ -64,6 +90,7 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated,
   };
 
   const handleDownload = (index: number) => {
+    log(`Download button clicked: index=${index}, source=${sources[index]?.name}`);
     setSelectedIndex(index);
     setError(null);
     setStep(1);
@@ -71,11 +98,15 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated,
   };
 
   const nextStep = () => {
+    log(`Step advanced: ${step} -> ${step + 1}`);
     setStep(step + 1);
   };
 
   const confirmDownload = () => {
+    log(`Confirm download triggered for "${title}", source index=${selectedIndex}`);
+
     if (downloadLink) {
+      log(`Using direct downloadLink: ${downloadLink.substring(0, 100)}`);
       setDownloading(true);
       setTimeout(() => {
         window.location.href = downloadLink;
@@ -83,17 +114,44 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated,
       return;
     }
 
-    const link = getMagnet(sources[selectedIndex].file);
-    
-    if (!link || (!link.startsWith('magnet:') && !link.startsWith('http'))) {
-      setError('Invalid or missing link');
+    const source = sources[selectedIndex];
+    const link = getMagnet(source.file);
+
+    log(`Retrieved link for "${source.file}": ${link ? link.substring(0, 80) + '...' : 'EMPTY'}`);
+
+    if (!link) {
+      setError('Download link is unavailable. Please report this title.');
+      log(`ERROR: Empty link for source "${source.file}"`);
       return;
     }
-    
-    const finalLink = injectTrackers(link);
-    
+
+    if (!link.startsWith('magnet:') && !link.startsWith('http')) {
+      setError('Download link is currently unavailable. Please report this title.');
+      log(`ERROR: Invalid link format for "${source.file}": starts with "${link.substring(0, 30)}"`);
+      return;
+    }
+
+    if (link.startsWith('magnet:') && !isValidMagnet(link)) {
+      log(`WARNING: Magnet link may be malformed for "${source.file}": ${link.substring(0, 100)}`);
+    }
+
+    let finalLink: string;
+    if (link.startsWith('magnet:')) {
+      finalLink = injectTrackers(link);
+      const trackerCount = (finalLink.match(/&tr=/g) || []).length;
+      log(`Injected trackers: final link has ${trackerCount} tracker(s, ${finalLink.length} total chars`);
+    } else {
+      finalLink = link;
+      log(`HTTP link, no tracker injection needed (${finalLink.length} chars)`);
+    }
+
+    if (finalLink.length > 4000) {
+      log(`WARNING: Final download URL is very long (${finalLink.length} chars), may cause issues`);
+    }
+
     setDownloading(true);
     setTimeout(() => {
+      log(`Navigating to download URL: ${finalLink.substring(0, 80)}...`);
       window.location.href = finalLink;
     }, 500);
   };
@@ -107,7 +165,9 @@ export default function DownloadSection({ sources, title, fileSize, lastUpdated,
 
   const isValidLink = (file: string): boolean => {
     const link = getMagnet(file);
-    return typeof link === 'string' && (link.startsWith('magnet:') || link.startsWith('http'));
+    if (typeof link !== 'string' || link.length === 0) return false;
+    if (link.startsWith('magnet:')) return isValidMagnet(link) || link.length > 50;
+    return link.startsWith('http://') || link.startsWith('https://');
   };
 
   if (!sources || sources.length === 0) {

@@ -10,9 +10,9 @@ releaseDate: "30 Oct, 2012"
 tags: ["racing", "open-world", "cars", "arcade", "nfs"]
 featured: false
 trending: false
-lastUpdated: "2026-05-20"
+lastUpdated: "2026-06-24"
 sources:
-  - name: "Source Pending"
+  - name: "Dodi Repack"
     file: "nfs-most-wanted-2012-unknown"
 aliases: ["nfs", "need for speed", "most wanted", "mw 2012", "nfsmw"]
 ---

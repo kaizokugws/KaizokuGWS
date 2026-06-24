@@ -8,10 +8,10 @@ size: "5 GB"
 releaseYear: 2008
 releaseDate: "18 Nov, 2008"
 tags: ["racing", "arcade", "cars", "street-racing", "open-world", "nfs", "aaa"]
-lastUpdated: "2026-05-28"
+lastUpdated: "2026-06-24"
 description: "Need for Speed Undercover is an open-world street racing game where you go undercover to take down a crime syndicate."
 sources:
-  - name: "Unknown"
+  - name: "Online Fix"
     file: "nfs-undercover-unknown"
 aliases: ["nfs undercover", "need for speed undercover"]
 related: ["nfs-heat", "nfs-most-wanted-2005", "nfs-rivals"]

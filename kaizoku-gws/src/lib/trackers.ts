@@ -163,9 +163,26 @@ export const TRACKERS: string[] = [
   "udp://zer0day.ch:1337/announce",
 ];
 
-export function injectTrackers(magnetLink: string): string {
+const MAX_TRACKERS = 5;
+const MAX_URL_LENGTH = 3000;
+
+export function injectTrackers(magnetLink: string, maxTrackers = MAX_TRACKERS): string {
   if (!magnetLink.startsWith('magnet:')) return magnetLink;
 
-  const encodedTrackers = TRACKERS.map(t => `&tr=${encodeURIComponent(t)}`).join('');
-  return magnetLink + encodedTrackers;
+  const existingTrackerCount = (magnetLink.match(/&tr=/g) || []).length;
+
+  const needed = Math.max(0, maxTrackers - existingTrackerCount);
+  if (needed <= 0) return magnetLink;
+
+  const selected = TRACKERS.slice(0, Math.min(needed, MAX_TRACKERS));
+  const encodedTrackers = selected.map(t => `&tr=${encodeURIComponent(t)}`).join('');
+
+  const result = magnetLink + encodedTrackers;
+
+  if (result.length > MAX_URL_LENGTH) {
+    console.warn(`[trackers] Final magnet URL too long (${result.length} chars, max ${MAX_URL_LENGTH}), skipping tracker injection`);
+    return magnetLink;
+  }
+
+  return result;
 }
